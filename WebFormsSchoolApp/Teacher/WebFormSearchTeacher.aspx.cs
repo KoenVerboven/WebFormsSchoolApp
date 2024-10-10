@@ -45,6 +45,7 @@ namespace WebFormsSchoolApp.Teacher
             {
                 Response.Redirect("../login.aspx");
             }
+            GridView1.EmptyDataText = "No teachers found. Please adjust your search condition.";
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace WebFormsSchoolApp.Teacher
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
-                    Response.Redirect("WebFormTeacherDetail.aspx?teacherId=" + row.Cells[3].Text.Trim());
+                    Response.Redirect("WebFormTeacherDetail.aspx?teacherId=" + row.Cells[1].Text.Trim());
                 }
             }
         }

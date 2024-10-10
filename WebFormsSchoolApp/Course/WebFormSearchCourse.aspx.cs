@@ -145,6 +145,8 @@ namespace WebFormsSchoolApp.Course
             {
                 Response.Redirect("../login.aspx");
             }
+
+            GridView1.EmptyDataText = "No courses found. Please adjust your search condition.";
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

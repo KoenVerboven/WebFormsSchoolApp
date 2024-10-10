@@ -9,21 +9,31 @@
     </p>
     <br />
     <asp:GridView ID="GridView1" runat="server"
+        AutoGenerateColumns="false"
+        AllowSorting="True"
         AllowPaging="True"
         PageSize="10"
         ShowFooter="true"
         BackColor="White"
         Height="150px"
-        Width="150px"
+        Width="90%"
         BorderColor="black"
         BorderWidth="1"
         GridLines="Both"
         CellPadding="3"
         CellSpacing="0"
-        Font-Names="Verdana" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+        Font-Names="Verdana" 
+        OnPageIndexChanging="GridView1_PageIndexChanging" 
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
         >
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
+            <asp:BoundField DataField="CourseId" HeaderText="Id" SortExpression="CourseId" />
+            <asp:BoundField DataField="CourseName" HeaderText="CourseName" SortExpression="CourseName" />
+            <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
+            <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
+            <asp:BoundField DataField="CourseType" HeaderText="CourseType" SortExpression="CourseType" />
+            <asp:BoundField DataField="CourseIsActive" HeaderText="CourseIsActive" SortExpression="CourseIsActive" />
         </Columns>
         <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
         <FooterStyle BackColor="#aaaadd"></FooterStyle>

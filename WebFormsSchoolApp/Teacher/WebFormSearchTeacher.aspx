@@ -10,12 +10,14 @@
         <br />
 
       <asp:GridView ID="GridView1" runat="server"
+          AutoGenerateColumns="false"
+          AllowSorting="True"
           AllowPaging="True"
           PageSize="10"            
           ShowFooter="true"
           BackColor="White" 
           Height="150px"
-          Width="450px" 
+          Width="90%" 
           BorderColor="black"
           BorderWidth="1"
           GridLines="Both"
@@ -27,6 +29,9 @@
           >
            <Columns>
                <asp:CommandField ShowSelectButton="True" />
+               <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="PersonId" />
+               <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
+               <asp:BoundField DataField="HireDate" HeaderText="HireDate" SortExpression="HireDate" />
            </Columns>
            <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
            <FooterStyle BackColor="#aaaadd"></FooterStyle>

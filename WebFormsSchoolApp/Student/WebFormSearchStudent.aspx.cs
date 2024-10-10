@@ -109,17 +109,7 @@ namespace WebFormsSchoolApp.Student
                 Response.Redirect("../login.aspx");
             }
 
-            //try
-            //{
-            //    GridView1.DataSource = students;
-            //    GridView1.DataBind();
-
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
+            GridView1.EmptyDataText = "No students found. Please adjust your search condition.";
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,8 +118,9 @@ namespace WebFormsSchoolApp.Student
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
-                    Response.Redirect("WebFormStudentDetail.aspx?studentId=" + row.Cells[2].Text.Trim());
+                    Response.Redirect("WebFormStudentDetail.aspx?studentId=" + row.Cells[1].Text.Trim());
                 }
+
             }
         }
 
