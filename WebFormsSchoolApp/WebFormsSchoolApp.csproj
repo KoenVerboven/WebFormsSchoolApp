@@ -186,6 +186,7 @@
     <Content Include="Site.Master" />
     <Content Include="Student\FormSearchStudent.aspx" />
     <Content Include="Student\FormStudentDetail.aspx" />
+    <Content Include="Student\WebFormSearchStudent.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Teacher\FormSearchTeacher.aspx" />
     <Content Include="Teacher\FormTeacherDetail.aspx" />
@@ -281,6 +282,13 @@
     </Compile>
     <Compile Include="Student\FormStudentDetail.aspx.designer.cs">
       <DependentUpon>FormStudentDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\WebFormSearchStudent.aspx.cs">
+      <DependentUpon>WebFormSearchStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\WebFormSearchStudent.aspx.designer.cs">
+      <DependentUpon>WebFormSearchStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Teacher\FormSearchTeacher.aspx.cs">
       <DependentUpon>FormSearchTeacher.aspx</DependentUpon>

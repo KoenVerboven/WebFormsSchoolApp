@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormsSchoolApp
+namespace WebFormsSchoolApp.Student
 {
 
 
-    public partial class SiteMaster
+    public partial class WebFormSearchStudent
     {
 
         /// <summary>
-        /// MainContent control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }
