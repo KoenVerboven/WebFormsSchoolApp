@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.UI.WebControls;
 
 
 namespace WebFormsSchoolApp.Student
@@ -115,6 +116,23 @@ namespace WebFormsSchoolApp.Student
 
                 throw;
             }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                if (row.RowIndex == GridView1.SelectedIndex)
+                {
+                    Response.Redirect("WebFormStudentDetail.aspx?studentId=" + row.Cells[2].Text.Trim());
+                }
+            }
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            GridView1.DataBind();
         }
     }
 }

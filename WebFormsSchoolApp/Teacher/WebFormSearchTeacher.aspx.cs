@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace WebFormsSchoolApp.Teacher
 {
-
-
-
-    public partial class FormSearchTeacher : System.Web.UI.Page
+    public partial class WebFormSearchTeacher : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             var teachers = new List<models.Teacher>()
             {
                 new models.Teacher{
@@ -54,7 +53,6 @@ namespace WebFormsSchoolApp.Teacher
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -65,7 +63,7 @@ namespace WebFormsSchoolApp.Teacher
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
-                    Response.Redirect("FormTeacherDetail.aspx?teacherId=" + row.Cells[3].Text.Trim());
+                    Response.Redirect("WebFormTeacherDetail.aspx?teacherId=" + row.Cells[3].Text.Trim());
                 }
             }
         }
@@ -74,6 +72,7 @@ namespace WebFormsSchoolApp.Teacher
         {
             GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
+
         }
     }
 }

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace WebFormsSchoolApp.Teacher
 {
-    public partial class FormTeacherDetail : System.Web.UI.Page
+    public partial class WebFormTeacherDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,7 +46,7 @@ namespace WebFormsSchoolApp.Teacher
 
             try
             {
-               if(! IsPostBack)
+                if (!IsPostBack)
                 {
                     teacherId = Convert.ToInt32(Request.QueryString["teacherId"]);
 

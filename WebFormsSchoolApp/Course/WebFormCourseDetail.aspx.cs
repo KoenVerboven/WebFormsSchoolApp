@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace WebFormsSchoolApp.Course
 {
-    public partial class FormCourseDetail : System.Web.UI.Page
+    public partial class WebFormCourseDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -148,7 +147,7 @@ namespace WebFormsSchoolApp.Course
 
             try
             {
-                if(!IsPostBack)
+                if (!IsPostBack)
                 {
                     courseId = Convert.ToInt32(Request.QueryString["courseId"]);
 

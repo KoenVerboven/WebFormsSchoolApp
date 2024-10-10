@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Web.UI.WebControls;
+using System.Linq;
 
 namespace WebFormsSchoolApp.Student
 {
-    public partial class FormSearchStudent : System.Web.UI.Page
+    public partial class WebFormStudentDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int personId = 0;
+
             var students = new List<models.Student>()
             {
                 new models.Student{
@@ -96,8 +97,6 @@ namespace WebFormsSchoolApp.Student
                     Firstname = "Wout",
                     RegistrationDate = DateTime.Now,
                 },
-
-
             };
 
             if (Session["user"] == null)
@@ -107,33 +106,21 @@ namespace WebFormsSchoolApp.Student
 
             try
             {
-                GridView1.DataSource = students;
-                GridView1.DataBind();
+                if (!IsPostBack)
+                {
+                    personId = Convert.ToInt32(Request.QueryString["studentId"]);
 
+                    var studentSelected = students.SingleOrDefault(p => p.PersonId == personId);
+                    LabelStudentIdValue.Text = studentSelected.PersonId.ToString();
+                    TextBoxLastName.Text = studentSelected.LastName.ToString();
+                    TextBoxFirstName.Text = studentSelected.Firstname.ToString();
+                    TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString();
+                }
             }
             catch (Exception)
             {
-
                 throw;
             }
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (GridViewRow row in GridView1.Rows)
-            {
-                if (row.RowIndex == GridView1.SelectedIndex)
-                {
-                    Response.Redirect("FormStudentDetail.aspx?studentId=" + row.Cells[2].Text.Trim());
-                }
-            }
-        }
-
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
-
         }
     }
 }

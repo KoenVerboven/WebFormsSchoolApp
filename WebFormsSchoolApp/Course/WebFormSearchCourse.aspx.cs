@@ -4,7 +4,7 @@ using System.Web.UI.WebControls;
 
 namespace WebFormsSchoolApp.Course
 {
-    public partial class FormSearchCourse : System.Web.UI.Page
+    public partial class WebFormSearchCourse : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -151,19 +151,7 @@ namespace WebFormsSchoolApp.Course
             }
             catch (Exception)
             {
-
                 throw;
-            }
-        }
-
-        protected void GridView1_RowCreated(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                //e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';this.style.textDecoration='underline';";
-                //e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
-                //e.Row.ToolTip = "Click to select row"; e.Row.Attributes["onclick"] = Response.Redirect("");
-                //e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
             }
         }
 
@@ -173,7 +161,7 @@ namespace WebFormsSchoolApp.Course
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
-                    Response.Redirect("FormCourseDetail.aspx?CourseId=" + row.Cells[1].Text.Trim());
+                    Response.Redirect("WebFormCourseDetail.aspx?CourseId=" + row.Cells[1].Text.Trim());
                 }
             }
         }
