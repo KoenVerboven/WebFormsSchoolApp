@@ -2,6 +2,8 @@
 using System.Web.UI;
 
 
+// todo : Replace Mainform.aspx  by default.aspx
+
 namespace WebFormsSchoolApp
 {
     public partial class _Default : Page

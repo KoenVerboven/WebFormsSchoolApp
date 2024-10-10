@@ -3,6 +3,11 @@
     <div class="div-3">
     <h3>Search Student</h3>
     <br /><br />
+    <p>
+        <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>
+        <asp:Button ID="ButtonSearch" runat="server" Text="Search" OnClick="ButtonSearch_Click" />
+    </p>
+    <br />
     <asp:GridView ID="GridView1" runat="server"
         AllowPaging="True"
         PageSize="10"

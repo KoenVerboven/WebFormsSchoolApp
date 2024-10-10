@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace WebFormsSchoolApp.Teacher
 {
     public partial class WebFormSearchTeacher : System.Web.UI.Page
     {
+
+        List<models.Teacher> teachers;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var teachers = new List<models.Teacher>()
+            teachers = new List<models.Teacher>()
             {
                 new models.Teacher{
                     PersonId = 1,
@@ -44,17 +45,6 @@ namespace WebFormsSchoolApp.Teacher
             {
                 Response.Redirect("../login.aspx");
             }
-
-            try
-            {
-                GridView1.DataSource = teachers;
-                GridView1.DataBind();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,6 +62,19 @@ namespace WebFormsSchoolApp.Teacher
         {
             GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
+
+        }
+
+        protected void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            if (teachers != null)
+            {
+                teachers = teachers
+                             .Where(X => X.FullName.ToLower().Contains(TextBoxSearch.Text.ToLower())
+                                       ).ToList();
+                GridView1.DataSource = teachers;
+                GridView1.DataBind();
+            }
 
         }
     }
