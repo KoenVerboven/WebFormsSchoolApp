@@ -1,0 +1,32 @@
+﻿body {
+    background-color: #DDD;
+}
+
+a {
+    color: black;
+    background-color: #FFF;
+}
+
+h3{
+    color : #44D;
+}
+
+.div-1 {
+    height: 50%;
+    margin-left:10%;
+}
+
+.div-2 {
+    height: 25%;
+}
+
+.div-3 {
+    height: 100%;
+    margin-top:5%;
+    margin-left:5%;
+}
+
+
+
+
+
