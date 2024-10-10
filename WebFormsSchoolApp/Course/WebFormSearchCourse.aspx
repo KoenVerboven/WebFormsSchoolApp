@@ -30,8 +30,8 @@
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="CourseId" HeaderText="Id" SortExpression="CourseId" />
             <asp:BoundField DataField="CourseName" HeaderText="CourseName" SortExpression="CourseName" />
-            <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
-            <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
+            <asp:BoundField DataField="StartDate" HeaderText="StartDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="StartDate" />
+            <asp:BoundField DataField="EndDate" HeaderText="EndDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="EndDate" />
             <asp:BoundField DataField="CourseType" HeaderText="CourseType" SortExpression="CourseType" />
             <asp:BoundField DataField="CourseIsActive" HeaderText="CourseIsActive" SortExpression="CourseIsActive" />
         </Columns>

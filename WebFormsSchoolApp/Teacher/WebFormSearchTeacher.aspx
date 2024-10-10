@@ -31,7 +31,7 @@
                <asp:CommandField ShowSelectButton="True" />
                <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="PersonId" />
                <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
-               <asp:BoundField DataField="HireDate" HeaderText="HireDate" SortExpression="HireDate" />
+               <asp:BoundField DataField="HireDate" HeaderText="HireDate" DataFormatString="{0:dd-M-yyyy}" SortExpression="HireDate" />
            </Columns>
            <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
            <FooterStyle BackColor="#aaaadd"></FooterStyle>

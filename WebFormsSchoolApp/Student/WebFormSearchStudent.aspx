@@ -28,7 +28,7 @@
             <asp:CommandField ShowSelectButton="True" />
              <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="PersonId" />
              <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
-             <asp:BoundField DataField="RegistrationDate" HeaderText="RegistrationDate" SortExpression="RegistrationDate" />
+             <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" DataFormatString="{0:dd-M-yyyy}"  SortExpression="DateOfBirth" />
         </Columns>
         <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
         <FooterStyle BackColor="#aaaadd"></FooterStyle>

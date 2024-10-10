@@ -17,6 +17,30 @@
       <asp:TextBox ID="TextBoxFirstName" runat="server" Width="250px"></asp:TextBox>
     </p>
     <p>
+       <asp:Label ID="LabelMiddleName" runat="server" Text="MiddleName :" Width="170px"></asp:Label>
+       <asp:TextBox ID="TextBoxMiddleName" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
+     <asp:Label ID="LabelStreetAndNumber" runat="server" Text="StreetAndNumber :" Width="170px"></asp:Label>
+     <asp:TextBox ID="TextBoxStreetAndNumber" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
+      <asp:Label ID="LabelZipCode" runat="server" Text="ZipCode :" Width="170px"></asp:Label>
+      <asp:TextBox ID="TextBoxZipCode" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
+       <asp:Label ID="LabelPhoneNumber" runat="server" Text="PhoneNumber :" Width="170px"></asp:Label>
+       <asp:TextBox ID="TextBoxPhoneNumber" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
+       <asp:Label ID="LabelEmailAddress" runat="server" Text="EmailAddress :" Width="170px"></asp:Label>
+       <asp:TextBox ID="TextBoxEmailAddress" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
+      <asp:Label ID="LabelDateOfBirth" runat="server" Text="DateOfBirth :" Width="170px"></asp:Label>
+      <asp:TextBox ID="TextBoxDateOfBirth" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
       <asp:Label ID="LabelRegistrationDate" runat="server" Text="RegistrationDate :" Width="170px"></asp:Label>
       <asp:TextBox ID="TextBoxRegistrationDate" runat="server" Width="250px"></asp:TextBox>
     </p>
