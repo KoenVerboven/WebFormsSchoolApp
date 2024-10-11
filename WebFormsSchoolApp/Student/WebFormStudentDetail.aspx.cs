@@ -205,6 +205,25 @@ namespace WebFormsSchoolApp.Student
                     TextBoxEmailAddress.Text = studentSelected.EmailAddress.ToString();
                     TextBoxDateOfBirth.Text = studentSelected.DateOfBirth.ToString("dd-MM-yyyy");
                     TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString("dd-MM-yyyy");
+
+
+                    string action = "detail"; //action moet enum worden; defineer als ALGEMENE enum overal bruikbaar
+                    switch (action) 
+                    {
+                        case "detail":
+                            DisableAllControls(true);
+                            break;
+                        case "insert":
+                            DisableAllControls(false);
+                            break;
+                        case "edit":
+                            DisableAllControls(false);
+                            break;
+                        default:
+                            DisableAllControls(true);
+                            break;
+                    }
+
                 }
             }
             catch (Exception)
@@ -212,5 +231,20 @@ namespace WebFormsSchoolApp.Student
                 throw;
             }
         }
+
+        private void DisableAllControls(bool disable)
+        {
+            var enableControl = !disable;
+            TextBoxLastName.Enabled = enableControl;
+            TextBoxFirstName.Enabled = enableControl;
+            TextBoxMiddleName.Enabled = enableControl;
+            TextBoxStreetAndNumber.Enabled = enableControl;
+            TextBoxZipCode.Enabled = enableControl;
+            TextBoxPhoneNumber.Enabled = enableControl;
+            TextBoxEmailAddress.Enabled = enableControl;
+            TextBoxDateOfBirth.Enabled = enableControl;
+            TextBoxRegistrationDate.Enabled = enableControl;
+        }
+
     }
 }

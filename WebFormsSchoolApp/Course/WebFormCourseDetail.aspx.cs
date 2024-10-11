@@ -159,6 +159,8 @@ namespace WebFormsSchoolApp.Course
                     TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
                     CheckBoxActive.Checked = courseSelected.CourseIsActive;
                     TextBoxCoursePrice.Text = "€ " + Convert.ToString(courseSelected.CoursePrice);
+
+                    DisableAllControls(true);
                 }
             }
             catch (Exception)
@@ -166,6 +168,18 @@ namespace WebFormsSchoolApp.Course
 
                 throw;
             }
+        }
+
+
+        private void DisableAllControls(bool disable)
+        {
+            var enableControl = !disable;
+            TextBoxCourseName.Enabled = enableControl;
+            TextBoxCourseDescription.Enabled = enableControl;
+            TextBoxStartDate.Enabled = enableControl;
+            TextBoxEndDate.Enabled = enableControl;
+            CheckBoxActive.Enabled = enableControl;
+            TextBoxCoursePrice.Enabled = enableControl;
         }
     }
 }

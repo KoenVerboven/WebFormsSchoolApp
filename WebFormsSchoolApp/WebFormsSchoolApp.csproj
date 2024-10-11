@@ -190,6 +190,8 @@
     <Content Include="StyleSheet1.css" />
     <Content Include="Teacher\WebFormSearchTeacher.aspx" />
     <Content Include="Teacher\WebFormTeacherDetail.aspx" />
+    <Content Include="User\WebFormSearchUser.aspx" />
+    <Content Include="User\WebFormUserDetail.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -247,6 +249,7 @@
     <Compile Include="models\Person.cs" />
     <Compile Include="models\Student.cs" />
     <Compile Include="models\Teacher.cs" />
+    <Compile Include="models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -290,6 +293,20 @@
     <Compile Include="Teacher\WebFormTeacherDetail.aspx.designer.cs">
       <DependentUpon>WebFormTeacherDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\WebFormSearchUser.aspx.cs">
+      <DependentUpon>WebFormSearchUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\WebFormSearchUser.aspx.designer.cs">
+      <DependentUpon>WebFormSearchUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\WebFormUserDetail.aspx.cs">
+      <DependentUpon>WebFormUserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\WebFormUserDetail.aspx.designer.cs">
+      <DependentUpon>WebFormUserDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

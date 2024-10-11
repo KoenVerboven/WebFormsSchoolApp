@@ -94,6 +94,8 @@ namespace WebFormsSchoolApp.Teacher
                     TextBoxDateOfBirth.Text = teacherSelected.DateOfBirth.ToString("dd-MM-yyyy");
                     TextBoxHireDate.Text = Convert.ToString(teacherSelected.HireDate.ToString("dd-MM-yyyy"));
                     TextBoxLeaveDate.Text = Convert.ToString(teacherSelected.LeaveDate);
+
+                    DisableAllControls(true);
                 }
             }
             catch (Exception)
@@ -101,6 +103,21 @@ namespace WebFormsSchoolApp.Teacher
 
                 throw;
             }
+        }
+
+        private void DisableAllControls(bool disable)
+        {
+            var enableControl = !disable;
+            TextBoxLastName.Enabled = enableControl;
+            TextBoxFirstName.Enabled = enableControl;
+            TextBoxMiddleName.Enabled = enableControl;
+            TextBoxStreetAndNumber.Enabled = enableControl;
+            TextBoxZipCode.Enabled = enableControl;
+            TextBoxPhoneNumber.Enabled = enableControl;
+            TextBoxEmailAddress.Enabled = enableControl;
+            TextBoxDateOfBirth.Enabled = enableControl;
+            TextBoxHireDate.Enabled = enableControl;
+            TextBoxLeaveDate.Enabled = enableControl;
         }
     }
 }
