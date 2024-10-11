@@ -214,15 +214,19 @@ namespace WebFormsSchoolApp.Student
                     switch (action) 
                     {
                         case "detail":
+                            LabelTitle.Text = "Student Detail";
                             DisableAllControls(true);
                             break;
                         case "insert":
+                            LabelTitle.Text = "Insert new Student";
                             DisableAllControls(false);
                             break;
                         case "edit":
+                            LabelTitle.Text = "Update Student";
                             DisableAllControls(false);
                             break;
                         default:
+                            LabelTitle.Text = "Student Detail";
                             DisableAllControls(true);
                             break;
                     }

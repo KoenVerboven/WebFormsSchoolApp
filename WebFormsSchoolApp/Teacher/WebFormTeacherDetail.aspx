@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormTeacherDetail.aspx.cs" Inherits="WebFormsSchoolApp.Teacher.WebFormTeacherDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="div-3">
-     <h3>Teacher Detail</h3>
+     <asp:Label ID="LabelTitle" runat="server" Text="TeacherDetail" Font-Size="16"></asp:Label>
      <br />
      <br />
      <p>

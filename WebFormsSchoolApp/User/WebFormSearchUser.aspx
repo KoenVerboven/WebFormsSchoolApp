@@ -9,4 +9,6 @@
             />
     </p>
     <br />
+    <br />
+    <a href="../default.aspx">Go Back to Mainform</a>
 </asp:Content>

@@ -1,12 +1,13 @@
 ﻿using System;
 
 
-namespace WebFormsSchoolApp.User
+namespace WebFormsSchoolApp.AttendanceRegistration
 {
-    public partial class WebFormUserDetail : System.Web.UI.Page
+    public partial class WebFormAttendanceRegistration : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["user"] == null)
             {
                 Response.Redirect("../login.aspx");

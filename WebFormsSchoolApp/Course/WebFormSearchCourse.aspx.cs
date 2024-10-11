@@ -163,7 +163,7 @@ namespace WebFormsSchoolApp.Course
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
                     Session["searchCourse"] = TextBoxSearch.Text.Trim();
-                    Response.Redirect("WebFormCourseDetail.aspx?CourseId=" + row.Cells[1].Text.Trim());
+                    Response.Redirect("WebFormCourseDetail.aspx?CourseId=" + row.Cells[1].Text.Trim() + "&action=detail");
                 }
             }
         }

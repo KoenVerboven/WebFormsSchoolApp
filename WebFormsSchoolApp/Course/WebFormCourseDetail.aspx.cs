@@ -9,6 +9,7 @@ namespace WebFormsSchoolApp.Course
         protected void Page_Load(object sender, EventArgs e)
         {
             int courseId = 0;
+            string action = string.Empty;
 
             var courses = new List<models.Course>()
             {
@@ -150,6 +151,7 @@ namespace WebFormsSchoolApp.Course
                 if (!IsPostBack)
                 {
                     courseId = Convert.ToInt32(Request.QueryString["courseId"]);
+                    action = Request.QueryString["action"];
 
                     var courseSelected = courses.SingleOrDefault(p => p.CourseId == courseId);
                     LabelCourseIdValue.Text = Convert.ToString(courseSelected.CourseId);
@@ -160,7 +162,25 @@ namespace WebFormsSchoolApp.Course
                     CheckBoxActive.Checked = courseSelected.CourseIsActive;
                     TextBoxCoursePrice.Text = "€ " + Convert.ToString(courseSelected.CoursePrice);
 
-                    DisableAllControls(true);
+                    switch (action)
+                    {
+                        case "detail":
+                            LabelTitle.Text = "Course Detail";
+                            DisableAllControls(true);
+                            break;
+                        case "insert":
+                            LabelTitle.Text = "Insert new Course";
+                            DisableAllControls(false);
+                            break;
+                        case "edit":
+                            LabelTitle.Text = "Update Course";
+                            DisableAllControls(false);
+                            break;
+                        default:
+                            LabelTitle.Text = "Course Detail";
+                            DisableAllControls(true);
+                            break;
+                    }
                 }
             }
             catch (Exception)
