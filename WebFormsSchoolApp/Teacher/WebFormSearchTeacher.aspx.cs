@@ -18,27 +18,58 @@ namespace WebFormsSchoolApp.Teacher
                     PersonId = 1,
                     LastName = "Verstraaten",
                     Firstname = "Danny",
-                    HireDate = DateTime.Now
+                    MiddleName = "",
+                    StreetAndNumber ="Grote Weg 441",
+                    ZipCode = "3000",
+                    PhoneNumber = "2782578528",
+                    EmailAddress = "Danny@test.be",
+                    DateOfBirth = new DateTime(1980,4,15),
+                    HireDate = DateTime.Now,
+                    SaleryCategorie = models.SaleryCategorie.A1,
+                    SeniorityYears = 1
                 },
                 new models.Teacher{
                     PersonId = 2,
                     LastName = "Vervoort",
                     Firstname = "Els",
-                    HireDate = DateTime.Now
+                    MiddleName = "",
+                    StreetAndNumber ="Beersebaan 33",
+                    ZipCode = "4000",
+                    PhoneNumber = "23783287468",
+                    EmailAddress = "Els@test.be",
+                    DateOfBirth = new DateTime(1999,4,12),
+                    HireDate = DateTime.Now,
+                    SaleryCategorie = models.SaleryCategorie.C1,
+                    SeniorityYears = 6
                 },
                 new models.Teacher{
                     PersonId = 3,
                     LastName = "Michiels",
                     Firstname = "Peter",
-                    HireDate = DateTime.Now
+                    MiddleName = "",
+                    StreetAndNumber ="Mpad 33",
+                    ZipCode = "2300",
+                    PhoneNumber = "6258527468",
+                    EmailAddress = "Peter@test.be",
+                    DateOfBirth = new DateTime(1982,3,2),
+                    HireDate = DateTime.Now,
+                    SaleryCategorie = models.SaleryCategorie.A2,
+                    SeniorityYears = 4
                 },
                 new models.Teacher{
                     PersonId = 4,
                     LastName = "Neutenboom",
                     Firstname = "Pascal",
-                    HireDate = DateTime.Now
+                    MiddleName = "",
+                    StreetAndNumber ="Turnhoutsebaan 33",
+                    ZipCode = "4000",
+                    PhoneNumber = "6463653868",
+                    EmailAddress = "Peter@test.be",
+                    DateOfBirth = new DateTime(2005,3,2),
+                    HireDate = DateTime.Now,
+                    SaleryCategorie = models.SaleryCategorie.C1,
+                    SeniorityYears = 12
                 },
-
             };
 
             if (Session["user"] == null)

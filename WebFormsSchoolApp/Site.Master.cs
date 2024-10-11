@@ -12,7 +12,7 @@ namespace WebFormsSchoolApp
         {
             if(Session["user"] != null)
             {
-              //  LinkButton1.Text = "Check out user : " + Session["user"].ToString();
+               LinkButtonCheckOut.Text = "Check Out " + Session["user"].ToString();
             }
             
         }
@@ -20,12 +20,8 @@ namespace WebFormsSchoolApp
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Session.Clear();
-           // LinkButton1.Text = "User is uitgecheckt.";
+            LinkButtonCheckOut.Text = "User is uitgecheckt.";
             Response.Redirect("~/");
-
-
-            //< li class="nav-item">
-            //                <asp:LinkButton ID = "LinkButton1" runat="server" OnClick="LinkButton1_Click" width="250px" >Check Out</asp:LinkButton></li>--%>
         }
     }
 }

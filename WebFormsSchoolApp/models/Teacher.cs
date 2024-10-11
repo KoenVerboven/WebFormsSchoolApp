@@ -35,8 +35,8 @@ namespace WebFormsSchoolApp.models
     {
         public DateTime HireDate { get; set; }
         public DateTime? LeaveDate { get; set; }
-        //public SaleryCategorie SaleryCategorie { get; set; }
-        //public int? SeniorityYears { get; set; }
+        public SaleryCategorie SaleryCategorie { get; set; }
+        public int? SeniorityYears { get; set; }
         //public int? WorkSchedule { get; set; }
         //public int? WorkingHoursPerWeek { get; set; }
         //public HighestDegree HighestDegree { get; set; }

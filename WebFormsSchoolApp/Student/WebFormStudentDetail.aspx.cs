@@ -203,8 +203,8 @@ namespace WebFormsSchoolApp.Student
                     TextBoxZipCode.Text = studentSelected.ZipCode.ToString();
                     TextBoxPhoneNumber.Text = studentSelected.PhoneNumber.ToString();
                     TextBoxEmailAddress.Text = studentSelected.EmailAddress.ToString();
-                    TextBoxDateOfBirth.Text = studentSelected.DateOfBirth.ToString();
-                    TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString();
+                    TextBoxDateOfBirth.Text = studentSelected.DateOfBirth.ToString("dd-MM-yyyy");
+                    TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString("dd-MM-yyyy");
                 }
             }
             catch (Exception)
