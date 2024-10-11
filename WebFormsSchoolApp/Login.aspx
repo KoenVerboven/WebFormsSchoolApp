@@ -10,10 +10,12 @@
      </p>
      <p>
          <asp:Label ID="LabelPassword" runat="server" Text="Password :" Width="100px"></asp:Label>
-         <asp:TextBox ID="TextBoxPassword" runat="server" Width="190px"></asp:TextBox> 
+         <asp:TextBox ID="TextBoxPassword" runat="server" Width="190px" TextMode="Password"></asp:TextBox> 
      </p>
      <p>
-         <asp:Button ID="ButtonLogin" runat="server" Text="Login" style="height: 29px" Width="90px" OnClick="ButtonLogin_Click" />
+         <asp:Button ID="ButtonLogin" runat="server" Text="Login" style="height: 35px" Width="90px" 
+             class="btn btn-primary btn-md" 
+             OnClick="ButtonLogin_Click" />
      </p>
      <p>
          <asp:Label ID="LabelMessage" runat="server" Text=""></asp:Label>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace WebFormsSchoolApp
 {
@@ -7,6 +8,15 @@ namespace WebFormsSchoolApp
         protected void Page_Load(object sender, EventArgs e)
         {
             LabelMessage.ForeColor = System.Drawing.Color.Red;
+            
+            if(!IsPostBack)
+            {
+                if (Request.Cookies["SchoolLogin"] != null)
+                {
+                    TextBoxId.Text = Request.Cookies["SchoolLogin"].Value;
+                }
+            }
+            
         }
 
         protected void ButtonLogin_Click(object sender, EventArgs e)
@@ -15,12 +25,21 @@ namespace WebFormsSchoolApp
             if (TextBoxId.Text == "admin" || TextBoxId.Text == "koen" || TextBoxId.Text == "johan")
             {
                 Session["user"] = TextBoxId.Text.Trim();
-                Response.Redirect("MainForm.aspx");
+                SetCookie(TextBoxId.Text.Trim());
+                Response.Redirect("default.aspx");
             }
             else
             {
                 LabelMessage.Text = "UserId or password is not valid";
             }
+        }
+
+        private void SetCookie(string inlogId) //doto : legaal vragen of user cookies goedkeurd
+        {
+            HttpCookie cookie = new HttpCookie("SchoolLogin");
+            cookie.Value = inlogId; 
+            cookie.Expires = DateTime.Now.AddHours(3);
+            Response.SetCookie(cookie);
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.EnterpriseServices.CompensatingResourceManager;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+
 
 namespace WebFormsSchoolApp
 {
@@ -11,7 +11,22 @@ namespace WebFormsSchoolApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["user"] != null)
+            {
+              //  LinkButton1.Text = "Check out user : " + Session["user"].ToString();
+            }
+            
+        }
 
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+           // LinkButton1.Text = "User is uitgecheckt.";
+            Response.Redirect("~/");
+
+
+            //< li class="nav-item">
+            //                <asp:LinkButton ID = "LinkButton1" runat="server" OnClick="LinkButton1_Click" width="250px" >Check Out</asp:LinkButton></li>--%>
         }
     }
 }

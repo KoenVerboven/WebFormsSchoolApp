@@ -10,7 +10,10 @@ namespace WebFormsSchoolApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Redirect("Login.aspx");
+            if (Session["user"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
         }
     }
 }

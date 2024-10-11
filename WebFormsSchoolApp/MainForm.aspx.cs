@@ -12,13 +12,17 @@ namespace WebFormsSchoolApp
             {
                 Response.Redirect("login.aspx");
             }
-            //LabelUser.ForeColor = Color.White;
-            LabelUser.Text = "User : " + Session["user"].ToString();
         }
 
         protected void LinkButtonStudents_Click(object sender, EventArgs e)
         {
             Response.Redirect("students.aspx");
         }
+
+        //protected void LinkButton1_Click(object sender, EventArgs e)
+        //{
+        //    Session.Clear();
+        //    Response.Redirect("Login.aspx");
+        //}
     }
 }

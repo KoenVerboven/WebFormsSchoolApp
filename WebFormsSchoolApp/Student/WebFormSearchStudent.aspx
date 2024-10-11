@@ -36,7 +36,7 @@
     </asp:GridView>
     <br />
     <br />
-    <a href="../MainForm.aspx">Go Back to Mainform</a>
+    <a href="../default.aspx">Go Back to Mainform</a>
 </div>
 
 
