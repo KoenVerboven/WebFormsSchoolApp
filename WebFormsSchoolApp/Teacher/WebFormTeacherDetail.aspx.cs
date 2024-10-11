@@ -10,6 +10,7 @@ namespace WebFormsSchoolApp.Teacher
         protected void Page_Load(object sender, EventArgs e)
         {
             int teacherId = 0;
+            string action = string.Empty;
 
             var teachers = new List<models.Teacher>()
             {
@@ -81,21 +82,40 @@ namespace WebFormsSchoolApp.Teacher
                 if (!IsPostBack)
                 {
                     teacherId = Convert.ToInt32(Request.QueryString["teacherId"]);
+                    action = Request.QueryString["action"];
 
-                    var teacherSelected = teachers.SingleOrDefault(p => p.PersonId == teacherId);
-                    LabelTeacherIdValue.Text = Convert.ToString(teacherSelected.PersonId);
-                    TextBoxLastName.Text = teacherSelected.LastName;
-                    TextBoxFirstName.Text = teacherSelected.Firstname;
-                    TextBoxMiddleName.Text = teacherSelected.MiddleName.ToString();
-                    TextBoxStreetAndNumber.Text = teacherSelected.StreetAndNumber.ToString();
-                    TextBoxZipCode.Text = teacherSelected.ZipCode.ToString();
-                    TextBoxPhoneNumber.Text = teacherSelected.PhoneNumber.ToString();
-                    TextBoxEmailAddress.Text = teacherSelected.EmailAddress.ToString();
-                    TextBoxDateOfBirth.Text = teacherSelected.DateOfBirth.ToString("dd-MM-yyyy");
-                    TextBoxHireDate.Text = Convert.ToString(teacherSelected.HireDate.ToString("dd-MM-yyyy"));
-                    TextBoxLeaveDate.Text = Convert.ToString(teacherSelected.LeaveDate);
+                    if(action == "detail" || action == "update")
+                    {
+                        var teacherSelected = teachers.SingleOrDefault(p => p.PersonId == teacherId);
+                        LabelTeacherIdValue.Text = Convert.ToString(teacherSelected.PersonId);
+                        TextBoxLastName.Text = teacherSelected.LastName;
+                        TextBoxFirstName.Text = teacherSelected.Firstname;
+                        TextBoxMiddleName.Text = teacherSelected.MiddleName.ToString();
+                        TextBoxStreetAndNumber.Text = teacherSelected.StreetAndNumber.ToString();
+                        TextBoxZipCode.Text = teacherSelected.ZipCode.ToString();
+                        TextBoxPhoneNumber.Text = teacherSelected.PhoneNumber.ToString();
+                        TextBoxEmailAddress.Text = teacherSelected.EmailAddress.ToString();
+                        TextBoxDateOfBirth.Text = teacherSelected.DateOfBirth.ToString("dd-MM-yyyy");
+                        TextBoxHireDate.Text = Convert.ToString(teacherSelected.HireDate.ToString("dd-MM-yyyy"));
+                        TextBoxLeaveDate.Text = Convert.ToString(teacherSelected.LeaveDate);
 
-                    DisableAllControls(true);
+                    }
+
+                    switch (action)
+                    {
+                        case "detail":
+                            DisableAllControls(true);
+                            break;
+                        case "insert":
+                            DisableAllControls(false);
+                            break;
+                        case "edit":
+                            DisableAllControls(false);
+                            break;
+                        default:
+                            DisableAllControls(true);
+                            break;
+                    }
                 }
             }
             catch (Exception)

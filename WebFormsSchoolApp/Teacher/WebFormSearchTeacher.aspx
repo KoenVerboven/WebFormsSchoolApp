@@ -7,8 +7,18 @@
             <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>
             <asp:Button ID="ButtonSearch" runat="server" Text="Search" 
                 class="btn btn-primary btn-md"
-                OnClick="ButtonSearch_Click" />
-        </p>
+                OnClick="ButtonSearch_Click" 
+                />
+            &nbsp
+            &nbsp
+            &nbsp
+            &nbsp
+            <asp:Button ID="ButtonNew" runat="server" Text="+" 
+                 class="btn btn-secondary btn-md" OnClick="ButtonNew_Click" 
+                 />
+            &nbsp
+            &nbsp
+            </p>
         <br />
 
       <asp:GridView ID="GridView1" runat="server"

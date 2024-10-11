@@ -9,6 +9,7 @@ namespace WebFormsSchoolApp.Student
         protected void Page_Load(object sender, EventArgs e)
         {
             int personId = 0;
+            string action = string.Empty;
 
             var students = new List<models.Student>()
             {
@@ -193,21 +194,23 @@ namespace WebFormsSchoolApp.Student
                 if (!IsPostBack)
                 {
                     personId = Convert.ToInt32(Request.QueryString["studentId"]);
+                    action = Request.QueryString["action"];
 
-                    var studentSelected = students.SingleOrDefault(p => p.PersonId == personId);
-                    LabelStudentIdValue.Text = studentSelected.PersonId.ToString();
-                    TextBoxLastName.Text = studentSelected.LastName.ToString();
-                    TextBoxFirstName.Text = studentSelected.Firstname.ToString();
-                    TextBoxMiddleName.Text = studentSelected.MiddleName.ToString();   
-                    TextBoxStreetAndNumber.Text = studentSelected.StreetAndNumber.ToString();
-                    TextBoxZipCode.Text = studentSelected.ZipCode.ToString();
-                    TextBoxPhoneNumber.Text = studentSelected.PhoneNumber.ToString();
-                    TextBoxEmailAddress.Text = studentSelected.EmailAddress.ToString();
-                    TextBoxDateOfBirth.Text = studentSelected.DateOfBirth.ToString("dd-MM-yyyy");
-                    TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString("dd-MM-yyyy");
-
-
-                    string action = "detail"; //action moet enum worden; defineer als ALGEMENE enum overal bruikbaar
+                    if(action=="detail" || action == "update")
+                    {
+                        var studentSelected = students.SingleOrDefault(p => p.PersonId == personId);
+                        LabelStudentIdValue.Text = studentSelected.PersonId.ToString();
+                        TextBoxLastName.Text = studentSelected.LastName.ToString();
+                        TextBoxFirstName.Text = studentSelected.Firstname.ToString();
+                        TextBoxMiddleName.Text = studentSelected.MiddleName.ToString();
+                        TextBoxStreetAndNumber.Text = studentSelected.StreetAndNumber.ToString();
+                        TextBoxZipCode.Text = studentSelected.ZipCode.ToString();
+                        TextBoxPhoneNumber.Text = studentSelected.PhoneNumber.ToString();
+                        TextBoxEmailAddress.Text = studentSelected.EmailAddress.ToString();
+                        TextBoxDateOfBirth.Text = studentSelected.DateOfBirth.ToString("dd-MM-yyyy");
+                        TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString("dd-MM-yyyy");
+                    }
+                    
                     switch (action) 
                     {
                         case "detail":

@@ -208,7 +208,7 @@ namespace WebFormsSchoolApp.Student
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
                     Session["searchStudent"] = TextBoxSearch.Text.Trim();
-                    Response.Redirect("WebFormStudentDetail.aspx?studentId=" + row.Cells[1].Text.Trim());
+                    Response.Redirect("WebFormStudentDetail.aspx?studentId=" + row.Cells[1].Text.Trim()+"&action=detail");
                 }
 
             }
@@ -234,7 +234,14 @@ namespace WebFormsSchoolApp.Student
                                        ).ToList();
                 GridView1.DataSource = students;
                 GridView1.DataBind();
+    
             }
+        }
+
+ 
+        protected void ButtonNew_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("WebFormStudentDetail.aspx?studentId=0&action=insert");
         }
     }
 }

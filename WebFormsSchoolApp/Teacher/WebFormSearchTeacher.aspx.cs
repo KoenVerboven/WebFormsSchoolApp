@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using WebFormsSchoolApp.models;
 
 namespace WebFormsSchoolApp.Teacher
 {
@@ -84,7 +85,6 @@ namespace WebFormsSchoolApp.Teacher
                 Session["searchTeacher"] = null;
             }
 
-
             GridView1.EmptyDataText = "No teachers found. Please adjust your search condition.";
         }
 
@@ -95,7 +95,7 @@ namespace WebFormsSchoolApp.Teacher
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
                     Session["searchTeacher"] = TextBoxSearch.Text.Trim();
-                    Response.Redirect("WebFormTeacherDetail.aspx?teacherId=" + row.Cells[1].Text.Trim());
+                    Response.Redirect("WebFormTeacherDetail.aspx?teacherId=" + row.Cells[1].Text.Trim() + "&action=detail");
                 }
             }
         }
@@ -124,6 +124,10 @@ namespace WebFormsSchoolApp.Teacher
             }
         }
 
-
+        protected void ButtonNew_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebFormTeacherDetail.aspx?teacherId=0&action=insert");
+        }
+        
     }
 }

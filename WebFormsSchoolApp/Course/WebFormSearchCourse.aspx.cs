@@ -191,5 +191,9 @@ namespace WebFormsSchoolApp.Course
             }
         }
 
+        protected void ButtonNew_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebFormCourseDetail.aspx?courseId=0&action=insert");
+        }
     }
 }
