@@ -5,7 +5,9 @@
       <br /><br />
           <p>
             <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>
-            <asp:Button ID="ButtonSearch" runat="server" Text="Search" OnClick="ButtonSearch_Click" />
+            <asp:Button ID="ButtonSearch" runat="server" Text="Search" 
+                class="btn btn-primary btn-md"
+                OnClick="ButtonSearch_Click" />
         </p>
         <br />
 

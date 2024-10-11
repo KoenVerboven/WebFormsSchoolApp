@@ -45,6 +45,15 @@ namespace WebFormsSchoolApp.Teacher
             {
                 Response.Redirect("../login.aspx");
             }
+
+            if (Session["searchTeacher"] != null)
+            {
+                TextBoxSearch.Text = Convert.ToString(Session["searchTeacher"]);
+                Search();
+                Session["searchTeacher"] = null;
+            }
+
+
             GridView1.EmptyDataText = "No teachers found. Please adjust your search condition.";
         }
 
@@ -54,6 +63,7 @@ namespace WebFormsSchoolApp.Teacher
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
+                    Session["searchTeacher"] = TextBoxSearch.Text.Trim();
                     Response.Redirect("WebFormTeacherDetail.aspx?teacherId=" + row.Cells[1].Text.Trim());
                 }
             }
@@ -68,6 +78,11 @@ namespace WebFormsSchoolApp.Teacher
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
+            Search();
+        }
+
+        private void Search()
+        {
             if (teachers != null)
             {
                 teachers = teachers
@@ -76,7 +91,8 @@ namespace WebFormsSchoolApp.Teacher
                 GridView1.DataSource = teachers;
                 GridView1.DataBind();
             }
-
         }
+
+
     }
 }

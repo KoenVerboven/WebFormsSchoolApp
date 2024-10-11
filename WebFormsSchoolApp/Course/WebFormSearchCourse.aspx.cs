@@ -146,6 +146,13 @@ namespace WebFormsSchoolApp.Course
                 Response.Redirect("../login.aspx");
             }
 
+            if (Session["searchCourse"] != null)
+            {
+                TextBoxSearch.Text = Convert.ToString(Session["searchCourse"]);
+                Search();
+                Session["searchCourse"] = null;
+            }
+
             GridView1.EmptyDataText = "No courses found. Please adjust your search condition.";
         }
 
@@ -155,6 +162,7 @@ namespace WebFormsSchoolApp.Course
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
+                    Session["searchCourse"] = TextBoxSearch.Text.Trim();
                     Response.Redirect("WebFormCourseDetail.aspx?CourseId=" + row.Cells[1].Text.Trim());
                 }
             }
@@ -168,7 +176,12 @@ namespace WebFormsSchoolApp.Course
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            if(courses != null)
+            Search();
+        }
+
+        private void Search()
+        {
+            if (courses != null)
             {
                 courses = courses
                              .Where(X => X.CourseName.ToLower().Contains(TextBoxSearch.Text.ToLower())
@@ -177,5 +190,6 @@ namespace WebFormsSchoolApp.Course
                 GridView1.DataBind();
             }
         }
+
     }
 }

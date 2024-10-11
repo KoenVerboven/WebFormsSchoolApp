@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
-using WebFormsSchoolApp.models;
+
 
 
 namespace WebFormsSchoolApp.Student
@@ -191,6 +191,13 @@ namespace WebFormsSchoolApp.Student
                 Response.Redirect("../login.aspx");
             }
 
+            if(Session["searchStudent"] != null)
+            {
+                TextBoxSearch.Text = Convert.ToString(Session["searchStudent"]);
+                Search();
+                Session["searchStudent"] = null;
+            }
+
             GridView1.EmptyDataText = "No students found. Please adjust your search condition.";
         }
 
@@ -200,6 +207,7 @@ namespace WebFormsSchoolApp.Student
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
+                    Session["searchStudent"] = TextBoxSearch.Text.Trim();
                     Response.Redirect("WebFormStudentDetail.aspx?studentId=" + row.Cells[1].Text.Trim());
                 }
 
@@ -213,6 +221,11 @@ namespace WebFormsSchoolApp.Student
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void Search()
         {
             if (students != null)
             {
