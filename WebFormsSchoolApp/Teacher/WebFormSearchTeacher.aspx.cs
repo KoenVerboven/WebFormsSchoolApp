@@ -103,8 +103,7 @@ namespace WebFormsSchoolApp.Teacher
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
-
+            Search();
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)

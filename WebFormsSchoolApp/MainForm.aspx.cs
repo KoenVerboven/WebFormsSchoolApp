@@ -19,10 +19,5 @@ namespace WebFormsSchoolApp
             Response.Redirect("students.aspx");
         }
 
-        //protected void LinkButton1_Click(object sender, EventArgs e)
-        //{
-        //    Session.Clear();
-        //    Response.Redirect("Login.aspx");
-        //}
     }
 }
