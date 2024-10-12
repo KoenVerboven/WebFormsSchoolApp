@@ -12,7 +12,6 @@
          &nbsp
          &nbsp
          &nbsp
-         &nbsp
          <asp:Button ID="ButtonNew" runat="server" Text="+" 
              class="btn btn-secondary btn-md" OnClick="ButtonNew_Click"  
              />
@@ -40,7 +39,7 @@
         CellSpacing="0"
         Font-Names="Verdana" 
         OnPageIndexChanging="GridView1_PageIndexChanging" 
-        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSorting="GridView1_Sorting1"
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSorting="GridView1_Sorting1" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
         >
         <Columns>
             <asp:CommandField 

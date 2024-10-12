@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using WebFormsSchoolApp.models;
 
 namespace WebFormsSchoolApp.Course
 {
@@ -249,6 +250,20 @@ namespace WebFormsSchoolApp.Course
         protected void GridView1_Sorting1(object sender, GridViewSortEventArgs e)
         {
             Search(e.SortExpression.ToString());
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            var courseId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
+            var courseToRemove = courses.SingleOrDefault(p => p.CourseId == courseId);
+            courses.Remove(courseToRemove);
+            Search("");
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            var courseId =  GridView1.Rows[e.NewEditIndex].Cells[1].Text;
+            Response.Redirect("WebFormCourseDetail.aspx?courseId="+ courseId + "&action=update");
         }
     }
 }

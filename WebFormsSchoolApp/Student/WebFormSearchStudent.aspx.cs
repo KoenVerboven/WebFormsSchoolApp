@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.UI.WebControls;
 
 
-
 namespace WebFormsSchoolApp.Student
 {
     public partial class WebFormSearchStudent : System.Web.UI.Page
@@ -185,7 +184,7 @@ namespace WebFormsSchoolApp.Student
                     RegistrationDate = new DateTime(2024,9,6)
                 },
             };
-
+            
             if (Session["user"] == null)
             {
                 Response.Redirect("../login.aspx");
@@ -266,6 +265,21 @@ namespace WebFormsSchoolApp.Student
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
             Search(e.SortExpression.ToString());
+        }
+
+        
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            var studentId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
+            var studentToRemove = students.SingleOrDefault(p=>p.PersonId == studentId);
+            students.Remove(studentToRemove);
+            Search("");
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            var studentId = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
+            Response.Redirect("WebFormStudentDetail.aspx?studentId=" + studentId + "&action=update");
         }
     }
 }

@@ -149,5 +149,19 @@ namespace WebFormsSchoolApp.Teacher
         {
             Search(e.SortExpression.ToString());
         }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            var TeacherId = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
+            Response.Redirect("WebFormTeacherDetail.aspx?TeacherId=" + TeacherId + "&action=update");
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            var teacherId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
+            var teacherToRemove = teachers.SingleOrDefault(p => p.PersonId == teacherId);
+            teachers.Remove(teacherToRemove);
+            Search("");
+        }
     }
 }

@@ -221,7 +221,7 @@ namespace WebFormsSchoolApp.Student
                             LabelTitle.Text = "Insert new Student";
                             DisableAllControls(false);
                             break;
-                        case "edit":
+                        case "update":
                             LabelTitle.Text = "Update Student";
                             DisableAllControls(false);
                             break;
