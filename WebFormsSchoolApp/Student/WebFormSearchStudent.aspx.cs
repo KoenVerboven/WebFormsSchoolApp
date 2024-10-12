@@ -194,7 +194,7 @@ namespace WebFormsSchoolApp.Student
             if(Session["searchStudent"] != null)
             {
                 TextBoxSearch.Text = Convert.ToString(Session["searchStudent"]);
-                Search();
+                Search("");
                 Session["searchStudent"] = null;
             }
 
@@ -217,21 +217,40 @@ namespace WebFormsSchoolApp.Student
         protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search();
+            Search("");
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search();
+            Search("");
         }
 
-        private void Search()
+        private void Search(string orderBy)
         {
             if (students != null)
             {
                 students = students
                              .Where(X => X.FullName.ToLower().Contains(TextBoxSearch.Text.ToLower())
-                                       ).ToList();
+                                       )
+                             .OrderBy(x=>x.DateOfBirth)
+                            .ToList();
+
+                switch (orderBy)
+                {
+                    case "PersonId":
+                        students = students.OrderBy(x => x.PersonId).ToList();
+                        break;
+                    case "FullName":
+                        students = students.OrderBy(x => x.FullName).ToList();
+                        break;
+                    case "DateOfBirth":
+                        students = students.OrderBy(x => x.DateOfBirth).ToList();
+                        break;
+                    default:
+                        students = students.OrderBy(x => x.PersonId).ToList();
+                        break;
+                }
+
                 GridView1.DataSource = students;
                 GridView1.DataBind();
     
@@ -242,6 +261,11 @@ namespace WebFormsSchoolApp.Student
         protected void ButtonNew_Click1(object sender, EventArgs e)
         {
             Response.Redirect("WebFormStudentDetail.aspx?studentId=0&action=insert");
+        }
+
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            Search(e.SortExpression.ToString());
         }
     }
 }

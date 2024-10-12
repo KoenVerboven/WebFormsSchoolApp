@@ -81,7 +81,7 @@ namespace WebFormsSchoolApp.Teacher
             if (Session["searchTeacher"] != null)
             {
                 TextBoxSearch.Text = Convert.ToString(Session["searchTeacher"]);
-                Search();
+                Search("");
                 Session["searchTeacher"] = null;
             }
 
@@ -103,21 +103,38 @@ namespace WebFormsSchoolApp.Teacher
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search();
+            Search("");
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search();
+            Search("");
         }
 
-        private void Search()
+        private void Search(string orderBy)
         {
             if (teachers != null)
             {
                 teachers = teachers
                              .Where(X => X.FullName.ToLower().Contains(TextBoxSearch.Text.ToLower())
                                        ).ToList();
+
+                switch (orderBy)
+                {
+                    case "PersonId":
+                        teachers = teachers.OrderBy(x => x.PersonId).ToList();
+                        break;
+                    case "FullName":
+                        teachers = teachers.OrderBy(x => x.FullName).ToList();
+                        break;
+                    case "DateOfBirth":
+                        teachers = teachers.OrderBy(x => x.DateOfBirth).ToList();
+                        break;
+                    default:
+                        teachers = teachers.OrderBy(x => x.PersonId).ToList();
+                        break;
+                }
+
                 GridView1.DataSource = teachers;
                 GridView1.DataBind();
             }
@@ -127,6 +144,10 @@ namespace WebFormsSchoolApp.Teacher
         {
             Response.Redirect("WebFormTeacherDetail.aspx?teacherId=0&action=insert");
         }
-        
+
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            Search(e.SortExpression.ToString());
+        }
     }
 }

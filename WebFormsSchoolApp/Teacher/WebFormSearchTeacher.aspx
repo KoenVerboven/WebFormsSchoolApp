@@ -37,13 +37,13 @@
           CellSpacing="0"
           Font-Names="Verdana" 
           OnPageIndexChanging="GridView1_PageIndexChanging" 
-          OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+          OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSorting="GridView1_Sorting" 
           >
            <Columns>
                <asp:CommandField ShowSelectButton="True" />
                <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="PersonId" />
                <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
-               <asp:BoundField DataField="HireDate" HeaderText="HireDate" DataFormatString="{0:dd-M-yyyy}" SortExpression="HireDate" />
+               <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" DataFormatString="{0:dd-M-yyyy}" SortExpression="DateOfBirth" />
            </Columns>
            <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
            <FooterStyle BackColor="#aaaadd"></FooterStyle>

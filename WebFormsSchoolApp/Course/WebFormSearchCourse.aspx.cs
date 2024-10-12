@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using WebFormsSchoolApp.models;
 
 namespace WebFormsSchoolApp.Course
 {
@@ -149,7 +150,7 @@ namespace WebFormsSchoolApp.Course
             if (Session["searchCourse"] != null)
             {
                 TextBoxSearch.Text = Convert.ToString(Session["searchCourse"]);
-                Search();
+                Search("");
                 Session["searchCourse"] = null;
             }
 
@@ -171,21 +172,47 @@ namespace WebFormsSchoolApp.Course
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search();
+            Search("");
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search();
+            Search("");
         }
 
-        private void Search()
+        private void Search(string orderBy)
         {
             if (courses != null)
             {
                 courses = courses
                              .Where(X => X.CourseName.ToLower().Contains(TextBoxSearch.Text.ToLower())
                                        ).ToList();
+
+                switch (orderBy)
+                {
+                    case "CourseId":
+                        courses = courses.OrderBy(x => x.CourseId).ToList();
+                        break;
+                    case "CourseName":
+                        courses = courses.OrderBy(x => x.CourseName).ToList();
+                        break;
+                    case "StartDate":
+                        courses = courses.OrderByDescending(x => x.StartDate).ToList();
+                        break;
+                    case "EndDate":
+                        courses = courses.OrderByDescending(x => x.EndDate).ToList();
+                        break;
+                    case "CourseType":
+                        courses = courses.OrderBy(x => x.CourseType).ToList();
+                        break;
+                    case "CourseIsActive":
+                        courses = courses.OrderBy(x => x.CourseIsActive).ToList();
+                        break;
+                    default:
+                        courses = courses.OrderByDescending(x => x.StartDate).ToList();
+                        break;
+                }
+
                 GridView1.DataSource = courses;
                 GridView1.DataBind();
             }
@@ -194,6 +221,11 @@ namespace WebFormsSchoolApp.Course
         protected void ButtonNew_Click(object sender, EventArgs e)
         {
             Response.Redirect("WebFormCourseDetail.aspx?courseId=0&action=insert");
+        }
+
+        protected void GridView1_Sorting1(object sender, GridViewSortEventArgs e)
+        {
+            Search(e.SortExpression.ToString());
         }
     }
 }

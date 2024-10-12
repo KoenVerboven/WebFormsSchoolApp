@@ -34,7 +34,9 @@
         GridLines="Both"
         CellPadding="3"
         CellSpacing="0"
-        Font-Names="Verdana" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+        Font-Names="Verdana" 
+        OnPageIndexChanging="GridView1_PageIndexChanging" 
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSorting="GridView1_Sorting"
         >
         <Columns>
             <asp:CommandField ShowSelectButton="True" />

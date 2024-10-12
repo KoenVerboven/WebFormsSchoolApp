@@ -153,14 +153,17 @@ namespace WebFormsSchoolApp.Course
                     courseId = Convert.ToInt32(Request.QueryString["courseId"]);
                     action = Request.QueryString["action"];
 
-                    var courseSelected = courses.SingleOrDefault(p => p.CourseId == courseId);
-                    LabelCourseIdValue.Text = Convert.ToString(courseSelected.CourseId);
-                    TextBoxCourseName.Text = courseSelected.CourseName;
-                    TextBoxCourseDescription.Text = courseSelected.CourseDescription;
-                    TextBoxStartDate.Text = courseSelected.StartDate.ToString("dd-MM-yyyy");
-                    TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
-                    CheckBoxActive.Checked = courseSelected.CourseIsActive;
-                    TextBoxCoursePrice.Text = "€ " + Convert.ToString(courseSelected.CoursePrice);
+                    if (action == "detail" || action == "update")
+                    {
+                        var courseSelected = courses.SingleOrDefault(p => p.CourseId == courseId);
+                        LabelCourseIdValue.Text = Convert.ToString(courseSelected.CourseId);
+                        TextBoxCourseName.Text = courseSelected.CourseName;
+                        TextBoxCourseDescription.Text = courseSelected.CourseDescription;
+                        TextBoxStartDate.Text = courseSelected.StartDate.ToString("dd-MM-yyyy");
+                        TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
+                        CheckBoxActive.Checked = courseSelected.CourseIsActive;
+                        TextBoxCoursePrice.Text = "€ " + Convert.ToString(courseSelected.CoursePrice);
+                    }
 
                     switch (action)
                     {
