@@ -19,6 +19,10 @@
           &nbsp
           &nbsp
     </p>
+    <p>
+         <asp:Label ID="LabelFilterActive" runat="server" Text="Active : "></asp:Label>
+         <asp:DropDownList ID="DropDownListFilterActive" runat="server"></asp:DropDownList>
+    </p>
     <br />
     <asp:GridView ID="GridView1" runat="server"
         AutoGenerateColumns="false"
@@ -39,13 +43,22 @@
         OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSorting="GridView1_Sorting1"
         >
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
+            <asp:CommandField 
+                ButtonType="Link"
+                ShowSelectButton="True"
+                />
             <asp:BoundField DataField="CourseId" HeaderText="Id" SortExpression="CourseId" />
             <asp:BoundField DataField="CourseName" HeaderText="CourseName" SortExpression="CourseName" />
             <asp:BoundField DataField="StartDate" HeaderText="StartDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="StartDate" />
             <asp:BoundField DataField="EndDate" HeaderText="EndDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="EndDate" />
             <asp:BoundField DataField="CourseType" HeaderText="CourseType" SortExpression="CourseType" />
             <asp:BoundField DataField="CourseIsActive" HeaderText="CourseIsActive" SortExpression="CourseIsActive" />
+            <asp:CommandField 
+                ButtonType="Link"
+                ShowEditButton="True"
+                ShowDeleteButton="True"
+                />
+
         </Columns>
         <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
         <FooterStyle BackColor="#aaaadd"></FooterStyle>

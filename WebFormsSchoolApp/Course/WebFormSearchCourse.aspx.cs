@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
-using WebFormsSchoolApp.models;
 
 namespace WebFormsSchoolApp.Course
 {
@@ -154,6 +153,13 @@ namespace WebFormsSchoolApp.Course
                 Session["searchCourse"] = null;
             }
 
+            if(!IsPostBack)
+            {
+                DropDownListFilterActive.Items.Add("Show active");
+                DropDownListFilterActive.Items.Add("Show all");
+                DropDownListFilterActive.Items.Add("Show non active");
+            }
+
             GridView1.EmptyDataText = "No courses found. Please adjust your search condition.";
         }
 
@@ -186,7 +192,24 @@ namespace WebFormsSchoolApp.Course
             {
                 courses = courses
                              .Where(X => X.CourseName.ToLower().Contains(TextBoxSearch.Text.ToLower())
-                                       ).ToList();
+                ).ToList();
+
+                
+                if(DropDownListFilterActive.Items.Count > 0)
+                {
+                    if (DropDownListFilterActive.SelectedItem.Text == "Show active") //todo ipv text -> value
+                    {
+                        courses = courses.Where(X => X.CourseIsActive == true).ToList();
+                    }
+                    if (DropDownListFilterActive.SelectedItem.Text == "Show non active") //todo ipv text -> value
+                    {
+                        courses = courses.Where(X => X.CourseIsActive == false).ToList();
+                    }
+                }
+                else
+                {
+                    courses = courses.Where(X => X.CourseIsActive == true).ToList();
+                }
 
                 switch (orderBy)
                 {
