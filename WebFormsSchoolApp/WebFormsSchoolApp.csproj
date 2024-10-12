@@ -129,6 +129,11 @@
     <Content Include="Global.asax" />
     <Content Include="info\WebFormWithMasterPage.png" />
     <Content Include="MainForm.aspx" />
+    <Content Include="ScreenShots\webformschoolHomeMenu.png" />
+    <Content Include="ScreenShots\webformschoolStudentDetail.png" />
+    <Content Include="ScreenShots\webformsschoolSearchCourse.png" />
+    <Content Include="ScreenShots\webformsschoolSearchStudent.png" />
+    <Content Include="ScreenShots\WebFormWithMasterPage.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

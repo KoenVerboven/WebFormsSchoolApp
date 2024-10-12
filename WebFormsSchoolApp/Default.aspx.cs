@@ -19,5 +19,30 @@ namespace WebFormsSchoolApp
                 Response.Redirect("login.aspx");
             }
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Student\\WebFormSearchStudent.aspx");
+        }
+
+        protected void LinkButtonSearchTeacher_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Teacher\\WebFormSearchTeacher.aspx");
+        }
+
+        protected void LinkButtonSearchCourse_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Course\\WebFormSearchCourse.aspx");
+        }
+
+        protected void LinkButtonSearchUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User\\WebFormSearchUser.aspx");
+        }
+
+        protected void LinkButtonAttendanceRegistration_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("AttendanceRegistration\\WebFormAttendanceRegistration.aspx");
+        }
     }
 }

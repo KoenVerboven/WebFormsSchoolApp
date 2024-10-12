@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
-using WebFormsSchoolApp.models;
 
 namespace WebFormsSchoolApp.Course
 {
