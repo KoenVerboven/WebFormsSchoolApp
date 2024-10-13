@@ -8,17 +8,25 @@
             <h3><u>Schooladministration</u></h3>
             <h5>Demo program</h5>
             <h6 class="text1">Programmer : Verboven Koen</h6>
-            <h6 class="text1">Belgium - Vosselaar</h6>
-            <p>Programming language : C#</p>
-            <p>Microsoft AspNet WebForms</p>
-            <p>Framework="4.7.2"</p>
-            <p>Microsoft Visual Studio Community 2022  Version 17.8.4</p>
             <br />
+            <p>Technical data :</p>
+            <ul>
+                <li>Programming language : C#</li>
+                <li>Programming language : C#</li>
+                <li>Framework="4.7.2"</li>
+                <li>Microsoft Visual Studio Community 2022  Version 17.8.4</li>
+            </ul>
             <br />
-            <br />
-            <br />
+            <p>See also my other program(s) on github :</p>
+             <ul>
+               <li> <a href="https://github.com/KoenVerboven/WinFormsSchool">WinForms School project</a></li>
+            </ul>
             <br />
             <a href="default.aspx" class="link1">Home</a>
+            <br />
+            <p>           
+              <asp:Label ID="Labelfooter" runat="server" Text="Label"></asp:Label>
+            </p>   
         </div>
     </main>
 </asp:Content>

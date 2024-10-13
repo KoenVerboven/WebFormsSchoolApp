@@ -270,6 +270,14 @@ namespace WebFormsSchoolApp.Student
         
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            try
+            {
+
+            }
+            catch (Exception oEx)
+            {
+                LabelErrorMessage.Text = oEx.Message;
+            }
             var studentId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
             var studentToRemove = students.SingleOrDefault(p=>p.PersonId == studentId);
             students.Remove(studentToRemove);

@@ -12,6 +12,7 @@ namespace WebFormsSchoolApp
             {
                 Response.Redirect("login.aspx");
             }
+            Labelfooter.Text = " Belgium - Vosselaar    " + DateTime.Now.ToString("dd-MM-yyyy");
         }
     }
 }

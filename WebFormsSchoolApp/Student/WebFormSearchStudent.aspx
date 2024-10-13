@@ -2,7 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="div-3">
     <h3>Search Student</h3>
-    <br /><br />
+    <br />
+    <p>
+        <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
+    </p>
     <p>
         <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>
         <asp:Button ID="ButtonSearch" runat="server" Text="Search" 

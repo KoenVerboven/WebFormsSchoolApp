@@ -1,9 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormCourseDetail.aspx.cs" Inherits="WebFormsSchoolApp.Course.WebFormCourseDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="div-3">
-    <asp:Label ID="LabelTitle" runat="server" Text="CourseDetail" Font-Size="16"></asp:Label>
-    <br />
-    <br />
+
+    <p>
+       <asp:Label ID="LabelTitle" runat="server" Text="CourseDetail" Font-Size="16"></asp:Label>
+    </p> 
+    <p>
+         <asp:Button ID="Button1" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" />
+         <asp:Button ID="Button2" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" />
+    </p>      
+    <p>
+        <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
+    </p>
     <p>
         <asp:Label ID="LabelCourseId" runat="server" Text="CourseId :" Width="170px"></asp:Label>
         <asp:Label ID="LabelCourseIdValue" runat="server" Text="" Width="170px"></asp:Label>
