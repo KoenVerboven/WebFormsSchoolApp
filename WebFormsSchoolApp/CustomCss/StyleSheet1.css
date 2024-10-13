@@ -1,0 +1,37 @@
+﻿
+/* css by Koen : */
+
+body {
+}
+
+.customFrame1 {
+    height: 500px;
+    background-color: #EDEDED;
+    color:#44A;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    border-style: inset;
+    border-width: 1px;
+    border-color: darkgrey;
+    border-radius: 3px;
+}
+
+a{
+    display : block;
+}
+
+.link1 {
+    background-color: #CCC;
+    color: #44A;
+    height: 30px;
+    width: 100px;
+    padding-left: 20px;
+    text-decoration: none;
+    border-radius:7px;
+}
+
+.text1 {
+    color: #FFA500;
+}

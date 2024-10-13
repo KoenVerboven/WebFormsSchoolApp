@@ -19,8 +19,7 @@
           &nbsp
     </p>
     <p>
-         <asp:Label ID="LabelFilterActive" runat="server" Text="Active : "></asp:Label>
-         <asp:DropDownList ID="DropDownListFilterActive" runat="server"></asp:DropDownList>
+         <asp:DropDownList ID="DropDownListFilterActive" Width="250px" runat="server"></asp:DropDownList>
     </p>
     <br />
     <asp:GridView ID="GridView1" runat="server"

@@ -193,7 +193,7 @@
     <Content Include="Site.Master" />
     <Content Include="Student\WebFormSearchStudent.aspx" />
     <Content Include="Student\WebFormStudentDetail.aspx" />
-    <Content Include="StyleSheet1.css" />
+    <Content Include="CustomCss\StyleSheet1.css" />
     <Content Include="Teacher\WebFormSearchTeacher.aspx" />
     <Content Include="Teacher\WebFormTeacherDetail.aspx" />
     <Content Include="User\WebFormSearchUser.aspx" />
