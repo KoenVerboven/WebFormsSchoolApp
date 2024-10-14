@@ -7,8 +7,7 @@ namespace WebFormsSchoolApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelMessage.ForeColor = System.Drawing.Color.Red;
-            
+            LabelMessage.Visible = false;
             if(!IsPostBack)
             {
                 if (Request.Cookies["SchoolLogin"] != null)
@@ -30,7 +29,8 @@ namespace WebFormsSchoolApp
             }
             else
             {
-                LabelMessage.Text = "UserId or password is not valid";
+                LabelMessage.Visible = true;
+                LabelMessage.Text = "Authentication failed";
             }
         }
 

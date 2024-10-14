@@ -23,7 +23,7 @@
                         OnClick="ButtonLogin_Click" />
                 </p>
                 <p>
-                    <asp:Label ID="LabelMessage" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="230px" runat="server" Text=""></asp:Label>
                 </p>
             </div>
         </div>

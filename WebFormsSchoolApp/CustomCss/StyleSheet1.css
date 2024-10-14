@@ -2,10 +2,21 @@
 /* css by Koen : */
 
 body {
+    background-color: #DDD;
+}
+
+.errorLabel {
+    color:#F00;
+    background-color: #FCC;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 10px;
+    align-content:center;
 }
 
 .customFrame1 {
-    background-color: #EDEDED;
+    background-color: #FFF;
     color: #44A;
     padding-top: 30px;
     padding-right: 30px;
@@ -39,7 +50,6 @@ a{
     border-color: darkgrey;
     cursor: pointer;
 }
-
 
 .text1 {
     color: #FFA500;
