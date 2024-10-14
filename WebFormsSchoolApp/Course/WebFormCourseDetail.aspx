@@ -6,11 +6,15 @@
        <asp:Label ID="LabelTitle" runat="server" Text="CourseDetail" Font-Size="16"></asp:Label>
     </p> 
     <p>
-         <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="Button1_Click" />
-         <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" OnClick="Button2_Click" />
+         <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="ButtonSave_Click" />
+         <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" OnClick="ButtonCancel_Click" />
     </p>      
     <p>
         <asp:Label ID="LabelErrorMessage"  ForeColor="Red"  runat="server" Text=""></asp:Label> 
+    </p>
+    <p>
+         <asp:ValidationSummary ID="ValidationSummary1" runat="server"
+             style="color:red" />
     </p>
     <p>
         <asp:Label ID="LabelCourseId" runat="server" Text="CourseId :" Width="170px"></asp:Label>
@@ -19,6 +23,10 @@
     <p>
         <asp:Label ID="LabelCourseName" runat="server" Text="CourseName :" Width="170px"></asp:Label>
         <asp:TextBox ID="TextBoxCourseName" runat="server" Width="250px"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="color:red"
+              ErrorMessage="RequiredFieldValidator"
+              ControlToValidate="TextBoxCourseName">
+              CourseName is mandatory </asp:RequiredFieldValidator>
     </p>
     <p>
         <asp:Label ID="LabelCourseDescription" runat="server" Text="CourseDescription :" Width="170px"></asp:Label>

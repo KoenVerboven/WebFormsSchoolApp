@@ -265,12 +265,18 @@ namespace WebFormsSchoolApp.Student
 
         protected void ButtonSave_Click(object sender, EventArgs e)
         {
-            LabelErrorMessage.Text = "Not implemented yet";
+            if (Page.IsValid)
+            {
+                //save
+            }
+            else
+            {
+            }
         }
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {
-            LabelErrorMessage.Text = "Not implemented yet";
+            Response.Redirect("WebFormSearchStudent.aspx");
         }
     }
 }

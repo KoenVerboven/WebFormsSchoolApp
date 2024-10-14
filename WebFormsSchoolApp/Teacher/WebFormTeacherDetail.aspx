@@ -12,16 +12,28 @@
          <asp:Label ID="LabelErrorMessage"  ForeColor="Red"  runat="server" Text=""></asp:Label> 
      </p>
      <p>
+          <asp:ValidationSummary ID="ValidationSummary1" runat="server"
+              style="color:red" />
+     </p>
+     <p>
          <asp:Label ID="LabelTeacherId" runat="server" Text="TeacherId :" Width="170px"></asp:Label>
          <asp:Label ID="LabelTeacherIdValue" runat="server" Text="" Width="170px"></asp:Label>
      </p>
      <p>
         <asp:Label ID="LabelLastName" runat="server" Text="LastName :" Width="170px"></asp:Label>
         <asp:TextBox ID="TextBoxLastName" runat="server" Width="250px"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="color:red"
+              ErrorMessage="RequiredFieldValidator"
+              ControlToValidate="TextBoxLastName">
+              Lastname is mandatory </asp:RequiredFieldValidator>
      </p>
      <p>
        <asp:Label ID="LabelFirstName" runat="server" Text="FirstName :" Width="170px"></asp:Label>
-       <asp:TextBox ID="TextBoxFirstName" runat="server" Width="250px"></asp:TextBox>
+         <asp:TextBox ID="TextBoxFirstName" runat="server" Width="250px"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Style="color:red"
+             ErrorMessage="RequiredFieldValidator"
+             ControlToValidate="TextBoxFirstName">
+             Firstname is mandatory </asp:RequiredFieldValidator>
      </p>
      <p>
            <asp:Label ID="LabelMiddleName" runat="server" Text="MiddleName :" Width="170px"></asp:Label>
@@ -46,6 +58,10 @@
      <p>
           <asp:Label ID="LabelDateOfBirth" runat="server" Text="DateOfBirth :" Width="170px"></asp:Label>
           <asp:TextBox ID="TextBoxDateOfBirth" runat="server" Width="250px"  placeholder="dd/mm/yyyy"></asp:TextBox>
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Style="color:red"
+               ErrorMessage="RequiredFieldValidator"
+               ControlToValidate="TextBoxDateOfBirth">
+               DateofBirth is mandatory </asp:RequiredFieldValidator>
      </p>
      <p>
         <asp:Label ID="LabelHireDate" runat="server" Text="HireDate :" Width="170px"></asp:Label>

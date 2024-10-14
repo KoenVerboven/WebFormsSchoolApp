@@ -214,14 +214,20 @@ namespace WebFormsSchoolApp.Course
             TextBoxCoursePrice.Enabled = enableControl;
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ButtonSave_Click(object sender, EventArgs e)
         {
-            LabelErrorMessage.Text = "Not implemented yet";
+            if (Page.IsValid)
+            {
+                //save
+            }
+            else
+            {
+            }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void ButtonCancel_Click(object sender, EventArgs e)
         {
-            LabelErrorMessage.Text = "Not implemented yet";
+            Response.Redirect("WebFormSearchCourse.aspx");
         }
     }
 }
