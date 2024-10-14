@@ -6,11 +6,11 @@
        <asp:Label ID="LabelTitle" runat="server" Text="CourseDetail" Font-Size="16"></asp:Label>
     </p> 
     <p>
-         <asp:Button ID="Button1" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" />
-         <asp:Button ID="Button2" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" />
+         <asp:Button ID="Button1" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="Button1_Click" />
+         <asp:Button ID="Button2" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" OnClick="Button2_Click" />
     </p>      
     <p>
-        <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
+        <asp:Label ID="LabelErrorMessage"  ForeColor="Red"  runat="server" Text=""></asp:Label> 
     </p>
     <p>
         <asp:Label ID="LabelCourseId" runat="server" Text="CourseId :" Width="170px"></asp:Label>
@@ -26,11 +26,11 @@
     </p>
      <p>
          <asp:Label ID="LabelStartDate" runat="server" Text="StartDate :" Width="170px"></asp:Label>
-         <asp:TextBox ID="TextBoxStartDate" runat="server" Width="250px"></asp:TextBox>
+         <asp:TextBox ID="TextBoxStartDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
      </p>
      <p>
          <asp:Label ID="LabelEndDate" runat="server" Text="EndDate :" Width="170px"></asp:Label>
-         <asp:TextBox ID="TextBoxEndDate" runat="server" Width="250px"></asp:TextBox>
+         <asp:TextBox ID="TextBoxEndDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
      </p>
     <p>
         <asp:Label ID="LabelActive" runat="server" Text="Active :" Width="170px"></asp:Label>

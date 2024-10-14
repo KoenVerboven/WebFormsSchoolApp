@@ -7,7 +7,7 @@
             <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
           </p>
           <p>
-            <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server" placeholder="Search on fullName"></asp:TextBox>
             <asp:Button ID="ButtonSearch" runat="server" Text="Search" 
                 class="btn btn-primary btn-md"
                 OnClick="ButtonSearch_Click" 

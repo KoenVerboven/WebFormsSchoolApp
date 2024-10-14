@@ -143,5 +143,15 @@ namespace WebFormsSchoolApp.Teacher
             TextBoxHireDate.Enabled = enableControl;
             TextBoxLeaveDate.Enabled = enableControl;
         }
+
+        protected void ButtonSave_Click(object sender, EventArgs e)
+        {
+            LabelErrorMessage.Text = "Not implemented yet";
+        }
+
+        protected void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            LabelErrorMessage.Text = "Not implemented yet";
+        }
     }
 }

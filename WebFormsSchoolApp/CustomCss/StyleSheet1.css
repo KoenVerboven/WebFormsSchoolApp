@@ -23,14 +23,24 @@ a{
 }
 
 .link1 {
-    background-color: #CCC;
-    color: #44A;
+    background-color: #88D;
+    color: #DDD;
     height: 30px;
     width: 100px;
     padding-left: 20px;
     text-decoration: none;
-    border-radius:7px;
+    border-radius: 7px;
 }
+
+ .link1:hover {
+    background-color: lightblue;
+    color: black;
+    border-style: inset;
+    border-width: 1px;
+    border-color: darkgrey;
+    cursor: pointer;
+}
+
 
 .text1 {
     color: #FFA500;

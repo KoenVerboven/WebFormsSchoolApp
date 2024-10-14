@@ -4,7 +4,7 @@
     <h3>Search Course</h3>
     <br />
     <p>
-        <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
+        <asp:Label ID="LabelErrorMessage"  ForeColor="Red" runat="server" Text=""></asp:Label> 
     </p>
     <p>
         <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>

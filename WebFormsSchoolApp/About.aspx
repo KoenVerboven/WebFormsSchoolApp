@@ -4,6 +4,8 @@
     <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %>.</h2>
+        <a href="default.aspx" class="link1">Home</a>
+        <br />
         <div class="customFrame1">
             <h3><u>Schooladministration</u></h3>
             <h5>Demo program</h5>
@@ -22,7 +24,6 @@
                <li> <a href="https://github.com/KoenVerboven/WinFormsSchool">WinForms School project</a></li>
             </ul>
             <br />
-            <a href="default.aspx" class="link1">Home</a>
             <br />
             <p>           
               <asp:Label ID="Labelfooter" runat="server" Text="Label"></asp:Label>

@@ -5,11 +5,11 @@
               <asp:Label ID="LabelTitle" runat="server" Text="StudentDetail" Font-Size="16"></asp:Label>
         </p>
         <p>
-            <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" />
-            <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" />
+            <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="ButtonSave_Click" />
+            <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" OnClick="ButtonCancel_Click" />
         </p>
         <p>
-            <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
+            <asp:Label ID="LabelErrorMessage" ForeColor="Red" runat="server" Text=""></asp:Label> 
         </p>
         <p>
             <asp:Label ID="LabelStudentId" runat="server" Text="StudentId :" Width="170px"></asp:Label>
@@ -37,7 +37,7 @@
         </p>
         <p>
            <asp:Label ID="LabelPhoneNumber" runat="server" Text="PhoneNumber :" Width="170px"></asp:Label>
-           <asp:TextBox ID="TextBoxPhoneNumber" runat="server" Width="250px"></asp:TextBox>
+           <asp:TextBox ID="TextBoxPhoneNumber" runat="server" Width="250px" placeholder="e.x. 036.444.789"></asp:TextBox>
         </p>
         <p>
            <asp:Label ID="LabelEmailAddress" runat="server" Text="EmailAddress :" Width="170px"></asp:Label>
@@ -45,11 +45,11 @@
         </p>
         <p>
           <asp:Label ID="LabelDateOfBirth" runat="server" Text="DateOfBirth :" Width="170px"></asp:Label>
-          <asp:TextBox ID="TextBoxDateOfBirth" runat="server" Width="250px"></asp:TextBox>
+          <asp:TextBox ID="TextBoxDateOfBirth" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
         </p>
         <p>
           <asp:Label ID="LabelRegistrationDate" runat="server" Text="RegistrationDate :" Width="170px"></asp:Label>
-          <asp:TextBox ID="TextBoxRegistrationDate" runat="server" Width="250px"></asp:TextBox>
+          <asp:TextBox ID="TextBoxRegistrationDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
         </p>
         <br />
         <a href="WebFormSearchStudent.aspx">Go Back to SearchStudent</a>

@@ -204,5 +204,15 @@ namespace WebFormsSchoolApp.Course
             CheckBoxActive.Enabled = enableControl;
             TextBoxCoursePrice.Enabled = enableControl;
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            LabelErrorMessage.Text = "Not implemented yet";
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            LabelErrorMessage.Text = "Not implemented yet";
+        }
     }
 }
