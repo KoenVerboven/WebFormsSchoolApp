@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebFormsSchoolApp._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="div-3">
+    <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />
+     <div>
      <h3>Home Menu</h3>
      <br />
      <br />

@@ -6,7 +6,7 @@
         <h2 id="title"><%: Title %>.</h2>
         <a href="default.aspx" class="link1">Home</a>
         <br />
-        <div class="customFrame1">
+        <div class="customFrame1" Height="550px";>
             <h3><u>Schooladministration</u></h3>
             <h5>Demo program</h5>
             <h6 class="text1">Programmer : Verboven Koen</h6>

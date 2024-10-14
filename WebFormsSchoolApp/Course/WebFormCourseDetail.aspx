@@ -6,8 +6,8 @@
        <asp:Label ID="LabelTitle" runat="server" Text="CourseDetail" Font-Size="16"></asp:Label>
     </p> 
     <p>
-         <asp:Button ID="Button1" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="Button1_Click" />
-         <asp:Button ID="Button2" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" OnClick="Button2_Click" />
+         <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="Button1_Click" />
+         <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" OnClick="Button2_Click" />
     </p>      
     <p>
         <asp:Label ID="LabelErrorMessage"  ForeColor="Red"  runat="server" Text=""></asp:Label> 

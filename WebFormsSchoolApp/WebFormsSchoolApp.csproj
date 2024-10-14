@@ -128,7 +128,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="info\WebFormWithMasterPage.png" />
-    <Content Include="MainForm.aspx" />
     <Content Include="ScreenShots\webformschoolHomeMenu.png" />
     <Content Include="ScreenShots\webformschoolStudentDetail.png" />
     <Content Include="ScreenShots\webformsschoolSearchCourse.png" />
@@ -250,13 +249,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.aspx.cs">
-      <DependentUpon>MainForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MainForm.aspx.designer.cs">
-      <DependentUpon>MainForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="models\Course.cs" />
     <Compile Include="models\Person.cs" />

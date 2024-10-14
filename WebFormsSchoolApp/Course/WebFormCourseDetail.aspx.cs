@@ -170,27 +170,36 @@ namespace WebFormsSchoolApp.Course
                         case "detail":
                             LabelTitle.Text = "Course Detail";
                             DisableAllControls(true);
+                            ButtonSaveAndCancelVisible(false);
                             break;
                         case "insert":
                             LabelTitle.Text = "Insert new Course";
                             DisableAllControls(false);
+                            ButtonSaveAndCancelVisible(true);
                             break;
                         case "update":
                             LabelTitle.Text = "Update Course";
                             DisableAllControls(false);
+                            ButtonSaveAndCancelVisible(true);
                             break;
                         default:
                             LabelTitle.Text = "Course Detail";
                             DisableAllControls(true);
+                            ButtonSaveAndCancelVisible(false);
                             break;
                     }
                 }
             }
             catch (Exception)
             {
-
-                throw;
+                LabelErrorMessage.Text = "An error occured.Try later again.";
             }
+        }
+
+        private void ButtonSaveAndCancelVisible(bool visible)
+        {
+            ButtonSave.Visible = visible;
+            ButtonCancel.Visible = visible;
         }
 
 

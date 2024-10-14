@@ -106,18 +106,22 @@ namespace WebFormsSchoolApp.Teacher
                         case "detail":
                             LabelTitle.Text = "Student Detail";
                             DisableAllControls(true);
+                            ButtonSaveAndCancelVisible(false);
                             break;
                         case "insert":
                             LabelTitle.Text = "Insert new Teacher";
                             DisableAllControls(false);
+                            ButtonSaveAndCancelVisible(true);
                             break;
                         case "update":
                             LabelTitle.Text = "Update Teacher";
                             DisableAllControls(false);
+                            ButtonSaveAndCancelVisible(true);
                             break;
                         default:
                             LabelTitle.Text = "Student Detail";
                             DisableAllControls(true);
+                            ButtonSaveAndCancelVisible(false);
                             break;
                     }
                 }
@@ -127,6 +131,12 @@ namespace WebFormsSchoolApp.Teacher
 
                 throw;
             }
+        }
+
+        private void ButtonSaveAndCancelVisible(bool visible)
+        {
+            ButtonSave.Visible = visible;
+            ButtonCancel.Visible = visible;
         }
 
         private void DisableAllControls(bool disable)

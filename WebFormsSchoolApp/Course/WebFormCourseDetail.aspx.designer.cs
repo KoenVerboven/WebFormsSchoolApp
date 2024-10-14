@@ -24,22 +24,22 @@ namespace WebFormsSchoolApp.Course
         protected global::System.Web.UI.WebControls.Label LabelTitle;
 
         /// <summary>
-        /// Button1 control.
+        /// ButtonSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ButtonSave;
 
         /// <summary>
-        /// Button2 control.
+        /// ButtonCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button ButtonCancel;
 
         /// <summary>
         /// LabelErrorMessage control.
