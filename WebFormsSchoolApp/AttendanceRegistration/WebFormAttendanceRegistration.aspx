@@ -19,10 +19,10 @@
         >
          <Columns>
              <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
-             <asp:BoundField DataField="" HeaderText="Aanwezig"/>
-             <asp:BoundField DataField="" HeaderText="Ziek"/>
-             <asp:BoundField DataField="" HeaderText="Onwettig afwezig"/>
-             <asp:BoundField DataField="" HeaderText="Opmerkingen"/>
+             <asp:BoundField DataField="" HeaderText="Present"/>
+             <asp:BoundField DataField="" HeaderText="Sick"/>
+             <asp:BoundField DataField="" HeaderText="Unlawfully Absent"/>
+             <asp:BoundField DataField="" HeaderText="Remarks"/>
          </Columns>
  <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
  <FooterStyle BackColor="#aaaadd"></FooterStyle>

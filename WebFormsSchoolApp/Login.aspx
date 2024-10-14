@@ -11,15 +11,14 @@
                 <br />
 
                 <p>
-                    <asp:Label ID="LabelUserId" runat="server" Text="UserId :" Width="100px" class="label1"></asp:Label>
-                    <asp:TextBox ID="TextBoxId" runat="server" Width="190px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxId" runat="server"  placeholder="Type here your LoginId" Width="230px"></asp:TextBox>
                 </p>
                 <p>
-                    <asp:Label ID="LabelPassword" runat="server" Text="Password :" Width="100px"></asp:Label>
-                    <asp:TextBox ID="TextBoxPassword" runat="server" Width="190px" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxPassword" runat="server" placeholder="Type here your Password"  Width="230px" TextMode="Password"></asp:TextBox>
                 </p>
+                <p><a href="ForgetPassword.aspx">Forget password?</a></p>
                 <p>
-                    <asp:Button ID="ButtonLogin" runat="server" Text="Login" Style="height: 35px" Width="90px"
+                    <asp:Button ID="ButtonLogin" runat="server" Text="Login" Style="height: 35px" Width="230px"
                         class="btn btn-primary btn-md"
                         OnClick="ButtonLogin_Click" />
                 </p>
