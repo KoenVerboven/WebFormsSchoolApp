@@ -128,6 +128,7 @@
     <Content Include="favicon.ico" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="info\addReference.png" />
     <Content Include="info\WebFormWithMasterPage.png" />
     <Content Include="ScreenShots\webformschoolHomeMenu.png" />
     <Content Include="ScreenShots\webformschoolStudentDetail.png" />
@@ -259,11 +260,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="models\Course.cs" />
-    <Compile Include="models\Person.cs" />
-    <Compile Include="models\Student.cs" />
-    <Compile Include="models\Teacher.cs" />
-    <Compile Include="models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
