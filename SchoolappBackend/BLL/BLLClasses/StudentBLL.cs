@@ -30,7 +30,7 @@ namespace SchoolappBackend.BLL.BLLClasses
 
         public Student GetStudentById(int Id)
         {
-            throw new NotImplementedException();
+            return students.SingleOrDefault(p => p.PersonId == Id);
         }
 
         public List<Student> GetStudents(string searchField,string orderBy)

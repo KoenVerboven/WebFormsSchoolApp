@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolappBackend.BLL.BLLClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using WebFormsSchoolApp.models;
@@ -86,7 +87,9 @@ namespace WebFormsSchoolApp.Teacher
 
                     if(action == "detail" || action == "update")
                     {
-                        var teacherSelected = teachers.SingleOrDefault(p => p.PersonId == teacherId);
+                        TeacherBLL teacherBLL = new TeacherBLL();
+                        var teacherSelected = teacherBLL.GetTeacherById(teacherId);
+
                         LabelTeacherIdValue.Text = Convert.ToString(teacherSelected.PersonId);
                         TextBoxLastName.Text = teacherSelected.LastName;
                         TextBoxFirstName.Text = teacherSelected.Firstname;

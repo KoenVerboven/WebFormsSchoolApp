@@ -1,6 +1,6 @@
-﻿using System;
+﻿using SchoolappBackend.BLL.BLLClasses;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace WebFormsSchoolApp.Student
 {
@@ -198,7 +198,9 @@ namespace WebFormsSchoolApp.Student
 
                     if(action=="detail" || action == "update")
                     {
-                        var studentSelected = students.SingleOrDefault(p => p.PersonId == personId);
+                        StudentBLL studentBLL = new StudentBLL();
+                        var studentSelected = studentBLL.GetStudentById(personId);
+
                         LabelStudentIdValue.Text = studentSelected.PersonId.ToString();
                         TextBoxLastName.Text = studentSelected.LastName.ToString();
                         TextBoxFirstName.Text = studentSelected.Firstname.ToString();
