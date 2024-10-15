@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormCourseDetail.aspx.cs" Inherits="WebFormsSchoolApp.Course.WebFormCourseDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
     <div class="div-3">
 
     <p>

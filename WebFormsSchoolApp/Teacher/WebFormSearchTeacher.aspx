@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormSearchTeacher.aspx.cs" Inherits="WebFormsSchoolApp.Teacher.WebFormSearchTeacher" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-      <div class="div-3">
+    <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
+    <div class="div-3">
       <h3>Search teacher</h3>
       <br />
           <p>
@@ -58,8 +59,6 @@
                    ShowDeleteButton="True"
                    />
            </Columns>
-           <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
-           <FooterStyle BackColor="#aaaadd"></FooterStyle>
            <AlternatingRowStyle backcolor="#eeeeee"></AlternatingRowStyle>
       </asp:GridView>
       <br />

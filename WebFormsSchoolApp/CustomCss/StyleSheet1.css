@@ -25,10 +25,31 @@ body {
     border-style: inset;
     border-width: 1px;
     border-color: darkgrey;
-    border-radius: 3px;
+    border-radius: 6px;
 }
 
-a{
+th {
+    background-color: #505678 
+}
+
+th a {
+   display:block;
+   color:antiquewhite;
+}
+
+th a:hover {
+   display: block;
+   color: aliceblue;
+}
+
+footer {
+    
+}
+
+
+
+
+/*a{
     display : block;
 }
 
@@ -49,7 +70,7 @@ a{
     border-width: 1px;
     border-color: darkgrey;
     cursor: pointer;
-}
+}*/
 
 .text1 {
     color: #FFA500;

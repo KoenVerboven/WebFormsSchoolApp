@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormStudentDetail.aspx.cs" Inherits="WebFormsSchoolApp.Student.WebFormStudentDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
     <div class="div-3">
         <p>
               <asp:Label ID="LabelTitle" runat="server" Text="StudentDetail" Font-Size="16"></asp:Label>
