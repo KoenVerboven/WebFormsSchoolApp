@@ -16,7 +16,7 @@
                 <p>
                     <asp:TextBox ID="TextBoxPassword" runat="server" placeholder="Type here your Password"  Width="230px" TextMode="Password"></asp:TextBox>
                 </p>
-                <p><a href="ForgetPassword.aspx">Forget password?</a></p>
+                <p><a href="ForgetPassword.aspx">Forget password  ?</a></p>
                 <p>
                     <asp:Button ID="ButtonLogin" runat="server" Text="Login" Style="height: 35px" Width="230px"
                         class="btn btn-primary btn-md"
