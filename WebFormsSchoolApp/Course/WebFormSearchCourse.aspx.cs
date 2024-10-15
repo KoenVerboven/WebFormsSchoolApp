@@ -59,8 +59,28 @@ namespace WebFormsSchoolApp.Course
 
         private void Search(string orderBy)
         {
+
+            ActiveType activeType = ActiveType.All;
+
+            if (DropDownListFilterActive.Items.Count > 0)
+            {
+                if (DropDownListFilterActive.SelectedItem.Text == "Show active") 
+                {
+                    activeType = ActiveType.Active;
+                }
+                if (DropDownListFilterActive.SelectedItem.Text == "Show non active") 
+                {
+                    activeType = ActiveType.NonActive;
+                }
+                if (DropDownListFilterActive.SelectedItem.Text == "Show all") 
+                {
+                    activeType = ActiveType.All;
+                }
+            }
+
+
             CourseBLL courseBLL = new CourseBLL();
-            courses = courseBLL.GetCourses(TextBoxSearch.Text.Trim(), orderBy);
+            courses = courseBLL.GetCourses(TextBoxSearch.Text.Trim(), orderBy, activeType);
            
             GridView1.DataSource = courses;
             GridView1.DataBind();

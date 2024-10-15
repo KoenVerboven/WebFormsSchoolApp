@@ -2,11 +2,19 @@
 using SchoolappBackend.BLL.models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 
 namespace SchoolappBackend.BLL.BLLClasses
 {
+    public enum ActiveType
+    {
+        Active,
+        NonActive,
+        All
+    }
+
     public class CourseBLL : ICourseBLL
     {
         List<SchoolappBackend.BLL.models.Course> courses;
@@ -22,30 +30,22 @@ namespace SchoolappBackend.BLL.BLLClasses
             return courses.SingleOrDefault(p => p.CourseId == courseId);
         }
 
-        public List<Course> GetCourses(string searchField, string orderBy)
+        public List<Course> GetCourses(string searchField, string orderBy , ActiveType activeType)
         {
             if (courses != null)
             {
                 courses = courses
                              .Where(X => X.CourseName.ToLower().Contains(searchField.ToLower())
                 ).ToList();
-
-
-                //if (DropDownListFilterActive.Items.Count > 0)
-                //{
-                //    if (DropDownListFilterActive.SelectedItem.Text == "Show active") //todo ipv text -> value
-                //    {
-                //        courses = courses.Where(X => X.CourseIsActive == true).ToList();
-                //    }
-                //    if (DropDownListFilterActive.SelectedItem.Text == "Show non active") //todo ipv text -> value
-                //    {
-                //        courses = courses.Where(X => X.CourseIsActive == false).ToList();
-                //    }
-                //}
-                //else
-                //{
-                //    courses = courses.Where(X => X.CourseIsActive == true).ToList();
-                //}
+               
+                if (activeType == ActiveType.Active) 
+                {
+                    courses = courses.Where(X => X.CourseIsActive == true).ToList();
+                }
+                if (activeType == ActiveType.NonActive) 
+                {
+                    courses = courses.Where(X => X.CourseIsActive == false).ToList();
+                }
 
                 switch (orderBy)
                 {
