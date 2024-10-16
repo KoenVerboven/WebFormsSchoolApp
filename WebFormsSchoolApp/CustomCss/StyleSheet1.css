@@ -5,14 +5,20 @@ body {
     background-color: #DDD;
 }
 
+.pageTitle {
+    background-color: #8DC4ED;
+    font-size: 25px;
+    padding-left: 20px;
+}
+
 .errorLabel {
-    color:#F00;
+    color: #F00;
     background-color: #FCC;
     padding-left: 10px;
     padding-top: 3px;
     padding-bottom: 3px;
     padding-right: 10px;
-    align-content:center;
+    align-content: center;
 }
 
 .customFrame1 {
@@ -42,11 +48,9 @@ th a:hover {
    color: aliceblue;
 }
 
-footer {
-    
+.text1 {
+    color: #FFA500;
 }
-
-
 
 
 /*a{
@@ -72,7 +76,5 @@ footer {
     cursor: pointer;
 }*/
 
-.text1 {
-    color: #FFA500;
-}
+
 

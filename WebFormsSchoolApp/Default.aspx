@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />
      <div>
-     <h3>Home Menu</h3>
+     <div class="pageTitle">Home</div>
      <br />
      <br />
      <p>

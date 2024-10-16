@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
     <div class="div-3">
-    <h3>Student</h3>
-    <br />
+    <div class="pageTitle">Student</div>
     <p>
         <asp:Label ID="LabelErrorMessage"  ForeColor="Red"  runat="server" Text=""></asp:Label> 
     </p>
@@ -32,7 +31,7 @@
         ShowFooter="true"
         BackColor="White"
         Height="150px"
-        Width="90%"
+        Width="100%"
         BorderColor="black"
         BorderWidth="1"
         GridLines="Both"
