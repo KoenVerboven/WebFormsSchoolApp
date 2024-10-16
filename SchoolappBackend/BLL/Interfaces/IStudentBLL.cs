@@ -15,6 +15,6 @@ namespace SchoolappBackend.BLL.Interfaces
 
          bool UpdateStudent(Student student);
 
-         bool DeleteStudent(int StudentId);
+        List<Student> DeleteStudent(int StudentId);
     }
 }

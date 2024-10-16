@@ -2,6 +2,7 @@
 using SchoolappBackend.BLL.BLLClasses;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web.UI.WebControls;
 
@@ -75,25 +76,38 @@ namespace WebFormsSchoolApp.Student
         }
 
         
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+
+        protected void cmdDelete_Click(object sender, EventArgs e)
         {
             try
             {
+                
+                Button btn = sender as Button;
+                GridViewRow gRow = btn.NamingContainer as GridViewRow;
+                int rowIndex = gRow.RowIndex;
+                var studentId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
+                StudentBLL studentBLL = new StudentBLL();
+                var test = studentBLL.DeleteStudent(studentId);
+                GridView1.DataSource = test;
+                GridView1.DataBind();
+  
+           
+               
 
             }
             catch (Exception oEx)
             {
                 LabelErrorMessage.Text = oEx.Message;
             }
-            var studentId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
-            var studentToRemove = students.SingleOrDefault(p=>p.PersonId == studentId);
-            students.Remove(studentToRemove);
             Search("");
         }
 
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void cmdUpdate_Click(object sender, EventArgs e)
         {
-            var studentId = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
+            Button btn = sender as Button;
+            GridViewRow gRow = btn.NamingContainer as GridViewRow;
+            int rowIndex = gRow.RowIndex;
+            var studentId = GridView1.Rows[rowIndex].Cells[1].Text;
             Response.Redirect("WebFormStudentDetail.aspx?studentId=" + studentId + "&action=update");
         }
     }

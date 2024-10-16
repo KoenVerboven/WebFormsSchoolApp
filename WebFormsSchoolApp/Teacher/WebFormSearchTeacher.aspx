@@ -58,7 +58,7 @@
                    ShowDeleteButton="True"
                    />
            </Columns>
-           <AlternatingRowStyle backcolor="#6FCADF"></AlternatingRowStyle>
+           <AlternatingRowStyle backcolor="#9DE7FB"></AlternatingRowStyle>
       </asp:GridView>
       <br />
       <br />

@@ -61,7 +61,7 @@
                 />
 
         </Columns>
-        <AlternatingRowStyle BackColor="#6FCADF"></AlternatingRowStyle>
+        <AlternatingRowStyle BackColor="#9DE7FB"></AlternatingRowStyle>
     </asp:GridView>
      <br />
      <br />

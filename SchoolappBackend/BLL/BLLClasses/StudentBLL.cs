@@ -23,10 +23,14 @@ namespace SchoolappBackend.BLL.BLLClasses
             throw new NotImplementedException();
         }
 
-        public bool DeleteStudent(int StudentId)
+        public List<Student>  DeleteStudent(int StudentId)
         {
-            throw new NotImplementedException();
+            var studentToRemove = students.SingleOrDefault(p => p.PersonId == StudentId);
+            students.Remove(studentToRemove);
+            return students;
         }
+
+        
 
         public Student GetStudentById(int Id)
         {
@@ -244,5 +248,6 @@ namespace SchoolappBackend.BLL.BLLClasses
             };
         }
 
+       
     }
 }
