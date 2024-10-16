@@ -2,13 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
     <div class="div-3">
-      <h3>Search teacher</h3>
+      <h3>Teacher</h3>
       <br />
           <p>
             <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
           </p>
           <p>
-            <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server" placeholder="Search on fullName"></asp:TextBox>
+            <asp:TextBox ID="TextBoxSearch" Width="250px" Height="36px" runat="server" placeholder="Search on fullName"></asp:TextBox>
             <asp:Button ID="ButtonSearch" runat="server" Text="Search" 
                 class="btn btn-primary btn-md"
                 OnClick="ButtonSearch_Click" 
@@ -59,7 +59,7 @@
                    ShowDeleteButton="True"
                    />
            </Columns>
-           <AlternatingRowStyle backcolor="#eeeeee"></AlternatingRowStyle>
+           <AlternatingRowStyle backcolor="#6FCADF"></AlternatingRowStyle>
       </asp:GridView>
       <br />
       <br />

@@ -15,7 +15,7 @@
              BackColor="#222288"
              >
              <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
-             <asp:Label runat="server" Text="Search Student" style="margin:9px 0px 0px 15px; float:left;"/>
+             <asp:Label runat="server" Text="Student" style="margin:9px 0px 0px 15px; float:left;"/>
          </asp:LinkButton></p><p>
          <asp:LinkButton ID="LinkButtonSearchTeacher" runat="server" 
             Height="40"
@@ -25,7 +25,7 @@
             OnClick="LinkButtonSearchTeacher_Click"
             >
             <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
-            <asp:Label runat="server" Text="Search Teachter" style="margin:9px 0px 0px 15px; float:left;"/>
+            <asp:Label runat="server" Text="Teachter" style="margin:9px 0px 0px 15px; float:left;"/>
          </asp:LinkButton></p><p>
          <asp:LinkButton ID="LinkButtonSearchCourse" runat="server"
              Height="40"
@@ -34,7 +34,7 @@
              BackColor="#AA2222" 
              OnClick="LinkButtonSearchCourse_Click">
            <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
-           <asp:Label runat="server" Text="Search Course" style="margin:9px 0px 0px 15px; float:left;"/>
+           <asp:Label runat="server" Text="Course" style="margin:9px 0px 0px 15px; float:left;"/>
          </asp:LinkButton></p><p>
          <asp:LinkButton ID="LinkButtonSearchUser" runat="server"
             Height="40"
@@ -43,16 +43,21 @@
             BackColor="#2222EE" OnClick="LinkButtonSearchUser_Click"
             >
            <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
-          <asp:Label runat="server" Text="Search User" style="margin:9px 0px 0px 15px; float:left;"/>
-          </asp:LinkButton></p>
-                <p> <asp:LinkButton ID="LinkButtonAttendanceRegistration" runat="server"
+          <asp:Label runat="server" Text="User" style="margin:9px 0px 0px 15px; float:left;"/>
+          </asp:LinkButton></p><p> <asp:LinkButton ID="LinkButtonUserRole" runat="server"
+              Height="40"
+              Width="200"
+              ForeColor="#FFFFFF"
+              BackColor="#2288FE" OnClick="LinkButtonUserRole_Click"  
+              >
+          <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
+          <asp:Label runat="server" Text="UserRole" style="margin:9px 0px 0px 15px; float:left;"/>
+          </asp:LinkButton></p><p> <asp:LinkButton ID="LinkButtonAttendanceRegistration" runat="server"
           Height="40"
           Width="200"
           ForeColor="#FFFFFF"
           BackColor="#228888" OnClick="LinkButtonAttendanceRegistration_Click1" 
           >
          <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
-        <asp:Label runat="server" Text="AttendanceRegistration" style="margin:9px 0px 0px 15px; float:left;"/>
-        </asp:LinkButton></p>
-     </div>
-</asp:Content>
+        <asp:Label runat="server" Text="Attendance" style="margin:9px 0px 0px 15px; float:left;"/>
+        </asp:LinkButton></p></div></asp:Content>

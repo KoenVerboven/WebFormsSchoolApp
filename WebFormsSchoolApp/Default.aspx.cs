@@ -44,5 +44,10 @@ namespace WebFormsSchoolApp
         {
             Response.Redirect("AttendanceRegistration\\WebFormAttendanceRegistration.aspx");
         }
+
+        protected void LinkButtonUserRole_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -3,7 +3,7 @@
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
     <div class="div-3">
      <p>
-          <asp:Label ID="LabelTitle" runat="server" Text="TeacherDetail" Font-Size="16"></asp:Label>
+          <asp:Label ID="LabelTitle" runat="server" Text="TeacherDetail" Font-Size="20"></asp:Label>
      </p>
      <p>
          <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="ButtonSave_Click" />

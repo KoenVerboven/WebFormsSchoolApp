@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormSearchUser.aspx.cs" Inherits="WebFormsSchoolApp.User.WebFormSearchUser" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h3>Search User</h3>
+    <h3>User</h3>
     <br /><br />
     <p>
         <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>

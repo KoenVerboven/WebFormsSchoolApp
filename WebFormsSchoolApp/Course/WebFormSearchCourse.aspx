@@ -2,28 +2,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
     <div class="div-3" >
-    <h3>Search Course</h3>
+    <h3>Course</h3>
     <br />
     <p>
         <asp:Label ID="LabelErrorMessage"  ForeColor="Red" runat="server" Text=""></asp:Label> 
     </p>
     <p>
-        <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"></asp:TextBox>
-        <asp:Button ID="ButtonSearch" runat="server" Text="Search" 
+        <asp:TextBox ID="TextBoxSearch" Width="250px" Height="36px" placeholder="Search on coursename" runat="server"></asp:TextBox>
+        <asp:Button ID="ButtonSearch" runat="server" Text="Search" Height="36"
             class="btn btn-primary btn-md"
             OnClick="ButtonSearch_Click" 
             />
          &nbsp
          &nbsp
          &nbsp
-         <asp:Button ID="ButtonNew" runat="server" Text="+" 
-             class="btn btn-secondary btn-md" OnClick="ButtonNew_Click"  
+         <asp:Button ID="ButtonNew" runat="server" Text="+"  Height="36"
+             class="btn btn-secondary btn-md"  OnClick="ButtonNew_Click"  
              />
           &nbsp
           &nbsp
     </p>
     <p>
-         <asp:DropDownList ID="DropDownListFilterActive" Width="250px" runat="server"></asp:DropDownList>
+         <asp:DropDownList ID="DropDownListFilterActive" Height="36px" Width="250px" runat="server"></asp:DropDownList>
     </p>
     <br />
     <asp:GridView ID="GridView1" runat="server"
@@ -62,7 +62,7 @@
                 />
 
         </Columns>
-        <AlternatingRowStyle BackColor="#eeeeee"></AlternatingRowStyle>
+        <AlternatingRowStyle BackColor="#6FCADF"></AlternatingRowStyle>
     </asp:GridView>
      <br />
      <br />
