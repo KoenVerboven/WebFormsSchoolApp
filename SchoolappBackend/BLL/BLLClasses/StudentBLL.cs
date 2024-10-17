@@ -1,5 +1,6 @@
 ﻿using SchoolappBackend.BLL.Interfaces;
 using SchoolappBackend.BLL.models;
+using SchoolappBackend.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace SchoolappBackend.BLL.BLLClasses
         public StudentBLL()
         {
             students = new List<Student>();
-            FillStudentlist();
+            //FillStudentlist();
 
         }
 
@@ -39,6 +40,8 @@ namespace SchoolappBackend.BLL.BLLClasses
 
         public List<Student> GetStudents(string searchField,string orderBy)
         {
+            var studentDal = new StudentDal();
+            students = studentDal.GetStudents();
             if (students != null)
             {
                 students = students
