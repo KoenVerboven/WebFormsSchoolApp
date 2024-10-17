@@ -15,14 +15,23 @@ namespace SchoolappBackend.BLL.BLLClasses
         public TeacherBLL()
         {
             teachers = new List<Teacher>();
-           // FillTeachersList();
+        }
+
+        public bool AddTeacher(Teacher teacher)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteTeacher(int TeacherId)
+        {
+           var teacherDal = new TeacherDal();
+           return teacherDal.DeleteTeacher(TeacherId);
         }
 
         public Teacher GetTeacherById(int id)
         {
             var teacherDal = new TeacherDal();
             return teacherDal.GetTeacherById(id);
-            //return teachers.SingleOrDefault(p => p.PersonId == Id);
         }
 
         public List<Teacher> GetTeachers(string searchField, string orderBy)
@@ -53,6 +62,11 @@ namespace SchoolappBackend.BLL.BLLClasses
                 return teachers;
             }
             return null;
+        }
+
+        public bool UpdateTeacher(Teacher teacher)
+        {
+            throw new NotImplementedException();
         }
 
         [Obsolete]

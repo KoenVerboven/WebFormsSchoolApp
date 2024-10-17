@@ -13,5 +13,12 @@ namespace SchoolappBackend.BLL.Interfaces
         Course GetCourseById(int courseId);
 
         List<Course> GetCoursesByStudentId(int studentId);
+
+        bool AddCourse(Course course);
+
+        bool UpdateCourse(Course course);
+
+        bool DeleteCourse(int CourseId);
+
     }
 }

@@ -84,10 +84,13 @@ namespace WebFormsSchoolApp.Teacher
 
         protected void cmdDelete_Click(object sender, EventArgs e)
         {
-            //var teacherId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
-            //var teacherToRemove = teachers.SingleOrDefault(p => p.PersonId == teacherId);
-            //teachers.Remove(teacherToRemove);
-            //Search("");
+            Button btn = sender as Button;
+            GridViewRow gRow = btn.NamingContainer as GridViewRow;
+            int rowIndex = gRow.RowIndex;
+            var teacherId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
+            TeacherBLL teacherBLL = new TeacherBLL();
+            teacherBLL.DeleteTeacher(teacherId);
+            Search("");
         }
     }
 }

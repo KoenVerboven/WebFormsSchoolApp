@@ -87,13 +87,8 @@ namespace WebFormsSchoolApp.Student
                 int rowIndex = gRow.RowIndex;
                 var studentId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
                 StudentBLL studentBLL = new StudentBLL();
-                var test = studentBLL.DeleteStudent(studentId);
-                GridView1.DataSource = test;
-                GridView1.DataBind();
-  
-           
-               
-
+                studentBLL.DeleteStudent(studentId);
+                Search("");
             }
             catch (Exception oEx)
             {

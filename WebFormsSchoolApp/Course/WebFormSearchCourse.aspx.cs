@@ -107,10 +107,13 @@ namespace WebFormsSchoolApp.Course
 
         protected void cmdDelete_Click(object sender, EventArgs e)
         {
-            //var courseId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
-            //var courseToRemove = courses.SingleOrDefault(p => p.CourseId == courseId);
-            //courses.Remove(courseToRemove);
-            //Search("");
+            Button btn = sender as Button;
+            GridViewRow gRow = btn.NamingContainer as GridViewRow;
+            int rowIndex = gRow.RowIndex;
+            var courseId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
+            CourseBLL courseBLL = new CourseBLL();
+            courseBLL.DeleteCourse(courseId);
+            Search("");
         }
     }
 }

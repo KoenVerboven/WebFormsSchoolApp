@@ -92,5 +92,27 @@ namespace SchoolappBackend.DAL
             }
             return null;
         }
+
+        public bool DeleteTeacher(int teacherId)
+        {
+            var query = "delete from teacher where teacheId = @TeacherId";
+            var connection = new SqlConnection(connectionString);
+
+            try
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.Add("@TeacherId", SqlDbType.Int, 50).Value = teacherId;
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
     }
 }

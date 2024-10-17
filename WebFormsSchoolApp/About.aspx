@@ -3,8 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />
     <main aria-labelledby="title">
-        <h2 id="title"><%: Title %>.</h2>
-        <a href="default.aspx" class="link1">Home</a>
+        <div class="pageTitle"><%: Title %></div>
         <br />
         <div class="customFrame1" Height="550px";>
             <h3><u>Schooladministration</u></h3>
@@ -28,6 +27,9 @@
             <p>           
               <asp:Label ID="Labelfooter" runat="server" Text="Label"></asp:Label>
             </p>   
+            <div>
+                 <a href="default.aspx" class="link1">Home</a>
+            </div>
         </div>
     </main>
 </asp:Content>

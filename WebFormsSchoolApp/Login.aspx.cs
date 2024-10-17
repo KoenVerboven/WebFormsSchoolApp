@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolappBackend.BLL.BLLClasses;
+using SchoolappBackend.BLL.models;
+using System;
 using System.Web;
 
 namespace WebFormsSchoolApp
@@ -20,8 +22,7 @@ namespace WebFormsSchoolApp
 
         protected void ButtonLogin_Click(object sender, EventArgs e)
         {
-            //if (TextBoxId.Text == "admin" && TextBoxPassword.Text == "admin")
-            if (TextBoxId.Text == "admin" || TextBoxId.Text == "koen" || TextBoxId.Text == "johan")
+            if (ValidUser() != null)
             {
                 Session["user"] = TextBoxId.Text.Trim();
                 SetCookie(TextBoxId.Text.Trim());
@@ -33,6 +34,23 @@ namespace WebFormsSchoolApp
                 LabelMessage.Text = "Authentication failed";
             }
         }
+
+        private SchoolappBackend.BLL.models.User ValidUser()
+        {
+
+            UserBLL user = new UserBLL();
+            var userFound = user.GetUserByUserNameAndPassword(TextBoxId.Text.Trim(), TextBoxPassword.Text.Trim());
+
+            if (userFound != null)
+            {
+                return userFound;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
         private void SetCookie(string inlogId) //doto : legaal vragen of user cookies goedkeurd
         {

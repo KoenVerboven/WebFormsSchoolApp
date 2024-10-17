@@ -21,11 +21,11 @@ namespace SchoolappBackend.BLL.BLLClasses
             throw new NotImplementedException();
         }
 
-        public List<Student>  DeleteStudent(int StudentId)
+        public bool DeleteStudent(int StudentId)
         {
-            var studentToRemove = students.SingleOrDefault(p => p.PersonId == StudentId);
-            students.Remove(studentToRemove);
-            return students;
+            var studentDal = new StudentDal();
+            studentDal.DeleteStudent(StudentId);
+            return true;
         }
 
         

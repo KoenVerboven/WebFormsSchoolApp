@@ -1,17 +1,18 @@
 ﻿using SchoolappBackend.BLL.Interfaces;
 using SchoolappBackend.BLL.models;
+using SchoolappBackend.DAL;
+using System;
 using System.Collections.Generic;
 
 
 namespace SchoolappBackend.BLL.BLLClasses
 {
-    internal class UserBLL : IUserBLL
+    public class UserBLL : IUserBLL
     {
         List<User> users;
 
         public UserBLL()
         {
-                FillUserList();
         }
 
         public bool AddUser(User user)
@@ -34,9 +35,8 @@ namespace SchoolappBackend.BLL.BLLClasses
             User user = null;
             if (userName != string.Empty)
             {
-                //var userDal = new UserDal();
-                //return userDal.GetValidUser(userName, passWord);
-                return user;
+                var userDal = new UserDal();
+                return userDal.GetValidUser(userName, passWord);
             }
             return user;
         }
@@ -51,6 +51,7 @@ namespace SchoolappBackend.BLL.BLLClasses
             throw new System.NotImplementedException();
         }
 
+        [Obsolete]
         private void FillUserList()
         {
             users = new List<User>()

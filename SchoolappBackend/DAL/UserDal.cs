@@ -199,7 +199,7 @@ namespace SchoolappBackend.DAL
             var query = "SELECT UserId, SecurityGroupId, ActiveFrom, Blocked, PersonId " +
                         "FROM InlogUser " +
                         "WHERE UserName = @UserName " +
-                        //"and UserPassword = @UserPassword" +
+                        "and UserPassword = @UserPassword " +
                         "and Blocked = 0 " +
                         "and ActiveFrom < getdate() ";
 

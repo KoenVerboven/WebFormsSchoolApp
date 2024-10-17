@@ -18,11 +18,22 @@ namespace SchoolappBackend.BLL.BLLClasses
 
     public class CourseBLL : ICourseBLL
     {
-        List<SchoolappBackend.BLL.models.Course> courses;
+        List<Course> courses;
 
         public CourseBLL()
         {
             courses = new List<Course>();
+        }
+
+        public bool AddCourse(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteCourse(int CourseId)
+        {
+            CourseDal courseDal = new CourseDal();
+            return courseDal.DeleteCourse(CourseId);
         }
 
         public Course GetCourseById(int courseId)
@@ -81,6 +92,11 @@ namespace SchoolappBackend.BLL.BLLClasses
         }
 
         public List<Course> GetCoursesByStudentId(int studentId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateCourse(Course course)
         {
             throw new NotImplementedException();
         }

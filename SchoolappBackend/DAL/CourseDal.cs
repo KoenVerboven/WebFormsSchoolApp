@@ -96,5 +96,27 @@ namespace SchoolappBackend.DAL
         }
 
 
+        public bool DeleteCourse(int courseId)
+        {
+            var query = "delete from course where CourseId = @CourseId";
+            var connection = new SqlConnection(connectionString);
+
+            try
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.Add("@CourseId", SqlDbType.Int, 50).Value = courseId;
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+
     }
 }
