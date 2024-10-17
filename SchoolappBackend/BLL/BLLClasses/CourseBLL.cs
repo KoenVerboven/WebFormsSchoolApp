@@ -1,5 +1,6 @@
 ﻿using SchoolappBackend.BLL.Interfaces;
 using SchoolappBackend.BLL.models;
+using SchoolappBackend.DAL;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,16 +23,19 @@ namespace SchoolappBackend.BLL.BLLClasses
         public CourseBLL()
         {
             courses = new List<Course>();
-            FillCoursesList();
         }
 
         public Course GetCourseById(int courseId)
         {
-            return courses.SingleOrDefault(p => p.CourseId == courseId);
+            CourseDal courseDal = new CourseDal();
+            return courseDal.GetCourseById(courseId);
         }
 
         public List<Course> GetCourses(string searchField, string orderBy , ActiveType activeType)
         {
+            CourseDal courseDal = new CourseDal();
+            courses = courseDal.GetCourses();
+            
             if (courses != null)
             {
                 courses = courses

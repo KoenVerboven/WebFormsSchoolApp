@@ -35,7 +35,8 @@ namespace SchoolappBackend.BLL.BLLClasses
 
         public Student GetStudentById(int Id)
         {
-            return students.SingleOrDefault(p => p.PersonId == Id);
+            var studentDal = new StudentDal();
+            return studentDal.GetStudentById(Id);
         }
 
         public List<Student> GetStudents(string searchField,string orderBy)
