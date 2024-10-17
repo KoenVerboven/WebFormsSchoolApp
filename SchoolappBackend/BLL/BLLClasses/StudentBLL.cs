@@ -4,7 +4,6 @@ using SchoolappBackend.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SchoolappBackend.BLL.BLLClasses
 {
@@ -15,8 +14,6 @@ namespace SchoolappBackend.BLL.BLLClasses
         public StudentBLL()
         {
             students = new List<Student>();
-            //FillStudentlist();
-
         }
 
         public bool AddStudent(Student student)
@@ -76,6 +73,7 @@ namespace SchoolappBackend.BLL.BLLClasses
             throw new NotImplementedException();
         }
 
+        [Obsolete]
         private void FillStudentlist()
         {
             students = new List<models.Student>()

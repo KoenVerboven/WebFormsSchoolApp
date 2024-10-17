@@ -1,5 +1,6 @@
 ﻿using SchoolappBackend.BLL.Interfaces;
 using SchoolappBackend.BLL.models;
+using SchoolappBackend.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,20 @@ namespace SchoolappBackend.BLL.BLLClasses
         public TeacherBLL()
         {
             teachers = new List<Teacher>();
-            FillTeachersList();
+           // FillTeachersList();
         }
 
-        public Teacher GetTeacherById(int Id)
+        public Teacher GetTeacherById(int id)
         {
-            return teachers.SingleOrDefault(p => p.PersonId == Id);
+            var teacherDal = new TeacherDal();
+            return teacherDal.GetTeacherById(id);
+            //return teachers.SingleOrDefault(p => p.PersonId == Id);
         }
 
         public List<Teacher> GetTeachers(string searchField, string orderBy)
         {
+            var teacherDal = new TeacherDal();
+            teachers = teacherDal.GetTeachers();
             if (teachers != null)
             {
                 teachers = teachers
@@ -50,6 +55,7 @@ namespace SchoolappBackend.BLL.BLLClasses
             return null;
         }
 
+        [Obsolete]
         private void FillTeachersList()
         {
             teachers = new List<models.Teacher>()
