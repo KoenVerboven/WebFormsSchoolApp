@@ -40,11 +40,11 @@
           CellSpacing="0"
           Font-Names="Verdana" 
           OnPageIndexChanging="GridView1_PageIndexChanging" 
-          OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSorting="GridView1_Sorting" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" 
+          OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSorting="GridView1_Sorting" 
           >
            <Columns>
                <asp:CommandField 
-                   ButtonType="Link"
+                   ButtonType="Button"
                    ShowSelectButton="True" 
                    />
                <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="PersonId" />
@@ -52,11 +52,21 @@
                <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" 
                    DataFormatString="{0:dd-M-yyyy}" 
                    SortExpression="DateOfBirth" />
-                  <asp:CommandField 
-                   ButtonType="Link"
-                   ShowEditButton="True"
-                   ShowDeleteButton="True"
-                   />
+
+                <asp:TemplateField HeaderText = "" ItemStyle-HorizontalAlign ="Center" >
+                <ItemTemplate>
+                    <asp:Button ID="cmdUpdate" runat="server" Text="Update"
+                        CssClass="btn btn-primary btn-md" OnClick="cmdUpdate_Click" />
+                </ItemTemplate>
+             </asp:TemplateField>
+
+             <asp:TemplateField HeaderText="" ItemStyle-HorizontalAlign="Center">
+                 <ItemTemplate>
+                     <asp:Button ID="cmdDelete" runat="server" Text="Delete"
+                         CssClass="btn btn-danger btn-md" OnClick="cmdDelete_Click" />
+                 </ItemTemplate>
+             </asp:TemplateField>
+                
            </Columns>
            <AlternatingRowStyle backcolor="#9DE7FB"></AlternatingRowStyle>
       </asp:GridView>

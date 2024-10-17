@@ -96,18 +96,21 @@ namespace WebFormsSchoolApp.Course
             Search(e.SortExpression.ToString());
         }
 
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void cmdUpdate_Click(object sender, EventArgs e)
         {
-            var courseId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
-            var courseToRemove = courses.SingleOrDefault(p => p.CourseId == courseId);
-            courses.Remove(courseToRemove);
-            Search("");
+            Button btn = sender as Button;
+            GridViewRow gRow = btn.NamingContainer as GridViewRow;
+            int rowIndex = gRow.RowIndex;
+            var courseId = GridView1.Rows[rowIndex].Cells[1].Text;
+            Response.Redirect("WebFormCourseDetail.aspx?courseId=" + courseId + "&action=update");
         }
 
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void cmdDelete_Click(object sender, EventArgs e)
         {
-            var courseId =  GridView1.Rows[e.NewEditIndex].Cells[1].Text;
-            Response.Redirect("WebFormCourseDetail.aspx?courseId="+ courseId + "&action=update");
+            //var courseId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
+            //var courseToRemove = courses.SingleOrDefault(p => p.CourseId == courseId);
+            //courses.Remove(courseToRemove);
+            //Search("");
         }
     }
 }

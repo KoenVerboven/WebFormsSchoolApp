@@ -72,18 +72,22 @@ namespace WebFormsSchoolApp.Teacher
             Search(e.SortExpression.ToString());
         }
 
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        
+        protected void cmdUpdate_Click(object sender, EventArgs e)
         {
-            var TeacherId = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
-            Response.Redirect("WebFormTeacherDetail.aspx?TeacherId=" + TeacherId + "&action=update");
+            Button btn = sender as Button;
+            GridViewRow gRow = btn.NamingContainer as GridViewRow;
+            int rowIndex = gRow.RowIndex;
+            var teacherId = GridView1.Rows[rowIndex].Cells[1].Text;
+            Response.Redirect("WebFormTeacherDetail.aspx?TeacherId=" + teacherId + "&action=update");
         }
 
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void cmdDelete_Click(object sender, EventArgs e)
         {
-            var teacherId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
-            var teacherToRemove = teachers.SingleOrDefault(p => p.PersonId == teacherId);
-            teachers.Remove(teacherToRemove);
-            Search("");
+            //var teacherId = Convert.ToInt32(GridView1.Rows[e.RowIndex].Cells[1].Text);
+            //var teacherToRemove = teachers.SingleOrDefault(p => p.PersonId == teacherId);
+            //teachers.Remove(teacherToRemove);
+            //Search("");
         }
     }
 }
