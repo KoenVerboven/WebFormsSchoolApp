@@ -95,7 +95,7 @@ namespace SchoolappBackend.DAL
 
         public bool DeleteTeacher(int teacherId)
         {
-            var query = "delete from teacher where teacheId = @TeacherId";
+            var query = "DELETE FROM teacher WHERE teacheId = @TeacherId";
             var connection = new SqlConnection(connectionString);
 
             try
@@ -110,6 +110,104 @@ namespace SchoolappBackend.DAL
             catch (Exception)
             {
                 return false;
+                throw;
+            }
+        }
+
+        public bool AddNewTeacher(Teacher teacher)
+        {
+            try
+            {
+                var query = "INSERT into Teacher," +
+                            "(FirstName, MiddleName, LastName, StreetAndNumber, ZipCode, PhoneNumber, EmailAddress," +
+                             "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
+                             "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
+                             "WorkingHoursPerWeek, HighestDegreeId, StudyDirection)" +
+                            "VALUES (" +
+                             "@FirstName, @MiddleName, @LastName, @StreetAndNumber, @ZipCode, @PhoneNumber, @EmailAddress," +
+                             "@Gender, @DateOfBirth, @MaritalStatusId, @NationalRegisterNumber, @NationalityId, @MoederTongueId," +
+                             "@LanguageSkill, @HireDate, @LeaveDate, @SaleryCategorieId, @SeniorityYears, @WorkSchedule," +
+                             "@WorkingHoursPerWeek, @HighestDegreeId, @StudyDirection" +
+                            ")";
+
+               
+                CreateCommand(connectionString, query, teacher, RecordAction.insert);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+
+        public bool UpdateCourse(Teacher teacher)
+        {
+            var query = "Teacher InlogUser " +
+                        "SET " +
+                        "FirstName = @FirstName, " +
+                        "MiddleName = @MiddleName, " +
+                        "LastName = @LastName, " +
+                        "StreetAndNumber = @, " +
+                        "ZipCode = @ZipCode, " +
+                        "PhoneNumber = @PhoneNumber, " +
+                        "EmailAddress = @EmailAddress, " +
+                        "Gender = @Gender, " +
+                        "DateOfBirth = @DateOfBirth, " +
+                        "MaritalStatusId = @MaritalStatusId, " +
+                        "NationalRegisterNumber = @NationalRegisterNumber, " +
+                        "NationalityId = @NationalityId, " +
+                        "MoederTongueId = @MoederTongueId, " +
+                        "LanguageSkill = @LanguageSkill, " +
+                        "HireDate = @HireDate, " +
+                        "LeaveDate = @LeaveDate, " +
+                        "SaleryCategorieId = @SaleryCategorieId, " +
+                        "SeniorityYears = @SeniorityYears, " +
+                        "WorkSchedule = @WorkSchedule, " +
+                        "WorkingHoursPerWeek = @WorkingHoursPerWeek, " +
+                        "HighestDegreeId = @HighestDegreeId, " +
+                        "StudyDirection = @StudyDirection " +
+                        "WHERE TeacheId = @TeacheId ";
+
+            try
+            {
+                CreateCommand(connectionString, query, teacher, RecordAction.update);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        private static void CreateCommand(string connectionString, string queryString, Teacher teacher, RecordAction action)
+        {
+            try
+            {
+                var connection = new SqlConnection(connectionString);
+                var command = new SqlCommand(queryString, connection);
+
+                if (action == RecordAction.update)
+                {
+                    //command.Parameters.Add("@UserId", SqlDbType.Int).Value = user.UserId;
+                }
+
+                if (action == RecordAction.insert)
+                {
+                    //command.Parameters.Add("@UserPassword", SqlDbType.VarChar).Value = user.Password;
+                }
+
+                //command.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
+
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }

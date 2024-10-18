@@ -9,11 +9,11 @@ namespace SchoolappBackend.BLL.Interfaces
     {
         List<User> GetUsers();
 
-        bool AddUser(User user);
+        bool Add(User user);
 
-        bool UpdateUser(User user);
+        bool Update(User user);
 
-        bool DeleteUser(int userId);
+        bool Delete(int userId);
 
         User GetUserById(int userId);
 

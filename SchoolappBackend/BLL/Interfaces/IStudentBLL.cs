@@ -11,10 +11,10 @@ namespace SchoolappBackend.BLL.Interfaces
 
          List<Student> GetStudents(string searchField, string orderBy);
 
-         bool AddStudent(Student student);
+         bool Add(Student student);
 
-         bool UpdateStudent(Student student);
+         bool Update(Student student);
 
-         bool DeleteStudent(int StudentId);
+         bool Delete(int StudentId);
     }
 }

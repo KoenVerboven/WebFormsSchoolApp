@@ -89,11 +89,40 @@ namespace WebFormsSchoolApp.Course
         {
             if (Page.IsValid)
             {
-                //save
+                if (SaveData())
+                {
+                    Response.Redirect("WebFormSearchCourse.aspx");
+                }
             }
-            else
+        }
+
+
+        private bool SaveData()
+        {
+            bool succes = false;
+            CourseBLL courseBLL = new CourseBLL();
+
+            var course = new SchoolappBackend.BLL.models.Course()
             {
+                CourseId = Convert.ToInt32(LabelCourseIdValue.Text),
+                CourseName = TextBoxCourseName.Text.Trim(),
+                CourseDescription = TextBoxCourseDescription.Text.Trim(),
+                StartDate = Convert.ToDateTime(TextBoxStartDate.Text.Trim()),
+                EndDate = Convert.ToDateTime(TextBoxEndDate.Text.Trim()),
+                CourseType = SchoolappBackend.BLL.models.CourseType.DaySchool,//todo CourseType
+                CoursePrice = Convert.ToDecimal(TextBoxCoursePrice.Text.Trim())
+            };
+
+            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+            {
+                succes = courseBLL.Update(course);
             }
+
+            if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+            {
+                succes = courseBLL.Add(course);
+            }
+            return succes;
         }
 
         protected void ButtonCancel_Click(object sender, EventArgs e)

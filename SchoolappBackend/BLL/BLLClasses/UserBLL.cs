@@ -15,12 +15,13 @@ namespace SchoolappBackend.BLL.BLLClasses
         {
         }
 
-        public bool AddUser(User user)
+        public bool Add(User user)
         {
-            throw new System.NotImplementedException();
+            UserDal userDal = new UserDal();
+            return userDal.AddNewUser(user);
         }
 
-        public bool DeleteUser(int userId)
+        public bool Delete(int userId)
         {
             throw new System.NotImplementedException();
         }
@@ -46,9 +47,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             throw new System.NotImplementedException();
         }
 
-        public bool UpdateUser(User user)
+        public bool Update(User user)
         {
-            throw new System.NotImplementedException();
+            UserDal userDal = new UserDal();
+            return userDal.UpdateUser(user);
         }
 
         [Obsolete]

@@ -7,12 +7,12 @@ namespace SchoolappBackend.BLL.BLLClasses
 {
     internal class UserRoleBLL : IUserRole
     {
-        public bool AddUserRole(UserRole userRole)
+        public bool Add(UserRole userRole)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteUserRole(int userRoleId)
+        public bool Delete(int userRoleId)
         {
             throw new NotImplementedException();
         }
@@ -27,7 +27,7 @@ namespace SchoolappBackend.BLL.BLLClasses
             throw new NotImplementedException();
         }
 
-        public bool UpdateUserRole(UserRole userRole)
+        public bool Update(UserRole userRole)
         {
             throw new NotImplementedException();
         }

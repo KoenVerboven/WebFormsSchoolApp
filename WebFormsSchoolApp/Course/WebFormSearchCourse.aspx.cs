@@ -112,7 +112,7 @@ namespace WebFormsSchoolApp.Course
             int rowIndex = gRow.RowIndex;
             var courseId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
             CourseBLL courseBLL = new CourseBLL();
-            courseBLL.DeleteCourse(courseId);
+            courseBLL.Delete(courseId);
             Search("");
         }
     }

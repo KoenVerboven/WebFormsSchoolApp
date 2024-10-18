@@ -73,6 +73,7 @@
        <asp:TextBox ID="TextBoxLeaveDate" runat="server" Width="250px"  placeholder="dd/mm/yyyy"></asp:TextBox>
      </p>
      <br />
+     <asp:HiddenField ID="HiddenFieldAction" Value="" runat="server" />
      <a href="WebFormSearchTeacher.aspx">Go Back to SearchTeacher</a>
  </div>
 </asp:Content>

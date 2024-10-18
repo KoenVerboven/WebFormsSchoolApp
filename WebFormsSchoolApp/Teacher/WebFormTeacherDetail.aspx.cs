@@ -100,12 +100,47 @@ namespace WebFormsSchoolApp.Teacher
         {
             if (Page.IsValid)
             {
-                //save
-            }
-            else
-            {
+                if (SaveData())
+                {
+                    Response.Redirect("WebFormSearchTeacher.aspx");
+                }
             }
         }
+
+        private bool SaveData()
+        {
+            bool succes = false;
+            TeacherBLL teacherBLL = new TeacherBLL();
+
+            var teacher = new SchoolappBackend.BLL.models.Teacher()
+            {
+                PersonId = Convert.ToInt32(LabelTeacherIdValue.Text),
+                LastName = TextBoxLastName.Text.Trim(),
+                MiddleName = TextBoxMiddleName.Text.Trim(),
+                Firstname = TextBoxFirstName.Text.Trim(),
+                StreetAndNumber = TextBoxStreetAndNumber.Text.Trim(),
+                ZipCode = TextBoxZipCode.Text.Trim(),
+                PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
+                EmailAddress = TextBoxEmailAddress.Text.Trim(),
+                DateOfBirth =  Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
+                HireDate = Convert.ToDateTime(TextBoxHireDate.Text.Trim()),
+                LeaveDate = Convert.ToDateTime(TextBoxLeaveDate.Text.Trim()),
+                SaleryCategorie = SchoolappBackend.BLL.models.SaleryCategorie.A1,//todo SaleryCategorie
+                SeniorityYears = 1 //todo SeniorityYears
+            };
+
+            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+            {
+                succes = teacherBLL.Update(teacher);
+            }
+
+            if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+            {
+                succes = teacherBLL.Add(teacher);
+            }
+            return succes;
+        }
+
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {

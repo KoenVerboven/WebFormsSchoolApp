@@ -9,10 +9,10 @@ namespace SchoolappBackend.BLL.Interfaces
         Teacher GetTeacherById(int Id);
          List<Teacher> GetTeachers(string searchField, string orderBy);
 
-        bool AddTeacher(Teacher teacher);
+        bool Add(Teacher teacher);
 
-        bool UpdateTeacher(Teacher teacher);
+        bool Update(Teacher teacher);
 
-        bool DeleteTeacher(int TeacherId);
+        bool Delete(int TeacherId);
     }
 }

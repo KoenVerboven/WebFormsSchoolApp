@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using SchoolappBackend.BLL.models;
@@ -117,6 +116,84 @@ namespace SchoolappBackend.DAL
             }
         }
 
+        public bool AddNewCourse(Course course)
+        {
+            try
+            {
+                var query = "Insert into Course" +
+                             "(CourseName, CourseStartDate, CourseEndDate, MinimumGradeToPassTheCourse," +
+                             "MaximumTestCourseGrade, CourseIsActive, CourseTypeId, CostPrice)" +
+                             "VALUES (" +
+                             "(@CourseName, @CourseStartDate, @CourseEndDate, @MinimumGradeToPassTheCourse," +
+                             "@MaximumTestCourseGrade, @CourseIsActive, @CourseTypeId, @CostPrice" +
+                             ")";
+
+                CreateCommand(connectionString, query, course, RecordAction.insert);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+
+        public bool UpdateCourse(Course course)
+        {
+            var query = "UPDATE Course " +
+                        "SET " +
+                        "CourseName = @CourseName, " +
+                        "CourseStartDate = @CourseStartDate, " +
+                        "CourseEndDate = @CourseEndDate, " +
+                        "MinimumGradeToPassTheCourse = @MinimumGradeToPassTheCourse, " +
+                        "MaximumTestCourseGrade = @MaximumTestCourseGrade, " +
+                        "CourseIsActive = @CourseIsActive, " +
+                        "CourseTypeId = @CourseTypeId, " +
+                        "CostPrice = @CostPrice " +
+                        "WHERE CourseId = @CourseId ";
+
+            try
+            {
+                CreateCommand(connectionString, query, course, RecordAction.update);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        private static void CreateCommand(string connectionString, string queryString, Course course, RecordAction action)
+        {
+            try
+            {
+                var connection = new SqlConnection(connectionString);
+                var command = new SqlCommand(queryString, connection);
+
+                if (action == RecordAction.update)
+                {
+                    //command.Parameters.Add("@UserId", SqlDbType.Int).Value = user.UserId;
+                }
+
+                if (action == RecordAction.insert)
+                {
+                    //command.Parameters.Add("@UserPassword", SqlDbType.VarChar).Value = user.Password;
+                }
+
+                //command.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
+    
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
 }

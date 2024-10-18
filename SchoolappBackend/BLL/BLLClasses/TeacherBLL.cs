@@ -17,12 +17,13 @@ namespace SchoolappBackend.BLL.BLLClasses
             teachers = new List<Teacher>();
         }
 
-        public bool AddTeacher(Teacher teacher)
+        public bool Add(Teacher teacher)
         {
-            throw new NotImplementedException();
+            var teacherDal = new TeacherDal();
+            return teacherDal.AddNewTeacher(teacher);
         }
 
-        public bool DeleteTeacher(int TeacherId)
+        public bool Delete(int TeacherId)
         {
            var teacherDal = new TeacherDal();
            return teacherDal.DeleteTeacher(TeacherId);
@@ -64,9 +65,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             return null;
         }
 
-        public bool UpdateTeacher(Teacher teacher)
+        public bool Update(Teacher teacher)
         {
-            throw new NotImplementedException();
+            var teacherDal = new TeacherDal();
+            return teacherDal.UpdateCourse(teacher);
         }
 
         [Obsolete]

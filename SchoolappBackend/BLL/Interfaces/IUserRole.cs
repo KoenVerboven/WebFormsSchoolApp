@@ -8,10 +8,10 @@ namespace SchoolappBackend.BLL.Interfaces
     {
         List<UserRole> GetUserRoles();
 
-        bool AddUserRole(UserRole userRole);
+        bool Add(UserRole userRole);
 
-        bool UpdateUserRole(UserRole userRole);
-        bool DeleteUserRole(int userRoleId);
+        bool Update(UserRole userRole);
+        bool Delete(int userRoleId);
         UserRole GetUserRole(int userRoleId);
 
         // an user can have more than 1 role, example user adim has the roles admin, Manager, Developer, + .....

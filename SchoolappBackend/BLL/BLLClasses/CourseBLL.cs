@@ -25,12 +25,13 @@ namespace SchoolappBackend.BLL.BLLClasses
             courses = new List<Course>();
         }
 
-        public bool AddCourse(Course course)
+        public bool Add(Course course)
         {
-            throw new NotImplementedException();
+            CourseDal courseDal = new CourseDal();
+            return courseDal.AddNewCourse(course);
         }
 
-        public bool DeleteCourse(int CourseId)
+        public bool Delete(int CourseId)
         {
             CourseDal courseDal = new CourseDal();
             return courseDal.DeleteCourse(CourseId);
@@ -96,9 +97,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             throw new NotImplementedException();
         }
 
-        public bool UpdateCourse(Course course)
+        public bool Update(Course course)
         {
-            throw new NotImplementedException();
+            CourseDal courseDal = new CourseDal();
+            return courseDal.UpdateCourse(course);
         }
 
         private void FillCoursesList()

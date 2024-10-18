@@ -1,15 +1,18 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
 
+
 namespace WebFormsSchoolApp.Student
 {
     public partial class WebFormStudentDetail : System.Web.UI.Page
     {
+        int personId = 0; // todo underscore _personid
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            int personId = 0;
+           
             string action = string.Empty;
-
+           
             if (Session["user"] == null)
             {
                 Response.Redirect("../login.aspx");
@@ -21,8 +24,8 @@ namespace WebFormsSchoolApp.Student
                 {
                     personId = Convert.ToInt32(Request.QueryString["studentId"]);
                     action = Request.QueryString["action"];
-
-                    if(action=="detail" || action == "update")
+                    HiddenFieldAction.Value = action;
+                    if (action=="detail" || action == "update")
                     {
                         StudentBLL studentBLL = new StudentBLL();
                         var studentSelected = studentBLL.GetStudentById(personId);
@@ -95,12 +98,45 @@ namespace WebFormsSchoolApp.Student
         {
             if (Page.IsValid)
             {
-                //save
-            }
-            else
-            {
+                if(SaveData())
+                {
+                    Response.Redirect("WebFormSearchStudent.aspx");
+                }
             }
         }
+
+        private bool SaveData()
+        {
+            bool succes = false;
+            StudentBLL studentBLL = new StudentBLL();
+
+            var student = new SchoolappBackend.BLL.models.Student()
+            {
+                PersonId =  Convert.ToInt32(LabelStudentIdValue.Text),
+                LastName = TextBoxLastName.Text.Trim(),
+                MiddleName = TextBoxMiddleName.Text.Trim(),
+                Firstname = TextBoxFirstName.Text.Trim(),
+                StreetAndNumber = TextBoxStreetAndNumber.Text.Trim(),
+                ZipCode = TextBoxZipCode.Text.Trim(),
+                PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
+                EmailAddress = TextBoxEmailAddress.Text.Trim(),
+                DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
+                RegistrationDate = Convert.ToDateTime(TextBoxRegistrationDate.Text.Trim())
+            };
+
+            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+            {
+                succes = studentBLL.Update(student);
+            }
+            
+            if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+            {
+                succes = studentBLL.Add(student);
+            }
+            return succes;
+        }
+
+
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {

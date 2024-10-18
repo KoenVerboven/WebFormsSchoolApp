@@ -89,7 +89,7 @@ namespace WebFormsSchoolApp.Teacher
             int rowIndex = gRow.RowIndex;
             var teacherId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
             TeacherBLL teacherBLL = new TeacherBLL();
-            teacherBLL.DeleteTeacher(teacherId);
+            teacherBLL.Delete(teacherId);
             Search("");
         }
     }

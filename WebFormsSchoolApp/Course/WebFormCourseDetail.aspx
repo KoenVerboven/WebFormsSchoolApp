@@ -50,6 +50,7 @@
         <asp:TextBox ID="TextBoxCoursePrice" runat="server" Width="250px"></asp:TextBox>
     </p>
     <br />
+         <asp:HiddenField ID="HiddenFieldAction" Value="" runat="server" />
     <a href="WebFormSearchCourse.aspx">Go Back to SearchCourse</a>
 </div>
 </asp:Content>
