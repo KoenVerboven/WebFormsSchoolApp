@@ -1,9 +1,6 @@
-﻿using SchoolappBackend;
-using SchoolappBackend.BLL.BLLClasses;
+﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Web.UI.WebControls;
 
 

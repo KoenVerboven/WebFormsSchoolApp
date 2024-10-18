@@ -21,6 +21,7 @@ namespace WebFormsSchoolApp.Course
                 {
                     courseId = Convert.ToInt32(Request.QueryString["courseId"]);
                     action = Request.QueryString["action"];
+                    HiddenFieldAction.Value = action;
 
                     if (action == "detail" || action == "update")
                     {
@@ -33,7 +34,7 @@ namespace WebFormsSchoolApp.Course
                         TextBoxStartDate.Text = courseSelected.StartDate.ToString("dd-MM-yyyy");
                         TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
                         CheckBoxActive.Checked = courseSelected.CourseIsActive;
-                        TextBoxCoursePrice.Text = "€ " + Convert.ToString(courseSelected.CoursePrice);
+                        TextBoxCoursePrice.Text = Convert.ToString(courseSelected.CoursePrice); //"€ " + Convert.ToString(courseSelected.CoursePrice);
                     }
 
                     switch (action)
@@ -104,7 +105,7 @@ namespace WebFormsSchoolApp.Course
 
             var course = new SchoolappBackend.BLL.models.Course()
             {
-                CourseId = Convert.ToInt32(LabelCourseIdValue.Text),
+                CourseId = Convert.ToInt32(LabelCourseIdValue.Text.Trim()),
                 CourseName = TextBoxCourseName.Text.Trim(),
                 CourseDescription = TextBoxCourseDescription.Text.Trim(),
                 StartDate = Convert.ToDateTime(TextBoxStartDate.Text.Trim()),

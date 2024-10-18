@@ -122,10 +122,10 @@ namespace SchoolappBackend.DAL
             {
                 var query = "Insert into Course" +
                              "(CourseName, CourseStartDate, CourseEndDate, MinimumGradeToPassTheCourse," +
-                             "MaximumTestCourseGrade, CourseIsActive, CourseTypeId, CostPrice)" +
+                             "MaximumTestCourseGrade, CourseTypeId, CostPrice)" +
                              "VALUES (" +
                              "(@CourseName, @CourseStartDate, @CourseEndDate, @MinimumGradeToPassTheCourse," +
-                             "@MaximumTestCourseGrade, @CourseIsActive, @CourseTypeId, @CostPrice" +
+                             "@MaximumTestCourseGrade, @CourseTypeId, @CostPrice" +
                              ")";
 
                 CreateCommand(connectionString, query, course, RecordAction.insert);
@@ -149,11 +149,10 @@ namespace SchoolappBackend.DAL
                         "CourseEndDate = @CourseEndDate, " +
                         "MinimumGradeToPassTheCourse = @MinimumGradeToPassTheCourse, " +
                         "MaximumTestCourseGrade = @MaximumTestCourseGrade, " +
-                        "CourseIsActive = @CourseIsActive, " +
                         "CourseTypeId = @CourseTypeId, " +
                         "CostPrice = @CostPrice " +
                         "WHERE CourseId = @CourseId ";
-
+                        //todo coursedescription is missing in de database
             try
             {
                 CreateCommand(connectionString, query, course, RecordAction.update);
@@ -175,16 +174,18 @@ namespace SchoolappBackend.DAL
 
                 if (action == RecordAction.update)
                 {
-                    //command.Parameters.Add("@UserId", SqlDbType.Int).Value = user.UserId;
+                    command.Parameters.Add("@CourseId", SqlDbType.Int).Value = course.CourseId;
                 }
 
-                if (action == RecordAction.insert)
-                {
-                    //command.Parameters.Add("@UserPassword", SqlDbType.VarChar).Value = user.Password;
-                }
+                command.Parameters.Add("@CourseName", SqlDbType.VarChar).Value = course.CourseName;
+                command.Parameters.Add("@CourseStartDate", SqlDbType.VarChar).Value = course.StartDate;
+                command.Parameters.Add("@CourseEndDate", SqlDbType.DateTime).Value = course.EndDate;
+                command.Parameters.Add("@MinimumGradeToPassTheCourse", SqlDbType.Int).Value = 1;//todo course.m;
+                command.Parameters.Add("@MaximumTestCourseGrade", SqlDbType.Decimal).Value = 1;//todo course.gr;
+                command.Parameters.Add("@CourseTypeId", SqlDbType.Int).Value = course.CourseType;
+                command.Parameters.Add("@CostPrice", SqlDbType.Decimal).Value = course.CoursePrice;
+                //to do course active moet readonly zijn in de visuele interface
 
-                //command.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
-    
                 command.Connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();

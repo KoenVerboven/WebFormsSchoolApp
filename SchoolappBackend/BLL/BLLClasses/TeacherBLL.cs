@@ -68,7 +68,7 @@ namespace SchoolappBackend.BLL.BLLClasses
         public bool Update(Teacher teacher)
         {
             var teacherDal = new TeacherDal();
-            return teacherDal.UpdateCourse(teacher);
+            return teacherDal.Update(teacher);
         }
 
         [Obsolete]

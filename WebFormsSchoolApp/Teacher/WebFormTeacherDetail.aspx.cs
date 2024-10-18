@@ -23,8 +23,9 @@ namespace WebFormsSchoolApp.Teacher
                 {
                     teacherId = Convert.ToInt32(Request.QueryString["teacherId"]);
                     action = Request.QueryString["action"];
+                    HiddenFieldAction.Value = action;
 
-                    if(action == "detail" || action == "update")
+                    if (action == "detail" || action == "update")
                     {
                         TeacherBLL teacherBLL = new TeacherBLL();
                         var teacherSelected = teacherBLL.GetTeacherById(teacherId);
@@ -122,9 +123,9 @@ namespace WebFormsSchoolApp.Teacher
                 ZipCode = TextBoxZipCode.Text.Trim(),
                 PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
                 EmailAddress = TextBoxEmailAddress.Text.Trim(),
-                DateOfBirth =  Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
+                DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
                 HireDate = Convert.ToDateTime(TextBoxHireDate.Text.Trim()),
-                LeaveDate = Convert.ToDateTime(TextBoxLeaveDate.Text.Trim()),
+                LeaveDate = DateTime.Now,//Convert.ToDateTime(TextBoxLeaveDate.Text.Trim()), //todo
                 SaleryCategorie = SchoolappBackend.BLL.models.SaleryCategorie.A1,//todo SaleryCategorie
                 SeniorityYears = 1 //todo SeniorityYears
             };

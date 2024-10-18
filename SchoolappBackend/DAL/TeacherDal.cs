@@ -143,31 +143,31 @@ namespace SchoolappBackend.DAL
         }
 
 
-        public bool UpdateCourse(Teacher teacher)
+        public bool Update(Teacher teacher)
         {
-            var query = "Teacher InlogUser " +
+            var query = "UPDATE Teacher " +
                         "SET " +
-                        "FirstName = @FirstName, " +
-                        "MiddleName = @MiddleName, " +
-                        "LastName = @LastName, " +
-                        "StreetAndNumber = @, " +
-                        "ZipCode = @ZipCode, " +
-                        "PhoneNumber = @PhoneNumber, " +
-                        "EmailAddress = @EmailAddress, " +
-                        "Gender = @Gender, " +
-                        "DateOfBirth = @DateOfBirth, " +
-                        "MaritalStatusId = @MaritalStatusId, " +
-                        "NationalRegisterNumber = @NationalRegisterNumber, " +
-                        "NationalityId = @NationalityId, " +
-                        "MoederTongueId = @MoederTongueId, " +
-                        "LanguageSkill = @LanguageSkill, " +
-                        "HireDate = @HireDate, " +
-                        "LeaveDate = @LeaveDate, " +
-                        "SaleryCategorieId = @SaleryCategorieId, " +
-                        "SeniorityYears = @SeniorityYears, " +
-                        "WorkSchedule = @WorkSchedule, " +
-                        "WorkingHoursPerWeek = @WorkingHoursPerWeek, " +
-                        "HighestDegreeId = @HighestDegreeId, " +
+                        "FirstName = @FirstName," +
+                        "MiddleName = @MiddleName," +
+                        "LastName = @LastName," +
+                        "StreetAndNumber = @StreetAndNumber," +
+                        "ZipCode = @ZipCode," +
+                        "PhoneNumber = @PhoneNumber," +
+                        "EmailAddress = @EmailAddress," +
+                        "Gender = @Gender," +
+                        "DateOfBirth = @DateOfBirth," +
+                        "MaritalStatusId = @MaritalStatusId," +
+                        "NationalRegisterNumber = @NationalRegisterNumber," +
+                        "NationalityId = @NationalityId," +
+                        "MoederTongueId = @MoederTongueId," +
+                        "LanguageSkill = @LanguageSkill," +
+                        //"HireDate = "+ DateTime.Now +"," +
+                        //"LeaveDate = " + DateTime.Now + "," + 
+                        "SaleryCategorieId = @SaleryCategorieId," +
+                        "SeniorityYears = @SeniorityYears," +
+                        "WorkSchedule = @WorkSchedule," +
+                        "WorkingHoursPerWeek = @WorkingHoursPerWeek," +
+                        "HighestDegreeId = @HighestDegreeId," +
                         "StudyDirection = @StudyDirection " +
                         "WHERE TeacheId = @TeacheId ";
 
@@ -192,15 +192,31 @@ namespace SchoolappBackend.DAL
 
                 if (action == RecordAction.update)
                 {
-                    //command.Parameters.Add("@UserId", SqlDbType.Int).Value = user.UserId;
+                    command.Parameters.Add("@TeacheId", SqlDbType.Int).Value = teacher.PersonId;
                 }
 
-                if (action == RecordAction.insert)
-                {
-                    //command.Parameters.Add("@UserPassword", SqlDbType.VarChar).Value = user.Password;
-                }
-
-                //command.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
+                command.Parameters.Add("@FirstName", SqlDbType.VarChar, 50).Value = teacher.Firstname;
+                command.Parameters.Add("@MiddleName", SqlDbType.VarChar, 50).Value = teacher.MiddleName;
+                command.Parameters.Add("@LastName", SqlDbType.VarChar, 50).Value = teacher.LastName;
+                command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar, 50).Value = teacher.StreetAndNumber;
+                command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 50).Value = teacher.ZipCode;
+                command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = teacher.PhoneNumber;
+                command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = teacher.EmailAddress;
+                command.Parameters.Add("@Gender", SqlDbType.Char, 50).Value = 'M'; //student.Gender; //todo gender
+                command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = DateTime.Now; //todo student.DateOfBirth;
+                command.Parameters.Add("@MaritalStatusId", SqlDbType.TinyInt, 50).Value = 1;//
+                command.Parameters.Add("@NationalRegisterNumber", SqlDbType.SmallInt, 50).Value = 1;// todo student.NationalRegisterNumber;
+                command.Parameters.Add("@NationalityId", SqlDbType.SmallInt).Value = 1;//todo student.Nationality; 
+                command.Parameters.Add("@MoederTongueId", SqlDbType.SmallInt).Value = 1; //todo student.MoederTongueId;
+                command.Parameters.Add("@LanguageSkill", SqlDbType.SmallInt).Value = //teacher.la;
+                //command.Parameters.Add("@HireDate",SqlDbType.DateTime, 50).Value = DateTime.Now; //todo teacher.HireDate;//hiredate and leavedate gives error
+                //command.Parameters.Add("@LeaveDate", SqlDbType.DateTime,50).Value = DateTime.Now;// teacher.LeaveDate;//
+                command.Parameters.Add("@SaleryCategorieId", SqlDbType.Int).Value = 1;//teacher.SaleryCategorie;
+                command.Parameters.Add("@SeniorityYears", SqlDbType.TinyInt).Value = 1;// teacher.SeniorityYears;
+                command.Parameters.Add("@WorkSchedule", SqlDbType.Int).Value = 1;//teacher.w;
+                command.Parameters.Add("@WorkingHoursPerWeek", SqlDbType.TinyInt).Value = 1;//teacher.w;
+                command.Parameters.Add("@HighestDegreeId", SqlDbType.TinyInt).Value = 1;//teacher.h;
+                command.Parameters.Add("@StudyDirection", SqlDbType.SmallInt).Value = 1;//teacher.st;
 
                 command.Connection.Open();
                 command.ExecuteNonQuery();
