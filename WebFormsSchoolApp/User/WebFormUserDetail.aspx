@@ -20,16 +20,16 @@
     <asp:Label ID="LabelUserIdValue" runat="server" Text="" Width="170px"></asp:Label>
 </p>
 <p>
-   <asp:Label ID="LabelUserName" runat="server" Text="UserName :" Width="170px"></asp:Label>
-   <asp:TextBox ID="TextBoxUserName" runat="server" Width="250px"></asp:TextBox>
+   <asp:Label ID="LabelUserName" runat="server" Text="UserName (*) :" Width="170px"></asp:Label>
+   <asp:TextBox ID="TextBoxUserName" runat="server" Width="250px"  placeholder="UserName"></asp:TextBox>
    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="color:red"
          ErrorMessage="RequiredFieldValidator"
          ControlToValidate="TextBoxUserName">
          UserName is mandatory </asp:RequiredFieldValidator>
 </p>
 <p>
-   <asp:Label ID="LabelActiveFrom" runat="server" Text="ActiveFrom :" Width="170px"></asp:Label>
-   <asp:TextBox ID="TextBoxActiveFrom" runat="server" Width="250px"></asp:TextBox>
+   <asp:Label ID="LabelActiveFrom" runat="server" Text="ActiveFrom  (*) :" Width="170px"></asp:Label>
+   <asp:TextBox ID="TextBoxActiveFrom" runat="server" Width="250px" placeholder="ActiveFrom dd/mm/yyyy"></asp:TextBox>
    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Style="color:red"
          ErrorMessage="RequiredFieldValidator"
          ControlToValidate="TextBoxActiveFrom">

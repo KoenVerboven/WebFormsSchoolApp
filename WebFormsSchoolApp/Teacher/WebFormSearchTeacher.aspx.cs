@@ -1,8 +1,6 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace WebFormsSchoolApp.Teacher

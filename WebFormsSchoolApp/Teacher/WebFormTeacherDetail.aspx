@@ -21,7 +21,7 @@
          <asp:Label ID="LabelTeacherIdValue" runat="server" Text="" Width="170px"></asp:Label>
      </p>
      <p>
-        <asp:Label ID="LabelLastName" runat="server" Text="LastName :" Width="170px"></asp:Label>
+        <asp:Label ID="LabelLastName" runat="server" Text="LastName (*) :" Width="170px"></asp:Label>
         <asp:TextBox ID="TextBoxLastName" runat="server" Width="250px"></asp:TextBox>
          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="color:red"
               ErrorMessage="RequiredFieldValidator"
@@ -29,7 +29,7 @@
               Lastname is mandatory </asp:RequiredFieldValidator>
      </p>
      <p>
-       <asp:Label ID="LabelFirstName" runat="server" Text="FirstName :" Width="170px"></asp:Label>
+       <asp:Label ID="LabelFirstName" runat="server" Text="FirstName (*)  :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxFirstName" runat="server" Width="250px"></asp:TextBox>
          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Style="color:red"
              ErrorMessage="RequiredFieldValidator"
@@ -41,11 +41,11 @@
            <asp:TextBox ID="TextBoxMiddleName" runat="server" Width="250px"></asp:TextBox>
      </p>
      <p>
-         <asp:Label ID="LabelStreetAndNumber" runat="server" Text="StreetAndNumber :" Width="170px"></asp:Label>
+         <asp:Label ID="LabelStreetAndNumber" runat="server" Text="StreetAndNumber (*)  :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxStreetAndNumber" runat="server" Width="250px"></asp:TextBox>
      </p>
      <p>
-          <asp:Label ID="LabelZipCode" runat="server" Text="ZipCode :" Width="170px"></asp:Label>
+          <asp:Label ID="LabelZipCode" runat="server" Text="ZipCode  (*) :" Width="170px"></asp:Label>
           <asp:TextBox ID="TextBoxZipCode" runat="server" Width="250px"></asp:TextBox>
      </p>
      <p>
@@ -54,10 +54,10 @@
      </p>
      <p>
            <asp:Label ID="LabelEmailAddress" runat="server" Text="EmailAddress :" Width="170px"></asp:Label>
-           <asp:TextBox ID="TextBoxEmailAddress" runat="server" Width="250px"  placeholder="dd/mm/yyyy"></asp:TextBox>
+           <asp:TextBox ID="TextBoxEmailAddress" runat="server" Width="250px"  placeholder="name@provider.com"></asp:TextBox>
      </p>
      <p>
-          <asp:Label ID="LabelDateOfBirth" runat="server" Text="DateOfBirth :" Width="170px"></asp:Label>
+          <asp:Label ID="LabelDateOfBirth" runat="server" Text="DateOfBirth  (*)  :" Width="170px"></asp:Label>
           <asp:TextBox ID="TextBoxDateOfBirth" runat="server" Width="250px"  placeholder="dd/mm/yyyy"></asp:TextBox>
           <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Style="color:red"
                ErrorMessage="RequiredFieldValidator"
@@ -65,7 +65,7 @@
                DateofBirth is mandatory </asp:RequiredFieldValidator>
      </p>
      <p>
-        <asp:Label ID="LabelHireDate" runat="server" Text="HireDate :" Width="170px"></asp:Label>
+        <asp:Label ID="LabelHireDate" runat="server" Text="HireDate (*) :" Width="170px"></asp:Label>
         <asp:TextBox ID="TextBoxHireDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
      </p>
      <p>

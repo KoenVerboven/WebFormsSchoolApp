@@ -5,10 +5,12 @@ namespace WebFormsSchoolApp.Course
 {
     public partial class WebFormCourseDetail : System.Web.UI.Page
     {
+        //todo start date en stopdate in de database verplicht maken
         protected void Page_Load(object sender, EventArgs e)
         {
             int courseId = 0;
             string action = string.Empty;
+            const string subject = "Course";
 
             CheckBoxActive.Enabled = false;
             
@@ -43,22 +45,22 @@ namespace WebFormsSchoolApp.Course
                     switch (action)
                     {
                         case "detail":
-                            LabelTitle.Text = "Course Detail";
+                            LabelTitle.Text = subject + " Detail";
                             DisableAllControls(true);
                             ButtonSaveAndCancelVisible(false);
                             break;
                         case "insert":
-                            LabelTitle.Text = "Insert new Course";
+                            LabelTitle.Text = "Insert new " + subject;
                             DisableAllControls(false);
                             ButtonSaveAndCancelVisible(true);
                             break;
                         case "update":
-                            LabelTitle.Text = "Update Course";
+                            LabelTitle.Text = "Update " + subject;
                             DisableAllControls(false);
                             ButtonSaveAndCancelVisible(true);
                             break;
                         default:
-                            LabelTitle.Text = "Course Detail";
+                            LabelTitle.Text = subject + " Detail";
                             DisableAllControls(true);
                             ButtonSaveAndCancelVisible(false);
                             break;
@@ -105,15 +107,27 @@ namespace WebFormsSchoolApp.Course
             bool succes = false;
             CourseBLL courseBLL = new CourseBLL();
 
+            var courseId = 0;
+            if (HiddenFieldAction.Value == "update")
+            {
+                courseId = Convert.ToInt32(LabelCourseIdValue.Text.Trim());
+            }
+
+            decimal coursePrice = -1;
+            if(TextBoxCoursePrice.Text.Trim() != string.Empty)
+            {
+                coursePrice = Convert.ToDecimal(TextBoxCoursePrice.Text.Trim());
+            };
+
             var course = new SchoolappBackend.BLL.models.Course()
             {
-                CourseId = Convert.ToInt32(LabelCourseIdValue.Text.Trim()),
+                CourseId = courseId,
                 CourseName = TextBoxCourseName.Text.Trim(),
                 CourseDescription = TextBoxCourseDescription.Text.Trim(),
                 StartDate = Convert.ToDateTime(TextBoxStartDate.Text.Trim()),
                 EndDate = Convert.ToDateTime(TextBoxEndDate.Text.Trim()),
                 CourseType = SchoolappBackend.BLL.models.CourseType.DaySchool,//todo CourseType
-                CoursePrice = Convert.ToDecimal(TextBoxCoursePrice.Text.Trim())
+                CoursePrice = coursePrice
             };
 
             if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum

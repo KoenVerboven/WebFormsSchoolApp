@@ -102,11 +102,18 @@ namespace WebFormsSchoolApp.User
             bool succes = false;
             UserBLL userBLL = new UserBLL();
 
+            var userId = 0;
+            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+            {
+                userId = Convert.ToInt32(LabelUserIdValue.Text);
+            }
+
             var user = new SchoolappBackend.BLL.models.User()
             {
-                UserId = Convert.ToInt32(LabelUserIdValue.Text),
+                UserId = userId,
                 UserName = TextBoxUserName.Text.Trim(),
-                ActiveFrom = DateTime.Now, //todo Active From
+                Password = "User@123",
+                ActiveFrom = Convert.ToDateTime(TextBoxActiveFrom.Text.Trim()), 
                 Blocked = CheckBoxBlocked.Checked 
             };
 

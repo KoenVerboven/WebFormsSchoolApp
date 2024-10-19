@@ -1,7 +1,5 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
-using System.Collections.Generic;
-
 
 namespace WebFormsSchoolApp.Teacher
 {
@@ -11,6 +9,7 @@ namespace WebFormsSchoolApp.Teacher
         {
             int teacherId = 0;
             string action = string.Empty;
+            const string subject = "Teacher";
 
             if (Session["user"] == null)
             {
@@ -47,22 +46,22 @@ namespace WebFormsSchoolApp.Teacher
                     switch (action)
                     {
                         case "detail":
-                            LabelTitle.Text = "Student Detail";
+                            LabelTitle.Text = subject + " Detail";
                             DisableAllControls(true);
                             ButtonSaveAndCancelVisible(false);
                             break;
                         case "insert":
-                            LabelTitle.Text = "Insert new Teacher";
+                            LabelTitle.Text = "Insert new " + subject;
                             DisableAllControls(false);
                             ButtonSaveAndCancelVisible(true);
                             break;
                         case "update":
-                            LabelTitle.Text = "Update Teacher";
+                            LabelTitle.Text = "Update " + subject;
                             DisableAllControls(false);
                             ButtonSaveAndCancelVisible(true);
                             break;
                         default:
-                            LabelTitle.Text = "Student Detail";
+                            LabelTitle.Text = subject + " Detail";
                             DisableAllControls(true);
                             ButtonSaveAndCancelVisible(false);
                             break;
@@ -113,9 +112,20 @@ namespace WebFormsSchoolApp.Teacher
             bool succes = false;
             TeacherBLL teacherBLL = new TeacherBLL();
 
+            var personId = 0;
+            if (HiddenFieldAction.Value == "update")
+            {
+                personId = Convert.ToInt32(LabelTeacherIdValue.Text.Trim());
+            }
+            var leaveDate = new DateTime(1900,1,1);
+            if(TextBoxLeaveDate.Text.Trim() != string.Empty)
+            {
+                leaveDate = Convert.ToDateTime(TextBoxLeaveDate.Text.Trim());
+            }
+
             var teacher = new SchoolappBackend.BLL.models.Teacher()
             {
-                PersonId = Convert.ToInt32(LabelTeacherIdValue.Text),
+                PersonId = personId,
                 LastName = TextBoxLastName.Text.Trim(),
                 MiddleName = TextBoxMiddleName.Text.Trim(),
                 Firstname = TextBoxFirstName.Text.Trim(),
@@ -125,7 +135,7 @@ namespace WebFormsSchoolApp.Teacher
                 EmailAddress = TextBoxEmailAddress.Text.Trim(),
                 DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
                 HireDate = Convert.ToDateTime(TextBoxHireDate.Text.Trim()),
-                LeaveDate = Convert.ToDateTime(TextBoxLeaveDate.Text.Trim()), //todo
+                LeaveDate = leaveDate,
                 SaleryCategorie = SchoolappBackend.BLL.models.SaleryCategorie.A1,//todo SaleryCategorie
                 SeniorityYears = 1 //todo SeniorityYears
             };

@@ -22,7 +22,7 @@
         <asp:Label ID="LabelCourseIdValue" runat="server" Text="" Width="170px"></asp:Label>
     </p>
     <p>
-        <asp:Label ID="LabelCourseName" runat="server" Text="CourseName :" Width="170px"></asp:Label>
+        <asp:Label ID="LabelCourseName" runat="server" Text="CourseName (*) :" Width="170px"></asp:Label>
         <asp:TextBox ID="TextBoxCourseName" runat="server" Width="250px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="color:red"
               ErrorMessage="RequiredFieldValidator"
@@ -34,11 +34,11 @@
         <asp:TextBox ID="TextBoxCourseDescription" runat="server" Width="250px"></asp:TextBox>
     </p>
      <p>
-         <asp:Label ID="LabelStartDate" runat="server" Text="StartDate :" Width="170px"></asp:Label>
+         <asp:Label ID="LabelStartDate" runat="server" Text="StartDate (*) :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxStartDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
      </p>
      <p>
-         <asp:Label ID="LabelEndDate" runat="server" Text="EndDate :" Width="170px"></asp:Label>
+         <asp:Label ID="LabelEndDate" runat="server" Text="EndDate (*) :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxEndDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
      </p>
     <p>

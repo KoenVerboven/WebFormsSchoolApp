@@ -1,5 +1,8 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
+using SchoolappBackend.BLL.models;
 using System;
+using System.Net.Mail;
+using System.Reflection.Emit;
 
 
 namespace WebFormsSchoolApp.Student
@@ -7,6 +10,7 @@ namespace WebFormsSchoolApp.Student
     public partial class WebFormStudentDetail : System.Web.UI.Page
     {
         int personId = 0; // todo underscore _personid
+        const string subject = "Student";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +29,8 @@ namespace WebFormsSchoolApp.Student
                     personId = Convert.ToInt32(Request.QueryString["studentId"]);
                     action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
+                    TextBoxRegistrationDate.Text =  DateTime.Now.ToString("dd/MM:yyyy");
+
                     if (action=="detail" || action == "update")
                     {
                         StudentBLL studentBLL = new StudentBLL();
@@ -45,22 +51,22 @@ namespace WebFormsSchoolApp.Student
                     switch (action) 
                     {
                         case "detail":
-                            LabelTitle.Text = "Student Detail";
+                            LabelTitle.Text = subject +" Detail";
                             DisableAllControls(true);
                             ButtonSaveAndCancelVisible(false);
                             break;
                         case "insert":
-                            LabelTitle.Text = "Insert new Student";
+                            LabelTitle.Text = "Insert new " + subject;
                             DisableAllControls(false);
                             ButtonSaveAndCancelVisible(true);
                             break;
                         case "update":
-                            LabelTitle.Text = "Update Student";
+                            LabelTitle.Text = "Update " + subject;
                             DisableAllControls(false);
                             ButtonSaveAndCancelVisible(true);
                             break;
                         default:
-                            LabelTitle.Text = "Student Detail";
+                            LabelTitle.Text = subject + " Detail";
                             DisableAllControls(true);
                             ButtonSaveAndCancelVisible(false);
                             break;
@@ -110,9 +116,15 @@ namespace WebFormsSchoolApp.Student
             bool succes = false;
             StudentBLL studentBLL = new StudentBLL();
 
+            var personId = 0;
+            if (HiddenFieldAction.Value == "update") 
+            {
+                personId = Convert.ToInt32(LabelStudentIdValue.Text.Trim());
+            }
+
             var student = new SchoolappBackend.BLL.models.Student()
             {
-                PersonId =  Convert.ToInt32(LabelStudentIdValue.Text),
+                PersonId = personId,
                 LastName = TextBoxLastName.Text.Trim(),
                 MiddleName = TextBoxMiddleName.Text.Trim(),
                 Firstname = TextBoxFirstName.Text.Trim(),

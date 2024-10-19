@@ -124,7 +124,7 @@ namespace SchoolappBackend.DAL
                              "(CourseName, CourseStartDate, CourseEndDate, MinimumGradeToPassTheCourse," +
                              "MaximumTestCourseGrade, CourseTypeId, CostPrice)" +
                              "VALUES (" +
-                             "(@CourseName, @CourseStartDate, @CourseEndDate, @MinimumGradeToPassTheCourse," +
+                             "@CourseName, @CourseStartDate, @CourseEndDate, @MinimumGradeToPassTheCourse," +
                              "@MaximumTestCourseGrade, @CourseTypeId, @CostPrice" +
                              ")";
 
@@ -182,9 +182,10 @@ namespace SchoolappBackend.DAL
                 command.Parameters.Add("@CourseEndDate", SqlDbType.Date).Value = course.EndDate;
                 command.Parameters.Add("@MinimumGradeToPassTheCourse", SqlDbType.Int).Value = 1;//todo course.m;
                 command.Parameters.Add("@MaximumTestCourseGrade", SqlDbType.Decimal).Value = 1;//todo course.gr;
-                command.Parameters.Add("@CourseTypeId", SqlDbType.Int).Value = course.CourseType;
+                command.Parameters.Add("@CourseTypeId", SqlDbType.Int).Value = 1;// course.CourseType;
                 command.Parameters.Add("@CostPrice", SqlDbType.Decimal).Value = course.CoursePrice;
                 //to do course active moet readonly zijn in de visuele interface
+                //to do course is active veld moet uit de database? is een berekend veld !!!!
 
                 command.Connection.Open();
                 command.ExecuteNonQuery();

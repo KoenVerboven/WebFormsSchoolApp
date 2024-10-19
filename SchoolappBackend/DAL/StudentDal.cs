@@ -202,7 +202,7 @@ namespace SchoolappBackend.DAL
                 command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = student.PhoneNumber;
                 command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = student.EmailAddress;
                 command.Parameters.Add("@Gender", SqlDbType.VarChar, 50).Value = 'M'; //student.Gender; //todo gender
-                command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = DateTime.Now; //todo student.DateOfBirth;
+                command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = student.DateOfBirth;
                 command.Parameters.Add("@MaritalStatusId", SqlDbType.Int, 50).Value = 1;//
                 command.Parameters.Add("@NationalRegisterNumber", SqlDbType.VarChar, 50).Value = "";// todo student.NationalRegisterNumber;
                 command.Parameters.Add("@Nationality", SqlDbType.Int).Value = 1;//todo student.Nationality; 

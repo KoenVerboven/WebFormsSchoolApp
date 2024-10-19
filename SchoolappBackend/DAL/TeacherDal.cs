@@ -125,7 +125,7 @@ namespace SchoolappBackend.DAL
         {
             try
             {
-                var query = "INSERT into Teacher," +
+                var query = "INSERT into Teacher " +
                             "(FirstName, MiddleName, LastName, StreetAndNumber, ZipCode, PhoneNumber, EmailAddress," +
                              "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
                              "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
