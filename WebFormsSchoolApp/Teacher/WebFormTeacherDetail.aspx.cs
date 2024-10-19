@@ -40,7 +40,7 @@ namespace WebFormsSchoolApp.Teacher
                         TextBoxEmailAddress.Text = teacherSelected.EmailAddress.ToString();
                         TextBoxDateOfBirth.Text = teacherSelected.DateOfBirth.ToString("dd-MM-yyyy");
                         TextBoxHireDate.Text = Convert.ToString(teacherSelected.HireDate.ToString("dd-MM-yyyy"));
-                        TextBoxLeaveDate.Text = Convert.ToString(teacherSelected.LeaveDate);
+                        TextBoxLeaveDate.Text = Convert.ToString(teacherSelected.LeaveDate);//todo waarde klopt niet
 
                     }
 
@@ -125,7 +125,7 @@ namespace WebFormsSchoolApp.Teacher
                 EmailAddress = TextBoxEmailAddress.Text.Trim(),
                 DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
                 HireDate = Convert.ToDateTime(TextBoxHireDate.Text.Trim()),
-                LeaveDate = DateTime.Now,//Convert.ToDateTime(TextBoxLeaveDate.Text.Trim()), //todo
+                LeaveDate = Convert.ToDateTime(TextBoxLeaveDate.Text.Trim()), //todo
                 SaleryCategorie = SchoolappBackend.BLL.models.SaleryCategorie.A1,//todo SaleryCategorie
                 SeniorityYears = 1 //todo SeniorityYears
             };

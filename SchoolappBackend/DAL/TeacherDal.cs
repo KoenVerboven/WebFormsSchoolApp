@@ -70,6 +70,11 @@ namespace SchoolappBackend.DAL
                 {
                     while (reader.Read())
                     {
+
+                        var leaveDate = new DateTime(1900,01,01);
+                        if (reader["LeaveDate"].GetType() != typeof(DBNull))
+                            leaveDate = Convert.ToDateTime(reader["LeaveDate"]);
+
                         var teacher = new Teacher()
                         {
                             PersonId = Convert.ToInt32(reader["TeacheId"]),
@@ -81,6 +86,8 @@ namespace SchoolappBackend.DAL
                             PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
                             EmailAddress = Convert.ToString(reader["EmailAddress"]),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                            HireDate = Convert.ToDateTime(reader["HireDate"]),
+                            LeaveDate =  leaveDate
                         };
                         return teacher;
                     }
@@ -161,8 +168,8 @@ namespace SchoolappBackend.DAL
                         "NationalityId = @NationalityId," +
                         "MoederTongueId = @MoederTongueId," +
                         "LanguageSkill = @LanguageSkill," +
-                        //"HireDate = "+ DateTime.Now +"," +
-                        //"LeaveDate = " + DateTime.Now + "," + 
+                        "HireDate = @HireDate," +
+                        "LeaveDate = @LeaveDate," + 
                         "SaleryCategorieId = @SaleryCategorieId," +
                         "SeniorityYears = @SeniorityYears," +
                         "WorkSchedule = @WorkSchedule," +
@@ -203,14 +210,15 @@ namespace SchoolappBackend.DAL
                 command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = teacher.PhoneNumber;
                 command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = teacher.EmailAddress;
                 command.Parameters.Add("@Gender", SqlDbType.Char, 50).Value = 'M'; //student.Gender; //todo gender
-                command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = DateTime.Now; //todo student.DateOfBirth;
+                command.Parameters.Add("@DateOfBirth", SqlDbType.Date, 50).Value = teacher.DateOfBirth; 
+
                 command.Parameters.Add("@MaritalStatusId", SqlDbType.TinyInt, 50).Value = 1;//
                 command.Parameters.Add("@NationalRegisterNumber", SqlDbType.SmallInt, 50).Value = 1;// todo student.NationalRegisterNumber;
                 command.Parameters.Add("@NationalityId", SqlDbType.SmallInt).Value = 1;//todo student.Nationality; 
                 command.Parameters.Add("@MoederTongueId", SqlDbType.SmallInt).Value = 1; //todo student.MoederTongueId;
-                command.Parameters.Add("@LanguageSkill", SqlDbType.SmallInt).Value = //teacher.la;
-                //command.Parameters.Add("@HireDate",SqlDbType.DateTime, 50).Value = DateTime.Now; //todo teacher.HireDate;//hiredate and leavedate gives error
-                //command.Parameters.Add("@LeaveDate", SqlDbType.DateTime,50).Value = DateTime.Now;// teacher.LeaveDate;//
+                command.Parameters.Add("@LanguageSkill", SqlDbType.SmallInt).Value = 1;//teacher.la;
+                command.Parameters.Add("@HireDate", SqlDbType.Date, 50).Value = teacher.HireDate;
+                command.Parameters.Add("@LeaveDate", SqlDbType.Date, 50).Value = teacher.LeaveDate; //doto leavedate klop niet helemaal
                 command.Parameters.Add("@SaleryCategorieId", SqlDbType.Int).Value = 1;//teacher.SaleryCategorie;
                 command.Parameters.Add("@SeniorityYears", SqlDbType.TinyInt).Value = 1;// teacher.SeniorityYears;
                 command.Parameters.Add("@WorkSchedule", SqlDbType.Int).Value = 1;//teacher.w;

@@ -10,6 +10,8 @@ namespace WebFormsSchoolApp.Course
             int courseId = 0;
             string action = string.Empty;
 
+            CheckBoxActive.Enabled = false;
+            
             if (Session["user"] == null)
             {
                 Response.Redirect("../login.aspx");
@@ -34,7 +36,8 @@ namespace WebFormsSchoolApp.Course
                         TextBoxStartDate.Text = courseSelected.StartDate.ToString("dd-MM-yyyy");
                         TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
                         CheckBoxActive.Checked = courseSelected.CourseIsActive;
-                        TextBoxCoursePrice.Text = Convert.ToString(courseSelected.CoursePrice); //"€ " + Convert.ToString(courseSelected.CoursePrice);
+                        TextBoxCoursePrice.Text = Convert.ToString(courseSelected.CoursePrice);
+                        //"€ " + Convert.ToString(courseSelected.CoursePrice);
                     }
 
                     switch (action)
@@ -82,7 +85,6 @@ namespace WebFormsSchoolApp.Course
             TextBoxCourseDescription.Enabled = enableControl;
             TextBoxStartDate.Enabled = enableControl;
             TextBoxEndDate.Enabled = enableControl;
-            CheckBoxActive.Enabled = enableControl;
             TextBoxCoursePrice.Enabled = enableControl;
         }
 

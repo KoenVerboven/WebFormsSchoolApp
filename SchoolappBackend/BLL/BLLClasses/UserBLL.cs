@@ -28,7 +28,8 @@ namespace SchoolappBackend.BLL.BLLClasses
 
         public User GetUserById(int userId)
         {
-            throw new System.NotImplementedException();
+            UserDal userDal=new UserDal();
+            return userDal.GetUserById(userId);
         }
 
         public User GetUserByUserNameAndPassword(string userName, string passWord)
@@ -42,9 +43,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             return user;
         }
 
-        public List<User> GetUsers()
+        public List<User> GetUsers(string searchField, string orderBy)
         {
-            throw new System.NotImplementedException();
+            UserDal userDal = new UserDal();
+            return userDal.GetUsers();
         }
 
         public bool Update(User user)

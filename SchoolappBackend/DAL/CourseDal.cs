@@ -178,8 +178,8 @@ namespace SchoolappBackend.DAL
                 }
 
                 command.Parameters.Add("@CourseName", SqlDbType.VarChar).Value = course.CourseName;
-                command.Parameters.Add("@CourseStartDate", SqlDbType.VarChar).Value = course.StartDate;
-                command.Parameters.Add("@CourseEndDate", SqlDbType.DateTime).Value = course.EndDate;
+                command.Parameters.Add("@CourseStartDate", SqlDbType.Date).Value = course.StartDate;
+                command.Parameters.Add("@CourseEndDate", SqlDbType.Date).Value = course.EndDate;
                 command.Parameters.Add("@MinimumGradeToPassTheCourse", SqlDbType.Int).Value = 1;//todo course.m;
                 command.Parameters.Add("@MaximumTestCourseGrade", SqlDbType.Decimal).Value = 1;//todo course.gr;
                 command.Parameters.Add("@CourseTypeId", SqlDbType.Int).Value = course.CourseType;
