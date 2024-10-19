@@ -21,3 +21,7 @@ Backend :
 ----------
 classLibrary  
 .NET Standaard 2.0
+
+Database :
+-----------
+Sql Server
