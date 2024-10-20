@@ -13,8 +13,7 @@
             <asp:Label ID="LabelErrorMessage" ForeColor="Red" runat="server" Text=""></asp:Label> 
         </p>
         <p>
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server"
-                style="color:red" />
+            <asp:ValidationSummary ID="ValidationSummary1" CssClass="customValidationSummary" runat="server" />
         </p>
         <p>
             <asp:Label ID="LabelStudentId" runat="server" Text="StudentId :" Width="170px"></asp:Label>

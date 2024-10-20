@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormUserDetail.aspx.cs" Inherits="WebFormsSchoolApp.User.WebFormUserDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" /> 
     <div class="div-3">
     
 <p>
@@ -13,8 +14,7 @@
     <asp:Label ID="LabelErrorMessage" ForeColor="Red" runat="server" Text=""></asp:Label> 
 </p>
 <p>
-    <asp:ValidationSummary ID="ValidationSummary1" runat="server"
-        style="color:red" />
+    <asp:ValidationSummary ID="ValidationSummary1" CssClass="customValidationSummary" runat="server" />
 <p>
     <asp:Label ID="LabelUserId" runat="server" Text="UserId :" Width="170px"></asp:Label>
     <asp:Label ID="LabelUserIdValue" runat="server" Text="" Width="170px"></asp:Label>

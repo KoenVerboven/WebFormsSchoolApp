@@ -11,6 +11,14 @@ body {
     padding-left: 20px;
 }
 
+.customValidationSummary {
+    background-color: #FCC;
+    width: 450px ;
+    border-style: inset;
+    border-width: 1px;
+    border-color: darkred;
+}
+
 .errorLabel {
     color: #F00;
     background-color: #FCC;
