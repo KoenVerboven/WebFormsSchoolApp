@@ -38,8 +38,9 @@ namespace WebFormsSchoolApp.Course
                         TextBoxStartDate.Text = courseSelected.StartDate.ToString("dd-MM-yyyy");
                         TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
                         CheckBoxActive.Checked = courseSelected.CourseIsActive;
-                        TextBoxCoursePrice.Text = Convert.ToString(courseSelected.CoursePrice);
-                        //"€ " + Convert.ToString(courseSelected.CoursePrice);
+                        TextBoxCoursePrice.Text = Convert.ToString(courseSelected.CoursePrice);//todo :"€ "
+                        TextBoxMinimumGradeToPassTheCourse.Text = Convert.ToString(courseSelected.MinimumGradeToPassTheCourse);
+                        TextBoxMaximumTestCourseGrade.Text = Convert.ToString(courseSelected.MaximumTestCourseGrade);
                     }
 
                     switch (action)
@@ -88,6 +89,8 @@ namespace WebFormsSchoolApp.Course
             TextBoxStartDate.Enabled = enableControl;
             TextBoxEndDate.Enabled = enableControl;
             TextBoxCoursePrice.Enabled = enableControl;
+            TextBoxMinimumGradeToPassTheCourse.Enabled = enableControl; 
+            TextBoxMaximumTestCourseGrade.Enabled = enableControl;
         }
 
         protected void ButtonSave_Click(object sender, EventArgs e)
@@ -113,7 +116,7 @@ namespace WebFormsSchoolApp.Course
                 courseId = Convert.ToInt32(LabelCourseIdValue.Text.Trim());
             }
 
-            decimal coursePrice = -1;
+            decimal? coursePrice = null;
             if(TextBoxCoursePrice.Text.Trim() != string.Empty)
             {
                 coursePrice = Convert.ToDecimal(TextBoxCoursePrice.Text.Trim());
@@ -127,7 +130,9 @@ namespace WebFormsSchoolApp.Course
                 StartDate = Convert.ToDateTime(TextBoxStartDate.Text.Trim()),
                 EndDate = Convert.ToDateTime(TextBoxEndDate.Text.Trim()),
                 CourseType = SchoolappBackend.BLL.models.CourseType.DaySchool,//todo CourseType
-                CoursePrice = coursePrice
+                CoursePrice = coursePrice,
+                MinimumGradeToPassTheCourse = Convert.ToDouble(TextBoxMinimumGradeToPassTheCourse.Text.Trim()),
+                MaximumTestCourseGrade = Convert.ToInt32(TextBoxMaximumTestCourseGrade.Text.Trim())
             };
 
             if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum

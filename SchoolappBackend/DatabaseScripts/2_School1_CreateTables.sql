@@ -67,7 +67,6 @@
 			CourseEndDate date null,
 			MinimumGradeToPassTheCourse decimal(5,2) null,
 			MaximumTestCourseGrade int null,
-			CourseIsActive bit not null,
 			CourseTypeId int null,
 			CostPrice  money null,
 			constraint PK_Course primary key (CourseId)

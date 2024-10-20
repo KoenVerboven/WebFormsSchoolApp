@@ -15,7 +15,7 @@ namespace SchoolappBackend.DAL
             var coursesList = new List<Course>();
 
             var query = "SELECT CourseId ,CourseName ,CourseStartDate ,CourseEndDate ,MinimumGradeToPassTheCourse," +
-                            "MaximumTestCourseGrade ,CourseIsActive ,CourseTypeId ,CostPrice " +
+                            "MaximumTestCourseGrade ,CourseTypeId ,CostPrice " +
                          "FROM Course " +
                          "ORDER BY CourseId ";
 
@@ -28,19 +28,22 @@ namespace SchoolappBackend.DAL
             {
                 while (reader.Read())
                 {
+                    decimal? coursePrice = null;
+                    if(reader["CostPrice"] !=  DBNull.Value)
+                    {
+                        coursePrice = Convert.ToDecimal(reader["CostPrice"]);
+                    }
+                    
                     var course = new Course()
                     {
                         CourseId = Convert.ToInt32(reader["CourseId"]),
                         CourseName = Convert.ToString(reader["CourseName"]),
-                        CourseDescription = "",//  Convert.ToString(reader["CourseDescription"]),
-                        //CourseCode = "",//  Convert.ToString(reader["CourseCode"]),
                         StartDate = Convert.ToDateTime(reader["CourseStartDate"]),
                         EndDate = Convert.ToDateTime(reader["CourseEndDate"]),
-                        //MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
-                        //MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
+                        MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
+                        MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
                         CourseType = null,
-                        CoursePrice = Convert.ToDecimal(reader["CostPrice"]),
-                        //Teacher = null
+                        CoursePrice = coursePrice,
                     };
                     coursesList.Add(course);
                 }
@@ -53,7 +56,7 @@ namespace SchoolappBackend.DAL
         public Course GetCourseById(int courseId)
         {
             var query = "SELECT CourseId ,CourseName ,CourseStartDate ,CourseEndDate ,MinimumGradeToPassTheCourse," +
-                            "MaximumTestCourseGrade ,CourseIsActive ,CourseTypeId ,CostPrice " +
+                            "MaximumTestCourseGrade ,CourseTypeId ,CostPrice " +
                          "FROM Course " +
                          "WHERE CourseId = @CourseId";
 
@@ -69,19 +72,23 @@ namespace SchoolappBackend.DAL
                 {
                     while (reader.Read())
                     {
+
+                        decimal? coursePrice = null;
+                        if (reader["CostPrice"] != DBNull.Value)
+                        {
+                            coursePrice = Convert.ToDecimal(reader["CostPrice"]);
+                        }
+
                         var course = new Course()
                         {
                             CourseId = Convert.ToInt32(reader["CourseId"]),
                             CourseName = Convert.ToString(reader["CourseName"]),
-                            CourseDescription = "",//  Convert.ToString(reader["CourseDescription"]),
-                            //CourseCode = "",//  Convert.ToString(reader["CourseCode"]),
                             StartDate = Convert.ToDateTime(reader["CourseStartDate"]),
                             EndDate = Convert.ToDateTime(reader["CourseEndDate"]),
-                            //MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
-                            //MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
+                            MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
+                            MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
                             CourseType = null,
-                            CoursePrice = Convert.ToDecimal(reader["CostPrice"]),
-                            //Teacher = null
+                            CoursePrice = coursePrice,
                         };
                         return course;
                     }
@@ -152,7 +159,6 @@ namespace SchoolappBackend.DAL
                         "CourseTypeId = @CourseTypeId, " +
                         "CostPrice = @CostPrice " +
                         "WHERE CourseId = @CourseId ";
-                        //todo coursedescription is missing in de database
             try
             {
                 CreateCommand(connectionString, query, course, RecordAction.update);
@@ -180,13 +186,10 @@ namespace SchoolappBackend.DAL
                 command.Parameters.Add("@CourseName", SqlDbType.VarChar).Value = course.CourseName;
                 command.Parameters.Add("@CourseStartDate", SqlDbType.Date).Value = course.StartDate;
                 command.Parameters.Add("@CourseEndDate", SqlDbType.Date).Value = course.EndDate;
-                command.Parameters.Add("@MinimumGradeToPassTheCourse", SqlDbType.Int).Value = 1;//todo course.m;
-                command.Parameters.Add("@MaximumTestCourseGrade", SqlDbType.Decimal).Value = 1;//todo course.gr;
+                command.Parameters.Add("@MinimumGradeToPassTheCourse", SqlDbType.Int).Value = course.MinimumGradeToPassTheCourse;
+                command.Parameters.Add("@MaximumTestCourseGrade", SqlDbType.Decimal).Value = course.MaximumTestCourseGrade;
                 command.Parameters.Add("@CourseTypeId", SqlDbType.Int).Value = 1;// course.CourseType;
-                command.Parameters.Add("@CostPrice", SqlDbType.Decimal).Value = course.CoursePrice;
-                //to do course active moet readonly zijn in de visuele interface
-                //to do course is active veld moet uit de database? is een berekend veld !!!!
-
+                command.Parameters.Add("@CostPrice", SqlDbType.Decimal).Value = course.CoursePrice ?? (object)DBNull.Value;
                 command.Connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();

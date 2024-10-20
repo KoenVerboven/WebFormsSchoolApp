@@ -141,6 +141,15 @@ namespace WebFormsSchoolApp.Course
         protected global::System.Web.UI.WebControls.TextBox TextBoxStartDate;
 
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
         /// LabelEndDate control.
         /// </summary>
         /// <remarks>
@@ -157,6 +166,15 @@ namespace WebFormsSchoolApp.Course
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxEndDate;
+
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
         /// LabelActive control.
@@ -193,6 +211,42 @@ namespace WebFormsSchoolApp.Course
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxCoursePrice;
+
+        /// <summary>
+        /// LabelMinimumGradeToPassTheCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMinimumGradeToPassTheCourse;
+
+        /// <summary>
+        /// TextBoxMinimumGradeToPassTheCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMinimumGradeToPassTheCourse;
+
+        /// <summary>
+        /// LabelMaximumTestCourseGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMaximumTestCourseGrade;
+
+        /// <summary>
+        /// TextBoxMaximumTestCourseGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMaximumTestCourseGrade;
 
         /// <summary>
         /// HiddenFieldAction control.

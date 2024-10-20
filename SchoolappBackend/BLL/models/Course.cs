@@ -20,6 +20,9 @@ namespace SchoolappBackend.BLL.models
         public bool CourseIsActive { get => CourseIsActiveMethod(); }
         public CourseType? CourseType { get; set; }
         public decimal? CoursePrice { get; set; }
+        public double? MinimumGradeToPassTheCourse { get; set; }
+        public int MaximumTestCourseGrade { get; set; }
+
         private bool CourseIsActiveMethod()
         {
             if (EndDate > DateTime.Now)

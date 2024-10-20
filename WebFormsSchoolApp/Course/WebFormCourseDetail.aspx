@@ -24,10 +24,10 @@
     <p>
         <asp:Label ID="LabelCourseName" runat="server" Text="CourseName (*) :" Width="170px"></asp:Label>
         <asp:TextBox ID="TextBoxCourseName" runat="server" Width="250px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="color:red"
-              ErrorMessage="RequiredFieldValidator"
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"  Display="None"
+              ErrorMessage="CourseName is mandatory"
               ControlToValidate="TextBoxCourseName">
-              CourseName is mandatory </asp:RequiredFieldValidator>
+        </asp:RequiredFieldValidator>
     </p>
     <p>
         <asp:Label ID="LabelCourseDescription" runat="server" Text="CourseDescription :" Width="170px"></asp:Label>
@@ -36,10 +36,18 @@
      <p>
          <asp:Label ID="LabelStartDate" runat="server" Text="StartDate (*) :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxStartDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"  Display="None"
+              ErrorMessage="StartDate is mandatory"
+              ControlToValidate="TextBoxStartDate">
+         </asp:RequiredFieldValidator>
      </p>
      <p>
          <asp:Label ID="LabelEndDate" runat="server" Text="EndDate (*) :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxEndDate" runat="server" Width="250px" placeholder="dd/mm/yyyy"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"  Display="None"
+             ErrorMessage="EndDate is mandatory"
+             ControlToValidate="TextBoxEndDate">
+         </asp:RequiredFieldValidator>
      </p>
     <p>
         <asp:Label ID="LabelActive" runat="server" Text="Active :" Width="170px"></asp:Label>
@@ -48,6 +56,14 @@
     <p>
         <asp:Label ID="LabelCoursePrice" runat="server" Text="Price :" Width="170px"></asp:Label>
         <asp:TextBox ID="TextBoxCoursePrice" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
+        <asp:Label ID="LabelMinimumGradeToPassTheCourse" runat="server" Text="Grade To Pass :" Width="170px"></asp:Label>
+        <asp:TextBox ID="TextBoxMinimumGradeToPassTheCourse" runat="server" Width="250px"></asp:TextBox>
+    </p>
+    <p>
+        <asp:Label ID="LabelMaximumTestCourseGrade" runat="server" Text="Maximum Grade :" Width="170px"></asp:Label>
+        <asp:TextBox ID="TextBoxMaximumTestCourseGrade" runat="server" Width="250px"></asp:TextBox>
     </p>
     <br />
          <asp:HiddenField ID="HiddenFieldAction" Value="" runat="server" />

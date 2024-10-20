@@ -22,18 +22,18 @@
 <p>
    <asp:Label ID="LabelUserName" runat="server" Text="UserName (*) :" Width="170px"></asp:Label>
    <asp:TextBox ID="TextBoxUserName" runat="server" Width="250px"  placeholder="UserName"></asp:TextBox>
-   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="color:red"
-         ErrorMessage="RequiredFieldValidator"
+   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"  Display="None"
+         ErrorMessage="UserName is required"
          ControlToValidate="TextBoxUserName">
-         UserName is mandatory </asp:RequiredFieldValidator>
+   </asp:RequiredFieldValidator>
 </p>
 <p>
    <asp:Label ID="LabelActiveFrom" runat="server" Text="ActiveFrom  (*) :" Width="170px"></asp:Label>
    <asp:TextBox ID="TextBoxActiveFrom" runat="server" Width="250px" placeholder="ActiveFrom dd/mm/yyyy"></asp:TextBox>
-   <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Style="color:red"
-         ErrorMessage="RequiredFieldValidator"
+   <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"  Display="None"
+         ErrorMessage="ActiveFrom is required"
          ControlToValidate="TextBoxActiveFrom">
-         ActiveFrom is mandatory </asp:RequiredFieldValidator>
+   </asp:RequiredFieldValidator>
 </p>
         <p>
    <asp:Label ID="LabelBlocked" runat="server" Text="Blocked :" Width="170px"></asp:Label>
