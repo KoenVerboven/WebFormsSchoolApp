@@ -1,6 +1,6 @@
-﻿public enum Gender{
-    unknown,
-    man,
-    woman
-}
+﻿//public enum Gender{
+//    unknown,
+//    man,
+//    woman
+//}
 

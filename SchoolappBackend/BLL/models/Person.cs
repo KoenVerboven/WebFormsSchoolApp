@@ -16,12 +16,10 @@ namespace SchoolappBackend.BLL.models
         public string ZipCode { get; set; }
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
-        //public Gender Gender { get; set; }
+        public Gender Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
-
-        //public MaritalStatus MaritalStatus { get; set; }
-        //public int NationalRegisterNumber { get; set; }
-        //public Nationality Nationality { get; set; }
-        //public int MoederTongueId { get; set; }
+        public MaritalStatus MaritalStatus { get; set; }
+        public int NationalRegisterNumber { get; set; }
+        public Nationality Nationality { get; set; }
     }
 }

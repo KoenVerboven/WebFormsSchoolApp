@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace SchoolappBackend.DAL
 {
         
     public class StudentDal
     {
-        string connectionString = "Data Source=KOENI7;Initial Catalog=School1;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         public List<Student> GetStudents()
         {
@@ -43,7 +44,8 @@ namespace SchoolappBackend.DAL
                         PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
                         EmailAddress = Convert.ToString(reader["EmailAddress"]),
                         DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
-                        RegistrationDate = Convert.ToDateTime(reader["Registrationdate"])
+                        RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
+                        Gender = Gender.Male
                     };
                     studentsList.Add(student);
                 }
@@ -84,6 +86,7 @@ namespace SchoolappBackend.DAL
                             EmailAddress = Convert.ToString(reader["EmailAddress"]),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
+                            Gender = Gender.Male //aanpassen als je f leest dan female als je m leest dan m
                         };
                         return student;
                     }

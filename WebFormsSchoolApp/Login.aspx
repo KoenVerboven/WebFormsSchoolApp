@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebFormsSchoolApp.WebFormLogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />   
-<div class="container">
+<div class="container" style="height:90%">
     <div style="height: 100px;"></div>
     <div class="row">
         <div class="col-md-4"></div>

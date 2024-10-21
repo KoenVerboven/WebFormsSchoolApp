@@ -1,8 +1,23 @@
 ﻿
 /* css by Koen : */
 
+html {
+    height: 100%;
+}   
+
 body {
     background-color: #DDD;
+    height : auto;
+   /* background: linear-gradient(to top, #c4c5c7 10%, #dcdddf 52%, #ebebeb 100%);*/
+}
+
+.content {
+    min-height: auto;
+}
+
+
+.div1{
+    min-height:80%;
 }
 
 .pageTitle {

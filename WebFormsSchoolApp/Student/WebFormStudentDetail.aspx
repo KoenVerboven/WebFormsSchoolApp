@@ -40,6 +40,20 @@
            <asp:TextBox ID="TextBoxMiddleName" runat="server" Width="250px"></asp:TextBox>
         </p>
         <p>
+           <asp:Label ID="LabelGender" runat="server" Text="Gender :" Width="170px"></asp:Label>
+            <asp:DropDownList ID="DropDownListGender" runat="server" Width="250px"></asp:DropDownList>
+        </p>
+
+         <p>
+            <asp:Label ID="LabelMaritalStatus" runat="server" Text="MaritalStatus :" Width="170px"></asp:Label>
+             <asp:DropDownList ID="DropDownListMaritalStatus" runat="server" Width="250px"></asp:DropDownList>
+         </p>
+         <p>
+            <asp:Label ID="LabelNationality" runat="server" Text="Nationality :" Width="170px"></asp:Label>
+             <asp:DropDownList ID="DropDownListNationality" runat="server" Width="250px"></asp:DropDownList>
+         </p>
+
+        <p>
          <asp:Label ID="LabelStreetAndNumber" runat="server" Text="StreetAndNumber (*) :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxStreetAndNumber" runat="server" Width="250px"></asp:TextBox>
              <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Display="None"

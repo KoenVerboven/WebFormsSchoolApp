@@ -150,6 +150,60 @@ namespace WebFormsSchoolApp.Student
         protected global::System.Web.UI.WebControls.TextBox TextBoxMiddleName;
 
         /// <summary>
+        /// LabelGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelGender;
+
+        /// <summary>
+        /// DropDownListGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListGender;
+
+        /// <summary>
+        /// LabelMaritalStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMaritalStatus;
+
+        /// <summary>
+        /// DropDownListMaritalStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListMaritalStatus;
+
+        /// <summary>
+        /// LabelNationality control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelNationality;
+
+        /// <summary>
+        /// DropDownListNationality control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListNationality;
+
+        /// <summary>
         /// LabelStreetAndNumber control.
         /// </summary>
         /// <remarks>

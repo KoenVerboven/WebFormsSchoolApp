@@ -1,9 +1,5 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
 using System;
-using System.Net.Mail;
-using System.Reflection.Emit;
-
 
 namespace WebFormsSchoolApp.Student
 {
@@ -24,12 +20,21 @@ namespace WebFormsSchoolApp.Student
 
             try
             {
+               
+
                 if (!IsPostBack)
                 {
                     personId = Convert.ToInt32(Request.QueryString["studentId"]);
                     action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
                     TextBoxRegistrationDate.Text =  DateTime.Now.ToString("dd/MM:yyyy");
+
+                    DropDownListGender.DataSource = Enum.GetValues(typeof(Gender));
+                    DropDownListGender.DataBind();
+                    DropDownListMaritalStatus.DataSource = Enum.GetValues(typeof(MaritalStatus));
+                    DropDownListMaritalStatus.DataBind();
+                    DropDownListNationality.DataSource = Enum.GetValues(typeof(Nationality));
+                    DropDownListNationality.DataBind();
 
                     if (action=="detail" || action == "update")
                     {
@@ -46,6 +51,7 @@ namespace WebFormsSchoolApp.Student
                         TextBoxEmailAddress.Text = studentSelected.EmailAddress.ToString();
                         TextBoxDateOfBirth.Text = studentSelected.DateOfBirth.ToString("dd-MM-yyyy");
                         TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString("dd-MM-yyyy");
+                        DropDownListGender.Text = studentSelected.Gender.ToString();
                     }
                     
                     switch (action) 
@@ -98,6 +104,9 @@ namespace WebFormsSchoolApp.Student
             TextBoxEmailAddress.Enabled = enableControl;
             TextBoxDateOfBirth.Enabled = enableControl;
             TextBoxRegistrationDate.Enabled = enableControl;
+            DropDownListGender.Enabled = enableControl;
+            DropDownListMaritalStatus.Enabled = enableControl;  
+            DropDownListNationality.Enabled = enableControl;    
         }
 
         protected void ButtonSave_Click(object sender, EventArgs e)

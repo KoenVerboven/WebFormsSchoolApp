@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using SchoolappBackend.BLL.models;
+using System.Configuration;
 
 namespace SchoolappBackend.DAL
 {
     internal class CourseDal
     {
-        string connectionString = "Data Source=KOENI7;Initial Catalog=School1;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         public List<Course> GetCourses()
         {

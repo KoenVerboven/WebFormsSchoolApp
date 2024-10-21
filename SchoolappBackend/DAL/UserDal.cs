@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 
 namespace SchoolappBackend.DAL
@@ -17,7 +18,7 @@ namespace SchoolappBackend.DAL
 
     internal class UserDal
     {
-        string connectionString = "Data Source=KOENI7;Initial Catalog=School1;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         public List<User> GetUsers()
         {
