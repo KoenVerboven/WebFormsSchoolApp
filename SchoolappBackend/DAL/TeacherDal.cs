@@ -9,9 +9,9 @@ namespace SchoolappBackend.DAL
 {
     internal class TeacherDal
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        readonly string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
-        public List<Teacher> GetTeachers()
+        public List<Teacher> GetTeachers(string filter, string orderby)
         {
             var teachersList = new List<Teacher>();
 
@@ -19,8 +19,21 @@ namespace SchoolappBackend.DAL
                          "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
                          "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
                          "WorkingHoursPerWeek, HighestDegreeId, StudyDirection " +
-                         "FROM Teacher " +
-                         "ORDER BY  TeacheId";
+                         "FROM Teacher ";
+
+            if (filter.Trim() != string.Empty)
+            {
+                query += "WHERE LastName like '%" + filter + "%' ";
+                query += "OR FirstName like '%" + filter + "%' ";
+            }
+            if (orderby.Trim() != string.Empty)
+            {
+                query += "ORDER BY " + orderby;
+            }
+            else
+            {
+                query += "ORDER BY TeacheId";
+            }
 
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);

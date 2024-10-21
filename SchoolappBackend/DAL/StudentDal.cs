@@ -10,19 +10,30 @@ namespace SchoolappBackend.DAL
         
     public class StudentDal
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        readonly string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
-        public List<Student> GetStudents()
+        public List<Student> GetStudents(string filter , string orderby)
         {
             var studentsList = new List<Student>();
 
             var query = "SELECT StudentId ,FirstName ,MiddleName ,LastName ,StreetAndNumber  ,ZipCode, " +
                              "PhoneNumber ,EmailAddress ,Gender ,DateOfBirth ,MaritalStatusId  ,NationalRegisterNumber," +
                              "Nationality ,MoederTongueId ,LanguageSkill ,Registrationdate " +
-                        "FROM Student " +
-                        "ORDER BY StudentId ";
+                        "FROM Student ";
 
-
+            if (filter.Trim() != string.Empty)
+            {
+                query += "WHERE LastName like '%" + filter + "%' ";
+                query += "OR FirstName like '%" + filter + "%' ";
+            }
+            if (orderby.Trim() != string.Empty)
+            {
+                query += "ORDER BY " + orderby;
+            }
+            else
+            {
+                query += "ORDER BY StudentId";
+            }
 
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);

@@ -46,7 +46,7 @@ namespace SchoolappBackend.BLL.BLLClasses
         public List<User> GetUsers(string searchField, string orderBy)
         {
             UserDal userDal = new UserDal();
-            return userDal.GetUsers();
+            return userDal.GetUsers(searchField,orderBy);
         }
 
         public bool Update(User user)

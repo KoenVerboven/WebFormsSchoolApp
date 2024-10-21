@@ -46,19 +46,34 @@ namespace SchoolappBackend.BLL.BLLClasses
         public List<Course> GetCourses(string searchField, string orderBy , ActiveType activeType)
         {
             CourseDal courseDal = new CourseDal();
-            courses = courseDal.GetCourses();
-            
+            return courseDal.GetCourses(searchField,orderBy,activeType);
+        }
+
+        public List<Course> GetCoursesByStudentId(int studentId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Update(Course course)
+        {
+            CourseDal courseDal = new CourseDal();
+            return courseDal.UpdateCourse(course);
+        }
+
+        [Obsolete]
+        private List<Course> SearchCourses(string searchField, string orderBy, ActiveType activeType)
+        {
             if (courses != null)
             {
                 courses = courses
                              .Where(X => X.CourseName.ToLower().Contains(searchField.ToLower())
                 ).ToList();
-               
-                if (activeType == ActiveType.Active) 
+
+                if (activeType == ActiveType.Active)
                 {
                     courses = courses.Where(X => X.CourseIsActive == true).ToList();
                 }
-                if (activeType == ActiveType.NonActive) 
+                if (activeType == ActiveType.NonActive)
                 {
                     courses = courses.Where(X => X.CourseIsActive == false).ToList();
                 }
@@ -92,17 +107,7 @@ namespace SchoolappBackend.BLL.BLLClasses
             return null;
         }
 
-        public List<Course> GetCoursesByStudentId(int studentId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Course course)
-        {
-            CourseDal courseDal = new CourseDal();
-            return courseDal.UpdateCourse(course);
-        }
-
+        [Obsolete]
         private void FillCoursesList()
         {
             courses = new List<models.Course>()

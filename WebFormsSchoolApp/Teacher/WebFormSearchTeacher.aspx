@@ -47,8 +47,8 @@
                    ButtonType="Button"
                    ShowSelectButton="True" 
                    />
-               <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="PersonId" />
-               <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
+               <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="TeacheId" />
+               <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="LastName" />
                <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" 
                    DataFormatString="{0:dd-M-yyyy}" 
                    SortExpression="DateOfBirth" />

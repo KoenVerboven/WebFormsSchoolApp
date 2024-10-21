@@ -3,7 +3,7 @@
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" /> 
     <div class="div1">
     
-<p>
+<p class="pageTitle">
       <asp:Label ID="LabelTitle" runat="server" Text="UserDetail" Font-Size="20"></asp:Label>
 </p>
 <p>

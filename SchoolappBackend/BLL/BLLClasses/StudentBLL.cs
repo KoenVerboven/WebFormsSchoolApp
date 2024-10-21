@@ -40,7 +40,19 @@ namespace SchoolappBackend.BLL.BLLClasses
         public List<Student> GetStudents(string searchField,string orderBy)
         {
             var studentDal = new StudentDal();
-            students = studentDal.GetStudents();
+            students = studentDal.GetStudents(searchField,orderBy);
+            return students;
+        }
+
+        public bool Update(Student student)
+        {
+            var studentDal = new StudentDal();
+            return studentDal.UpdateStudent(student);
+        }
+
+        [Obsolete]
+        private List<Student> SearchStudents(string searchField, string orderBy)
+        {
             if (students != null)
             {
                 students = students
@@ -67,12 +79,6 @@ namespace SchoolappBackend.BLL.BLLClasses
                 return students;
             }
             return null;
-        }
-
-        public bool Update(Student student)
-        {
-            var studentDal = new StudentDal();
-            return studentDal.UpdateStudent(student);
         }
 
         [Obsolete]

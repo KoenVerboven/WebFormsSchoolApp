@@ -50,11 +50,9 @@
                 />
             <asp:BoundField DataField="CourseId" HeaderText="Id" SortExpression="CourseId" />
             <asp:BoundField DataField="CourseName" HeaderText="CourseName" SortExpression="CourseName" />
-            <asp:BoundField DataField="StartDate" HeaderText="StartDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="StartDate" />
-            <asp:BoundField DataField="EndDate" HeaderText="EndDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="EndDate" />
-            <asp:BoundField DataField="CourseType" HeaderText="CourseType" SortExpression="CourseType" />
-            <asp:BoundField DataField="CourseIsActive" HeaderText="CourseIsActive" SortExpression="CourseIsActive" />
-            
+            <asp:BoundField DataField="StartDate" HeaderText="StartDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="CourseStartDate" />
+            <asp:BoundField DataField="EndDate" HeaderText="EndDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="CourseEndDate" />
+            <asp:BoundField DataField="CourseIsActive" HeaderText="CourseIsActive"  />
             <asp:TemplateField HeaderText = "" ItemStyle-HorizontalAlign ="Center" >
                <ItemTemplate>
                    <asp:Button ID="cmdUpdate" runat="server" Text="Update"

@@ -4,21 +4,49 @@ using System.Data.SqlClient;
 using System.Data;
 using SchoolappBackend.BLL.models;
 using System.Configuration;
+using SchoolappBackend.BLL.BLLClasses;
 
 namespace SchoolappBackend.DAL
 {
     internal class CourseDal
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        readonly string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
-        public List<Course> GetCourses()
+        public List<Course> GetCourses(string filter, string orderby ,ActiveType activeType)
         {
             var coursesList = new List<Course>();
 
             var query = "SELECT CourseId ,CourseName ,CourseStartDate ,CourseEndDate ,MinimumGradeToPassTheCourse," +
                             "MaximumTestCourseGrade ,CourseTypeId ,CostPrice " +
                          "FROM Course " +
-                         "ORDER BY CourseId ";
+                         "WHERE CourseId > -1 ";
+
+            if (filter.Trim() != string.Empty)
+            {
+                query += "AND CourseName like '%" + filter + "%' ";
+            }
+
+            if (activeType == ActiveType.Active)
+            {
+                query += "AND CourseStartDate < getdate() " +
+                         "AND CourseEndDate > getdate() ";
+            }
+
+            if (activeType == ActiveType.NonActive)
+            {
+                query += "AND CourseStartDate > getdate() " +
+                         "OR CourseEndDate < getdate() ";
+            }
+
+            if (orderby.Trim() != string.Empty)
+            {
+                query += "ORDER BY " + orderby;
+            }
+            else
+            {
+                query += "ORDER BY CourseId";
+            }
+
 
             var connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);

@@ -18,15 +18,26 @@ namespace SchoolappBackend.DAL
 
     internal class UserDal
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        readonly string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
-        public List<User> GetUsers()
+        public List<User> GetUsers(string filter, string orderby)
         {
             var userList = new List<User>();
 
             var query = "SELECT UserId, UserName, UserPassword, SecurityGroupId, ActiveFrom, Blocked, PersonId " +
-                        "FROM InlogUser " +
-                        "ORDER BY UserId ";
+                        "FROM InlogUser ";
+            if (filter.Trim() != string.Empty)
+            {
+                query += "WHERE UserName like '%" + filter + "%' ";
+            }
+            if(orderby.Trim() != string.Empty)
+            {
+                query += "ORDER BY " + orderby;
+            }
+            else
+            {
+                query += "ORDER BY UserId";
+            }
 
             var connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);

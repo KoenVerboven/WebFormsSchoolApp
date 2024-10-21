@@ -38,31 +38,8 @@ namespace SchoolappBackend.BLL.BLLClasses
         public List<Teacher> GetTeachers(string searchField, string orderBy)
         {
             var teacherDal = new TeacherDal();
-            teachers = teacherDal.GetTeachers();
-            if (teachers != null)
-            {
-                teachers = teachers
-                             .Where(X => X.FullName.ToLower().Contains(searchField.ToLower())
-                                       ).ToList();
-
-                switch (orderBy)
-                {
-                    case "PersonId":
-                        teachers = teachers.OrderBy(x => x.PersonId).ToList();
-                        break;
-                    case "FullName":
-                        teachers = teachers.OrderBy(x => x.FullName).ToList();
-                        break;
-                    case "DateOfBirth":
-                        teachers = teachers.OrderBy(x => x.DateOfBirth).ToList();
-                        break;
-                    default:
-                        teachers = teachers.OrderBy(x => x.PersonId).ToList();
-                        break;
-                }
-                return teachers;
-            }
-            return null;
+            teachers = teacherDal.GetTeachers(searchField,orderBy);
+            return teachers;
         }
 
         public bool Update(Teacher teacher)
@@ -70,6 +47,32 @@ namespace SchoolappBackend.BLL.BLLClasses
             var teacherDal = new TeacherDal();
             return teacherDal.Update(teacher);
         }
+
+        [Obsolete]
+        private List<Teacher> SearchTeachers(string searchField, string orderBy)
+        {
+            teachers = teachers
+                            .Where(X => X.FullName.ToLower().Contains(searchField.ToLower())
+                                      ).ToList();
+
+            switch (orderBy)
+            {
+                case "PersonId":
+                    teachers = teachers.OrderBy(x => x.PersonId).ToList();
+                    break;
+                case "FullName":
+                    teachers = teachers.OrderBy(x => x.FullName).ToList();
+                    break;
+                case "DateOfBirth":
+                    teachers = teachers.OrderBy(x => x.DateOfBirth).ToList();
+                    break;
+                default:
+                    teachers = teachers.OrderBy(x => x.PersonId).ToList();
+                    break;
+            }
+            return teachers;
+        }
+
 
         [Obsolete]
         private void FillTeachersList()
