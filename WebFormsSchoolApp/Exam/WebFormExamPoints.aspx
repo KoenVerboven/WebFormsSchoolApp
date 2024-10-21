@@ -6,12 +6,11 @@
      <br />
      <br />
 <p>
-    <asp:Label ID="Label1" runat="server" Text="**** Under Construction ****" BackColor="Yellow"></asp:Label>
+    <asp:Label ID="Label1" runat="server" visible="false" Text="**** Under Construction ****" BackColor="Yellow"></asp:Label>
 </p>
+   
+    <H3>Student : Verboven Koen</H3>
     <br />
-    <br />
-    
-
   <div class="row">
    <div class="col-md-3">
    <p style="background-color:white">Max Points</p> 

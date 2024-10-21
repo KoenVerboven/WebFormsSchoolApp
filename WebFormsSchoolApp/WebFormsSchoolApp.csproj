@@ -139,6 +139,7 @@
     <Content Include="info\InstallSystemDataSqlClient.png" />
     <Content Include="info\WebFormWithMasterPage.png" />
     <Content Include="ScreenShots\about.png" />
+    <Content Include="ScreenShots\ExamenPoints.png" />
     <Content Include="ScreenShots\insertnewstudentvalidation.png" />
     <Content Include="ScreenShots\login.png" />
     <Content Include="ScreenShots\loginfailed.png" />
