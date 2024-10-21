@@ -26,6 +26,13 @@
          ErrorMessage="UserName is required"
          ControlToValidate="TextBoxUserName">
    </asp:RequiredFieldValidator>
+       <asp:RegularExpressionValidator Display = "None" 
+      ControlToValidate = "TextBoxUserName" 
+      ID="RegularExpressionValidator4" 
+      ValidationExpression = "^[\s\S]{0,30}$" 
+      runat="server" 
+      ErrorMessage="UserName : maximum 30 characters allowed.">
+   </asp:RegularExpressionValidator>
 </p>
 <p>
    <asp:Label ID="LabelActiveFrom" runat="server" Text="ActiveFrom  (*) :" Width="170px"></asp:Label>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormSearchCourse.aspx.cs" Inherits="WebFormsSchoolApp.Course.WebFormSearchCourse" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
-    <div class="div-3" >
+    <div class="div1" >
     <div class="pageTitle">Course</div>
     <p>
         <asp:Label ID="LabelErrorMessage"  ForeColor="Red" runat="server" Text=""></asp:Label> 

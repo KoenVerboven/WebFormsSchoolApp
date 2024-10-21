@@ -26,6 +26,13 @@
                  ErrorMessage="Lastname is mandatory"
                  ControlToValidate="TextBoxLastName">
            </asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator Display = "None" 
+                ControlToValidate = "TextBoxLastName" 
+                ID="RegularExpressionValidator1" 
+                ValidationExpression = "^[\s\S]{0,50}$" 
+                runat="server" 
+                ErrorMessage="LastName : maximum 50 characters allowed.">
+            </asp:RegularExpressionValidator>
         </p>
         <p>
             <asp:Label ID="LabelFirstName" runat="server" Text="FirstName (*) :" Width="170px"></asp:Label>
@@ -34,10 +41,24 @@
                   ErrorMessage="Firstname is mandatory"
                   ControlToValidate="TextBoxFirstName">
             </asp:RequiredFieldValidator>
+              <asp:RegularExpressionValidator Display = "None" 
+                  ControlToValidate = "TextBoxFirstName" 
+                  ID="RegularExpressionValidator2" 
+                  ValidationExpression = "^[\s\S]{0,50}$" 
+                  runat="server" 
+                  ErrorMessage="FirstName : maximum 50 characters allowed.">
+              </asp:RegularExpressionValidator>
         </p>
         <p>
            <asp:Label ID="LabelMiddleName" runat="server" Text="MiddleName :" Width="170px"></asp:Label>
            <asp:TextBox ID="TextBoxMiddleName" runat="server" Width="250px"></asp:TextBox>
+             <asp:RegularExpressionValidator Display = "None" 
+                 ControlToValidate = "TextBoxMiddleName" 
+                 ID="RegularExpressionValidator3" 
+                 ValidationExpression = "^[\s\S]{0,50}$" 
+                 runat="server" 
+                 ErrorMessage="MiddleName : maximum 50 characters allowed.">
+             </asp:RegularExpressionValidator>
         </p>
         <p>
            <asp:Label ID="LabelGender" runat="server" Text="Gender :" Width="170px"></asp:Label>
@@ -60,6 +81,13 @@
                    ErrorMessage="Street And Number is mandatory"
                    ControlToValidate="TextBoxStreetAndNumber">
              </asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator Display = "None" 
+                 ControlToValidate = "TextBoxStreetAndNumber" 
+                 ID="RegularExpressionValidator4" 
+                 ValidationExpression = "^[\s\S]{0,60}$" 
+                 runat="server" 
+                 ErrorMessage="Street and number : maximum 60 characters allowed.">
+             </asp:RegularExpressionValidator>
         </p>
         <p>
           <asp:Label ID="LabelZipCode" runat="server" Text="ZipCode (*) :" Width="170px"></asp:Label>

@@ -27,6 +27,13 @@
               ErrorMessage="CourseName is mandatory"
               ControlToValidate="TextBoxCourseName">
         </asp:RequiredFieldValidator>
+         <asp:RegularExpressionValidator Display = "None" 
+            ControlToValidate = "TextBoxCourseName" 
+            ID="RegularExpressionValidator4" 
+            ValidationExpression = "^[\s\S]{0,60}$" 
+            runat="server" 
+            ErrorMessage="CourseName : maximum 60 characters allowed.">
+        </asp:RegularExpressionValidator>
     </p>
     <p>
         <asp:Label ID="LabelCourseDescription" runat="server" Text="CourseDescription :" Width="170px"></asp:Label>
