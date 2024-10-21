@@ -6,8 +6,9 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
+            <h3 style="background-color:red; color:white; padding-left:10px; height:40px">Login</h3>
             <div class="customFrame1" height="80%" width="500px">
-                <h3>Login</h3>
+                
                 <br />
 
                 <p>
