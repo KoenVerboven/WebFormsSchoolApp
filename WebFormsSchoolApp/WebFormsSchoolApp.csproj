@@ -131,6 +131,7 @@
     <Content Include="Course\WebFormCourseDetail.aspx" />
     <Content Include="Course\WebFormSearchCourse.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Exam\WebFormExamPoints.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Global.asax" />
@@ -262,6 +263,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Enums\GeneralEnums.cs" />
+    <Compile Include="Exam\WebFormExamPoints.aspx.cs">
+      <DependentUpon>WebFormExamPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exam\WebFormExamPoints.aspx.designer.cs">
+      <DependentUpon>WebFormExamPoints.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -5,15 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebFormsSchoolApp
+namespace WebFormsSchoolApp.Exam
 {
-    public partial class ForgetPassword : System.Web.UI.Page
+    public partial class WebFormExamPoints : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null)
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("../login.aspx");
             }
         }
     }

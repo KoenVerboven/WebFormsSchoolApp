@@ -47,7 +47,12 @@ namespace WebFormsSchoolApp
 
         protected void LinkButtonUserRole_Click(object sender, EventArgs e)
         {
+            Response.Redirect("User\\WebFormUserRole.aspx");
+        }
 
+        protected void LinkButtonExamenPoints_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Exam\\WebFormExamPoints.aspx");
         }
     }
 }

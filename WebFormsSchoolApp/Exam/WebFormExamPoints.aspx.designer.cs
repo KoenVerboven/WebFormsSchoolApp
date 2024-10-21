@@ -7,74 +7,65 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormsSchoolApp
+namespace WebFormsSchoolApp.Exam
 {
 
 
-    public partial class _Default
+    public partial class WebFormExamPoints
     {
 
         /// <summary>
-        /// LinkButtonSearchStudent control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchStudent;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// LinkButtonSearchTeacher control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchTeacher;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// LinkButtonSearchCourse control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchCourse;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// LinkButtonSearchUser control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchUser;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// LinkButtonUserRole control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonUserRole;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// LinkButtonAttendanceRegistration control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonAttendanceRegistration;
-
-        /// <summary>
-        /// LinkButtonExamenPoints control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonExamenPoints;
+        protected global::System.Web.UI.WebControls.Label Label5;
     }
 }
