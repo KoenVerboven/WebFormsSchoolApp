@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body style="height:100%;">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container body-content">
+        <div class="container body-content" style="min-height:80vh;">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

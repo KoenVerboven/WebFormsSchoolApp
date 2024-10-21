@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />
-     <div>
+     <div class="div1">
      <div class="pageTitle">Home</div>
      <br />
      <br />

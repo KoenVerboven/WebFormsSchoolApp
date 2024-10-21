@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormUserDetail.aspx.cs" Inherits="WebFormsSchoolApp.User.WebFormUserDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" /> 
-    <div class="div-3">
+    <div class="div1">
     
 <p>
       <asp:Label ID="LabelTitle" runat="server" Text="UserDetail" Font-Size="20"></asp:Label>
