@@ -56,6 +56,35 @@ body {
     border-radius: 6px;
 }
 
+.customFrame2 {
+    background-color: #395886;
+    color: #44A;
+    padding-top: 4px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-style: inset;
+    border-width: 0px;
+    border-color: darkgrey;
+    border-radius: 6px;
+}
+
+
+.customFrame3 {
+    background-color: #FFF;
+    color: #44A;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 31px;
+    padding-left: 5px;
+    border-style: inset;
+    border-width: 1px;
+    border-color: darkgrey;
+    border-radius: 6px;
+    min-height: 60vh;
+}
+
+
 th {
     background-color: #505678 
 }

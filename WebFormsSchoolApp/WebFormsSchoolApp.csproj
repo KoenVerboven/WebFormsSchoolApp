@@ -207,6 +207,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="StartPage.aspx" />
     <Content Include="Student\WebFormSearchStudent.aspx" />
     <Content Include="Student\WebFormStudentDetail.aspx" />
     <Content Include="CustomCss\StyleSheet1.css" />
@@ -311,6 +312,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StartPage.aspx.cs">
+      <DependentUpon>StartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartPage.aspx.designer.cs">
+      <DependentUpon>StartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\WebFormSearchStudent.aspx.cs">
       <DependentUpon>WebFormSearchStudent.aspx</DependentUpon>
