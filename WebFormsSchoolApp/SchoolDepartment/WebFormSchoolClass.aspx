@@ -6,9 +6,8 @@
 <p>
     <asp:Label ID="Label1" runat="server" visible="true" Text="**** Under Construction ****" BackColor="Yellow"></asp:Label>
 </p>    
-    <h3>SchoolClass</h3>
-    <h5>Students:</h5>
-    <p>Verboven Koen</p>
-    <p>Peeters Dirk</p>
-    <p>Poels Maria</p>
+    <p>ClassName :</p>
+    <p>ClassCode :</p>
+    <p>ClassDescription :</p>
+    <asp:Button ID="Button1" runat="server" Text="Add new class" />
 </asp:Content>

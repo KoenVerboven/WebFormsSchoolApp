@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using WebFormsSchoolApp.SchoolDepartment;
 
 
 // todo : Replace Mainform.aspx  by default.aspx
@@ -58,6 +59,11 @@ namespace WebFormsSchoolApp
         protected void LinkButton1_Click1(object sender, EventArgs e)
         {
             Response.Redirect("SchoolDepartment\\WebFormSchoolClass.aspx");
+        }
+
+        protected void LinkButtonClassOrganisation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SchoolDepartment\\WebFormSchoolClassOrganistation.aspx");
         }
     }
 }

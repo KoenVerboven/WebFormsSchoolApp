@@ -139,12 +139,13 @@
     <Content Include="info\InstallSystemDataSqlClient.png" />
     <Content Include="info\WebFormWithMasterPage.png" />
     <Content Include="SchoolDepartment\WebFormSchoolClass.aspx" />
+    <Content Include="SchoolDepartment\WebFormSchoolClassOrganistation.aspx" />
     <Content Include="ScreenShots\about.png" />
     <Content Include="ScreenShots\ExamenPoints.png" />
     <Content Include="ScreenShots\insertnewstudentvalidation.png" />
     <Content Include="ScreenShots\login.png" />
     <Content Include="ScreenShots\loginfailed.png" />
-    <Content Include="ScreenShots\mainmenu.png" />
+    <Content Include="ScreenShots\MenuScreenNew.png" />
     <Content Include="ScreenShots\searchcourse.png" />
     <Content Include="ScreenShots\searchstudent.png" />
     <Content Include="ScreenShots\searchuser.png" />
@@ -289,6 +290,13 @@
     </Compile>
     <Compile Include="SchoolDepartment\WebFormSchoolClass.aspx.designer.cs">
       <DependentUpon>WebFormSchoolClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolDepartment\WebFormSchoolClassOrganistation.aspx.cs">
+      <DependentUpon>WebFormSchoolClassOrganistation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchoolDepartment\WebFormSchoolClassOrganistation.aspx.designer.cs">
+      <DependentUpon>WebFormSchoolClassOrganistation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -26,8 +26,7 @@
                OnClick="LinkButtonSearchTeacher_Click"
                >
                <asp:Label runat="server" Text="Teachter" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%--Teacher end--%>
-         <%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButton1" runat="server"
+            </asp:LinkButton></p><%--Teacher end--%><%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButton1" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
@@ -35,9 +34,8 @@
               >
              <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
             <asp:Label runat="server" Text="SchoolClass" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%-- SchoolClass end --%>
-     </div>
-     <div class="col-md-4">
+              <asp:Label runat="server" Text="Administration" style="margin:9px 0px 0px 15px; float:left;"/>
+            </asp:LinkButton></p><%-- SchoolClass end --%></div><div class="col-md-4">
          <%--Course start--%><p><asp:LinkButton ID="LinkButtonSearchCourse" runat="server"
                 Height="80"
                 Width="200"
@@ -52,8 +50,7 @@
                BackColor="#2222EE" OnClick="LinkButtonSearchUser_Click"
                >
              <asp:Label runat="server" Text="User" style="margin:9px 0px 0px 15px; float:left;"/>
-             </asp:LinkButton></p><%--User end--%>
-             <%--ExamenPoints start--%><p> <asp:LinkButton ID="LinkButtonExamenPoints" runat="server"
+             </asp:LinkButton></p><%--User end--%><%--ExamenPoints start--%><p> <asp:LinkButton ID="LinkButtonExamenPoints" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
@@ -61,9 +58,7 @@
               >
              <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
             <asp:Label runat="server" Text="ExamenPoints" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%-- ExamenPoints end --%>
-         </div>
-         <div class="col-md-4">
+            </asp:LinkButton></p><%-- ExamenPoints end --%></div><div class="col-md-4">
                       <%--UserRole start--%><p> <asp:LinkButton ID="LinkButtonUserRole" runat="server"
                   Height="80"
                   Width="200"
@@ -78,10 +73,15 @@
               BackColor="#228888" OnClick="LinkButtonAttendanceRegistration_Click1" 
               >
             <asp:Label runat="server" Text="Attendance" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%-- AttendanceRegistration end --%>
-     </div>
-
-     </div>
-     <br />
+            </asp:LinkButton></p><%-- AttendanceRegistration end --%><%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButtonClassOrganisation" runat="server"
+              Height="80"
+              Width="200"
+              ForeColor="#FFFFFF"
+              BackColor="#425359" OnClick="LinkButtonClassOrganisation_Click"   
+              >
+             <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
+            <asp:Label runat="server" Text="SchoolClass" style="margin:9px 0px 0px 15px; float:left;"/>
+              <asp:Label runat="server" Text="Organistation" style="margin:9px 0px 0px 15px; float:left;"/>
+            </asp:LinkButton></p><%-- SchoolClass end --%></div></div><br />
      
          </div></asp:Content>
