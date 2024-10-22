@@ -6,7 +6,7 @@
      <br />
      <br />
 <p>
-    <asp:Label ID="Label1" runat="server" visible="false" Text="**** Under Construction ****" BackColor="Yellow"></asp:Label>
+    <asp:Label ID="Label1" runat="server" visible="true" Text="**** Under Construction ****" BackColor="Yellow"></asp:Label>
 </p>
    
     <H3>Student : Verboven Koen</H3>

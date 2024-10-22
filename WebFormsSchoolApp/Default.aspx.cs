@@ -54,5 +54,10 @@ namespace WebFormsSchoolApp
         {
             Response.Redirect("Exam\\WebFormExamPoints.aspx");
         }
+
+        protected void LinkButton1_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("SchoolDepartment\\WebFormSchoolClass.aspx");
+        }
     }
 }

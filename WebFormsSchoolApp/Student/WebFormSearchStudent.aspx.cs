@@ -15,7 +15,7 @@ namespace WebFormsSchoolApp.Student
         {
             if (Session["user"] == null)
             {
-                Response.Redirect("../login.aspx");
+                Response.Redirect("../loginSchool.aspx");
             }
 
             if(Session["searchStudent"] != null)

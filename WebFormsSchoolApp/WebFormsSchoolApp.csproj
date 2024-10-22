@@ -138,6 +138,7 @@
     <Content Include="info\addReference.png" />
     <Content Include="info\InstallSystemDataSqlClient.png" />
     <Content Include="info\WebFormWithMasterPage.png" />
+    <Content Include="SchoolDepartment\WebFormSchoolClass.aspx" />
     <Content Include="ScreenShots\about.png" />
     <Content Include="ScreenShots\ExamenPoints.png" />
     <Content Include="ScreenShots\insertnewstudentvalidation.png" />
@@ -282,6 +283,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchoolDepartment\WebFormSchoolClass.aspx.cs">
+      <DependentUpon>WebFormSchoolClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchoolDepartment\WebFormSchoolClass.aspx.designer.cs">
+      <DependentUpon>WebFormSchoolClass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

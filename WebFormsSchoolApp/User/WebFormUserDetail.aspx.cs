@@ -1,6 +1,4 @@
-﻿using Antlr.Runtime.Misc;
-using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
+﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
 using System.Security.Cryptography.X509Certificates;
 
@@ -14,8 +12,6 @@ namespace WebFormsSchoolApp.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string action = string.Empty;
-
             if (Session["user"] == null)
             {
                 Response.Redirect("../loginSchool.aspx");
@@ -26,7 +22,7 @@ namespace WebFormsSchoolApp.User
                 if (!IsPostBack)
                 {
                     userId = Convert.ToInt32(Request.QueryString["userId"]);
-                    action = Request.QueryString["action"];
+                    string action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
                     if (action == "detail" || action == "update")
                     {

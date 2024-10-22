@@ -33,6 +33,15 @@ namespace WebFormsSchoolApp
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchTeacher;
 
         /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+
+        /// <summary>
         /// LinkButtonSearchCourse control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace WebFormsSchoolApp
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchUser;
 
         /// <summary>
+        /// LinkButtonExamenPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonExamenPoints;
+
+        /// <summary>
         /// LinkButtonUserRole control.
         /// </summary>
         /// <remarks>
@@ -67,14 +85,5 @@ namespace WebFormsSchoolApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonAttendanceRegistration;
-
-        /// <summary>
-        /// LinkButtonExamenPoints control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonExamenPoints;
     }
 }

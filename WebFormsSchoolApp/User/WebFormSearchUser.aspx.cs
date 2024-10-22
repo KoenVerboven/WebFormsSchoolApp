@@ -19,6 +19,7 @@ namespace WebFormsSchoolApp.User
             {
                 Response.Redirect("../loginSchool.aspx");
             }
+            GridView1.EmptyDataText = "No Users found. Please adjust your search condition.";
         }
 
         protected void cmdDelete_Click(object sender, EventArgs e)

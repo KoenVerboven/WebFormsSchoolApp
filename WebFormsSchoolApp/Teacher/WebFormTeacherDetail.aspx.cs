@@ -7,8 +7,6 @@ namespace WebFormsSchoolApp.Teacher
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int teacherId = 0;
-            string action = string.Empty;
             const string subject = "Teacher";
 
             if (Session["user"] == null)
@@ -20,8 +18,8 @@ namespace WebFormsSchoolApp.Teacher
             {
                 if (!IsPostBack)
                 {
-                    teacherId = Convert.ToInt32(Request.QueryString["teacherId"]);
-                    action = Request.QueryString["action"];
+                    int teacherId = Convert.ToInt32(Request.QueryString["teacherId"]);
+                    string action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
 
                     if (action == "detail" || action == "update")
