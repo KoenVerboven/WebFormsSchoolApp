@@ -15,6 +15,6 @@
             <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
             <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
         </address>
-        <a href="Login.aspx">Login.aspx</a>
+        <a href="LoginSchool.aspx">Login.aspx</a>
     </main>
 </asp:Content>

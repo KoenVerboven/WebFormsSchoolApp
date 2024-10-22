@@ -16,7 +16,7 @@ namespace WebFormsSchoolApp
         {
             if (Session["user"] == null)
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("loginSchool.aspx");
             }
         }
 

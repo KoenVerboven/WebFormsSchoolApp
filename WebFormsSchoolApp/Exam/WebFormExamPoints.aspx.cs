@@ -13,7 +13,7 @@ namespace WebFormsSchoolApp.Exam
         {
             if (Session["user"] == null)
             {
-                Response.Redirect("../login.aspx");
+                Response.Redirect("../loginSchool.aspx");
             }
         }
     }

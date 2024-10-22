@@ -10,7 +10,7 @@ namespace WebFormsSchoolApp
         {
             if (Session["user"] == null)
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("loginSchool.aspx");
             }
             Labelfooter.Text = " Belgium - Vosselaar    " + DateTime.Now.ToString("dd-MM-yyyy");
         }
