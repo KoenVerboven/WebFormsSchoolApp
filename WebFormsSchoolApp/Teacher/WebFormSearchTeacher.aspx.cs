@@ -13,7 +13,7 @@ namespace WebFormsSchoolApp.Teacher
         {
             if (Session["user"] == null)
             {
-                Response.Redirect("../loginSchool.aspx");
+                Response.Redirect("../StartPage.aspx");
             }
 
             if (Session["searchTeacher"] != null)

@@ -17,7 +17,7 @@ namespace WebFormsSchoolApp.User
 
             if (Session["user"] == null)
             {
-                Response.Redirect("../loginSchool.aspx");
+                Response.Redirect("../StartPage.aspx");
             }
             GridView1.EmptyDataText = "No Users found. Please adjust your search condition.";
         }
