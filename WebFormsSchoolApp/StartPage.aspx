@@ -14,9 +14,12 @@
                     <a href="ForgetPassword.aspx" style="color:antiquewhite">Forget password ?</a>
                     <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="180px" runat="server" Text=""></asp:Label>
            </div>
-           <div with="100%" style="margin-top:4px" class="customFrame3">
+           <div with="100%" style="margin-top:4px;background-color:antiquewhite" class="customFrame3">
                <p style="background-color:#4FB7B2;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info board</p>
-               <div style="margin-left:20px">
+               <div style="float:left;width:30%;">
+                  <img src="Images/autumnSmall.jpg" style="max-width: 70%; height: auto;" />
+               </div>
+               <div style="margin-right:10px;float:right;width:65%;">
                     <p>Dear students,</p>
                      <p>
                        from Monday October 21 to Monday October 28,<br />
@@ -31,9 +34,7 @@
                     </p>
                </div>
            </div>
-
         </div>
-       
         </div>
 </div>
 </asp:Content>

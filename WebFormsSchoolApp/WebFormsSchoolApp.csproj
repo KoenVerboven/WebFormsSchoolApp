@@ -135,6 +135,7 @@
     <Content Include="favicon.ico" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\autumnSmall.jpg" />
     <Content Include="info\addReference.png" />
     <Content Include="info\InstallSystemDataSqlClient.png" />
     <Content Include="info\WebFormWithMasterPage.png" />
