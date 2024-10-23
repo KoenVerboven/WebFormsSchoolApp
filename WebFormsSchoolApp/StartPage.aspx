@@ -14,15 +14,16 @@
                     <a href="ForgetPassword.aspx" style="color:antiquewhite">Forget password ?</a>
                     <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="180px" runat="server" Text=""></asp:Label>
            </div>
-           <div with="100%" style="margin-top:4px;background-color:antiquewhite" class="customFrame3">
-               <p style="background-color:#4FB7B2;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info board</p>
+
+           <div with="100%" style="margin-top:4px;background-color:white" class="customFrame3">
+               <p style="background-color:#297AFF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/10/2024</p>
                <div style="float:left;width:30%;">
-                  <img src="Images/autumnSmall.jpg" style="max-width: 70%; height: auto;" />
+                  <img src="Images/autumnSmall.jpg" style="max-width: 70%; height: auto;margin-left:3px;border-radius: 8px" />
                </div>
                <div style="margin-right:10px;float:right;width:65%;">
                     <p>Dear students,</p>
                      <p>
-                       from Monday October 21 to Monday October 28,<br />
+                       from Monday <span style="color:red">October 21</span> to <span style="color:red">Monday October 28</span> ,<br />
                        it is autumn leave and there is no school.
                     </p>
                     <p>
@@ -34,7 +35,14 @@
                     </p>
                </div>
            </div>
-        </div>
-        </div>
+
+          <div with="100%" style="margin-top:15px;background-color:white" class="customFrame3">
+            <p style="background-color:#297AFF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/09/2024</p>
+          <div style="margin-right:10px;float:left;width:65%;">
+          </div>
+              <h3>Welcome to our new website !</h3>
+          </div>
+       </div>
+    </div>
 </div>
 </asp:Content>
