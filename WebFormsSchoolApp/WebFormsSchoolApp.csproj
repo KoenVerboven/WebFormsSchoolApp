@@ -144,12 +144,12 @@
     <Content Include="ScreenShots\about.png" />
     <Content Include="ScreenShots\ExamenPoints.png" />
     <Content Include="ScreenShots\insertnewstudentvalidation.png" />
-    <Content Include="ScreenShots\login.png" />
-    <Content Include="ScreenShots\loginfailed.png" />
+    <Content Include="ScreenShots\loginFailed1.png" />
     <Content Include="ScreenShots\MenuScreenNew.png" />
     <Content Include="ScreenShots\searchcourse.png" />
     <Content Include="ScreenShots\searchstudent.png" />
     <Content Include="ScreenShots\searchuser.png" />
+    <Content Include="ScreenShots\startpage.png" />
     <Content Include="ScreenShots\updateuser.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
