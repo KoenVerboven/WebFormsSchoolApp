@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,35 +13,26 @@ namespace WebFormsSchoolApp.SchoolDepartment
             {
                 Response.Redirect("../StartPage.aspx");
             }
-           
-            if(!Page.IsPostBack)
+
+            if (!Page.IsPostBack)
             {
-                ListItem listItem = new ListItem();
-                listItem.Value = "1";
-                listItem.Text = "koen verboven";
-                ListBox1.Items.Add(listItem);
-
-                ListItem listItem2 = new ListItem();
-                listItem2.Value = "2";
-                listItem2.Text = "maria poels";
-                ListBox1.Items.Add(listItem2);
-
-                ListItem listItem3 = new ListItem();
-                listItem3.Value = "3";
-                listItem3.Text = "Paul Janssens";
-                ListBox1.Items.Add(listItem3);
+                ListBoxStudent.Items.AddRange(getStudents().ToArray());
+                DropDownListClass.Items.AddRange(getSchoolClasses().ToArray());
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ButtonAddStudentToClass_Click(object sender, EventArgs e)
         {
             try
             {
-                var selectedItem =  ListBox1.SelectedItem;
-                ListBox2.Items.Add(selectedItem);
-                ListBox1.Items.Remove(selectedItem);
-                ListBox1.ClearSelection();
-                ListBox2.ClearSelection();
+                var selectedItem = ListBoxStudent.SelectedItem;
+                if (selectedItem != null)
+                {
+                    ListBoxSchoolClass.Items.Add(selectedItem);
+                    ListBoxStudent.Items.Remove(selectedItem);
+                    ListBoxStudent.ClearSelection();
+                    ListBoxSchoolClass.ClearSelection();
+                }
             }
             catch (Exception oEx)
             {
@@ -49,15 +41,18 @@ namespace WebFormsSchoolApp.SchoolDepartment
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void ButtonRemoveStudentFromClass_Click(object sender, EventArgs e)
         {
             try
             {
-                var selectedItem = ListBox2.SelectedItem;
-                ListBox1.Items.Add(selectedItem);
-                ListBox2.Items.Remove(selectedItem);
-                ListBox2.ClearSelection();
-                ListBox1.ClearSelection();
+                var selectedItem = ListBoxSchoolClass.SelectedItem;
+                if (selectedItem != null)
+                {
+                    ListBoxStudent.Items.Add(selectedItem);
+                    ListBoxSchoolClass.Items.Remove(selectedItem);
+                    ListBoxSchoolClass.ClearSelection();
+                    ListBoxStudent.ClearSelection();
+                }
             }
             catch (Exception oEx)
             {
@@ -65,5 +60,53 @@ namespace WebFormsSchoolApp.SchoolDepartment
                 throw;
             }
         }
+
+        private List<ListItem> getStudents()
+        {
+            var students = new List<ListItem>()
+                {
+                    new ListItem
+                    {
+                        Value = "1",
+                        Text = "koen verboven"
+                    },
+                    new ListItem
+                    {
+                        Value = "2",
+                        Text = "maria poels"
+                    },
+                    new ListItem
+                    {
+                        Value = "3",
+                        Text = "janssens paul1"
+                    },
+                };
+            return students;
+        }
+
+        private List<ListItem> getSchoolClasses()
+        {
+            var schoolClasses = new List<ListItem>()
+                {
+                    new ListItem
+                    {
+                        Value = "1",
+                        Text = "4F1"
+                    },
+                    new ListItem
+                    {
+                        Value = "2",
+                        Text = "4F2"
+                    },
+                    new ListItem
+                    {
+                        Value = "3",
+                        Text = "4F3"
+                    },
+
+                };
+            return schoolClasses;   
+        }
+
     }
 }

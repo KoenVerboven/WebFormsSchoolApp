@@ -65,6 +65,24 @@ namespace SchoolappBackend.DAL
             return studentsList;
         }
 
+
+        public int GetStudentCount()
+        {
+            var query = "SELECT count(*) FROM Student";
+
+            try
+            {
+                var connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                return  (int)command.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Student GetStudentById(int studentId)
         {
             var query = "SELECT StudentId ,FirstName ,MiddleName ,LastName ,StreetAndNumber  ,ZipCode," +

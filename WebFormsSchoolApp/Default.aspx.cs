@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolappBackend.BLL.BLLClasses;
+using SchoolappBackend.BLL.models;
+using System;
 using System.Web.UI;
 using WebFormsSchoolApp.SchoolDepartment;
 
@@ -19,6 +21,8 @@ namespace WebFormsSchoolApp
             {
                 Response.Redirect("StartPage.aspx");
             }
+            StudentBLL studentBLL = new StudentBLL();
+            LabelStudent.Text = "Student (" + studentBLL.GetStudentCount() +")";
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

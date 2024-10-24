@@ -141,6 +141,24 @@ namespace WebFormsSchoolApp.User
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
+        /// LabelUserRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelUserRole;
+
+        /// <summary>
+        /// DropDownListUserRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListUserRole;
+
+        /// <summary>
         /// LabelBlocked control.
         /// </summary>
         /// <remarks>

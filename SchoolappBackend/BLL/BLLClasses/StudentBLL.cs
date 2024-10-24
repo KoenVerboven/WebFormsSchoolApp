@@ -44,6 +44,12 @@ namespace SchoolappBackend.BLL.BLLClasses
             return students;
         }
 
+        public int GetStudentCount()
+        {
+            var studentDal = new StudentDal();
+            return studentDal.GetStudentCount();    
+        }
+
         public bool Update(Student student)
         {
             var studentDal = new StudentDal();

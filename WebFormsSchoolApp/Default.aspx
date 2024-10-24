@@ -17,7 +17,7 @@
                 BackColor="#779498"
                 >
                 <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
-                <asp:Label runat="server" Text="Student" style="margin:9px 0px 0px 15px; float:left;"/>
+                <asp:Label ID="LabelStudent" runat="server" Text="Student" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%--Student end--%><%--Teacher start--%><p><asp:LinkButton ID="LinkButtonSearchTeacher" runat="server" 
                Height="80"
                Width="200"

@@ -41,6 +41,10 @@
          ErrorMessage="ActiveFrom is required"
          ControlToValidate="TextBoxActiveFrom">
    </asp:RequiredFieldValidator>
+<p>
+    <asp:Label ID="LabelUserRole" runat="server" Text="UserRol  (*) :" Width="170px"></asp:Label>
+    <asp:DropDownList ID="DropDownListUserRole"  Width="250px" runat="server"></asp:DropDownList>
+</p>
 </p>
         <p>
    <asp:Label ID="LabelBlocked" runat="server" Text="Blocked :" Width="170px"></asp:Label>

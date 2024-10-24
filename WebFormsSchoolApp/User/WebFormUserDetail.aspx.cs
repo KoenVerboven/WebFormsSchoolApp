@@ -1,6 +1,8 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Web.UI.WebControls;
 
 
 namespace WebFormsSchoolApp.User
@@ -34,6 +36,8 @@ namespace WebFormsSchoolApp.User
                         TextBoxActiveFrom.Text = userSelected.ActiveFrom.ToString();
                         CheckBoxBlocked.Checked = userSelected.Blocked;
                     }
+
+                    DropDownListUserRole.Items.AddRange(getUserRoles().ToArray());
 
                     switch (action)
                     {
@@ -129,6 +133,44 @@ namespace WebFormsSchoolApp.User
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("WebFormSearchUser.aspx");
+        }
+
+        private List<ListItem> getUserRoles()
+        {
+            var userRoles = new List<ListItem>()
+            {
+                    new ListItem
+                    {
+                        Value = "0",
+                        Text = ""
+                    },
+                    new ListItem
+                    {
+                        Value = "1",
+                        Text = "student"
+                    },
+                    new ListItem
+                    {
+                        Value = "2",
+                        Text = "parent"
+                    },
+                    new ListItem
+                    {
+                        Value = "3",
+                        Text = "teacher"
+                    },
+                    new ListItem
+                    {
+                        Value = "4",
+                        Text = "director"
+                    },
+                    new ListItem
+                    {
+                        Value = "5",
+                        Text = "administrator"
+                    },
+            };
+            return userRoles;
         }
     }
 }

@@ -15,6 +15,15 @@ namespace WebFormsSchoolApp.SchoolDepartment
     {
 
         /// <summary>
+        /// LabelTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTitle;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -24,31 +33,40 @@ namespace WebFormsSchoolApp.SchoolDepartment
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// ListBox1 control.
+        /// ListBoxStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
+        protected global::System.Web.UI.WebControls.ListBox ListBoxStudent;
 
         /// <summary>
-        /// Button1 control.
+        /// ButtonAddStudentToClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ButtonAddStudentToClass;
 
         /// <summary>
-        /// Button2 control.
+        /// ButtonRemoveStudentFromClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button ButtonRemoveStudentFromClass;
+
+        /// <summary>
+        /// DropDownListClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListClass;
 
         /// <summary>
         /// Label4 control.
@@ -60,12 +78,12 @@ namespace WebFormsSchoolApp.SchoolDepartment
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// ListBox2 control.
+        /// ListBoxSchoolClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox2;
+        protected global::System.Web.UI.WebControls.ListBox ListBoxSchoolClass;
     }
 }

@@ -24,6 +24,15 @@ namespace WebFormsSchoolApp
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchStudent;
 
         /// <summary>
+        /// LabelStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelStudent;
+
+        /// <summary>
         /// LinkButtonSearchTeacher control.
         /// </summary>
         /// <remarks>
