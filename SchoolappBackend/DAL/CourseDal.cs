@@ -130,6 +130,24 @@ namespace SchoolappBackend.DAL
             return null;
         }
 
+        public int GetCourseCount()
+        {
+            var query = "SELECT count(*) FROM Course";
+
+            try
+            {
+                var connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                return (int)command.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
 
         public bool DeleteCourse(int courseId)
         {

@@ -25,7 +25,7 @@
                BackColor="#228822" 
                OnClick="LinkButtonSearchTeacher_Click"
                >
-               <asp:Label runat="server" Text="Teachter" style="margin:9px 0px 0px 15px; float:left;"/>
+               <asp:Label ID="LabelTeacher"  runat="server" Text="Teachter" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%--Teacher end--%><%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButton1" runat="server"
               Height="80"
               Width="200"
@@ -42,14 +42,14 @@
                 ForeColor="#FFFFFF"
                 BackColor="#AA2222" 
                 OnClick="LinkButtonSearchCourse_Click">
-              <asp:Label runat="server" Text="Course" style="margin:9px 0px 0px 15px; float:left;"/>
+              <asp:Label ID="LabelCourse" runat="server" Text="Course" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%--Course end--%><%--User start--%><p><asp:LinkButton ID="LinkButtonSearchUser" runat="server"
                Height="80"
                Width="200"
                ForeColor="#FFFFFF"
                BackColor="#2222EE" OnClick="LinkButtonSearchUser_Click"
                >
-             <asp:Label runat="server" Text="User" style="margin:9px 0px 0px 15px; float:left;"/>
+             <asp:Label ID="LabelUser" runat  ="server" Text="User" style="margin:9px 0px 0px 15px; float:left;"/>
              </asp:LinkButton></p><%--User end--%><%--ExamenPoints start--%><p> <asp:LinkButton ID="LinkButtonExamenPoints" runat="server"
               Height="80"
               Width="200"

@@ -106,6 +106,23 @@ namespace SchoolappBackend.DAL
         }
 
 
+        public int GetUserCount()
+        {
+            var query = "SELECT count(*) FROM InlogUser";
+
+            try
+            {
+                var connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                return (int)command.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public bool AddNewUser(User user)
         {
             try
@@ -214,6 +231,8 @@ namespace SchoolappBackend.DAL
                         "and UserPassword = @UserPassword " +
                         "and Blocked = 0 " +
                         "and ActiveFrom < getdate() ";
+
+            //todo : try catch and label for show errormessage
 
             var connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);

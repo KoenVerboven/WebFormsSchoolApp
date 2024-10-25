@@ -114,6 +114,25 @@ namespace SchoolappBackend.DAL
             return null;
         }
 
+        public int GetTeacherCount()
+        {
+            var query = "SELECT count(*) FROM Teacher";
+
+            try
+            {
+                var connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                return (int)command.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
         public bool DeleteTeacher(int teacherId)
         {
             var query = "DELETE FROM teacher WHERE teacheId = @TeacherId";

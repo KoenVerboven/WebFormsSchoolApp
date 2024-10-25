@@ -32,6 +32,13 @@ namespace SchoolappBackend.BLL.BLLClasses
             return userDal.GetUserById(userId);
         }
 
+        public int UserCount()
+        {
+            UserDal userDal = new UserDal();
+            return (int)userDal.GetUserCount();
+        }
+
+
         public User GetUserByUserNameAndPassword(string userName, string passWord)
         {
             User user = null;

@@ -22,7 +22,13 @@ namespace WebFormsSchoolApp
                 Response.Redirect("StartPage.aspx");
             }
             StudentBLL studentBLL = new StudentBLL();
-            LabelStudent.Text = "Student (" + studentBLL.GetStudentCount() +")";
+            LabelStudent.Text = "Student (" + studentBLL.StudentCount() +")";
+            TeacherBLL teacherBLL = new TeacherBLL();
+            LabelTeacher.Text= "Teacher (" + teacherBLL.TeacherCount() + ")";
+            UserBLL userBLL = new UserBLL();
+            LabelUser.Text = "User (" + userBLL.UserCount() + ")";
+            CourseBLL courseBLL = new CourseBLL();
+            LabelCourse.Text = "Course (" + courseBLL.CourseCount() + ")";
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

@@ -147,27 +147,27 @@ namespace WebFormsSchoolApp.User
                     new ListItem
                     {
                         Value = "1",
-                        Text = "student"
+                        Text = "Student"
                     },
                     new ListItem
                     {
                         Value = "2",
-                        Text = "parent"
+                        Text = "Parent"
                     },
                     new ListItem
                     {
                         Value = "3",
-                        Text = "teacher"
+                        Text = "Teacher"
                     },
                     new ListItem
                     {
                         Value = "4",
-                        Text = "director"
+                        Text = "Management"
                     },
                     new ListItem
                     {
                         Value = "5",
-                        Text = "administrator"
+                        Text = "Administrator"
                     },
             };
             return userRoles;

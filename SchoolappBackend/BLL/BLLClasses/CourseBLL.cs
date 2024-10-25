@@ -43,6 +43,13 @@ namespace SchoolappBackend.BLL.BLLClasses
             return courseDal.GetCourseById(courseId);
         }
 
+
+        public int CourseCount()
+        {
+            CourseDal courseDal = new CourseDal();
+            return courseDal.GetCourseCount();
+        }
+
         public List<Course> GetCourses(string searchField, string orderBy , ActiveType activeType)
         {
             CourseDal courseDal = new CourseDal();

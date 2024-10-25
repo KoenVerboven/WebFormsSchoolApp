@@ -38,8 +38,13 @@ namespace SchoolappBackend.BLL.BLLClasses
         public List<Teacher> GetTeachers(string searchField, string orderBy)
         {
             var teacherDal = new TeacherDal();
-            teachers = teacherDal.GetTeachers(searchField,orderBy);
-            return teachers;
+            return teacherDal.GetTeachers(searchField,orderBy);
+        }
+
+        public int TeacherCount()
+        {
+            var teacherDal = new TeacherDal();
+            return teacherDal.GetTeacherCount();
         }
 
         public bool Update(Teacher teacher)

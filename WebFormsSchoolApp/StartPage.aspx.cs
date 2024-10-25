@@ -23,27 +23,21 @@ namespace WebFormsSchoolApp
 
         }
 
-        protected void ButtonLogin_Click(object sender, EventArgs e)
-        {
-            if (ValidUser() != null)
-            {
-                Session["user"] = TextBoxId.Text.Trim();
-                SetCookie(TextBoxId.Text.Trim());
-                Response.Redirect("default.aspx");
-            }
-            else
-            {
-                LabelMessage.Visible = true;
-                LabelMessage.Text = "Authentication failed";
-            }
-        }
-
         private SchoolappBackend.BLL.models.User ValidUser()
         {
 
             UserBLL user = new UserBLL();
-            var userFound = user.GetUserByUserNameAndPassword(TextBoxId.Text.Trim(), TextBoxPassword.Text.Trim());
+            SchoolappBackend.BLL.models.User userFound = null;
 
+            try
+            {
+                userFound = user.GetUserByUserNameAndPassword(TextBoxId.Text.Trim(), TextBoxPassword.Text.Trim());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
             if (userFound != null)
             {
                 return userFound;
@@ -65,16 +59,24 @@ namespace WebFormsSchoolApp
 
         protected void ButtonLogin_Click1(object sender, EventArgs e)
         {
-            if (ValidUser() != null)
+            try
             {
-                Session["user"] = TextBoxId.Text.Trim();
-                SetCookie(TextBoxId.Text.Trim());
-                Response.Redirect("default.aspx");
+                if (ValidUser() != null)
+                {
+                    Session["user"] = TextBoxId.Text.Trim();
+                    SetCookie(TextBoxId.Text.Trim());
+                    Response.Redirect("default.aspx");
+                }
+                else
+                {
+                    LabelMessage.Visible = true;
+                    LabelMessage.Text = "Authentication failed";
+                }
             }
-            else
+            catch (Exception oEx)
             {
                 LabelMessage.Visible = true;
-                LabelMessage.Text = "Authentication failed";
+                LabelMessage.Text = oEx.Message;
             }
         }
     }

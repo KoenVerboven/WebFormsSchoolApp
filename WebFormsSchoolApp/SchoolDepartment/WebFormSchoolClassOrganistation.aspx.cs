@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolappBackend.BLL.BLLClasses;
+using SchoolappBackend.BLL.models;
+using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -7,6 +9,8 @@ namespace WebFormsSchoolApp.SchoolDepartment
 {
     public partial class WebFormSchoolClassOrganistation : System.Web.UI.Page
     {
+        List<SchoolappBackend.BLL.models.Student> students;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null)
@@ -16,10 +20,22 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
             if (!Page.IsPostBack)
             {
-                ListBoxStudent.Items.AddRange(getStudents().ToArray());
+                ListBoxStudent.DataSource = SearchStudents("", "LastName");
+                ListBoxStudent.DataValueField = "PersonId";
+                ListBoxStudent.DataTextField = "FullName";
+                ListBoxStudent.DataBind();
+                
                 DropDownListClass.Items.AddRange(getSchoolClasses().ToArray());
             }
         }
+
+        private List<SchoolappBackend.BLL.models.Student> SearchStudents(string search,string orderBy)
+        {
+            StudentBLL studentBLL = new StudentBLL();
+            students = studentBLL.GetStudents(search, orderBy);
+            return students;
+        }
+
 
         protected void ButtonAddStudentToClass_Click(object sender, EventArgs e)
         {
@@ -61,6 +77,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
             }
         }
 
+        [Obsolete]
         private List<ListItem> getStudents()
         {
             var students = new List<ListItem>()

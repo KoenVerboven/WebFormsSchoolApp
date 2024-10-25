@@ -1,17 +1,33 @@
 	Use School1
-	
+
+
 	Insert into Student(FirstName,MiddleName,LastName,StreetAndNumber,
-	                    ZipCode,PhoneNumber,Gender,DateOfBirth, MaritalStatusId,
-						NationalRegisterNumber,Nationality, [MoederTongueId],Registrationdate
-						)
-	values 
-	('Johan',null,'Verboven','Mpad 30' , '2351','08123445','M','2000-01-31',2,13737,1,1,'2024-06-01  10:00:00'),
-	('Maria',null,'Poels','Mpad 30' , '2351','08123445','V','1999-04-12',2,17838,1,1,'2024-06-01  10:00:00'),
-	('Leen',null,'Peeters','Eigenaarsstraat 45 bus7' , '4000','08123445','M','1986-01-15',2,1252872,1,1,'2024-06-01  10:00:00'),
-	('Gert','Frans','Peeters','Molenpad' , '4000','08123445','M','1956-02-01',2,178,1,1,'2024-06-01  10:00:00'),
-	('Jos',null,'Verhoeven','Guldensporenweg 501' , '4000','08123445','M','1944-03-19',2,1886,1,1,'2024-06-01  10:00:00'),
-	('Koen',null,'Peeters','Molenstraat 23'  , '4000','08123445','M','1935-08-07',2,18528758,1,1,'2024-06-01  10:00:00'),
-	('Koen','Maria Frans','Verboven','Mpad 30' , '2351','08123445','M','1966-06-01',2,17832,1,1,'2024-06-01  10:00:00')
+                    ZipCode,PhoneNumber,Gender,DateOfBirth, MaritalStatusId,
+					NationalRegisterNumber,Nationality, [MoederTongueId],Registrationdate
+					)
+		values 
+		('Johan',null,'Verboven','Mpad 30' , '2351','08123445','M','2000-01-31',2,13737,1,1,'2024-06-01  10:00:00'),
+		('Maria',null,'Poels','Mpad 30' , '2351','08123445','V','1999-04-12',2,17838,1,1,'1974-04-12  10:00:00'),
+		('Koen','Maria Frans','Verboven','Mpad 30' , '2351','08123445','M','1966-06-01',2,17832,1,1,'2024-06-01  10:00:00'),
+		('Leen',null,'Peeters','Eigenaarsstraat 45 bus7' , '4000','08123445','M','1986-01-15',2,1252872,1,1,'2024-06-01  10:00:00'),
+		('Gert','Frans','Peeters','Molenpad' , '4000','08123445','M','1956-02-01',2,178,1,1,'2024-06-01  10:00:00'),
+		('Jos',null,'Verhoeven','Guldensporenweg 501' , '4000','08123445','M','1944-03-19',2,1886,1,1,'2024-06-01  10:00:00'),
+		('Koen',null,'Peeters','Molenstraat 23'  , '4000','08123445','M','1935-08-07',2,18528758,1,1,'2024-06-01  10:00:00'),
+		('Lina','','Horton','kruispad 5' , '2500','08128845','V','2010-05-01',2,17832,1,1,'2024-06-01  10:00:00'),
+		('Louise','','Beck','Antwerpsesteenweg 455' , '3000','07893445','V','2013-06-15',2,17832,1,1,'2024-07-01  10:00:00'),
+		('Eva','','Fleming','bosdreef 4' , '4000','08145245','V','2011-09-14',2,17832,1,1,'2024-08-01  10:00:00'),
+		('Anna','','Mendez','Bergeneinde 12' , '7889','01113445','V','2016-10-01',2,17832,1,1,'2024-02-01  10:00:00'),
+		('Mila','','Janssens','Beerselaan 2' , '1235','08122245','V','2015-11-16',2,17832,1,1,'2024-11-01  10:00:00'),
+		('Juliette','','Kruismans','Turnanovalaan 45a' , '6544','07422445','V','2001-12-25',2,17832,1,1,'2024-12-01  10:00:00'),
+		('Clara','','Homans','lindelaan 56' , '7889','01113445','V','2007-10-03',2,17832,1,1,'2024-02-01  10:00:00'),
+		('Ada','','Bale','Grotedreef 7' , '1235','08122245','V','2009-11-11',2,17832,1,1,'2024-11-01  10:00:00'),
+		('Sofia','','Evenepoel','kleineweg 2' , '6544','07422445','V','2002-12-20',2,17832,1,1,'2024-12-01  10:00:00'),
+		('Marc','','Timmermans','Brusselsebaan 788' , '6000','081245848','M','1999-01-12',2,17832,1,1,'2024-04-05  10:00:00'),
+		('Piet','','Gevers','Brugsebaan 4' , '2000','0854448','M','2003-05-19',2,17832,1,1,'2024-04-06  10:00:00'),
+		('Leo','','VanderElst','Molenpad 14' , '2000','455555','M','2006-10-18',2,17832,1,1,'2024-02-07  10:00:00'),
+		('Bert','','Kruismans','Ziekenhuislaan 2' , '5444','4516987','M','2008-03-18',2,17832,1,1,'2024-01-07  10:00:00'),
+		('Bart','','Sommers','verweg 12' , '5444','451257','M','1997-05-22',2,17832,1,1,'2024-04-02  10:00:00')
+
 
 	Insert into Course(CourseName ,CourseStartDate,CourseEndDate ,MinimumGradeToPassTheCourse,
 	MaximumTestCourseGrade, CourseTypeId, CostPrice  

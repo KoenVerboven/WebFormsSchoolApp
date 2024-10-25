@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StartPage.aspx.cs" Inherits="WebFormsSchoolApp.StartPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-        <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />   
+        <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />  
 <div class="container div1" >
        <div class="row">
         <div class="col-md-12">
