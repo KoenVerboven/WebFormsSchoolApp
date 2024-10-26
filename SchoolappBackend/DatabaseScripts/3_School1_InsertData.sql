@@ -86,7 +86,7 @@ values
 	(4,6,null)
 
 
-	Insert into InlogUser(UserName, UserPassword,SecurityGroupId,ActiveFrom,Blocked,PersonId)
+	Insert into InlogUser(UserName, UserPassword,UserRoleId,ActiveFrom,Blocked,PersonId)
 	values 
 	('admin','schoolSoft4you', 0,'2024-06-01  10:00:00',0,0),
 	('koenverboven','rgSeg@45',1,'2024-06-01  10:00:00',0,1),

@@ -24,7 +24,7 @@ namespace SchoolappBackend.DAL
         {
             var userList = new List<User>();
 
-            var query = "SELECT UserId, UserName, UserPassword, SecurityGroupId, ActiveFrom, Blocked, PersonId " +
+            var query = "SELECT UserId, UserName, UserPassword, UserRoleId, ActiveFrom, Blocked, PersonId " +
                         "FROM InlogUser ";
             if (filter.Trim() != string.Empty)
             {
@@ -52,7 +52,7 @@ namespace SchoolappBackend.DAL
                     {
                         UserId = Convert.ToInt32(reader["UserId"]),
                         UserName = Convert.ToString(reader["UserName"]),
-                        SecurityGroupId = Convert.ToInt32(reader["SecurityGroupId"]),
+                        UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
                         ActiveFrom = Convert.ToDateTime(reader["ActiveFrom"]),
                         Blocked = Convert.ToBoolean(reader["Blocked"]),
                         PersonId = Convert.ToInt32(reader["PersonId"]),
@@ -67,7 +67,7 @@ namespace SchoolappBackend.DAL
 
         public User GetUserById(int userId)
         {
-            var query = "SELECT UserId ,UserName ,SecurityGroupId , ActiveFrom , Blocked , PersonId " +
+            var query = "SELECT UserId ,UserName ,UserRoleId , ActiveFrom , Blocked , PersonId " +
                         "FROM InlogUser " +
                         "WHERE UserId = @userId";
 
@@ -89,7 +89,7 @@ namespace SchoolappBackend.DAL
                         {
                             UserId = Convert.ToInt32(reader["UserId"]),
                             UserName = Convert.ToString(reader["UserName"]),
-                            SecurityGroupId = Convert.ToInt32(reader["SecurityGroupId"]),
+                            UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
                             ActiveFrom = Convert.ToDateTime(reader["ActiveFrom"]),
                             Blocked = Convert.ToBoolean(reader["Blocked"]),
                             PersonId = Convert.ToInt32(reader["PersonId"]),
@@ -128,9 +128,9 @@ namespace SchoolappBackend.DAL
             try
             {
                 var query = "INSERT into InlogUser " +
-                            "(UserName, UserPassword, SecurityGroupId, ActiveFrom, Blocked, PersonId)" +
+                            "(UserName, UserPassword, UserRoleId, ActiveFrom, Blocked, PersonId)" +
                             "VALUES (" +
-                            "@UserName, @UserPassword, @SecurityGroupId, @ActiveFrom, @Blocked, @PersonId" +
+                            "@UserName, @UserPassword, @UserRoleId, @ActiveFrom, @Blocked, @PersonId" +
                             ")";
 
                 CreateCommand(connectionString, query, user, RecordAction.insert);
@@ -150,7 +150,7 @@ namespace SchoolappBackend.DAL
             var query = "UPDATE InlogUser " +
                         "SET " +
                         "UserName = @UserName, " +
-                        "SecurityGroupId = @SecurityGroupId, " +
+                        "UserRoleId = @UserRoleId, " +
                         "ActiveFrom = @ActiveFrom, " +
                         "Blocked = @Blocked, " +
                         "PersonId = @PersonId " +
@@ -186,7 +186,7 @@ namespace SchoolappBackend.DAL
                 }
 
                 command.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
-                command.Parameters.Add("@SecurityGroupId", SqlDbType.Int).Value = user.SecurityGroupId;
+                command.Parameters.Add("@UserRoleId", SqlDbType.Int).Value = user.UserRoleId;
                 command.Parameters.Add("@ActiveFrom", SqlDbType.DateTime).Value = user.ActiveFrom;
                 command.Parameters.Add("@Blocked", SqlDbType.Bit).Value = user.Blocked;
                 command.Parameters.Add("@PersonId", SqlDbType.Int).Value = user.PersonId;
@@ -225,7 +225,7 @@ namespace SchoolappBackend.DAL
         public User GetValidUser(string userName, string password)
         {
 
-            var query = "SELECT UserId, SecurityGroupId, ActiveFrom, Blocked, PersonId " +
+            var query = "SELECT UserId, UserRoleId, ActiveFrom, Blocked, PersonId " +
                         "FROM InlogUser " +
                         "WHERE UserName = @UserName " +
                         "and UserPassword = @UserPassword " +
@@ -247,7 +247,7 @@ namespace SchoolappBackend.DAL
                 {
                     var user = new User()
                     {
-                        SecurityGroupId = Convert.ToInt32(reader["SecurityGroupId"]),
+                        UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
                         PersonId = Convert.ToInt32(reader["PersonId"]),
                     };
                     return user;

@@ -26,6 +26,9 @@ namespace WebFormsSchoolApp.User
                     userId = Convert.ToInt32(Request.QueryString["userId"]);
                     string action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
+                   
+                    DropDownListUserRole.Items.AddRange(getUserRoles().ToArray());
+
                     if (action == "detail" || action == "update")
                     {
                         UserBLL userBLL = new UserBLL();
@@ -35,9 +38,8 @@ namespace WebFormsSchoolApp.User
                         TextBoxUserName.Text = userSelected.UserName.ToString();
                         TextBoxActiveFrom.Text = userSelected.ActiveFrom.ToString();
                         CheckBoxBlocked.Checked = userSelected.Blocked;
+                        DropDownListUserRole.SelectedValue = Convert.ToString(userSelected.UserRoleId);
                     }
-
-                    DropDownListUserRole.Items.AddRange(getUserRoles().ToArray());
 
                     switch (action)
                     {
@@ -83,6 +85,7 @@ namespace WebFormsSchoolApp.User
             TextBoxUserName.Enabled = enableControl;
             TextBoxActiveFrom.Enabled = enableControl;
             CheckBoxBlocked.Enabled = enableControl;
+            DropDownListUserRole.Enabled = enableControl;
         }
 
         protected void ButtonSave_Click(object sender, EventArgs e)
@@ -113,6 +116,7 @@ namespace WebFormsSchoolApp.User
                 UserId = userId,
                 UserName = TextBoxUserName.Text.Trim(),
                 Password = "User@123",
+                UserRoleId =  Convert.ToInt32(DropDownListUserRole.SelectedValue),
                 ActiveFrom = Convert.ToDateTime(TextBoxActiveFrom.Text.Trim()), 
                 Blocked = CheckBoxBlocked.Checked 
             };
