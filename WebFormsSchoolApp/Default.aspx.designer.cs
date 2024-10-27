@@ -15,13 +15,13 @@ namespace WebFormsSchoolApp
     {
 
         /// <summary>
-        /// LinkButtonSearchStudent control.
+        /// LinkButtonStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchStudent;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonStudent;
 
         /// <summary>
         /// LabelStudent control.
@@ -33,13 +33,13 @@ namespace WebFormsSchoolApp
         protected global::System.Web.UI.WebControls.Label LabelStudent;
 
         /// <summary>
-        /// LinkButtonSearchTeacher control.
+        /// LinkButtonTeacher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchTeacher;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonTeacher;
 
         /// <summary>
         /// LabelTeacher control.
@@ -51,22 +51,22 @@ namespace WebFormsSchoolApp
         protected global::System.Web.UI.WebControls.Label LabelTeacher;
 
         /// <summary>
-        /// LinkButton1 control.
+        /// LinkButtonSchoolClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSchoolClass;
 
         /// <summary>
-        /// LinkButtonSearchCourse control.
+        /// LinkButtonCourse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchCourse;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCourse;
 
         /// <summary>
         /// LabelCourse control.
@@ -78,13 +78,13 @@ namespace WebFormsSchoolApp
         protected global::System.Web.UI.WebControls.Label LabelCourse;
 
         /// <summary>
-        /// LinkButtonSearchUser control.
+        /// LinkButtonUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearchUser;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonUser;
 
         /// <summary>
         /// LabelUser control.

@@ -46,12 +46,15 @@ namespace WebFormsSchoolApp.Student
                         TextBoxFirstName.Text = studentSelected.Firstname.ToString();
                         TextBoxMiddleName.Text = studentSelected.MiddleName.ToString();
                         TextBoxStreetAndNumber.Text = studentSelected.StreetAndNumber.ToString();
+                        TextBoxNationalRegisterNr.Text = studentSelected.NationalRegisterNumber;
                         TextBoxZipCode.Text = studentSelected.ZipCode.ToString();
                         TextBoxPhoneNumber.Text = studentSelected.PhoneNumber.ToString();
                         TextBoxEmailAddress.Text = studentSelected.EmailAddress.ToString();
                         TextBoxDateOfBirth.Text = studentSelected.DateOfBirth.ToString("dd-MM-yyyy");
                         TextBoxRegistrationDate.Text = studentSelected.RegistrationDate.ToString("dd-MM-yyyy");
-                        DropDownListGender.Text = studentSelected.Gender.ToString();
+                        DropDownListGender.SelectedIndex = studentSelected.Gender;
+                        DropDownListNationality.SelectedIndex = studentSelected.Nationality;
+                        DropDownListMaritalStatus.SelectedIndex = studentSelected.MaritalStatus;
                     }
                     
                     switch (action) 
@@ -103,6 +106,7 @@ namespace WebFormsSchoolApp.Student
             TextBoxPhoneNumber.Enabled = enableControl;
             TextBoxEmailAddress.Enabled = enableControl;
             TextBoxDateOfBirth.Enabled = enableControl;
+            TextBoxNationalRegisterNr.Enabled = enableControl;  
             TextBoxRegistrationDate.Enabled = enableControl;
             DropDownListGender.Enabled = enableControl;
             DropDownListMaritalStatus.Enabled = enableControl;  
@@ -140,6 +144,10 @@ namespace WebFormsSchoolApp.Student
                 StreetAndNumber = TextBoxStreetAndNumber.Text.Trim(),
                 ZipCode = TextBoxZipCode.Text.Trim(),
                 PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
+                Gender = DropDownListGender.SelectedIndex,
+                Nationality = DropDownListNationality.SelectedIndex,
+                NationalRegisterNumber = TextBoxNationalRegisterNr.Text.Trim(), 
+                MaritalStatus = DropDownListMaritalStatus.SelectedIndex,
                 EmailAddress = TextBoxEmailAddress.Text.Trim(),
                 DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
                 RegistrationDate = Convert.ToDateTime(TextBoxRegistrationDate.Text.Trim())

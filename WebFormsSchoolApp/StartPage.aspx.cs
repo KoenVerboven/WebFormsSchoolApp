@@ -61,9 +61,13 @@ namespace WebFormsSchoolApp
         {
             try
             {
-                if (ValidUser() != null)
+                SchoolappBackend.BLL.models.User validUser = ValidUser();
+
+                if (validUser != null)
                 {
+                    
                     Session["user"] = TextBoxId.Text.Trim();
+                    Session["userRole"] = ValidUser().UserRoleId; 
                     SetCookie(TextBoxId.Text.Trim());
                     Response.Redirect("default.aspx");
                 }

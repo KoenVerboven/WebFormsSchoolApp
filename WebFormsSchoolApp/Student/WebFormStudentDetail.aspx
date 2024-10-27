@@ -71,9 +71,12 @@
          </p>
          <p>
             <asp:Label ID="LabelNationality" runat="server" Text="Nationality :" Width="170px"></asp:Label>
-             <asp:DropDownList ID="DropDownListNationality" runat="server" Width="250px"></asp:DropDownList>
+            <asp:DropDownList ID="DropDownListNationality" runat="server" Width="250px"></asp:DropDownList>
          </p>
-
+        <p>
+            <asp:Label ID="Label1" runat="server" Text="NationalRegisterNr :" Width="170"></asp:Label>
+            <asp:TextBox ID="TextBoxNationalRegisterNr" Width="250px" runat="server" MaxLength="11"></asp:TextBox>
+        </p>
         <p>
          <asp:Label ID="LabelStreetAndNumber" runat="server" Text="StreetAndNumber (*) :" Width="170px"></asp:Label>
          <asp:TextBox ID="TextBoxStreetAndNumber" runat="server" Width="250px"></asp:TextBox>

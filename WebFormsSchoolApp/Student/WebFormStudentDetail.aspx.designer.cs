@@ -231,6 +231,24 @@ namespace WebFormsSchoolApp.Student
         protected global::System.Web.UI.WebControls.DropDownList DropDownListNationality;
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// TextBoxNationalRegisterNr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNationalRegisterNr;
+
+        /// <summary>
         /// LabelStreetAndNumber control.
         /// </summary>
         /// <remarks>

@@ -2,12 +2,6 @@
 using System;
 using System.Web.UI;
 
-
-
-// todo : Replace Mainform.aspx  by default.aspx
-// todo : insert page : validation + mark required fields
-// todo : checkbox in gridvew in place of true and false
-
 namespace WebFormsSchoolApp
 {
     public partial class _Default : Page
@@ -18,6 +12,16 @@ namespace WebFormsSchoolApp
             {
                 Response.Redirect("StartPage.aspx");
             }
+
+            //https://learn.microsoft.com/nl-nl/dotnet/csharp/fundamentals/coding-style/identifier-names
+            //https://sandervandevelde.wordpress.com/2020/08/13/belgische-rijksregisternummer-checksum-testen-dutch/
+            //https://www.c-sharp.be/asp-net/validatie/
+            //rijksregister 11 lang
+            //02021518897
+            //int rijks = 02021518897;
+
+            SetUserRights();
+
             StudentBLL studentBLL = new StudentBLL();
             LabelStudent.Text = "Student (" + studentBLL.StudentCount() +")";
             TeacherBLL teacherBLL = new TeacherBLL();
@@ -27,6 +31,40 @@ namespace WebFormsSchoolApp
             CourseBLL courseBLL = new CourseBLL();
             LabelCourse.Text = "Course (" + courseBLL.CourseCount() + ")";
         }
+
+        private void SetUserRights()
+        {
+
+            LinkButtonExamenPoints.Visible = false;
+            LinkButtonStudent.Visible = false;
+            LinkButtonCourse.Visible = false;
+            LinkButtonAttendanceRegistration.Visible = false;
+            LinkButtonClassOrganisation.Visible = false;
+            LinkButtonTeacher.Visible = false;
+            LinkButtonUser.Visible = false;
+            LinkButtonUserRole.Visible = false;
+            LinkButtonSchoolClass.Visible = false;
+
+            if (Convert.ToString(Session["userRole"]) == "1" 
+                              || Session["userRole"] is null)
+            {
+                LinkButtonExamenPoints.Visible = true;
+            }
+            if (Convert.ToString(Session["userRole"]) == "5")
+            {
+                LinkButtonStudent.Visible = true;
+                LinkButtonCourse.Visible = true;
+                LinkButtonAttendanceRegistration.Visible = true;
+                LinkButtonClassOrganisation.Visible = true;
+                LinkButtonExamenPoints.Visible = true;
+                LinkButtonTeacher.Visible = true;
+                LinkButtonUser.Visible = true;
+                LinkButtonUserRole.Visible = true;
+                LinkButtonSchoolClass.Visible = true;
+            }
+        }
+
+
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {

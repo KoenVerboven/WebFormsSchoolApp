@@ -56,7 +56,7 @@ namespace SchoolappBackend.DAL
                         EmailAddress = Convert.ToString(reader["EmailAddress"]),
                         DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                         RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
-                        Gender = Gender.Male
+                        Gender = Convert.ToInt32(reader["gender"])
                     };
                     studentsList.Add(student);
                 }
@@ -105,6 +105,8 @@ namespace SchoolappBackend.DAL
                     {
                         var student = new Student()
                         {
+                            
+                            
                             PersonId = Convert.ToInt32(reader["StudentId"]),
                             LastName = Convert.ToString(reader["LastName"]),
                             MiddleName = Convert.ToString(reader["MiddleName"]),
@@ -115,7 +117,10 @@ namespace SchoolappBackend.DAL
                             EmailAddress = Convert.ToString(reader["EmailAddress"]),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
-                            Gender = Gender.Male //aanpassen als je f leest dan female als je m leest dan m
+                            Gender = Convert.ToInt32(reader["Gender"]) ,
+                            Nationality = Convert.ToInt32(reader["Nationality"]),
+                            NationalRegisterNumber = Convert.ToString(reader["NationalRegisterNumber"]),
+                            MaritalStatus = Convert.ToInt32(reader["MaritalStatusId"])
                         };
                         return student;
                     }
@@ -233,11 +238,11 @@ namespace SchoolappBackend.DAL
                 command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 50).Value = student.ZipCode;
                 command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = student.PhoneNumber;
                 command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = student.EmailAddress;
-                command.Parameters.Add("@Gender", SqlDbType.VarChar, 50).Value = 'M'; //student.Gender; //todo gender
+                command.Parameters.Add("@Gender", SqlDbType.Int, 50).Value = student.Gender; 
                 command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = student.DateOfBirth;
-                command.Parameters.Add("@MaritalStatusId", SqlDbType.Int, 50).Value = 1;//
-                command.Parameters.Add("@NationalRegisterNumber", SqlDbType.VarChar, 50).Value = "";// todo student.NationalRegisterNumber;
-                command.Parameters.Add("@Nationality", SqlDbType.Int).Value = 1;//todo student.Nationality; 
+                command.Parameters.Add("@MaritalStatusId", SqlDbType.Int, 50).Value = student.MaritalStatus;
+                command.Parameters.Add("@NationalRegisterNumber", SqlDbType.VarChar, 50).Value = student.NationalRegisterNumber;
+                command.Parameters.Add("@Nationality", SqlDbType.Int).Value = student.Nationality;
                 command.Parameters.Add("@MoederTongueId", SqlDbType.Int).Value = 1; //todo student.MoederTongueId;
 
                 command.Connection.Open();

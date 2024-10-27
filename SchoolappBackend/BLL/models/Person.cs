@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
+
 
 namespace SchoolappBackend.BLL.models
 {
@@ -16,10 +14,10 @@ namespace SchoolappBackend.BLL.models
         public string ZipCode { get; set; }
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
-        public Gender Gender { get; set; }
+        public int Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public MaritalStatus MaritalStatus { get; set; }
-        public int NationalRegisterNumber { get; set; }
-        public Nationality Nationality { get; set; }
+        public int MaritalStatus { get; set; }
+        public string NationalRegisterNumber { get; set; }
+        public int Nationality { get; set; }
     }
 }
