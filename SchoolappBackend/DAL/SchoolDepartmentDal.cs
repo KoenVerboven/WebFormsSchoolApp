@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -61,6 +62,42 @@ namespace SchoolappBackend.DAL
             reader.Close();
             return classesList;
         }
+
+
+        public SchoolClass GetSchoolClassById(int schoolClassId)
+        {
+            var query = "SELECT SchoolClassId, Code, ClassDescription, Degree," +
+                               "Grade, SchoolDepartmentId " +
+                        "FROM SchoolClass " +
+                        "WHERE SchoolClassId = @SchoolClassId";
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@SchoolClassId", SqlDbType.Int, 50).Value = schoolClassId;
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    var schoolClass = new SchoolClass()
+                    {
+                        ClassId = Convert.ToInt32(reader["SchoolClassId"]),
+                        ClassCode = Convert.ToString(reader["Code"]),
+                        Description = Convert.ToString(reader["ClassDescription"]),
+                        Degree = Convert.ToInt32(reader["Degree"]),
+                        Grade = Convert.ToInt32(reader["Grade"]),
+                        SchoolDepartmentId = Convert.ToInt32(reader["SchoolDepartmentId"]),
+                    };
+                    reader.Close();
+                    return schoolClass;
+                }
+            }
+            return null;
+        }
+
+
 
 
         public int GetSchoolClassCount()

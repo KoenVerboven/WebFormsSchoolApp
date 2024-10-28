@@ -67,12 +67,14 @@ namespace WebFormsSchoolApp.SchoolDepartment
         private void FillInControls(int schoolClassId)
         {
             var schoolDepartmentBLL = new SchoolDepartmentBLL();
-            // var schoolClassSelected = schoolDepartmentBLL.
+            var schoolClassSelected = schoolDepartmentBLL.GetSchoolClassById(schoolClassId);
            
-            //var courseSelected = courseBLL.GetCourseById(courseId);
 
-            //LabelCourseIdValue.Text = Convert.ToString(courseSelected.CourseId);
-            //TextBoxCourseName.Text = courseSelected.CourseName;
+            LabelSchoolClassIdValue.Text = Convert.ToString(schoolClassSelected.ClassId);
+            TextBoxClassCode.Text = schoolClassSelected.ClassCode;
+            TextBoxDescription.Text = schoolClassSelected.Description;
+            TextBoxDegree.Text =  Convert.ToString(schoolClassSelected.Degree);
+            TextBoxGrade.Text = Convert.ToString(schoolClassSelected.Grade);
         }
 
 
@@ -98,8 +100,10 @@ namespace WebFormsSchoolApp.SchoolDepartment
         private void DisableAllControls(bool disable)
         {
             var enableControl = !disable;
-           // TextBoxCourseName.Enabled = enableControl;
-        
+            TextBoxClassCode.Enabled = enableControl;
+            TextBoxDescription.Enabled = enableControl;
+            TextBoxDegree.Enabled = enableControl;
+            TextBoxGrade.Enabled = enableControl;
         }
 
 
@@ -107,36 +111,36 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         private bool SaveData()
         {
-            return true;
-            
-            //bool succes = false;
-            //CourseBLL courseBLL = new CourseBLL();
+            bool succes = true;//todo aanpassen naar false
 
-            //var courseId = 0;
-            //if (HiddenFieldAction.Value == "update")
-            //{
-            //    courseId = Convert.ToInt32(LabelCourseIdValue.Text.Trim());
-            //}
+            var schoolDepartmentBLL = new SchoolDepartmentBLL();
 
-            
+            var SchoolClassId = 0;
+            if (HiddenFieldAction.Value == "update")
+            {
+                SchoolClassId = Convert.ToInt32(LabelSchoolClassId.Text.Trim());
+            }
 
-            //var course = new SchoolappBackend.BLL.models.Course()
-            //{
-            //    CourseId = courseId,
-            //    CourseName = TextBoxCourseName.Text.Trim(),
-           
-            //};
+            var schoolClass = new SchoolappBackend.BLL.models.SchoolClass()
+            {
+                ClassId = SchoolClassId,
+                ClassCode = TextBoxClassCode.Text.Trim(),
+                Description = TextBoxDescription.Text.Trim(),
+                Degree = Convert.ToInt32(TextBoxDegree.Text.Trim()),
+                Grade = Convert.ToInt32(TextBoxGrade.Text.Trim()),
+            };
 
-            //if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
-            //{
-            //    succes = courseBLL.Update(course);
-            //}
 
-            //if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
-            //{
-            //    succes = courseBLL.Add(course);
-            //}
-            //return succes;
+            if (HiddenFieldAction.Value == "update") 
+            {
+                //succes = schoolDepartmentBLL.Update(schoolClass);
+            }
+
+            if (HiddenFieldAction.Value == "insert") 
+            {
+                //succes = schoolDepartmentBLL.Add(schoolClass);
+            }
+            return succes;
         }
 
 

@@ -40,8 +40,7 @@ namespace SchoolappBackend.BLL.BLLClasses
         public List<Student> GetStudents(string searchField,string orderBy)
         {
             var studentDal = new StudentDal();
-            students = studentDal.GetStudents(searchField,orderBy);
-            return students;
+            return studentDal.GetStudents(searchField,orderBy);
         }
 
         public int StudentCount()

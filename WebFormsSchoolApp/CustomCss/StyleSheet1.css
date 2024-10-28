@@ -107,14 +107,12 @@ th a:hover {
 }*/
 
 .link2 {
-    border-radius: 9px;
-    border-bottom-right-radius: 9px;
+    border-bottom-right-radius: 25px;
 }
 
 .link2:hover {
    border-style: solid;
    border-width: 2px;
-   border-bottom-right-radius : 25px;
    cursor: pointer;
 }
 

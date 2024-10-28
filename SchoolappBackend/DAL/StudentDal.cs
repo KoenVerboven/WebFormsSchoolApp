@@ -91,6 +91,7 @@ namespace SchoolappBackend.DAL
                          "FROM Student " +
                          "WHERE StudentId = @StudentId";
 
+          
             try
             {
                 var connection = new SqlConnection(connectionString);
@@ -122,6 +123,7 @@ namespace SchoolappBackend.DAL
                             NationalRegisterNumber = Convert.ToString(reader["NationalRegisterNumber"]),
                             MaritalStatus = Convert.ToInt32(reader["MaritalStatusId"])
                         };
+                        reader.Close(); //ToDo : overal nakijken of Close aanwezig is
                         return student;
                     }
                 }

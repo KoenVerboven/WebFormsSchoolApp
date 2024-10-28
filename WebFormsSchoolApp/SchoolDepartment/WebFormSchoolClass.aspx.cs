@@ -45,11 +45,11 @@ namespace WebFormsSchoolApp.SchoolDepartment
             try
             {
 
-                //Button btn = sender as Button;
-                //GridViewRow gRow = btn.NamingContainer as GridViewRow;
-                //int rowIndex = gRow.RowIndex;
-                //var studentId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
-                //var schoolDepartmentBLL = new SchoolDepartmentBLL();
+                Button btn = sender as Button;
+                GridViewRow gRow = btn.NamingContainer as GridViewRow;
+                int rowIndex = gRow.RowIndex;
+                var schoolClassId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
+                var schoolDepartmentBLL = new SchoolDepartmentBLL();
                 //schoolDepartmentBLL.Delete();
                 //Search("");
             }
@@ -62,11 +62,10 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         protected void cmdUpdate_Click(object sender, EventArgs e)
         {
-            //Button btn = sender as Button;
-            //GridViewRow gRow = btn.NamingContainer as GridViewRow;
-            //int rowIndex = gRow.RowIndex;
-            //var studentId = GridView1.Rows[rowIndex].Cells[1].Text;
-            var SchoolClassId = 0;//Todo
+            Button btn = sender as Button;
+            GridViewRow gRow = btn.NamingContainer as GridViewRow;
+            int rowIndex = gRow.RowIndex;
+            var SchoolClassId = GridView1.Rows[rowIndex].Cells[1].Text;
             Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=" + SchoolClassId + "&action=update");
         }
 

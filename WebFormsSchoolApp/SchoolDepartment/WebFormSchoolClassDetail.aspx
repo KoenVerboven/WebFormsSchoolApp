@@ -26,7 +26,7 @@
     </p>
     <p>
          <asp:Label ID="LabelDescription" runat="server" Text="Description :" Width="170px"></asp:Label>
-         <asp:TextBox ID="TextBox1" Width="300px" runat="server"></asp:TextBox>
+         <asp:TextBox ID="TextBoxDescription" Width="300px" runat="server"></asp:TextBox>
     </p>
     <p>
           <asp:Label ID="LabelDegree" runat="server" Text="Degree :" Width="170px"></asp:Label>
