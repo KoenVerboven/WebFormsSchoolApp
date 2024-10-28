@@ -94,7 +94,19 @@ values
 	('johanverboven','threM@566',1,'2024-06-01  10:00:00',0,3)
 
 
-
+	Insert into SchoolClass(Code,ClassDescription,Degree,Grade,SchoolDepartmentId)
+	values
+	('IW2','2Gr Industriele wetenschappen',2,1,1 ),
+	('IW3','3Gr Industriele wetenschappen',3,1,1 ),
+	('IW4','4Gr Industriele wetenschappen',4,1,1 ),
+	('ELEK4', '4Gr Electriciteit' ,4,1,1),
+	('ELEK5', '5Gr Electriciteit' ,5,1,1),
+	('4M1','4e Mechanica',1,4,1 ),
+	('5M1','5e Mechanica',2,5,1 ),
+	('6M1','6e Mechanica',3,6,1 ),
+	('4B1','4e Bouw',1,4,1 ),
+	('5B1','5e Bouw',2,5,1 ),
+	('6B1','6e Bouw',3,6,1 )
 
 	select * from Student S inner join StudentCourse SC
 	on S.StudentId = SC.StudentId inner join Course C

@@ -1,10 +1,13 @@
-﻿using System;
+﻿using SchoolappBackend.BLL.BLLClasses;
+using SchoolappBackend.BLL.models;
+using System;
+using System.Collections.Generic;
 
 namespace WebFormsSchoolApp.AttendanceRegistration
 {
     public partial class WebFormAttendanceRegistration : System.Web.UI.Page
     {
-       // List<models.Student> students;
+        List<SchoolappBackend.BLL.models.Student> students;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,16 +20,11 @@ namespace WebFormsSchoolApp.AttendanceRegistration
 
         private void ShowClass()
         {
-            //if (students != null)
-            //{
-            //    students = students
-            //                .OrderBy(x => x.FullName)
-            //                .ToList();
+            StudentBLL studentBLL = new StudentBLL();
+            students = studentBLL.GetStudents("", "LastName");
 
-            //    GridView1.DataSource = students;
-            //    GridView1.DataBind();
-
-            //}
+            GridView1.DataSource = students;
+            GridView1.DataBind();
         }
     }
 }

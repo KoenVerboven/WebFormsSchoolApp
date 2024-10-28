@@ -105,3 +105,45 @@
 			constraint PK_User primary key(UserId),
 		)
 	end
+
+if object_id('School') is null
+begin
+	create table School
+	(
+		SchoolId int identity(1,1) not null,
+		SchoolName varchar(60) not null,
+		SchoolGroupId int  not null,
+		StreetAndNumer varchar(60) null,
+		Zipcode varchar(6) null,
+		PhoneNumber varchar(10) null,
+		Constraint PK_School primary key(SchoolId),
+	)
+end
+
+
+
+if object_id('SchoolDepartment') is null
+begin
+	create table SchoolDepartment
+	(
+		SchoolDepartmentId int identity(1,1) not null,
+		SchoolDepartmentName varchar(70) not null,
+		SchoolId varchar(70) null,
+		Constraint PK_SchoolDepartment primary key(SchoolDepartmentId),
+	)
+end
+
+
+if object_id('SchoolClass') is null
+begin
+	create table SchoolClass
+	(
+		SchoolClassId int identity(1,1) not null,
+		Code varchar(10) not null,
+		ClassDescription varchar(60) null,
+		Degree int null,
+		Grade int null,
+		SchoolDepartmentId int not null,
+		Constraint PK_SchoolClass primary key(SchoolClassId),
+	)
+end

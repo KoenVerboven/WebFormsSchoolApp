@@ -37,7 +37,7 @@
                 OnClick="LinkButton1_Click1"  
               >
              <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
-            <asp:Label runat="server" Text="SchoolClass" style="margin:9px 0px 0px 15px; float:left;"/>
+            <asp:Label ID="LabelSchoolClass" runat="server" Text="SchoolClass" style="margin:9px 0px 0px 15px; float:left;"/>
               <asp:Label runat="server" Text="Administration" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%-- SchoolClass end --%></div><div class="col-md-4">
          <%--Course start--%><p><asp:LinkButton ID="LinkButtonCourse" runat="server"

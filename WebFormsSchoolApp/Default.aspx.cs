@@ -30,6 +30,8 @@ namespace WebFormsSchoolApp
             LabelUser.Text = "User (" + userBLL.UserCount() + ")";
             CourseBLL courseBLL = new CourseBLL();
             LabelCourse.Text = "Course (" + courseBLL.CourseCount() + ")";
+            SchoolDepartmentBLL schoolDepartmentBLL = new SchoolDepartmentBLL();
+            LabelSchoolClass.Text = "SchoolClass (" + schoolDepartmentBLL.SchoolClassCount() + ")";
         }
 
         private void SetUserRights()
@@ -88,7 +90,7 @@ namespace WebFormsSchoolApp
 
         protected void LinkButtonAttendanceRegistration_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("AttendanceRegistration\\WebFormAttendanceRegistration.aspx");
+            Response.Redirect("Student\\WebFormStudentAttendanceRegistration.aspx");
         }
 
         protected void LinkButtonUserRole_Click(object sender, EventArgs e)
