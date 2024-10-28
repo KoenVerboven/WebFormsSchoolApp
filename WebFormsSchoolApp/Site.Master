@@ -48,11 +48,11 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
+                        <li>&nbsp &nbsp &nbsp &nbsp</li>
                         <li class="nav-item">
-                            <asp:LinkButton ID = "LinkButtonCheckOut" runat="server" 
-                                OnClick="LinkButton1_Click" width="250px" 
-                                ForeColor="#fff">?
+                            <asp:LinkButton ID = "LinkButtonCheckOut" class="nav-link" runat ="server" 
+                                OnClick="LinkButton1_Click" 
+                                >?
                             </asp:LinkButton>
                         </li>
                     </ul>

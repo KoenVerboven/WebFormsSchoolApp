@@ -9,7 +9,7 @@
 
      <div class="col-md-4">
           <%--Student start--%>
-            <p> <asp:LinkButton ID="LinkButtonStudent" runat="server" 
+            <p> <asp:LinkButton ID="LinkButtonStudent" CssClass="link2" runat="server" 
                 OnClick="LinkButton1_Click"
                 Height="80"
                 Width="200"
@@ -19,7 +19,7 @@
                 >
                 <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
                 <asp:Label ID="LabelStudent" runat="server" Text="Student" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%--Student end--%><%--Teacher start--%><p><asp:LinkButton ID="LinkButtonTeacher" runat="server" 
+            </asp:LinkButton></p><%--Student end--%><%--Teacher start--%><p><asp:LinkButton ID="LinkButtonTeacher" CssClass="link2" runat="server" 
                Height="80"
                Width="200"
                ForeColor="#FFFFFF"
@@ -28,7 +28,7 @@
                OnClick="LinkButtonSearchTeacher_Click"
                >
                <asp:Label ID="LabelTeacher"  runat="server" Text="Teachter" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%--Teacher end--%><%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButtonSchoolClass" runat="server"
+            </asp:LinkButton></p><%--Teacher end--%><%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButtonSchoolClass" CssClass="link2" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
@@ -40,7 +40,7 @@
             <asp:Label ID="LabelSchoolClass" runat="server" Text="SchoolClass" style="margin:9px 0px 0px 15px; float:left;"/>
               <asp:Label runat="server" Text="Administration" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%-- SchoolClass end --%></div><div class="col-md-4">
-         <%--Course start--%><p><asp:LinkButton ID="LinkButtonCourse" runat="server"
+         <%--Course start--%><p><asp:LinkButton ID="LinkButtonCourse" CssClass="link2" runat="server"
                 Height="80"
                 Width="200"
                 ForeColor="#FFFFFF"
@@ -48,7 +48,7 @@
                 Visible="false"
                 OnClick="LinkButtonSearchCourse_Click">
               <asp:Label ID="LabelCourse" runat="server" Text="Course" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%--Course end--%><%--User start--%><p><asp:LinkButton ID="LinkButtonUser" runat="server"
+            </asp:LinkButton></p><%--Course end--%><%--User start--%><p><asp:LinkButton ID="LinkButtonUser" CssClass="link2" runat="server"
                Height="80"
                Width="200"
                ForeColor="#FFFFFF"
@@ -57,7 +57,7 @@
                 OnClick="LinkButtonSearchUser_Click"
                >
              <asp:Label ID="LabelUser" runat  ="server" Text="User" style="margin:9px 0px 0px 15px; float:left;"/>
-             </asp:LinkButton></p><%--User end--%><%--ExamenPoints start--%><p> <asp:LinkButton ID="LinkButtonExamenPoints" runat="server"
+             </asp:LinkButton></p><%--User end--%><%--ExamenPoints start--%><p> <asp:LinkButton ID="LinkButtonExamenPoints" CssClass="link2" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
@@ -68,7 +68,7 @@
              <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
             <asp:Label runat="server" Text="ExamenPoints" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%-- ExamenPoints end --%></div><div class="col-md-4">
-                      <%--UserRole start--%><p> <asp:LinkButton ID="LinkButtonUserRole" runat="server"
+                      <%--UserRole start--%><p> <asp:LinkButton ID="LinkButtonUserRole" CssClass="link2" runat="server"
                   Height="80"
                   Width="200"
                   ForeColor="#FFFFFF"
@@ -77,7 +77,7 @@
                   OnClick="LinkButtonUserRole_Click"  
                   >
               <asp:Label runat="server" Text="UserRole" style="margin:9px 0px 0px 15px; float:left;"/>
-              </asp:LinkButton></p><%--UserRole end--%><%--AttendanceRegistration start--%><p> <asp:LinkButton ID="LinkButtonAttendanceRegistration" runat="server"
+              </asp:LinkButton></p><%--UserRole end--%><%--AttendanceRegistration start--%><p> <asp:LinkButton CssClass="link2" ID="LinkButtonAttendanceRegistration" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
@@ -86,7 +86,7 @@
                   OnClick="LinkButtonAttendanceRegistration_Click1" 
               >
             <asp:Label runat="server" Text="Attendance" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%-- AttendanceRegistration end --%><%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButtonClassOrganisation" runat="server"
+            </asp:LinkButton></p><%-- AttendanceRegistration end --%><%--SchoolClass start--%><p> <asp:LinkButton CssClass="link2" ID="LinkButtonClassOrganisation" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"

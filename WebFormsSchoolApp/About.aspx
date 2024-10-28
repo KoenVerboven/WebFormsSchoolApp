@@ -28,7 +28,7 @@
               <asp:Label ID="Labelfooter" runat="server" Text="Label"></asp:Label>
             </p>   
             <div>
-                 <a href="default.aspx" class="link1">Home</a>
+                 <a href="default.aspx" >Home</a>
             </div>
         </div>
     </main>

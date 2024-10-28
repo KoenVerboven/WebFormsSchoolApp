@@ -1,4 +1,5 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
+using SchoolappBackend.BLL.models;
 using System;
 
 namespace WebFormsSchoolApp.Course
@@ -29,18 +30,7 @@ namespace WebFormsSchoolApp.Course
 
                     if (action == "detail" || action == "update")
                     {
-                        CourseBLL courseBLL = new CourseBLL();
-                        var courseSelected = courseBLL.GetCourseById(courseId);
-
-                        LabelCourseIdValue.Text = Convert.ToString(courseSelected.CourseId);
-                        TextBoxCourseName.Text = courseSelected.CourseName;
-                        TextBoxCourseDescription.Text = courseSelected.CourseDescription;
-                        TextBoxStartDate.Text = courseSelected.StartDate.ToString("dd-MM-yyyy");
-                        TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
-                        CheckBoxActive.Checked = courseSelected.CourseIsActive;
-                        TextBoxCoursePrice.Text = Convert.ToString(courseSelected.CoursePrice);//todo :"€ "
-                        TextBoxMinimumGradeToPassTheCourse.Text = Convert.ToString(courseSelected.MinimumGradeToPassTheCourse);
-                        TextBoxMaximumTestCourseGrade.Text = Convert.ToString(courseSelected.MaximumTestCourseGrade);
+                        FillInControls(courseId);
                     }
 
                     switch (action)
@@ -73,6 +63,24 @@ namespace WebFormsSchoolApp.Course
                 LabelErrorMessage.Text = "An error occured.Try later again.";
             }
         }
+
+        private void FillInControls(int courseId)
+        {
+            var courseBLL = new CourseBLL();
+            var courseSelected = courseBLL.GetCourseById(courseId);
+
+            LabelCourseIdValue.Text = Convert.ToString(courseSelected.CourseId);
+            TextBoxCourseName.Text = courseSelected.CourseName;
+            TextBoxCourseDescription.Text = courseSelected.CourseDescription;
+            TextBoxStartDate.Text = courseSelected.StartDate.ToString("dd-MM-yyyy");
+            TextBoxEndDate.Text = courseSelected.EndDate.ToString("dd-MM-yyyy");
+            CheckBoxActive.Checked = courseSelected.CourseIsActive;
+            TextBoxCoursePrice.Text = Convert.ToString(courseSelected.CoursePrice);//todo :"€ "
+            TextBoxMinimumGradeToPassTheCourse.Text = Convert.ToString(courseSelected.MinimumGradeToPassTheCourse);
+            TextBoxMaximumTestCourseGrade.Text = Convert.ToString(courseSelected.MaximumTestCourseGrade);
+        }
+
+
 
         private void ButtonSaveAndCancelVisible(bool visible)
         {

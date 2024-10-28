@@ -2,6 +2,7 @@
 using SchoolappBackend.BLL.models;
 using System;
 using System.Collections.Generic;
+using System.Web.UI.WebControls;
 
 namespace WebFormsSchoolApp.SchoolDepartment
 {
@@ -21,7 +22,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
         private void Search(string orderBy)
         {
        
-            SchoolDepartmentBLL schoolDepartmentBLL = new SchoolDepartmentBLL();
+            var schoolDepartmentBLL = new SchoolDepartmentBLL();
             schoolClasses = schoolDepartmentBLL.GetClasses(TextBoxSearch.Text.Trim(), orderBy);
 
             GridView1.DataSource = schoolClasses;
@@ -35,17 +36,38 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         protected void ButtonNew_Click(object sender, EventArgs e)
         {
-
+            //WebFormSchoolClassDetail.aspx
+            Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=0&action=insert");
         }
 
         protected void cmdDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                //Button btn = sender as Button;
+                //GridViewRow gRow = btn.NamingContainer as GridViewRow;
+                //int rowIndex = gRow.RowIndex;
+                //var studentId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
+                //var schoolDepartmentBLL = new SchoolDepartmentBLL();
+                //schoolDepartmentBLL.Delete();
+                //Search("");
+            }
+            catch (Exception oEx)
+            {
+                LabelErrorMessage.Text = oEx.Message;
+            }
+            Search("");
         }
 
         protected void cmdUpdate_Click(object sender, EventArgs e)
         {
-
+            //Button btn = sender as Button;
+            //GridViewRow gRow = btn.NamingContainer as GridViewRow;
+            //int rowIndex = gRow.RowIndex;
+            //var studentId = GridView1.Rows[rowIndex].Cells[1].Text;
+            var SchoolClassId = 0;//Todo
+            Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=" + SchoolClassId + "&action=update");
         }
 
         protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
@@ -56,7 +78,14 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                if (row.RowIndex == GridView1.SelectedIndex)
+                {
+                    Session["searchSchoolClass"] = TextBoxSearch.Text.Trim();
+                    Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=" + row.Cells[1].Text.Trim() + "&action=detail");
+                }
+            }
         }
 
         protected void GridView1_Sorting(object sender, System.Web.UI.WebControls.GridViewSortEventArgs e)

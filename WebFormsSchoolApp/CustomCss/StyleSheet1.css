@@ -70,7 +70,6 @@ body {
     border-radius: 6px;
 }
 
-
 .customFrame3 {
     background-color: #FFF;
     color: #44A;
@@ -84,7 +83,6 @@ body {
     border-radius: 6px;
     min-height: 60vh;
 }
-
 
 th {
     background-color: #505678 
@@ -104,29 +102,20 @@ th a:hover {
     color: #FFA500;
 }
 
-
 /*a{
     display : block;
-}
-
-.link1 {
-    background-color: #88D;
-    color: #DDD;
-    height: 30px;
-    width: 100px;
-    padding-left: 20px;
-    text-decoration: none;
-    border-radius: 7px;
-}
-
- .link1:hover {
-    background-color: lightblue;
-    color: black;
-    border-style: inset;
-    border-width: 1px;
-    border-color: darkgrey;
-    cursor: pointer;
 }*/
 
+.link2 {
+    border-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
 
+.link2:hover {
+   border-style: solid;
+   border-width: 2px;
+   border-bottom-right-radius : 25px;
+   cursor: pointer;
+}
 
+  

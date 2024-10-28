@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="SchoolDepartment\WebFormSchoolClassDetail.aspx" />
     <Content Include="Student\WebFormStudentAttendanceRegistration.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -232,6 +233,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="SchoolDepartment\WebFormSchoolClassDetail.aspx.cs">
+      <DependentUpon>WebFormSchoolClassDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchoolDepartment\WebFormSchoolClassDetail.aspx.designer.cs">
+      <DependentUpon>WebFormSchoolClassDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\WebFormStudentAttendanceRegistration.aspx.cs">
       <DependentUpon>WebFormStudentAttendanceRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
