@@ -9,7 +9,7 @@
         </div>
          <div class="col-md-4">
              <br />
-             <asp:Label ID="Label2" runat="server" style="width:350px;background-color:red;color:white" Text="Student" Width="200px"></asp:Label>
+             <asp:Label ID="Label2" runat="server" style="width:350px;background-color:red;color:white;padding-left:7px" Text="Student" Width="200px"></asp:Label>
              <asp:ListBox ID="ListBoxStudent" style="min-width:350px;min-Height:400px"  runat="server"></asp:ListBox>
          </div>
          <div class="col-md-1">
@@ -19,8 +19,8 @@
              <asp:Button ID="ButtonRemoveStudentFromClass" class="btn btn-dark btn-md" runat="server" Text="<--" OnClick="ButtonRemoveStudentFromClass_Click"  />
          </div>
          <div class="col-md-4">
-             <asp:DropDownList ID="DropDownListClass" style="width:350px" runat="server"></asp:DropDownList>
-             <asp:Label ID="Label4" runat="server" style="width:350px;background-color:red;color:white" Text="Class" Width="200px"></asp:Label>
+             <asp:DropDownList ID="DropDownListClass" style="min-width:350px;margin-bottom:5px;background-color:yellow" runat="server"></asp:DropDownList>
+             <asp:Label ID="Label4" runat="server" style="width:350px;background-color:red;color:white;padding-left:7px" Text="Class" Width="200px"></asp:Label>
              <asp:ListBox ID="ListBoxSchoolClass"  style="min-width:350px;min-Height:400px" runat="server"></asp:ListBox>
          </div>
         <div class="col-md2">

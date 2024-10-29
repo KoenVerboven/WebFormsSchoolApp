@@ -24,8 +24,14 @@ namespace WebFormsSchoolApp.SchoolDepartment
                 ListBoxStudent.DataValueField = "PersonId";
                 ListBoxStudent.DataTextField = "FullName";
                 ListBoxStudent.DataBind();
-                
-                DropDownListClass.Items.AddRange(getSchoolClasses().ToArray());
+
+                var schoolDepartmentBLL = new SchoolDepartmentBLL();
+                var schoolClasses = schoolDepartmentBLL.GetClasses("", "", "");
+
+                DropDownListClass.DataSource = schoolClasses;
+                DropDownListClass.DataTextField = "ClassCodeAndDescription";
+                DropDownListClass.DataValueField = "ClassId";
+                DropDownListClass.DataBind();
             }
         }
 
@@ -101,6 +107,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
             return students;
         }
 
+        [Obsolete]
         private List<ListItem> getSchoolClasses()
         {
             var schoolClasses = new List<ListItem>()

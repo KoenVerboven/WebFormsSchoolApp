@@ -48,8 +48,12 @@ namespace WebFormsSchoolApp
             }
         }
 
-
-        private void SetCookie(string inlogId) //doto : legaal vragen of user cookies goedkeurd
+        //todo privacy
+        //https://www.websiteacademy.nl/gdpr-avg/#Extra_vinkjes
+        //https://cloudwise.nl/bewaren-van-persoonsgegevens/
+        //https://www.iubenda.com/nl/help/106784-gdpr-consent-form-examples-what-to-do-and-not-to-do
+        //https://www.gegevensbeschermingsautoriteit.be/professioneel/avg/rechtsgronden/toestemming
+        private void SetCookie(string inlogId) //todo : legaal vragen of user cookies goedkeurd
         {
             HttpCookie cookie = new HttpCookie("SchoolLogin");
             cookie.Value = inlogId;

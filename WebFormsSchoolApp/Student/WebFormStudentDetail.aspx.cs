@@ -108,6 +108,8 @@ namespace WebFormsSchoolApp.Student
             TextBoxDateOfBirth.Enabled = enableControl;
             TextBoxNationalRegisterNr.Enabled = enableControl;  
             TextBoxRegistrationDate.Enabled = enableControl;
+            TextBox1ParentContactTelNr.Enabled = enableControl;
+            TextBox2ParentContactTelNr.Enabled = enableControl;
             DropDownListGender.Enabled = enableControl;
             DropDownListMaritalStatus.Enabled = enableControl;  
             DropDownListNationality.Enabled = enableControl;    

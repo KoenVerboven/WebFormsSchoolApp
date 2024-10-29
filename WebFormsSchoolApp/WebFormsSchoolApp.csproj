@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="PagenotFound.aspx" />
     <Content Include="SchoolDepartment\WebFormSchoolClassDetail.aspx" />
     <Content Include="Student\WebFormStudentAttendanceRegistration.aspx" />
     <Content Include="Contact.aspx" />
@@ -233,6 +234,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="PagenotFound.aspx.cs">
+      <DependentUpon>PagenotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagenotFound.aspx.designer.cs">
+      <DependentUpon>PagenotFound.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SchoolDepartment\WebFormSchoolClassDetail.aspx.cs">
       <DependentUpon>WebFormSchoolClassDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

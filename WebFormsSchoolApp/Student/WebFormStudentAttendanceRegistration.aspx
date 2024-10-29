@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormStudentAttendanceRegistration.aspx.cs" Inherits="WebFormsSchoolApp.AttendanceRegistration.WebFormAttendanceRegistration" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
-     <div class="pageTitle">Student Attendance Registration</div>
+     <div class="pageTitle">student presence notation</div>
     <br />
     <p>
      <asp:Label ID="Label1" runat="server" Text="**** Under Construction ****" BackColor="Yellow"></asp:Label>

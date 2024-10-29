@@ -61,10 +61,12 @@
              </asp:RegularExpressionValidator>
         </p>
         <p>
+            <asp:CheckBox ID="CheckBoxAgreePrivacyStatement" runat="server" Width="420px" Style="background-color: lightgray;color:#188A16;padding-left:10px;padding-right:10px" Text=" Agrees the privacy statement"/>
+        </p>
+        <p>
            <asp:Label ID="LabelGender" runat="server" Text="Gender :" Width="170px"></asp:Label>
             <asp:DropDownList ID="DropDownListGender" runat="server" Width="250px"></asp:DropDownList>
         </p>
-
          <p>
             <asp:Label ID="LabelMaritalStatus" runat="server" Text="MaritalStatus :" Width="170px"></asp:Label>
              <asp:DropDownList ID="DropDownListMaritalStatus" runat="server" Width="250px"></asp:DropDownList>
@@ -115,6 +117,14 @@
                 ErrorMessage="DateofBirth is mandatory"
                 ControlToValidate="TextBoxDateOfBirth">
             </asp:RequiredFieldValidator>
+        </p>
+        <p>
+            <asp:Label ID="Label1ParentContactTelNr" runat="server" Text="1e Parent/Contact PhoneNumber :" Width="170px"></asp:Label>
+            <asp:TextBox ID="TextBox1ParentContactTelNr" runat="server" Width="250px" placeholder="e.x. 036.444.789"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="Label2ParentContactTelNr" runat="server" Text="2e Parent/Contact PhoneNumber :" Width="170px"></asp:Label>
+            <asp:TextBox ID="TextBox2ParentContactTelNr" runat="server" Width="250px" placeholder="e.x. 036.444.789"></asp:TextBox>
         </p>
         <p>
           <asp:Label ID="LabelRegistrationDate" runat="server" Text="RegistrationDate (*) :" Width="170px"></asp:Label>

@@ -177,6 +177,15 @@ namespace WebFormsSchoolApp.Student
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
+        /// CheckBoxAgreePrivacyStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxAgreePrivacyStatement;
+
+        /// <summary>
         /// LabelGender control.
         /// </summary>
         /// <remarks>
@@ -373,6 +382,42 @@ namespace WebFormsSchoolApp.Student
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
+        /// Label1ParentContactTelNr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1ParentContactTelNr;
+
+        /// <summary>
+        /// TextBox1ParentContactTelNr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1ParentContactTelNr;
+
+        /// <summary>
+        /// Label2ParentContactTelNr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2ParentContactTelNr;
+
+        /// <summary>
+        /// TextBox2ParentContactTelNr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox2ParentContactTelNr;
 
         /// <summary>
         /// LabelRegistrationDate control.

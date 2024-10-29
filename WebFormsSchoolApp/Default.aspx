@@ -85,7 +85,7 @@
               Visible="false"
                   OnClick="LinkButtonAttendanceRegistration_Click1" 
               >
-            <asp:Label runat="server" Text="Attendance" style="margin:9px 0px 0px 15px; float:left;"/>
+            <asp:Label runat="server" Text="Student presence" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%-- AttendanceRegistration end --%><%--SchoolClass start--%><p> <asp:LinkButton CssClass="link2" ID="LinkButtonClassOrganisation" runat="server"
               Height="80"
               Width="200"
