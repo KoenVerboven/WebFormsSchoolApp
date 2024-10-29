@@ -118,7 +118,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
             var SchoolClassId = 0;
             if (HiddenFieldAction.Value == "update")
             {
-                SchoolClassId = Convert.ToInt32(LabelSchoolClassId.Text.Trim());
+                SchoolClassId = Convert.ToInt32(LabelSchoolClassIdValue.Text.Trim());
             }
 
             var schoolClass = new SchoolappBackend.BLL.models.SchoolClass()

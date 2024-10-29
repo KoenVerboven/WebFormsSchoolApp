@@ -39,45 +39,9 @@ namespace SchoolappBackend.DAL
                 query += "ORDER BY UserId";
             }
 
-            var connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
+            using (var connection = new SqlConnection(connectionString))
             {
-                while (reader.Read())
-                {
-                    var user = new User()
-                    {
-                        UserId = Convert.ToInt32(reader["UserId"]),
-                        UserName = Convert.ToString(reader["UserName"]),
-                        UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
-                        ActiveFrom = Convert.ToDateTime(reader["ActiveFrom"]),
-                        Blocked = Convert.ToBoolean(reader["Blocked"]),
-                        PersonId = Convert.ToInt32(reader["PersonId"]),
-                    };
-                    userList.Add(user);
-                }
-            }
-            reader.Close();
-            return userList;
-        }
-
-
-        public User GetUserById(int userId)
-        {
-            var query = "SELECT UserId ,UserName ,UserRoleId , ActiveFrom , Blocked , PersonId " +
-                        "FROM InlogUser " +
-                        "WHERE UserId = @userId";
-
-            try
-            {
-                var courseDal = new CourseDal();
-
-                var connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@userId", SqlDbType.Int, 50).Value = userId;
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -94,7 +58,47 @@ namespace SchoolappBackend.DAL
                             Blocked = Convert.ToBoolean(reader["Blocked"]),
                             PersonId = Convert.ToInt32(reader["PersonId"]),
                         };
-                        return user;
+                        userList.Add(user);
+                    }
+                }
+                return userList;
+            }
+
+        }
+
+
+        public User GetUserById(int userId)
+        {
+            var query = "SELECT UserId ,UserName ,UserRoleId , ActiveFrom , Blocked , PersonId " +
+                        "FROM InlogUser " +
+                        "WHERE UserId = @userId";
+
+            try
+            {
+                var courseDal = new CourseDal();
+
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@userId", SqlDbType.Int, 50).Value = userId;
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            var user = new User()
+                            {
+                                UserId = Convert.ToInt32(reader["UserId"]),
+                                UserName = Convert.ToString(reader["UserName"]),
+                                UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
+                                ActiveFrom = Convert.ToDateTime(reader["ActiveFrom"]),
+                                Blocked = Convert.ToBoolean(reader["Blocked"]),
+                                PersonId = Convert.ToInt32(reader["PersonId"]),
+                            };
+                            return user;
+                        }
                     }
                 }
             }
@@ -112,10 +116,12 @@ namespace SchoolappBackend.DAL
 
             try
             {
-                var connection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                return (int)command.ExecuteScalar();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    return (int)command.ExecuteScalar();
+                }
             }
             catch (Exception)
             {
@@ -172,28 +178,31 @@ namespace SchoolappBackend.DAL
         {
             try
             {
-                var connection = new SqlConnection(connectionString);
-                var command = new SqlCommand(queryString, connection);
-
-                if (action == RecordAction.update)
+                       
+                using(var connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.Add("@UserId", SqlDbType.Int).Value = user.UserId;
+                    var command = new SqlCommand(queryString, connection);
+
+                    if (action == RecordAction.update)
+                    {
+                        command.Parameters.Add("@UserId", SqlDbType.Int).Value = user.UserId;
+                    }
+
+                    if (action == RecordAction.insert)
+                    {
+                        command.Parameters.Add("@UserPassword", SqlDbType.VarChar).Value = user.Password;
+                    }
+
+                    command.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
+                    command.Parameters.Add("@UserRoleId", SqlDbType.Int).Value = user.UserRoleId;
+                    command.Parameters.Add("@ActiveFrom", SqlDbType.DateTime).Value = user.ActiveFrom;
+                    command.Parameters.Add("@Blocked", SqlDbType.Bit).Value = user.Blocked;
+                    command.Parameters.Add("@PersonId", SqlDbType.Int).Value = user.PersonId;
+
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
                 }
-
-                if (action == RecordAction.insert)
-                {
-                    command.Parameters.Add("@UserPassword", SqlDbType.VarChar).Value = user.Password;
-                }
-
-                command.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
-                command.Parameters.Add("@UserRoleId", SqlDbType.Int).Value = user.UserRoleId;
-                command.Parameters.Add("@ActiveFrom", SqlDbType.DateTime).Value = user.ActiveFrom;
-                command.Parameters.Add("@Blocked", SqlDbType.Bit).Value = user.Blocked;
-                command.Parameters.Add("@PersonId", SqlDbType.Int).Value = user.PersonId;
-
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
+               
             }
             catch (Exception)
             {
@@ -204,15 +213,19 @@ namespace SchoolappBackend.DAL
         public bool DeleteUser(int userId)
         {
             var query = "DELETE FROM InlogUser WHERE UserId = @UserId";
-            var connection = new SqlConnection(connectionString);
+            
 
             try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@UserId", SqlDbType.Int, 50).Value = userId;
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    var command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@UserId", SqlDbType.Int, 50).Value = userId;
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+
                 return true;
             }
             catch (Exception)
@@ -234,23 +247,25 @@ namespace SchoolappBackend.DAL
 
             //todo : try catch and label for show errormessage
 
-            var connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@UserName", SqlDbType.VarChar, 50).Value = userName;
-            command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 50).Value = password;
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
+            using (var connection = new SqlConnection(connectionString))
             {
-                while (reader.Read())
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.Add("@UserName", SqlDbType.VarChar, 50).Value = userName;
+                command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 50).Value = password;
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    var user = new User()
+                    while (reader.Read())
                     {
-                        UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
-                        PersonId = Convert.ToInt32(reader["PersonId"]),
-                    };
-                    return user;
+                        var user = new User()
+                        {
+                            UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
+                            PersonId = Convert.ToInt32(reader["PersonId"]),
+                        };
+                        return user;
+                    }
                 }
             }
 

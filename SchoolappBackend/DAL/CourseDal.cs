@@ -47,53 +47,9 @@ namespace SchoolappBackend.DAL
                 query += "ORDER BY CourseId";
             }
 
-
-            var connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
+            using (var connection = new SqlConnection(connectionString))
             {
-                while (reader.Read())
-                {
-                    decimal? coursePrice = null;
-                    if(reader["CostPrice"] !=  DBNull.Value)
-                    {
-                        coursePrice = Convert.ToDecimal(reader["CostPrice"]);
-                    }
-                    
-                    var course = new Course()
-                    {
-                        CourseId = Convert.ToInt32(reader["CourseId"]),
-                        CourseName = Convert.ToString(reader["CourseName"]),
-                        StartDate = Convert.ToDateTime(reader["CourseStartDate"]),
-                        EndDate = Convert.ToDateTime(reader["CourseEndDate"]),
-                        MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
-                        MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
-                        CourseType = null,
-                        CoursePrice = coursePrice,
-                    };
-                    coursesList.Add(course);
-                }
-            }
-            reader.Close();
-            return coursesList;
-        }
-
-
-        public Course GetCourseById(int courseId)
-        {
-            var query = "SELECT CourseId ,CourseName ,CourseStartDate ,CourseEndDate ,MinimumGradeToPassTheCourse," +
-                            "MaximumTestCourseGrade ,CourseTypeId ,CostPrice " +
-                         "FROM Course " +
-                         "WHERE CourseId = @CourseId";
-
-            try
-            {
-                 var connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@CourseId", SqlDbType.Int, 50).Value = courseId;
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -101,7 +57,6 @@ namespace SchoolappBackend.DAL
                 {
                     while (reader.Read())
                     {
-
                         decimal? coursePrice = null;
                         if (reader["CostPrice"] != DBNull.Value)
                         {
@@ -119,7 +74,55 @@ namespace SchoolappBackend.DAL
                             CourseType = null,
                             CoursePrice = coursePrice,
                         };
-                        return course;
+                        coursesList.Add(course);
+                    }
+                }
+                reader.Close();
+                return coursesList;
+            }
+        }
+
+
+        public Course GetCourseById(int courseId)
+        {
+            var query = "SELECT CourseId ,CourseName ,CourseStartDate ,CourseEndDate ,MinimumGradeToPassTheCourse," +
+                            "MaximumTestCourseGrade ,CourseTypeId ,CostPrice " +
+                         "FROM Course " +
+                         "WHERE CourseId = @CourseId";
+
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@CourseId", SqlDbType.Int, 50).Value = courseId;
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+
+                            decimal? coursePrice = null;
+                            if (reader["CostPrice"] != DBNull.Value)
+                            {
+                                coursePrice = Convert.ToDecimal(reader["CostPrice"]);
+                            }
+
+                            var course = new Course()
+                            {
+                                CourseId = Convert.ToInt32(reader["CourseId"]),
+                                CourseName = Convert.ToString(reader["CourseName"]),
+                                StartDate = Convert.ToDateTime(reader["CourseStartDate"]),
+                                EndDate = Convert.ToDateTime(reader["CourseEndDate"]),
+                                MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
+                                MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
+                                CourseType = null,
+                                CoursePrice = coursePrice,
+                            };
+                            return course;
+                        }
                     }
                 }
             }
@@ -136,10 +139,12 @@ namespace SchoolappBackend.DAL
 
             try
             {
-                var connection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                return (int)command.ExecuteScalar();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    return (int)command.ExecuteScalar();
+                }
             }
             catch (Exception)
             {
@@ -156,12 +161,13 @@ namespace SchoolappBackend.DAL
 
             try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@CourseId", SqlDbType.Int, 50).Value = courseId;
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.Add("@CourseId", SqlDbType.Int, 50).Value = courseId;
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception)
             {
@@ -222,24 +228,25 @@ namespace SchoolappBackend.DAL
         {
             try
             {
-                var connection = new SqlConnection(connectionString);
-                var command = new SqlCommand(queryString, connection);
-
-                if (action == RecordAction.update)
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.Add("@CourseId", SqlDbType.Int).Value = course.CourseId;
-                }
+                    var command = new SqlCommand(queryString, connection);
 
-                command.Parameters.Add("@CourseName", SqlDbType.VarChar).Value = course.CourseName;
-                command.Parameters.Add("@CourseStartDate", SqlDbType.Date).Value = course.StartDate;
-                command.Parameters.Add("@CourseEndDate", SqlDbType.Date).Value = course.EndDate;
-                command.Parameters.Add("@MinimumGradeToPassTheCourse", SqlDbType.Int).Value = course.MinimumGradeToPassTheCourse;
-                command.Parameters.Add("@MaximumTestCourseGrade", SqlDbType.Decimal).Value = course.MaximumTestCourseGrade;
-                command.Parameters.Add("@CourseTypeId", SqlDbType.Int).Value = 1;// course.CourseType;
-                command.Parameters.Add("@CostPrice", SqlDbType.Decimal).Value = course.CoursePrice ?? (object)DBNull.Value;
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
+                    if (action == RecordAction.update)
+                    {
+                        command.Parameters.Add("@CourseId", SqlDbType.Int).Value = course.CourseId;
+                    }
+
+                    command.Parameters.Add("@CourseName", SqlDbType.VarChar).Value = course.CourseName;
+                    command.Parameters.Add("@CourseStartDate", SqlDbType.Date).Value = course.StartDate;
+                    command.Parameters.Add("@CourseEndDate", SqlDbType.Date).Value = course.EndDate;
+                    command.Parameters.Add("@MinimumGradeToPassTheCourse", SqlDbType.Int).Value = course.MinimumGradeToPassTheCourse;
+                    command.Parameters.Add("@MaximumTestCourseGrade", SqlDbType.Decimal).Value = course.MaximumTestCourseGrade;
+                    command.Parameters.Add("@CourseTypeId", SqlDbType.Int).Value = 1;// course.CourseType;
+                    command.Parameters.Add("@CostPrice", SqlDbType.Decimal).Value = course.CoursePrice ?? (object)DBNull.Value;
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                }
             }
             catch (Exception)
             {

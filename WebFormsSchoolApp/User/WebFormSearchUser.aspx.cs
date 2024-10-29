@@ -72,7 +72,7 @@ namespace WebFormsSchoolApp.User
 
         protected void GridView1_Sorting(object sender, System.Web.UI.WebControls.GridViewSortEventArgs e)
         {
-
+            Search(e.SortExpression.ToString());
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace WebFormsSchoolApp.User
 
         private void Search(string orderBy)
         {
-            UserBLL userBLL = new UserBLL();
+            var userBLL = new UserBLL();
             users = userBLL.GetUsers(TextBoxSearch.Text.Trim(), orderBy);
 
             GridView1.DataSource = users;

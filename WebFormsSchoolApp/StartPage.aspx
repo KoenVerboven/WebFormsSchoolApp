@@ -27,7 +27,7 @@
                        it is autumn leave and there is no school.
                     </p>
                     <p>
-                       Enjoy the days off and don't forget to study for it
+                       Enjoy the days off and don't forget to study for
                        the end-of-year exam.
                     </p>
                      <p>director,<br />

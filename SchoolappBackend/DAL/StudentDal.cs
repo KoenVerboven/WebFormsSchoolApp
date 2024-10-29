@@ -35,33 +35,34 @@ namespace SchoolappBackend.DAL
                 query += "ORDER BY StudentId";
             }
 
-            SqlConnection connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                while (reader.Read())
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    var student = new Student()
+                    while (reader.Read())
                     {
-                        PersonId = Convert.ToInt32(reader["StudentId"]),
-                        LastName = Convert.ToString(reader["LastName"]),
-                        MiddleName = Convert.ToString(reader["MiddleName"]),
-                        Firstname = Convert.ToString(reader["FirstName"]),
-                        StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]),
-                        ZipCode = Convert.ToString(reader["ZipCode"]),
-                        PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
-                        EmailAddress = Convert.ToString(reader["EmailAddress"]),
-                        DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
-                        RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
-                        Gender = Convert.ToInt32(reader["gender"])
-                    };
-                    studentsList.Add(student);
+                        var student = new Student()
+                        {
+                            PersonId = Convert.ToInt32(reader["StudentId"]),
+                            LastName = Convert.ToString(reader["LastName"]),
+                            MiddleName = Convert.ToString(reader["MiddleName"]),
+                            Firstname = Convert.ToString(reader["FirstName"]),
+                            StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]),
+                            ZipCode = Convert.ToString(reader["ZipCode"]),
+                            PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
+                            EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                            DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                            RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
+                            Gender = Convert.ToInt32(reader["gender"])
+                        };
+                        studentsList.Add(student);
+                    }
                 }
             }
-            reader.Close();
             return studentsList;
         }
 
@@ -72,10 +73,12 @@ namespace SchoolappBackend.DAL
 
             try
             {
-                var connection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                return  (int)command.ExecuteScalar();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    return (int)command.ExecuteScalar();
+                }
             }
             catch (Exception)
             {
@@ -94,37 +97,37 @@ namespace SchoolappBackend.DAL
           
             try
             {
-                var connection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = studentId;
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = studentId;
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        var student = new Student()
+                        while (reader.Read())
                         {
-                            
-                            
-                            PersonId = Convert.ToInt32(reader["StudentId"]),
-                            LastName = Convert.ToString(reader["LastName"]),
-                            MiddleName = Convert.ToString(reader["MiddleName"]),
-                            Firstname = Convert.ToString(reader["FirstName"]),
-                            StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]),
-                            ZipCode = Convert.ToString(reader["ZipCode"]),
-                            PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
-                            EmailAddress = Convert.ToString(reader["EmailAddress"]),
-                            DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
-                            RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
-                            Gender = Convert.ToInt32(reader["Gender"]) ,
-                            Nationality = Convert.ToInt32(reader["Nationality"]),
-                            NationalRegisterNumber = Convert.ToString(reader["NationalRegisterNumber"]),
-                            MaritalStatus = Convert.ToInt32(reader["MaritalStatusId"])
-                        };
-                        reader.Close(); //ToDo : overal nakijken of Close aanwezig is
-                        return student;
+                            var student = new Student()
+                            {
+                                PersonId = Convert.ToInt32(reader["StudentId"]),
+                                LastName = Convert.ToString(reader["LastName"]),
+                                MiddleName = Convert.ToString(reader["MiddleName"]),
+                                Firstname = Convert.ToString(reader["FirstName"]),
+                                StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]),
+                                ZipCode = Convert.ToString(reader["ZipCode"]),
+                                PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                                RegistrationDate = Convert.ToDateTime(reader["Registrationdate"]),
+                                Gender = Convert.ToInt32(reader["Gender"]),
+                                Nationality = Convert.ToInt32(reader["Nationality"]),
+                                NationalRegisterNumber = Convert.ToString(reader["NationalRegisterNumber"]),
+                                MaritalStatus = Convert.ToInt32(reader["MaritalStatusId"])
+                            };
+                            reader.Close(); //ToDo : overal nakijken of Close aanwezig is
+                            return student;
+                        }
                     }
                 }
             }
@@ -196,17 +199,19 @@ namespace SchoolappBackend.DAL
         public bool DeleteStudent(int studentId)
         {
             var query = "delete from student where StudentId = @StudentId";
-            var connection = new SqlConnection(connectionString);
+           
 
             try
             {
-
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = studentId;
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = studentId;
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
             }
             catch (Exception)
             {
@@ -221,35 +226,37 @@ namespace SchoolappBackend.DAL
         {
             try
             {
-                var connection = new SqlConnection(connectionString);
-                var command = new SqlCommand(queryString, connection);
-
-                if (action == RecordAction.update)
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = student.PersonId;
-                }
-                if (action == RecordAction.insert)
-                {
-                    command.Parameters.Add("@Registrationdate", SqlDbType.DateTime).Value = student.RegistrationDate;
-                }
+                    var command = new SqlCommand(queryString, connection);
 
-                command.Parameters.Add("@FirstName", SqlDbType.VarChar, 50).Value = student.Firstname;
-                command.Parameters.Add("@MiddleName", SqlDbType.VarChar, 50).Value = student.MiddleName;
-                command.Parameters.Add("@LastName", SqlDbType.VarChar, 50).Value = student.LastName;
-                command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar, 50).Value = student.StreetAndNumber;
-                command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 50).Value = student.ZipCode;
-                command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = student.PhoneNumber;
-                command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = student.EmailAddress;
-                command.Parameters.Add("@Gender", SqlDbType.Int, 50).Value = student.Gender; 
-                command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = student.DateOfBirth;
-                command.Parameters.Add("@MaritalStatusId", SqlDbType.Int, 50).Value = student.MaritalStatus;
-                command.Parameters.Add("@NationalRegisterNumber", SqlDbType.VarChar, 50).Value = student.NationalRegisterNumber;
-                command.Parameters.Add("@Nationality", SqlDbType.Int).Value = student.Nationality;
-                command.Parameters.Add("@MoederTongueId", SqlDbType.Int).Value = 1; //todo student.MoederTongueId;
+                    if (action == RecordAction.update)
+                    {
+                        command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = student.PersonId;
+                    }
 
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
+                    if (action == RecordAction.insert)
+                    {
+                        command.Parameters.Add("@Registrationdate", SqlDbType.DateTime).Value = student.RegistrationDate;
+                    }
+
+                    command.Parameters.Add("@FirstName", SqlDbType.VarChar, 50).Value = student.Firstname;
+                    command.Parameters.Add("@MiddleName", SqlDbType.VarChar, 50).Value = student.MiddleName;
+                    command.Parameters.Add("@LastName", SqlDbType.VarChar, 50).Value = student.LastName;
+                    command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar, 50).Value = student.StreetAndNumber;
+                    command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 50).Value = student.ZipCode;
+                    command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = student.PhoneNumber;
+                    command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = student.EmailAddress;
+                    command.Parameters.Add("@Gender", SqlDbType.Int, 50).Value = student.Gender;
+                    command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = student.DateOfBirth;
+                    command.Parameters.Add("@MaritalStatusId", SqlDbType.Int, 50).Value = student.MaritalStatus;
+                    command.Parameters.Add("@NationalRegisterNumber", SqlDbType.VarChar, 50).Value = student.NationalRegisterNumber;
+                    command.Parameters.Add("@Nationality", SqlDbType.Int).Value = student.Nationality;
+                    command.Parameters.Add("@MoederTongueId", SqlDbType.Int).Value = 1; //todo student.MoederTongueId;
+
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                }
             }
             catch (Exception)
             {
