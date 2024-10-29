@@ -50,10 +50,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             return user;
         }
 
-        public List<User> GetUsers(string searchField, string orderBy)
+        public List<User> GetUsers(string searchField, string orderBy, string sortDirection)
         {
             UserDal userDal = new UserDal();
-            return userDal.GetUsers(searchField,orderBy);
+            return userDal.GetUsers(searchField,orderBy, sortDirection);
         }
 
         public bool Update(User user)

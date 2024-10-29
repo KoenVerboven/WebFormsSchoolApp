@@ -21,7 +21,7 @@ namespace WebFormsSchoolApp.AttendanceRegistration
         private void ShowClass()
         {
             StudentBLL studentBLL = new StudentBLL();
-            students = studentBLL.GetStudents("", "LastName");
+            students = studentBLL.GetStudents("", "LastName","ASC");
 
             GridView1.DataSource = students;
             GridView1.DataBind();

@@ -50,10 +50,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             return courseDal.GetCourseCount();
         }
 
-        public List<Course> GetCourses(string searchField, string orderBy , ActiveType activeType)
+        public List<Course> GetCourses(string searchField, string orderBy ,string sortDirection, ActiveType activeType)
         {
             CourseDal courseDal = new CourseDal();
-            return courseDal.GetCourses(searchField,orderBy,activeType);
+            return courseDal.GetCourses(searchField,orderBy, sortDirection,activeType);
         }
 
         public List<Course> GetCoursesByStudentId(int studentId)

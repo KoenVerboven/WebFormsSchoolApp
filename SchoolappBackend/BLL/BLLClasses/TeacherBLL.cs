@@ -35,10 +35,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             return teacherDal.GetTeacherById(id);
         }
 
-        public List<Teacher> GetTeachers(string searchField, string orderBy)
+        public List<Teacher> GetTeachers(string searchField, string orderBy,string sortDirection)
         {
             var teacherDal = new TeacherDal();
-            return teacherDal.GetTeachers(searchField,orderBy);
+            return teacherDal.GetTeachers(searchField,orderBy, sortDirection);
         }
 
         public int TeacherCount()

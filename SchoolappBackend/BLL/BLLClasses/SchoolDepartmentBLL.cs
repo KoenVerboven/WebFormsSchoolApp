@@ -1,15 +1,16 @@
-﻿using SchoolappBackend.BLL.models;
+﻿using SchoolappBackend.BLL.Interfaces;
+using SchoolappBackend.BLL.models;
 using SchoolappBackend.DAL;
 using System.Collections.Generic;
 
 namespace SchoolappBackend.BLL.BLLClasses
 {
-    public class SchoolDepartmentBLL //todo : laten overerven van een interface
+    public class SchoolDepartmentBLL : ISchoolDepartmentBLL
     {
-        public List<SchoolClass> GetClasses(string searchField, string orderBy)
+        public List<SchoolClass> GetClasses(string searchField, string orderBy, string sortDirection)
         {
             var schooDepartmentDal = new SchoolDepartmentDal();
-            return schooDepartmentDal.GetSchoolClasses(searchField, orderBy);
+            return schooDepartmentDal.GetSchoolClasses(searchField, orderBy, sortDirection);
         }
 
         public int SchoolClassCount()

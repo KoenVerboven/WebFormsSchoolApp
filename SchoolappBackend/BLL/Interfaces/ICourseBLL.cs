@@ -8,7 +8,7 @@ namespace SchoolappBackend.BLL.Interfaces
 {
     internal interface ICourseBLL
     {
-        List<Course> GetCourses(string searchField, string orderBy, ActiveType activeType);
+        List<Course> GetCourses(string searchField, string orderBy,string sortDirection, ActiveType activeType);
 
         Course GetCourseById(int courseId);
 

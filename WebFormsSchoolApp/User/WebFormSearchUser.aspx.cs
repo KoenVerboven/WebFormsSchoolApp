@@ -1,5 +1,4 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
 using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
@@ -33,13 +32,13 @@ namespace WebFormsSchoolApp.User
                 var userId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
                 UserBLL userBLL = new UserBLL();
                 userBLL.Delete(userId);
-                Search("");
+                Search("", "");
             }
             catch (Exception oEx)
             {
                 //LabelErrorMessage.Text = oEx.Message;
             }
-            Search("");
+            Search("", "");
         }
 
         protected void cmdUpdate_Click(object sender, EventArgs e)
@@ -64,26 +63,35 @@ namespace WebFormsSchoolApp.User
             }
         }
 
-        protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search("");
+            Search("", "");
         }
 
-        protected void GridView1_Sorting(object sender, System.Web.UI.WebControls.GridViewSortEventArgs e)
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
-            Search(e.SortExpression.ToString());
+            if (HiddenFieldSortDirection.Value == "ASC")
+            {
+                HiddenFieldSortDirection.Value = "DESC";
+            }
+            else
+            {
+                HiddenFieldSortDirection.Value = "ASC";
+            }
+
+            Search(e.SortExpression.ToString(), HiddenFieldSortDirection.Value);
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search("");
+            Search("","");
         }
 
-        private void Search(string orderBy)
+        private void Search(string orderBy, string sortDirection)
         {
             var userBLL = new UserBLL();
-            users = userBLL.GetUsers(TextBoxSearch.Text.Trim(), orderBy);
+            users = userBLL.GetUsers(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
 
             GridView1.DataSource = users;
             GridView1.DataBind();

@@ -12,7 +12,7 @@ namespace SchoolappBackend.DAL
     {
         readonly string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
-        public List<Student> GetStudents(string filter , string orderby)
+        public List<Student> GetStudents(string filter , string orderby, string sortDirection)
         {
             var studentsList = new List<Student>();
 
@@ -28,11 +28,11 @@ namespace SchoolappBackend.DAL
             }
             if (orderby.Trim() != string.Empty)
             {
-                query += "ORDER BY " + orderby;
+                query += "ORDER BY " + orderby + " " + sortDirection;
             }
             else
             {
-                query += "ORDER BY StudentId";
+                query += "ORDER BY StudentId desc";
             }
 
             using (SqlConnection connection = new SqlConnection(connectionString))

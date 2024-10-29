@@ -32,7 +32,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
         private List<SchoolappBackend.BLL.models.Student> SearchStudents(string search,string orderBy)
         {
             StudentBLL studentBLL = new StudentBLL();
-            students = studentBLL.GetStudents(search, orderBy);
+            students = studentBLL.GetStudents(search, orderBy,"ASC");
             return students;
         }
 

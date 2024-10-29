@@ -19,11 +19,11 @@ namespace WebFormsSchoolApp.SchoolDepartment
             }
         }
 
-        private void Search(string orderBy)
+        private void Search(string orderBy, string sortDirection)
         {
        
             var schoolDepartmentBLL = new SchoolDepartmentBLL();
-            schoolClasses = schoolDepartmentBLL.GetClasses(TextBoxSearch.Text.Trim(), orderBy);
+            schoolClasses = schoolDepartmentBLL.GetClasses(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
 
             GridView1.DataSource = schoolClasses;
             GridView1.DataBind();
@@ -31,7 +31,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search("");
+            Search("","");
         }
 
         protected void ButtonNew_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
             {
                 LabelErrorMessage.Text = oEx.Message;
             }
-            Search("");
+            Search("", "");
         }
 
         protected void cmdUpdate_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
         protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search("");
+            Search("", ""  );
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,7 +89,16 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         protected void GridView1_Sorting(object sender, System.Web.UI.WebControls.GridViewSortEventArgs e)
         {
-            Search(e.SortExpression.ToString());
+            if (HiddenFieldSortDirection.Value == "ASC")
+            {
+                HiddenFieldSortDirection.Value = "DESC";
+            }
+            else
+            {
+                HiddenFieldSortDirection.Value = "ASC";
+            }
+
+            Search(e.SortExpression.ToString(), HiddenFieldSortDirection.Value);
         }
     }
 }

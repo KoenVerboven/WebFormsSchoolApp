@@ -9,7 +9,7 @@ namespace SchoolappBackend.BLL.Interfaces
     {
          Student GetStudentById(int Id);
 
-         List<Student> GetStudents(string searchField, string orderBy);
+         List<Student> GetStudents(string searchField, string orderBy, string sortDirection);
 
          bool Add(Student student);
 

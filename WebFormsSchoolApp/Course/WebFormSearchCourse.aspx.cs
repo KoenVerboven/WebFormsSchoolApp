@@ -1,7 +1,6 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace WebFormsSchoolApp.Course
@@ -20,7 +19,7 @@ namespace WebFormsSchoolApp.Course
             if (Session["searchCourse"] != null)
             {
                 TextBoxSearch.Text = Convert.ToString(Session["searchCourse"]);
-                Search("");
+                Search("","");
                 Session["searchCourse"] = null;
             }
 
@@ -49,15 +48,15 @@ namespace WebFormsSchoolApp.Course
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search("");
+            Search("","");
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search("");
+            Search("","");
         }
 
-        private void Search(string orderBy)
+        private void Search(string orderBy, string sortDirection)
         {
 
             ActiveType activeType = ActiveType.All;
@@ -80,7 +79,7 @@ namespace WebFormsSchoolApp.Course
 
 
             CourseBLL courseBLL = new CourseBLL();
-            courses = courseBLL.GetCourses(TextBoxSearch.Text.Trim(), orderBy, activeType);
+            courses = courseBLL.GetCourses(TextBoxSearch.Text.Trim(), orderBy, sortDirection, activeType);
            
             GridView1.DataSource = courses;
             GridView1.DataBind();
@@ -93,7 +92,15 @@ namespace WebFormsSchoolApp.Course
 
         protected void GridView1_Sorting1(object sender, GridViewSortEventArgs e)
         {
-            Search(e.SortExpression.ToString());
+            if (HiddenFieldSortDirection.Value == "ASC")
+            {
+                HiddenFieldSortDirection.Value = "DESC";
+            }
+            else
+            {
+                HiddenFieldSortDirection.Value = "ASC";
+            }
+            Search(e.SortExpression.ToString(), HiddenFieldSortDirection.Value);
         }
 
         protected void cmdUpdate_Click(object sender, EventArgs e)
@@ -113,7 +120,7 @@ namespace WebFormsSchoolApp.Course
             var courseId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
             CourseBLL courseBLL = new CourseBLL();
             courseBLL.Delete(courseId);
-            Search("");
+            Search("","");
         }
     }
 }

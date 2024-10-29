@@ -19,7 +19,7 @@ namespace WebFormsSchoolApp.Teacher
             if (Session["searchTeacher"] != null)
             {
                 TextBoxSearch.Text = Convert.ToString(Session["searchTeacher"]);
-                Search("");
+                Search("","");
                 Session["searchTeacher"] = null;
             }
 
@@ -41,19 +41,19 @@ namespace WebFormsSchoolApp.Teacher
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search("");
+            Search("", "");
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search("");
+            Search("", "");
         }
 
-        private void Search(string orderBy)
+        private void Search(string orderBy, string sortDirection)
         {
 
             TeacherBLL teachertBLL = new TeacherBLL();
-            teachers = teachertBLL.GetTeachers(TextBoxSearch.Text.Trim(), orderBy);
+            teachers = teachertBLL.GetTeachers(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
 
             GridView1.DataSource = teachers;
             GridView1.DataBind();
@@ -67,7 +67,15 @@ namespace WebFormsSchoolApp.Teacher
 
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
-            Search(e.SortExpression.ToString());
+            if (HiddenFieldSortDirection.Value == "ASC")
+            {
+                HiddenFieldSortDirection.Value = "DESC";
+            }
+            else
+            {
+                HiddenFieldSortDirection.Value = "ASC";
+            }
+            Search(e.SortExpression.ToString(), HiddenFieldSortDirection.Value);
         }
 
         
@@ -88,7 +96,7 @@ namespace WebFormsSchoolApp.Teacher
             var teacherId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
             TeacherBLL teacherBLL = new TeacherBLL();
             teacherBLL.Delete(teacherId);
-            Search("");
+            Search("", "");
         }
     }
 }

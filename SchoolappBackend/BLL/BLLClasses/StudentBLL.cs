@@ -37,10 +37,10 @@ namespace SchoolappBackend.BLL.BLLClasses
             return studentDal.GetStudentById(Id);
         }
 
-        public List<Student> GetStudents(string searchField,string orderBy)
+        public List<Student> GetStudents(string searchField,string orderBy,string sortDirection)
         {
             var studentDal = new StudentDal();
-            return studentDal.GetStudents(searchField,orderBy);
+            return studentDal.GetStudents(searchField,orderBy,sortDirection);
         }
 
         public int StudentCount()

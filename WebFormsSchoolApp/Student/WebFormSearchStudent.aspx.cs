@@ -20,8 +20,7 @@ namespace WebFormsSchoolApp.Student
 
             if(Session["searchStudent"] != null)
             {
-                TextBoxSearch.Text = Convert.ToString(Session["searchStudent"]);
-                Search("");
+                Search(Convert.ToString(Session["searchStudent"]),"", "ASC");
                 Session["searchStudent"] = null;
             }
 
@@ -41,21 +40,21 @@ namespace WebFormsSchoolApp.Student
             }
         }
 
-        protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Search("");
+            Search(TextBoxSearch.Text.Trim(), "","ASC");
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            Search("");
+            Search(TextBoxSearch.Text.Trim(),"", "ASC");
         }
 
-        private void Search(string orderBy)
+        private void Search(string searchString,string orderBy, string sortDirection)
         {
             StudentBLL studentBLL = new StudentBLL();
-            students = studentBLL.GetStudents(TextBoxSearch.Text.Trim(), orderBy);
+            students = studentBLL.GetStudents(searchString.Trim(), orderBy, sortDirection);
 
             GridView1.DataSource = students;
             GridView1.DataBind();
@@ -69,7 +68,16 @@ namespace WebFormsSchoolApp.Student
 
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
-            Search(e.SortExpression.ToString());
+            if(HiddenFieldSortDirection.Value == "ASC")
+            {
+                HiddenFieldSortDirection.Value = "DESC";
+            }
+            else
+            {
+                HiddenFieldSortDirection.Value = "ASC";
+            }
+
+            Search(TextBoxSearch.Text.Trim(), e.SortExpression.ToString(), HiddenFieldSortDirection.Value);
         }
 
         
@@ -85,13 +93,13 @@ namespace WebFormsSchoolApp.Student
                 var studentId = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[1].Text);
                 StudentBLL studentBLL = new StudentBLL();
                 studentBLL.Delete(studentId);
-                Search("");
+                Search(TextBoxSearch.Text.Trim(), "","ASC");
             }
             catch (Exception oEx)
             {
                 LabelErrorMessage.Text = oEx.Message;
             }
-            Search("");
+            Search(TextBoxSearch.Text.Trim(),"", "ASC");
         }
 
         protected void cmdUpdate_Click(object sender, EventArgs e)

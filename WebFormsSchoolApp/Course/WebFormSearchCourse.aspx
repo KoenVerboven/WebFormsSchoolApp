@@ -71,6 +71,7 @@
         <AlternatingRowStyle BackColor="#9DE7FB"></AlternatingRowStyle>
     </asp:GridView>
      <br />
+         <asp:HiddenField ID="HiddenFieldSortDirection" runat="server" />
      <br />
      <a href="../default.aspx">Go Back to Mainform</a>
    </div>

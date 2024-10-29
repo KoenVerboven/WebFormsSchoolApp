@@ -7,7 +7,7 @@ namespace SchoolappBackend.BLL.Interfaces
 {
     internal interface IUserBLL
     {
-        List<User> GetUsers(string searchField, string orderBy);
+        List<User> GetUsers(string searchField, string orderBy, string sortDirection);
 
         bool Add(User user);
 
