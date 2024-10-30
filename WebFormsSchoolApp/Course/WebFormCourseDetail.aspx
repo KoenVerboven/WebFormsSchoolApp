@@ -11,7 +11,7 @@
          <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" CausesValidation="false" OnClick="ButtonCancel_Click" />
     </p>      
     <p>
-        <asp:Label ID="LabelErrorMessage"  ForeColor="Red"  runat="server" Text=""></asp:Label> 
+         <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label> 
     </p>
     <p>
          <asp:ValidationSummary ID="ValidationSummary1" CssClass="customValidationSummary" runat="server" />

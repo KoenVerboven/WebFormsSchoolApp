@@ -40,7 +40,8 @@ namespace WebFormsSchoolApp.User
             }
             catch (Exception oEx)
             {
-                //LabelErrorMessage.Text = oEx.Message;
+                LabelMessage.Visible=true;
+                LabelMessage.Text = oEx.Message;
             }
             Search("", "");
         }
@@ -94,11 +95,19 @@ namespace WebFormsSchoolApp.User
 
         private void Search(string orderBy, string sortDirection)
         {
-            var userBLL = new UserBLL();
-            users = userBLL.GetUsers(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
+            try
+            {
+                var userBLL = new UserBLL();
+                users = userBLL.GetUsers(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
 
-            GridView1.DataSource = users;
-            GridView1.DataBind();
+                GridView1.DataSource = users;
+                GridView1.DataBind();
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;    
+            }
         }
 
         protected void ButtonNew_Click(object sender, EventArgs e)

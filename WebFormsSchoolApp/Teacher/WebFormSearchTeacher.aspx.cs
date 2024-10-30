@@ -56,13 +56,19 @@ namespace WebFormsSchoolApp.Teacher
 
         private void Search(string orderBy, string sortDirection)
         {
+            try
+            {
+                TeacherBLL teachertBLL = new TeacherBLL();
+                teachers = teachertBLL.GetTeachers(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
 
-            TeacherBLL teachertBLL = new TeacherBLL();
-            teachers = teachertBLL.GetTeachers(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
-
-            GridView1.DataSource = teachers;
-            GridView1.DataBind();
-            
+                GridView1.DataSource = teachers;
+                GridView1.DataBind();
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
+            }
         }
 
         protected void ButtonNew_Click(object sender, EventArgs e)

@@ -130,39 +130,47 @@ namespace WebFormsSchoolApp.Student
         {
             bool succes = false;
             StudentBLL studentBLL = new StudentBLL();
-
             var personId = 0;
-            if (HiddenFieldAction.Value == "update") 
-            {
-                personId = Convert.ToInt32(LabelStudentIdValue.Text.Trim());
-            }
 
-            var student = new SchoolappBackend.BLL.models.Student()
+            try
             {
-                PersonId = personId,
-                LastName = TextBoxLastName.Text.Trim(),
-                MiddleName = TextBoxMiddleName.Text.Trim(),
-                Firstname = TextBoxFirstName.Text.Trim(),
-                StreetAndNumber = TextBoxStreetAndNumber.Text.Trim(),
-                ZipCode = TextBoxZipCode.Text.Trim(),
-                PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
-                Gender = DropDownListGender.SelectedIndex,
-                Nationality = DropDownListNationality.SelectedIndex,
-                NationalRegisterNumber = TextBoxNationalRegisterNr.Text.Trim(), 
-                MaritalStatus = DropDownListMaritalStatus.SelectedIndex,
-                EmailAddress = TextBoxEmailAddress.Text.Trim(),
-                DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
-                RegistrationDate = Convert.ToDateTime(TextBoxRegistrationDate.Text.Trim())
-            };
+                if (HiddenFieldAction.Value == "update")
+                {
+                    personId = Convert.ToInt32(LabelStudentIdValue.Text.Trim());
+                }
 
-            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
-            {
-                succes = studentBLL.Update(student);
+                var student = new SchoolappBackend.BLL.models.Student()
+                {
+                    PersonId = personId,
+                    LastName = TextBoxLastName.Text.Trim(),
+                    MiddleName = TextBoxMiddleName.Text.Trim(),
+                    Firstname = TextBoxFirstName.Text.Trim(),
+                    StreetAndNumber = TextBoxStreetAndNumber.Text.Trim(),
+                    ZipCode = TextBoxZipCode.Text.Trim(),
+                    PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
+                    Gender = DropDownListGender.SelectedIndex,
+                    Nationality = DropDownListNationality.SelectedIndex,
+                    NationalRegisterNumber = TextBoxNationalRegisterNr.Text.Trim(),
+                    MaritalStatus = DropDownListMaritalStatus.SelectedIndex,
+                    EmailAddress = TextBoxEmailAddress.Text.Trim(),
+                    DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
+                    RegistrationDate = Convert.ToDateTime(TextBoxRegistrationDate.Text.Trim())
+                };
+
+                if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+                {
+                    succes = studentBLL.Update(student);
+                }
+
+                if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+                {
+                    succes = studentBLL.Add(student);
+                }
             }
-            
-            if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+            catch (Exception oEx)
             {
-                succes = studentBLL.Add(student);
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
             }
             return succes;
         }

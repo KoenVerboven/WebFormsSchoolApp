@@ -28,6 +28,8 @@ namespace WebFormsSchoolApp.Course
                 DropDownListFilterActive.Items.Add("Show active");
                 DropDownListFilterActive.Items.Add("Show all");
                 DropDownListFilterActive.Items.Add("Show non active");
+
+                LabelMessage.Visible = false;
             }
 
             GridView1.EmptyDataText = "No courses found. Please adjust your search condition.";
@@ -77,12 +79,19 @@ namespace WebFormsSchoolApp.Course
                 }
             }
 
+            try
+            {
+                CourseBLL courseBLL = new CourseBLL();
+                courses = courseBLL.GetCourses(TextBoxSearch.Text.Trim(), orderBy, sortDirection, activeType);
 
-            CourseBLL courseBLL = new CourseBLL();
-            courses = courseBLL.GetCourses(TextBoxSearch.Text.Trim(), orderBy, sortDirection, activeType);
-           
-            GridView1.DataSource = courses;
-            GridView1.DataBind();
+                GridView1.DataSource = courses;
+                GridView1.DataBind();
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
+            }
         }
 
         protected void ButtonNew_Click(object sender, EventArgs e)

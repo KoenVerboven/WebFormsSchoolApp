@@ -24,10 +24,18 @@ namespace WebFormsSchoolApp.AttendanceRegistration
         private void ShowClass()
         {
             StudentBLL studentBLL = new StudentBLL();
-            students = studentBLL.GetStudents("", "LastName","ASC");
 
-            GridView1.DataSource = students;
-            GridView1.DataBind();
+            try
+            {
+                students = studentBLL.GetStudents("", "LastName", "ASC");
+                GridView1.DataSource = students;
+                GridView1.DataBind();
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible=true;
+                LabelMessage.Text=oEx.Message;
+            }
         }
     }
 }

@@ -110,43 +110,51 @@ namespace WebFormsSchoolApp.Teacher
         {
             bool succes = false;
             TeacherBLL teacherBLL = new TeacherBLL();
-
             var personId = 0;
-            if (HiddenFieldAction.Value == "update")
-            {
-                personId = Convert.ToInt32(LabelTeacherIdValue.Text.Trim());
-            }
-            var leaveDate = new DateTime(1900,1,1);
-            if(TextBoxLeaveDate.Text.Trim() != string.Empty)
-            {
-                leaveDate = Convert.ToDateTime(TextBoxLeaveDate.Text.Trim());
-            }
 
-            var teacher = new SchoolappBackend.BLL.models.Teacher()
+            try
             {
-                PersonId = personId,
-                LastName = TextBoxLastName.Text.Trim(),
-                MiddleName = TextBoxMiddleName.Text.Trim(),
-                Firstname = TextBoxFirstName.Text.Trim(),
-                StreetAndNumber = TextBoxStreetAndNumber.Text.Trim(),
-                ZipCode = TextBoxZipCode.Text.Trim(),
-                PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
-                EmailAddress = TextBoxEmailAddress.Text.Trim(),
-                DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
-                HireDate = Convert.ToDateTime(TextBoxHireDate.Text.Trim()),
-                LeaveDate = leaveDate,
-                SaleryCategorie = SchoolappBackend.BLL.models.SaleryCategorie.A1,//todo SaleryCategorie
-                SeniorityYears = 1 //todo SeniorityYears
-            };
+                if (HiddenFieldAction.Value == "update")
+                {
+                    personId = Convert.ToInt32(LabelTeacherIdValue.Text.Trim());
+                }
+                var leaveDate = new DateTime(1900, 1, 1);
+                if (TextBoxLeaveDate.Text.Trim() != string.Empty)
+                {
+                    leaveDate = Convert.ToDateTime(TextBoxLeaveDate.Text.Trim());
+                }
 
-            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
-            {
-                succes = teacherBLL.Update(teacher);
+                var teacher = new SchoolappBackend.BLL.models.Teacher()
+                {
+                    PersonId = personId,
+                    LastName = TextBoxLastName.Text.Trim(),
+                    MiddleName = TextBoxMiddleName.Text.Trim(),
+                    Firstname = TextBoxFirstName.Text.Trim(),
+                    StreetAndNumber = TextBoxStreetAndNumber.Text.Trim(),
+                    ZipCode = TextBoxZipCode.Text.Trim(),
+                    PhoneNumber = TextBoxPhoneNumber.Text.Trim(),
+                    EmailAddress = TextBoxEmailAddress.Text.Trim(),
+                    DateOfBirth = Convert.ToDateTime(TextBoxDateOfBirth.Text.Trim()),
+                    HireDate = Convert.ToDateTime(TextBoxHireDate.Text.Trim()),
+                    LeaveDate = leaveDate,
+                    SaleryCategorie = SchoolappBackend.BLL.models.SaleryCategorie.A1,//todo SaleryCategorie
+                    SeniorityYears = 1 //todo SeniorityYears
+                };
+
+                if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+                {
+                    succes = teacherBLL.Update(teacher);
+                }
+
+                if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+                {
+                    succes = teacherBLL.Add(teacher);
+                }
             }
-
-            if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+            catch (Exception oEx)
             {
-                succes = teacherBLL.Add(teacher);
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
             }
             return succes;
         }

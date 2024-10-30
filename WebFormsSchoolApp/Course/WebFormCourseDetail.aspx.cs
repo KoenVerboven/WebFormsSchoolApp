@@ -1,5 +1,4 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
 using System;
 
 namespace WebFormsSchoolApp.Course
@@ -24,6 +23,7 @@ namespace WebFormsSchoolApp.Course
             {
                 if (!IsPostBack)
                 {
+                    LabelMessage.Visible = false;
                     courseId = Convert.ToInt32(Request.QueryString["courseId"]);
                     action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
@@ -60,7 +60,8 @@ namespace WebFormsSchoolApp.Course
             }
             catch (Exception)
             {
-                LabelErrorMessage.Text = "An error occured.Try later again.";
+                LabelMessage.Visible=true;
+                LabelMessage.Text = "An error occured.Try later again.";
             }
         }
 

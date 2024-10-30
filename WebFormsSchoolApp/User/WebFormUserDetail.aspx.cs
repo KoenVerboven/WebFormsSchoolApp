@@ -106,31 +106,39 @@ namespace WebFormsSchoolApp.User
         {
             bool succes = false;
             UserBLL userBLL = new UserBLL();
-
             var userId = 0;
-            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+
+            try
             {
-                userId = Convert.ToInt32(LabelUserIdValue.Text);
+                if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+                {
+                    userId = Convert.ToInt32(LabelUserIdValue.Text);
+                }
+
+                var user = new SchoolappBackend.BLL.models.User()
+                {
+                    UserId = userId,
+                    UserName = TextBoxUserName.Text.Trim(),
+                    Password = "User@123",
+                    UserRoleId = Convert.ToInt32(DropDownListUserRole.SelectedValue),
+                    ActiveFrom = Convert.ToDateTime(TextBoxActiveFrom.Text.Trim()),
+                    Blocked = CheckBoxBlocked.Checked
+                };
+
+                if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
+                {
+                    succes = userBLL.Update(user);
+                }
+
+                if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
+                {
+                    succes = userBLL.Add(user);
+                }
             }
-
-            var user = new SchoolappBackend.BLL.models.User()
+            catch (Exception oEx)
             {
-                UserId = userId,
-                UserName = TextBoxUserName.Text.Trim(),
-                Password = "User@123",
-                UserRoleId =  Convert.ToInt32(DropDownListUserRole.SelectedValue),
-                ActiveFrom = Convert.ToDateTime(TextBoxActiveFrom.Text.Trim()), 
-                Blocked = CheckBoxBlocked.Checked 
-            };
-
-            if (HiddenFieldAction.Value == "update") //todo rplc string action in to enum
-            {
-                succes = userBLL.Update(user);
-            }
-
-            if (HiddenFieldAction.Value == "insert") //todo rplc string action in to enum
-            {
-                succes = userBLL.Add(user);
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
             }
 
             return succes;

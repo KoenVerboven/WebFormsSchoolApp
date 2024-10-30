@@ -69,14 +69,21 @@ namespace WebFormsSchoolApp.SchoolDepartment
         private void FillInControls(int schoolClassId)
         {
             var schoolDepartmentBLL = new SchoolDepartmentBLL();
-            var schoolClassSelected = schoolDepartmentBLL.GetSchoolClassById(schoolClassId);
-           
 
-            LabelSchoolClassIdValue.Text = Convert.ToString(schoolClassSelected.ClassId);
-            TextBoxClassCode.Text = schoolClassSelected.ClassCode;
-            TextBoxDescription.Text = schoolClassSelected.Description;
-            TextBoxDegree.Text =  Convert.ToString(schoolClassSelected.Degree);
-            TextBoxGrade.Text = Convert.ToString(schoolClassSelected.Grade);
+            try
+            {
+                var schoolClassSelected = schoolDepartmentBLL.GetSchoolClassById(schoolClassId);
+                LabelSchoolClassIdValue.Text = Convert.ToString(schoolClassSelected.ClassId);
+                TextBoxClassCode.Text = schoolClassSelected.ClassCode;
+                TextBoxDescription.Text = schoolClassSelected.Description;
+                TextBoxDegree.Text = Convert.ToString(schoolClassSelected.Degree);
+                TextBoxGrade.Text = Convert.ToString(schoolClassSelected.Grade);
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
+            }
         }
 
 

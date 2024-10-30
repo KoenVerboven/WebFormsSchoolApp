@@ -24,12 +24,20 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         private void Search(string orderBy, string sortDirection)
         {
-       
-            var schoolDepartmentBLL = new SchoolDepartmentBLL();
-            schoolClasses = schoolDepartmentBLL.GetClasses(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
 
-            GridView1.DataSource = schoolClasses;
-            GridView1.DataBind();
+            try
+            {
+                var schoolDepartmentBLL = new SchoolDepartmentBLL();
+                schoolClasses = schoolDepartmentBLL.GetClasses(TextBoxSearch.Text.Trim(), orderBy, sortDirection);
+
+                GridView1.DataSource = schoolClasses;
+                GridView1.DataBind();
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible=false;
+                LabelMessage.Text=oEx.Message;
+            }
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
@@ -65,11 +73,19 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         protected void cmdUpdate_Click(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-            GridViewRow gRow = btn.NamingContainer as GridViewRow;
-            int rowIndex = gRow.RowIndex;
-            var SchoolClassId = GridView1.Rows[rowIndex].Cells[1].Text;
-            Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=" + SchoolClassId + "&action=update");
+            try
+            {
+                Button btn = sender as Button;
+                GridViewRow gRow = btn.NamingContainer as GridViewRow;
+                int rowIndex = gRow.RowIndex;
+                var SchoolClassId = GridView1.Rows[rowIndex].Cells[1].Text;
+                Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=" + SchoolClassId + "&action=update");
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible=true;
+                LabelMessage.Text = oEx.Message;
+            }
         }
 
         protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)

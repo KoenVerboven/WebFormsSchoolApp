@@ -57,11 +57,19 @@ namespace WebFormsSchoolApp.Student
 
         private void Search(string searchString,string orderBy, string sortDirection)
         {
-            StudentBLL studentBLL = new StudentBLL();
-            students = studentBLL.GetStudents(searchString.Trim(), orderBy, sortDirection);
+            try
+            {
+                StudentBLL studentBLL = new StudentBLL();
+                students = studentBLL.GetStudents(searchString.Trim(), orderBy, sortDirection);
 
-            GridView1.DataSource = students;
-            GridView1.DataBind();
+                GridView1.DataSource = students;
+                GridView1.DataBind();
+            }
+            catch (Exception oEx)
+            {
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
+            }
         }
 
 
