@@ -8,6 +8,9 @@
        <asp:Label ID="LabelTitle" runat="server" Text="SchoolClassDetail" Font-Size="20"></asp:Label>
     </p> 
     <p>
+        <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label> 
+    </p>
+    <p>
          <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="ButtonSave_Click"  />
          <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" CausesValidation="false" OnClick="ButtonCancel_Click" />
     </p>  

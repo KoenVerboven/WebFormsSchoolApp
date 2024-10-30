@@ -24,6 +24,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
             {
                 if (!IsPostBack)
                 {
+                    LabelMessage.Visible = false;
                     schoolClassId = Convert.ToInt32(Request.QueryString["schoolClassId"]);
                     action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
@@ -60,7 +61,8 @@ namespace WebFormsSchoolApp.SchoolDepartment
             }
             catch (Exception)
             {
-                LabelErrorMessage.Text = "An error occured.Try later again.";
+                LabelMessage.Visible = true;
+                LabelMessage.Text = "An error occured.Try later again.";
             }
         }
 

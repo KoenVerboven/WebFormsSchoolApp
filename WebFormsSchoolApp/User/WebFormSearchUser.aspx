@@ -4,6 +4,7 @@
 <div class="div1">
     <div class="pageTitle">User</div>
     <br />
+    <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label>
     <p>
         <asp:TextBox ID="TextBoxSearch" Width="250px" runat="server"  placeholder="Search on Name"></asp:TextBox>
         <asp:Button ID="ButtonSearch" runat="server" Text="Search" 

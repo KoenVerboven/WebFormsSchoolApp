@@ -20,6 +20,8 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
             if (!Page.IsPostBack)
             {
+                LabelMessage.Visible = false;
+
                 ListBoxStudent.DataSource = SearchStudents("", "LastName");
                 ListBoxStudent.DataValueField = "PersonId";
                 ListBoxStudent.DataTextField = "FullName";
@@ -58,8 +60,8 @@ namespace WebFormsSchoolApp.SchoolDepartment
             }
             catch (Exception oEx)
             {
-                var message = oEx.Message;
-                throw;
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
             }
         }
 
@@ -78,8 +80,8 @@ namespace WebFormsSchoolApp.SchoolDepartment
             }
             catch (Exception oEx)
             {
-                var message = oEx.Message;
-                throw;
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
             }
         }
 

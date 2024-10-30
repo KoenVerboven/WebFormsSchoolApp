@@ -20,10 +20,10 @@ namespace WebFormsSchoolApp.Student
 
             try
             {
-               
 
                 if (!IsPostBack)
                 {
+                    LabelMessage.Visible = false;
                     personId = Convert.ToInt32(Request.QueryString["studentId"]);
                     action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;

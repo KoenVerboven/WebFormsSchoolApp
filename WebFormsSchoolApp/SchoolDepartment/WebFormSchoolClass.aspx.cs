@@ -1,5 +1,4 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
 using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
@@ -16,6 +15,10 @@ namespace WebFormsSchoolApp.SchoolDepartment
             if (Session["user"] == null)
             {
                 Response.Redirect("../StartPage.aspx");
+            }
+            if(! Page.IsPostBack)
+            {
+                LabelMessage.Visible = false;
             }
         }
 
@@ -36,7 +39,6 @@ namespace WebFormsSchoolApp.SchoolDepartment
 
         protected void ButtonNew_Click(object sender, EventArgs e)
         {
-            //WebFormSchoolClassDetail.aspx
             Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=0&action=insert");
         }
 
@@ -55,7 +57,8 @@ namespace WebFormsSchoolApp.SchoolDepartment
             }
             catch (Exception oEx)
             {
-                LabelErrorMessage.Text = oEx.Message;
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
             }
             Search("", "");
         }

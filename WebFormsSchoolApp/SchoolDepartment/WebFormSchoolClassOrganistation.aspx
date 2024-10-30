@@ -4,6 +4,9 @@
      <p class="pageTitle">
         <asp:Label ID="LabelTitle" runat="server" Text="Add or remove Students from a Class" Font-Size="20"></asp:Label>
      </p> 
+    <p>
+        <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label> 
+    </p>
      <div class="row">
         <div class="col-md-1">
         </div>

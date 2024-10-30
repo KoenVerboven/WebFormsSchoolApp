@@ -4,7 +4,7 @@
     <div class="div1">
       <div class="pageTitle">Teacher</div>
           <p>
-            <asp:Label ID="LabelErrorMessage" runat="server" Text=""></asp:Label> 
+              <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label> 
           </p>
           <p>
             <asp:TextBox ID="TextBoxSearch" Width="250px" Height="36px" runat="server" placeholder="Search on fullName"></asp:TextBox>

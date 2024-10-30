@@ -23,6 +23,10 @@ namespace WebFormsSchoolApp.Student
                 Search(Convert.ToString(Session["searchStudent"]),"", "ASC");
                 Session["searchStudent"] = null;
             }
+            if(! Page.IsPostBack)
+            {
+                LabelMessage.Visible = false;
+            }
 
             GridView1.EmptyDataText = "No students found. Please adjust your search condition.";
         }
@@ -97,7 +101,8 @@ namespace WebFormsSchoolApp.Student
             }
             catch (Exception oEx)
             {
-                LabelErrorMessage.Text = oEx.Message;
+                LabelMessage.Visible = true;
+                LabelMessage.Text = oEx.Message;
             }
             Search(TextBoxSearch.Text.Trim(),"", "ASC");
         }

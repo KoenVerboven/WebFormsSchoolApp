@@ -18,6 +18,10 @@ namespace WebFormsSchoolApp.User
             {
                 Response.Redirect("../StartPage.aspx");
             }
+            if(! Page.IsPostBack)
+            {
+                LabelMessage.Visible = false;
+            }
             GridView1.EmptyDataText = "No Users found. Please adjust your search condition.";
         }
 

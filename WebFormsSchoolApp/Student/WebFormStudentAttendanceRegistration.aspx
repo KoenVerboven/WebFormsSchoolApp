@@ -4,9 +4,8 @@
      <div class="pageTitle">student presence notation</div>
     <br />
     <p>
-     <asp:Label ID="Label1" runat="server" Text="**** Under Construction ****" BackColor="Yellow"></asp:Label>
+     <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label> 
     </p>
-    <br />
     <p>
         <asp:Label ID="Label2" runat="server" Text="Select Class"></asp:Label>
         <asp:DropDownList ID="DropDownListClass" Width="35px" runat="server"></asp:DropDownList>

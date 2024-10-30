@@ -23,6 +23,11 @@ namespace WebFormsSchoolApp.Teacher
                 Session["searchTeacher"] = null;
             }
 
+            if(!Page.IsPostBack)
+            {
+                LabelMessage.Visible = false;
+            }
+
             GridView1.EmptyDataText = "No teachers found. Please adjust your search condition.";
         }
 

@@ -1,5 +1,4 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
 using System;
 using System.Collections.Generic;
 
@@ -14,6 +13,10 @@ namespace WebFormsSchoolApp.AttendanceRegistration
             if (Session["user"] == null)
             {
                 Response.Redirect("../StartPage.aspx");
+            }
+            if(!Page.IsPostBack)
+            {
+                LabelMessage.Visible = false;
             }
             ShowClass();
         }

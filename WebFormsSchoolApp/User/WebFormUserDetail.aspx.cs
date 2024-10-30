@@ -23,6 +23,8 @@ namespace WebFormsSchoolApp.User
             {
                 if (!IsPostBack)
                 {
+                
+                    LabelMessage.Visible = false;
                     userId = Convert.ToInt32(Request.QueryString["userId"]);
                     string action = Request.QueryString["action"];
                     HiddenFieldAction.Value = action;
