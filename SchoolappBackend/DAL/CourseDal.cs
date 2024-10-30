@@ -47,38 +47,45 @@ namespace SchoolappBackend.DAL
                 query += "ORDER BY CourseId desc";
             }
 
-            using (var connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
-                    {
-                        decimal? coursePrice = null;
-                        if (reader["CostPrice"] != DBNull.Value)
-                        {
-                            coursePrice = Convert.ToDecimal(reader["CostPrice"]);
-                        }
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
 
-                        var course = new Course()
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
                         {
-                            CourseId = Convert.ToInt32(reader["CourseId"]),
-                            CourseName = Convert.ToString(reader["CourseName"]),
-                            StartDate = Convert.ToDateTime(reader["CourseStartDate"]),
-                            EndDate = Convert.ToDateTime(reader["CourseEndDate"]),
-                            MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
-                            MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
-                            CourseType = null,
-                            CoursePrice = coursePrice,
-                        };
-                        coursesList.Add(course);
+                            decimal? coursePrice = null;
+                            if (reader["CostPrice"] != DBNull.Value)
+                            {
+                                coursePrice = Convert.ToDecimal(reader["CostPrice"]);
+                            }
+
+                            var course = new Course()
+                            {
+                                CourseId = Convert.ToInt32(reader["CourseId"]),
+                                CourseName = Convert.ToString(reader["CourseName"]),
+                                StartDate = Convert.ToDateTime(reader["CourseStartDate"]),
+                                EndDate = Convert.ToDateTime(reader["CourseEndDate"]),
+                                MinimumGradeToPassTheCourse = Convert.ToDouble(reader["MinimumGradeToPassTheCourse"]),
+                                MaximumTestCourseGrade = Convert.ToInt32(reader["MaximumTestCourseGrade"]),
+                                CourseType = null,
+                                CoursePrice = coursePrice,
+                            };
+                            coursesList.Add(course);
+                        }
                     }
+                    reader.Close();
+                    return coursesList;
                 }
-                reader.Close();
-                return coursesList;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 

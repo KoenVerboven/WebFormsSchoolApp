@@ -48,11 +48,11 @@
                 ButtonType="Link"
                 ShowSelectButton="True"
                 />
-            <asp:BoundField DataField="CourseId" HeaderText="Id" SortExpression="CourseId" />
-            <asp:BoundField DataField="CourseName" HeaderText="CourseName" SortExpression="CourseName" />
-            <asp:BoundField DataField="StartDate" HeaderText="StartDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="CourseStartDate" />
-            <asp:BoundField DataField="EndDate" HeaderText="EndDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="CourseEndDate" />
-            <asp:BoundField DataField="CourseIsActive" HeaderText="CourseIsActive"  />
+            <asp:BoundField DataField="CourseId" HeaderText="Id" SortExpression="CourseId" ItemStyle-Width="10%"  ItemStyle-Wrap="False"/>
+            <asp:BoundField DataField="CourseName" HeaderText="CourseName" SortExpression="CourseName" ItemStyle-Width="40%"  ItemStyle-Wrap="False" />
+            <asp:BoundField DataField="StartDate" HeaderText="StartDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="CourseStartDate" ItemStyle-Width="15%"  ItemStyle-Wrap="False" />
+            <asp:BoundField DataField="EndDate" HeaderText="EndDate" DataFormatString="{0:dd-M-yyyy}"  SortExpression="CourseEndDate" ItemStyle-Width="15%"  ItemStyle-Wrap="False" />
+            <asp:BoundField DataField="CourseIsActive" HeaderText="Active" ItemStyle-Width="10%"  ItemStyle-Wrap="False" />
             <asp:TemplateField HeaderText = "" ItemStyle-HorizontalAlign ="Center" >
                <ItemTemplate>
                    <asp:Button ID="cmdUpdate" runat="server" Text="Update"

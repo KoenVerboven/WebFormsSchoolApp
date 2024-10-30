@@ -48,11 +48,13 @@
                  ShowSelectButton="True"
               
                 />
-            <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="StudentId" />
-            <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="LastName" />
+            <asp:BoundField DataField="PersonId" HeaderText="Id" SortExpression="StudentId" ItemStyle-Width="10%"  ItemStyle-Wrap="False" />
+            <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="LastName" ItemStyle-Width="40%"  ItemStyle-Wrap="False" />
             <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" 
                 DataFormatString="{0:dd-M-yyyy}"  
-                SortExpression="DateOfBirth" />
+                SortExpression="DateOfBirth" 
+                ItemStyle-Width="10%"  ItemStyle-Wrap="False"
+                />
           
             <asp:TemplateField HeaderText = "" ItemStyle-HorizontalAlign ="Center" >
                <ItemTemplate>

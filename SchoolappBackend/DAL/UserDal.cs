@@ -39,31 +39,39 @@ namespace SchoolappBackend.DAL
                 query += "ORDER BY UserId desc";
             }
 
-            using (var connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        var user = new User()
+                        while (reader.Read())
                         {
-                            UserId = Convert.ToInt32(reader["UserId"]),
-                            UserName = Convert.ToString(reader["UserName"]),
-                            UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
-                            ActiveFrom = Convert.ToDateTime(reader["ActiveFrom"]),
-                            Blocked = Convert.ToBoolean(reader["Blocked"]),
-                            PersonId = Convert.ToInt32(reader["PersonId"]),
-                        };
-                        userList.Add(user);
+                            var user = new User()
+                            {
+                                UserId = Convert.ToInt32(reader["UserId"]),
+                                UserName = Convert.ToString(reader["UserName"]),
+                                UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
+                                ActiveFrom = Convert.ToDateTime(reader["ActiveFrom"]),
+                                Blocked = Convert.ToBoolean(reader["Blocked"]),
+                                PersonId = Convert.ToInt32(reader["PersonId"]),
+                            };
+                            userList.Add(user);
+                        }
                     }
                 }
-                return userList;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
+            return userList;
         }
 
 
@@ -245,33 +253,35 @@ namespace SchoolappBackend.DAL
                         "and Blocked = 0 " +
                         "and ActiveFrom < getdate() ";
 
-            //todo : try catch and label for show errormessage
-
-            using (var connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@UserName", SqlDbType.VarChar, 50).Value = userName;
-                command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 50).Value = password;
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@UserName", SqlDbType.VarChar, 50).Value = userName;
+                    command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 50).Value = password;
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        var user = new User()
+                        while (reader.Read())
                         {
-                            UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
-                            PersonId = Convert.ToInt32(reader["PersonId"]),
-                        };
-                        return user;
+                            var user = new User()
+                            {
+                                UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
+                                PersonId = Convert.ToInt32(reader["PersonId"]),
+                            };
+                            return user;
+                        }
                     }
                 }
             }
-
+            catch (Exception)
+            {
+                throw;
+            }
             return null;
         }
-
-
     }
 }

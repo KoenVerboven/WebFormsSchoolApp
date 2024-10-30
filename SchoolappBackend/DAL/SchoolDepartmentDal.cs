@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
+
 
 namespace SchoolappBackend.DAL
 {
@@ -38,31 +38,39 @@ namespace SchoolappBackend.DAL
                 query += "ORDER BY SchoolClassId desc";
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        var schoolClass = new SchoolClass()
+                        while (reader.Read())
                         {
-                            ClassId = Convert.ToInt32(reader["SchoolClassId"]),
-                            ClassCode = Convert.ToString(reader["Code"]),
-                            Description = Convert.ToString(reader["ClassDescription"]),
-                            Degree = Convert.ToInt32(reader["Degree"]),
-                            Grade = Convert.ToInt32(reader["Grade"]),
-                            SchoolDepartmentId = Convert.ToInt32(reader["SchoolDepartmentId"]),
-                        };
-                        classesList.Add(schoolClass);
+                            var schoolClass = new SchoolClass()
+                            {
+                                ClassId = Convert.ToInt32(reader["SchoolClassId"]),
+                                ClassCode = Convert.ToString(reader["Code"]),
+                                Description = Convert.ToString(reader["ClassDescription"]),
+                                Degree = Convert.ToInt32(reader["Degree"]),
+                                Grade = Convert.ToInt32(reader["Grade"]),
+                                SchoolDepartmentId = Convert.ToInt32(reader["SchoolDepartmentId"]),
+                            };
+                            classesList.Add(schoolClass);
+                        }
                     }
+                    reader.Close();
                 }
-                reader.Close();
-                return classesList;
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return classesList;
         }
 
 
@@ -73,30 +81,38 @@ namespace SchoolappBackend.DAL
                         "FROM SchoolClass " +
                         "WHERE SchoolClassId = @SchoolClassId";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add("@SchoolClassId", SqlDbType.Int, 50).Value = schoolClassId;
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@SchoolClassId", SqlDbType.Int, 50).Value = schoolClassId;
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        var schoolClass = new SchoolClass()
+                        while (reader.Read())
                         {
-                            ClassId = Convert.ToInt32(reader["SchoolClassId"]),
-                            ClassCode = Convert.ToString(reader["Code"]),
-                            Description = Convert.ToString(reader["ClassDescription"]),
-                            Degree = Convert.ToInt32(reader["Degree"]),
-                            Grade = Convert.ToInt32(reader["Grade"]),
-                            SchoolDepartmentId = Convert.ToInt32(reader["SchoolDepartmentId"]),
-                        };
-                        reader.Close();
-                        return schoolClass;
+                            var schoolClass = new SchoolClass()
+                            {
+                                ClassId = Convert.ToInt32(reader["SchoolClassId"]),
+                                ClassCode = Convert.ToString(reader["Code"]),
+                                Description = Convert.ToString(reader["ClassDescription"]),
+                                Degree = Convert.ToInt32(reader["Degree"]),
+                                Grade = Convert.ToInt32(reader["Grade"]),
+                                SchoolDepartmentId = Convert.ToInt32(reader["SchoolDepartmentId"]),
+                            };
+                            reader.Close();
+                            return schoolClass;
+                        }
                     }
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
             return null;
         }

@@ -35,33 +35,41 @@ namespace SchoolappBackend.DAL
                 query += "ORDER BY TeacheId desc";
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        var teacher = new Teacher()
+                        while (reader.Read())
                         {
-                            PersonId = Convert.ToInt32(reader["TeacheId"]),
-                            LastName = Convert.ToString(reader["LastName"]),
-                            MiddleName = Convert.ToString(reader["MiddleName"]),
-                            Firstname = Convert.ToString(reader["FirstName"]),
-                            StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]),
-                            ZipCode = Convert.ToString(reader["ZipCode"]),
-                            PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
-                            EmailAddress = Convert.ToString(reader["EmailAddress"]),
-                            DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
-                        };
-                        teachersList.Add(teacher);
+                            var teacher = new Teacher()
+                            {
+                                PersonId = Convert.ToInt32(reader["TeacheId"]),
+                                LastName = Convert.ToString(reader["LastName"]),
+                                MiddleName = Convert.ToString(reader["MiddleName"]),
+                                Firstname = Convert.ToString(reader["FirstName"]),
+                                StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]),
+                                ZipCode = Convert.ToString(reader["ZipCode"]),
+                                PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                            };
+                            teachersList.Add(teacher);
+                        }
                     }
                 }
-                return teachersList;
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return teachersList;
         }
 
         public Teacher GetTeacherById(int teacherId)
