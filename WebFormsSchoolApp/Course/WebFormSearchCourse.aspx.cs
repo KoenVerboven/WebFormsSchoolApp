@@ -118,6 +118,7 @@ namespace WebFormsSchoolApp.Course
             GridViewRow gRow = btn.NamingContainer as GridViewRow;
             int rowIndex = gRow.RowIndex;
             var courseId = GridView1.Rows[rowIndex].Cells[1].Text;
+            Session["searchCourse"] = TextBoxSearch.Text.Trim();
             Response.Redirect("WebFormCourseDetail.aspx?courseId=" + courseId + "&action=update");
         }
 

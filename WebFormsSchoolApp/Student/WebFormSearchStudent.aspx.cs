@@ -21,8 +21,10 @@ namespace WebFormsSchoolApp.Student
             if(Session["searchStudent"] != null)
             {
                 Search(Convert.ToString(Session["searchStudent"]),"", "ASC");
+                TextBoxSearch.Text = Convert.ToString(Session["searchStudent"]);
                 Session["searchStudent"] = null;
             }
+
             if(! Page.IsPostBack)
             {
                 LabelMessage.Visible = false;
@@ -121,6 +123,7 @@ namespace WebFormsSchoolApp.Student
             GridViewRow gRow = btn.NamingContainer as GridViewRow;
             int rowIndex = gRow.RowIndex;
             var studentId = GridView1.Rows[rowIndex].Cells[1].Text;
+            Session["searchStudent"] = TextBoxSearch.Text.Trim();
             Response.Redirect("WebFormStudentDetail.aspx?studentId=" + studentId + "&action=update");
         }
     }

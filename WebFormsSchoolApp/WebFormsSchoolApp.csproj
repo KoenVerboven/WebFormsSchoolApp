@@ -111,6 +111,8 @@
     <Content Include="About.aspx" />
     <Content Include="PagenotFound.aspx" />
     <Content Include="SchoolDepartment\WebFormSchoolClassDetail.aspx" />
+    <Content Include="ScreenShots\Menu.png" />
+    <Content Include="ScreenShots\startPageNew.png" />
     <Content Include="Student\WebFormStudentAttendanceRegistration.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -147,11 +149,9 @@
     <Content Include="ScreenShots\ExamenPoints.png" />
     <Content Include="ScreenShots\insertnewstudentvalidation.png" />
     <Content Include="ScreenShots\loginFailed1.png" />
-    <Content Include="ScreenShots\MenuScreenNew.png" />
     <Content Include="ScreenShots\searchcourse.png" />
     <Content Include="ScreenShots\searchstudent.png" />
     <Content Include="ScreenShots\searchuser.png" />
-    <Content Include="ScreenShots\startpage.png" />
     <Content Include="ScreenShots\updateuser.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

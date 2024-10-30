@@ -16,7 +16,16 @@ namespace WebFormsSchoolApp.SchoolDepartment
             {
                 Response.Redirect("../StartPage.aspx");
             }
-            if(! Page.IsPostBack)
+
+            if (Session["searchSchoolClass"] != null)
+            {
+              
+                TextBoxSearch.Text = Convert.ToString(Session["searchSchoolClass"]);
+                Search("", "");
+                Session["searchSchoolClass"] = null;
+            }
+
+            if (! Page.IsPostBack)
             {
                 LabelMessage.Visible = false;
             }
@@ -79,6 +88,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
                 GridViewRow gRow = btn.NamingContainer as GridViewRow;
                 int rowIndex = gRow.RowIndex;
                 var SchoolClassId = GridView1.Rows[rowIndex].Cells[1].Text;
+                Session["searchSchoolClass"] = TextBoxSearch.Text.Trim();
                 Response.Redirect("WebFormSchoolClassDetail.aspx?SchoolClassId=" + SchoolClassId + "&action=update");
             }
             catch (Exception oEx)

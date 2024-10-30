@@ -96,6 +96,7 @@ namespace WebFormsSchoolApp.Teacher
             GridViewRow gRow = btn.NamingContainer as GridViewRow;
             int rowIndex = gRow.RowIndex;
             var teacherId = GridView1.Rows[rowIndex].Cells[1].Text;
+            Session["searchTeacher"] = TextBoxSearch.Text.Trim();
             Response.Redirect("WebFormTeacherDetail.aspx?TeacherId=" + teacherId + "&action=update");
         }
 

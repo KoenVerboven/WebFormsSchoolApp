@@ -18,7 +18,15 @@ namespace WebFormsSchoolApp.User
             {
                 Response.Redirect("../StartPage.aspx");
             }
-            if(! Page.IsPostBack)
+
+            if (Session["searchUser"] != null)
+            {
+                TextBoxSearch.Text = Convert.ToString(Session["searchUser"]);
+                Search("", "");
+                Session["searchUser"] = null;
+            }
+
+            if (! Page.IsPostBack)
             {
                 LabelMessage.Visible = false;
             }
@@ -52,6 +60,7 @@ namespace WebFormsSchoolApp.User
             GridViewRow gRow = btn.NamingContainer as GridViewRow;
             int rowIndex = gRow.RowIndex;
             var userId = GridView1.Rows[rowIndex].Cells[1].Text;
+            Session["searchUser"] = TextBoxSearch.Text.Trim();
             Response.Redirect("WebFormUserDetail.aspx?userId=" + userId + "&action=update");
         }
 
