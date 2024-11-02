@@ -39,7 +39,20 @@
              <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
             <asp:Label ID="LabelSchoolClass" runat="server" Text="SchoolClass" style="margin:9px 0px 0px 15px; float:left;"/>
               <asp:Label runat="server" Text="Administration" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%-- SchoolClass end --%></div><div class="col-md-4">
+            </asp:LinkButton></p><%-- SchoolClass end --%>
+
+         <%--Settings start--%><p> <asp:LinkButton ID="LinkButtonSettings" CssClass="link2" runat="server"
+              Height="80"
+              Width="200"
+              ForeColor="#FFFFFF"
+              BackColor="#2B2A83" 
+              Visible="false"
+                OnClick="LinkButtonSettings_Click"
+              >
+            <asp:Label ID="Label1" runat="server" Text="Settings" style="margin:9px 0px 0px 15px; float:left;"/>
+            </asp:LinkButton></p><%-- Settings end --%>
+
+     </div><div class="col-md-4">
          <%--Course start--%><p><asp:LinkButton ID="LinkButtonCourse" CssClass="link2" runat="server"
                 Height="80"
                 Width="200"

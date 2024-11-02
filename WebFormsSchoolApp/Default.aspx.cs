@@ -46,11 +46,13 @@ namespace WebFormsSchoolApp
             LinkButtonUser.Visible = false;
             LinkButtonUserRole.Visible = false;
             LinkButtonSchoolClass.Visible = false;
+            LinkButtonSettings.Visible = false;
 
             if (Convert.ToString(Session["userRole"]) == "1" 
                               || Session["userRole"] is null)
             {
                 LinkButtonExamenPoints.Visible = true;
+                LinkButtonSettings.Visible = true;
             }
             if (Convert.ToString(Session["userRole"]) == "5")
             {
@@ -63,10 +65,9 @@ namespace WebFormsSchoolApp
                 LinkButtonUser.Visible = true;
                 LinkButtonUserRole.Visible = true;
                 LinkButtonSchoolClass.Visible = true;
+                LinkButtonSettings.Visible = true;
             }
         }
-
-
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
@@ -111,6 +112,11 @@ namespace WebFormsSchoolApp
         protected void LinkButtonClassOrganisation_Click(object sender, EventArgs e)
         {
             Response.Redirect("SchoolDepartment\\WebFormSchoolClassOrganistation.aspx");
+        }
+
+        protected void LinkButtonSettings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Settings\\WebFormChangePassword.aspx");
         }
     }
 }

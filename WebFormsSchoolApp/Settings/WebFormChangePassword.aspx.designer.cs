@@ -7,155 +7,128 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormsSchoolApp
+namespace WebFormsSchoolApp.Settings
 {
 
 
-    public partial class _Default
+    public partial class WebFormChangePassword
     {
 
         /// <summary>
-        /// LinkButtonStudent control.
+        /// LabelMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonStudent;
+        protected global::System.Web.UI.WebControls.Label LabelMessage;
 
         /// <summary>
-        /// LabelStudent control.
+        /// ValidationSummary1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelStudent;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
 
         /// <summary>
-        /// LinkButtonTeacher control.
+        /// LabelCurrent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonTeacher;
+        protected global::System.Web.UI.WebControls.Label LabelCurrent;
 
         /// <summary>
-        /// LabelTeacher control.
+        /// TextBoxCurrent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelTeacher;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCurrent;
 
         /// <summary>
-        /// LinkButtonSchoolClass control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSchoolClass;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// LabelSchoolClass control.
+        /// LabelNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelSchoolClass;
+        protected global::System.Web.UI.WebControls.Label LabelNew;
 
         /// <summary>
-        /// LinkButtonSettings control.
+        /// TextBoxNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSettings;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNew;
 
         /// <summary>
-        /// Label1 control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// LinkButtonCourse control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCourse;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
-        /// LabelCourse control.
+        /// LabelRetypeNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCourse;
+        protected global::System.Web.UI.WebControls.Label LabelRetypeNew;
 
         /// <summary>
-        /// LinkButtonUser control.
+        /// TextBoxConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonUser;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxConfirmPassword;
 
         /// <summary>
-        /// LabelUser control.
+        /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelUser;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
-        /// LinkButtonExamenPoints control.
+        /// ButtonSaveChanges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonExamenPoints;
-
-        /// <summary>
-        /// LinkButtonUserRole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonUserRole;
-
-        /// <summary>
-        /// LinkButtonAttendanceRegistration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonAttendanceRegistration;
-
-        /// <summary>
-        /// LinkButtonClassOrganisation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonClassOrganisation;
+        protected global::System.Web.UI.WebControls.Button ButtonSaveChanges;
     }
 }

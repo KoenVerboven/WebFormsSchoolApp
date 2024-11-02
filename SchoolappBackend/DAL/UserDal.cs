@@ -269,8 +269,10 @@ namespace SchoolappBackend.DAL
                         {
                             var user = new User()
                             {
+                                UserId = Convert.ToInt32(reader["UserId"]),
                                 UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
-                                PersonId = Convert.ToInt32(reader["PersonId"]),
+                                PersonId = Convert.ToInt32(reader["PersonId"]),//todo personid vs userid ???
+                                UserName = userName
                             };
                             return user;
                         }
@@ -283,5 +285,33 @@ namespace SchoolappBackend.DAL
             }
             return null;
         }
+
+        public bool UpdatePassword(string newPassword,string userName)//todo username ipv userid?
+        {
+            var query ="UPDATE inloguser2 " +
+                       "SET UserPassword = @UserPassword " +
+                       "WHERE UserName = @UserName";
+
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    var command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 50).Value = newPassword;
+                    command.Parameters.Add("@UserName", SqlDbType.VarChar, 50).Value = userName;
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false; //todo : throw wordt niet bereikt
+                throw;
+            }
+        }
+
     }
 }

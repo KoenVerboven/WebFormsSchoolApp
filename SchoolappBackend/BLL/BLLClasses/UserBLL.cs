@@ -17,7 +17,7 @@ namespace SchoolappBackend.BLL.BLLClasses
 
         public bool Add(User user)
         {
-            UserDal userDal = new UserDal();
+            var userDal = new UserDal();
             return userDal.AddNewUser(user);
         }
 
@@ -28,13 +28,13 @@ namespace SchoolappBackend.BLL.BLLClasses
 
         public User GetUserById(int userId)
         {
-            UserDal userDal=new UserDal();
+            var userDal =new UserDal();
             return userDal.GetUserById(userId);
         }
 
         public int UserCount()
         {
-            UserDal userDal = new UserDal();
+            var userDal = new UserDal();
             return (int)userDal.GetUserCount();
         }
 
@@ -52,15 +52,23 @@ namespace SchoolappBackend.BLL.BLLClasses
 
         public List<User> GetUsers(string searchField, string orderBy, string sortDirection)
         {
-            UserDal userDal = new UserDal();
+            var userDal = new UserDal();
             return userDal.GetUsers(searchField,orderBy, sortDirection);
         }
 
         public bool Update(User user)
         {
-            UserDal userDal = new UserDal();
+            var userDal = new UserDal();
             return userDal.UpdateUser(user);
         }
+
+
+        public bool UpdatePassword(string newPassword,string userName)
+        {
+            var userDal = new UserDal();
+            return userDal.UpdatePassword(newPassword, userName);
+        }
+
 
         [Obsolete]
         private void FillUserList()

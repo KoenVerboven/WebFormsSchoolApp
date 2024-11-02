@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebFormsSchoolApp.App_Code;
 
 namespace WebFormsSchoolApp
 {
@@ -55,9 +56,11 @@ namespace WebFormsSchoolApp
         //https://www.gegevensbeschermingsautoriteit.be/professioneel/avg/rechtsgronden/toestemming
         private void SetCookie(string inlogId) //todo : legaal vragen of user cookies goedkeurd
         {
-            HttpCookie cookie = new HttpCookie("SchoolLogin");
-            cookie.Value = inlogId;
-            cookie.Expires = DateTime.Now.AddHours(3);
+            var cookie = new HttpCookie("SchoolLogin")
+            {
+                Value = inlogId,
+                Expires = DateTime.Now.AddHours(3)
+            };
             Response.SetCookie(cookie);
         }
 
@@ -71,9 +74,9 @@ namespace WebFormsSchoolApp
                 {
                     
                     Session["user"] = TextBoxId.Text.Trim();
-                    Session["userRole"] = ValidUser().UserRoleId; 
+                    Session["userRole"] = ValidUser().UserRoleId;
                     SetCookie(TextBoxId.Text.Trim());
-                    Response.Redirect("default.aspx");
+                    Response.Redirect("default.aspx"); 
                 }
                 else
                 {
