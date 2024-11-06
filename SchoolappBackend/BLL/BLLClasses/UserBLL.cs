@@ -39,13 +39,13 @@ namespace SchoolappBackend.BLL.BLLClasses
         }
 
 
-        public User GetUserByUserNameAndPassword(string userName, string passWord)
+        public User GetUserByUserNameAndPassword(string userName)
         {
             User user = null;
             if (userName != string.Empty)
             {
                 var userDal = new UserDal();
-                return userDal.GetValidUser(userName, passWord);
+                return userDal.GetValidUser(userName);
             }
             return user;
         }

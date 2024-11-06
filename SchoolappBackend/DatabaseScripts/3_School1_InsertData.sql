@@ -88,10 +88,10 @@ values
 
 	Insert into InlogUser(UserName, UserPassword,UserRoleId,ActiveFrom,Blocked,PersonId)
 	values 
-	('admin','schoolSoft4you', 0,'2024-06-01  10:00:00',0,0),
-	('koenverboven','rgSeg@45',1,'2024-06-01  10:00:00',0,1),
-	('mariapoels','regreT@488',1,'2024-06-01  10:00:00',0,2),
-	('johanverboven','threM@566',1,'2024-06-01  10:00:00',0,3)
+	('admin','LlaViv02EPkXFlt1DeYbhGZxRT7YEbG9G1W7pqCFRCx/c67WJrm8UxnNNsiRNmJH07JVeTa7K7hHSWN6bP7etyleH1Ap', 5,'2024-06-01  10:00:00',0,0),
+	('koenverboven','',1,'2024-06-01  10:00:00',0,1),
+	('mariapoels','',1,'2024-06-01  10:00:00',0,2),
+	('johanverboven','',1,'2024-06-01  10:00:00',0,3)
 
 
 	Insert into SchoolClass(Code,ClassDescription,Degree,Grade,SchoolDepartmentId)

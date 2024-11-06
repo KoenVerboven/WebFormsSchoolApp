@@ -97,7 +97,7 @@
 		(
 			UserId int identity(1,1) not null,
 			UserName varchar(30) not null,
-			UserPassword varchar(30) not null,
+			UserPassword varchar(100) not null,
 			UserRoleId smallint not null,
 			ActiveFrom datetime null,
 			Blocked bit not null,

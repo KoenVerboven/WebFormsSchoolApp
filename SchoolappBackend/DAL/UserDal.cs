@@ -8,7 +8,6 @@ using System.Configuration;
 
 namespace SchoolappBackend.DAL
 {
-
     public enum RecordAction
     {
         insert,
@@ -142,10 +141,10 @@ namespace SchoolappBackend.DAL
             try
             {
                 var query = "INSERT into InlogUser " +
-                            "(UserName, UserPassword, UserRoleId, ActiveFrom, Blocked, PersonId)" +
-                            "VALUES (" +
-                            "@UserName, @UserPassword, @UserRoleId, @ActiveFrom, @Blocked, @PersonId" +
-                            ")";
+                                "(UserName, UserPassword, UserRoleId, ActiveFrom, Blocked, PersonId)" +
+                                "VALUES (" +
+                                "@UserName, @UserPassword, @UserRoleId, @ActiveFrom, @Blocked, @PersonId" +
+                                ")";
 
                 CreateCommand(connectionString, query, user, RecordAction.insert);
 
@@ -163,11 +162,11 @@ namespace SchoolappBackend.DAL
         {
             var query = "UPDATE InlogUser " +
                         "SET " +
-                        "UserName = @UserName, " +
-                        "UserRoleId = @UserRoleId, " +
-                        "ActiveFrom = @ActiveFrom, " +
-                        "Blocked = @Blocked, " +
-                        "PersonId = @PersonId " +
+                            "UserName = @UserName, " +
+                            "UserRoleId = @UserRoleId, " +
+                            "ActiveFrom = @ActiveFrom, " +
+                            "Blocked = @Blocked, " +
+                            "PersonId = @PersonId " +
                         "WHERE UserId = @UserId ";
 
             try
@@ -221,7 +220,6 @@ namespace SchoolappBackend.DAL
         public bool DeleteUser(int userId)
         {
             var query = "DELETE FROM InlogUser WHERE UserId = @UserId";
-            
 
             try
             {
@@ -243,15 +241,14 @@ namespace SchoolappBackend.DAL
             }
         }
 
-        public User GetValidUser(string userName, string password)
+        public User GetValidUser(string userName)
         {
 
-            var query = "SELECT UserId, UserRoleId, ActiveFrom, Blocked, PersonId " +
+            var query = "SELECT UserId, UserRoleId, ActiveFrom,PersonId, UserPassword " +
                         "FROM InlogUser " +
                         "WHERE UserName = @UserName " +
-                        "and UserPassword = @UserPassword " +
-                        "and Blocked = 0 " +
-                        "and ActiveFrom < getdate() ";
+                            "and Blocked = 0 " +
+                            "and ActiveFrom < getdate() ";
 
             try
             {
@@ -259,7 +256,6 @@ namespace SchoolappBackend.DAL
                 {
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.Add("@UserName", SqlDbType.VarChar, 50).Value = userName;
-                    command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 50).Value = password;
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -272,6 +268,7 @@ namespace SchoolappBackend.DAL
                                 UserId = Convert.ToInt32(reader["UserId"]),
                                 UserRoleId = Convert.ToInt32(reader["UserRoleId"]),
                                 PersonId = Convert.ToInt32(reader["PersonId"]),//todo personid vs userid ???
+                                Password = Convert.ToString(reader["UserPassword"]),
                                 UserName = userName
                             };
                             return user;
@@ -288,7 +285,7 @@ namespace SchoolappBackend.DAL
 
         public bool UpdatePassword(string newPassword,string userName)//todo username ipv userid?
         {
-            var query ="UPDATE inloguser2 " +
+            var query ="UPDATE inloguser " +
                        "SET UserPassword = @UserPassword " +
                        "WHERE UserName = @UserName";
 
@@ -297,7 +294,7 @@ namespace SchoolappBackend.DAL
                 using (var connection = new SqlConnection(connectionString))
                 {
                     var command = new SqlCommand(query, connection);
-                    command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 50).Value = newPassword;
+                    command.Parameters.Add("@UserPassword", SqlDbType.VarChar, 100).Value = newPassword;
                     command.Parameters.Add("@UserName", SqlDbType.VarChar, 50).Value = userName;
                     command.Connection.Open();
                     command.ExecuteNonQuery();

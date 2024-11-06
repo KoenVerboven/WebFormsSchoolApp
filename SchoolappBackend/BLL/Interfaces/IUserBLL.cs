@@ -17,6 +17,6 @@ namespace SchoolappBackend.BLL.Interfaces
 
         User GetUserById(int userId);
 
-        User GetUserByUserNameAndPassword(String userName, String passWord);
+        User GetUserByUserNameAndPassword(String userName);
     }
 }

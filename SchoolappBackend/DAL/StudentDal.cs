@@ -177,19 +177,19 @@ namespace SchoolappBackend.DAL
         {
             var query = "UPDATE student " +
                         "SET " +
-                        "FirstName = @FirstName, " +
-                        "LastName = @LastName, " +
-                        "MiddleName = @MiddleName, " +
-                        "StreetAndNumber = @StreetAndNumber, " +
-                        "ZipCode = @ZipCode, " +
-                        "PhoneNumber = @PhoneNumber, " +
-                        "EmailAddress = @EmailAddress, " +
-                        "Gender = @Gender, " +
-                        "DateOfBirth = @DateOfBirth, " +
-                        "MaritalStatusId = @MaritalStatusId, " +
-                        "NationalRegisterNumber = @NationalRegisterNumber, " +
-                        "Nationality = @Nationality, " +
-                        "MoederTongueId = @MoederTongueId " +
+                            "FirstName = @FirstName, " +
+                            "LastName = @LastName, " +
+                            "MiddleName = @MiddleName, " +
+                            "StreetAndNumber = @StreetAndNumber, " +
+                            "ZipCode = @ZipCode, " +
+                            "PhoneNumber = @PhoneNumber, " +
+                            "EmailAddress = @EmailAddress, " +
+                            "Gender = @Gender, " +
+                            "DateOfBirth = @DateOfBirth, " +
+                            "MaritalStatusId = @MaritalStatusId, " +
+                            "NationalRegisterNumber = @NationalRegisterNumber, " +
+                            "Nationality = @Nationality, " +
+                            "MoederTongueId = @MoederTongueId " +
                         "WHERE StudentId = @StudentId ";
 
             try
@@ -240,7 +240,7 @@ namespace SchoolappBackend.DAL
 
                     if (action == RecordAction.update)
                     {
-                        command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = student.PersonId;
+                        command.Parameters.Add("@StudentId", SqlDbType.Int, 50).Value = student.PersonId;//todo lengte 50 aanpassen
                     }
 
                     if (action == RecordAction.insert)
@@ -251,12 +251,12 @@ namespace SchoolappBackend.DAL
                     command.Parameters.Add("@FirstName", SqlDbType.VarChar, 50).Value = student.Firstname;
                     command.Parameters.Add("@MiddleName", SqlDbType.VarChar, 50).Value = student.MiddleName;
                     command.Parameters.Add("@LastName", SqlDbType.VarChar, 50).Value = student.LastName;
-                    command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar, 50).Value = student.StreetAndNumber;
-                    command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 50).Value = student.ZipCode;
-                    command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = student.PhoneNumber;
-                    command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = student.EmailAddress;
+                    command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar, 60).Value = student.StreetAndNumber;
+                    command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 6).Value = student.ZipCode;
+                    command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 10).Value = student.PhoneNumber;
+                    command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 60).Value = student.EmailAddress;
                     command.Parameters.Add("@Gender", SqlDbType.Int, 50).Value = student.Gender;
-                    command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = student.DateOfBirth;
+                    command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = student.DateOfBirth;//todo : lengte 50 is teveel aanpassen
                     command.Parameters.Add("@MaritalStatusId", SqlDbType.Int, 50).Value = student.MaritalStatus;
                     command.Parameters.Add("@NationalRegisterNumber", SqlDbType.VarChar, 50).Value = student.NationalRegisterNumber;
                     command.Parameters.Add("@Nationality", SqlDbType.Int).Value = student.Nationality;
@@ -271,5 +271,47 @@ namespace SchoolappBackend.DAL
                 throw;
             }
         }
+
+
+        public List<StudentPresenceNotation> GetStudentPrecence()
+        {
+            var studentPresenceList = new List<StudentPresenceNotation>();
+
+            var query = "SELECT StudentId ,FirstName ,MiddleName ,LastName  " +
+                        "FROM Student " +
+                        "ORDER BY LastName";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            var studentPresence = new StudentPresenceNotation()
+                            {
+                               StudentPresenceNotationId = Convert.ToInt32(reader["StudentId"]),//todo aanpassen
+                               StudentId = Convert.ToInt32(reader["StudentId"]),
+                               StudentFullName = Convert.ToString(reader["LastName"] + " " + reader["FirstName"]),
+                               Presence = false,
+                               AbsenceReason = "ziekte"
+                            };
+                            studentPresenceList.Add(studentPresence);
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return studentPresenceList;
+        }
+
     }
 }

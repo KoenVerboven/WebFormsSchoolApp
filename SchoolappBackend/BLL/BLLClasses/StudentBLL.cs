@@ -43,6 +43,12 @@ namespace SchoolappBackend.BLL.BLLClasses
             return studentDal.GetStudents(searchField,orderBy,sortDirection);
         }
 
+        public List<StudentPresenceNotation> GetStudentPresence()
+        {
+            var studentDal = new StudentDal();
+            return studentDal.GetStudentPrecence();
+        }
+
         public int StudentCount()
         {
             var studentDal = new StudentDal();

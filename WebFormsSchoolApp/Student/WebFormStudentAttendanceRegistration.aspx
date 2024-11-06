@@ -7,6 +7,10 @@
      <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label> 
     </p>
     <p>
+         <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="ButtonSave_Click1"  />
+         <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" CausesValidation="False" OnClick="ButtonCancel_Click"  />
+    </p>
+    <p>
         <asp:Label ID="Label2" runat="server" Text="Select Class"></asp:Label>
         <asp:DropDownList ID="DropDownListClass" Width="35px" runat="server"></asp:DropDownList>
     </p>
@@ -26,11 +30,34 @@
          CellSpacing="0"
         >
          <Columns>
-             <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
-             <asp:BoundField DataField="" HeaderText="Present"/>
-             <asp:BoundField DataField="" HeaderText="Sick"/>
-             <asp:BoundField DataField="" HeaderText="Unlawfully Absent"/>
-             <asp:BoundField DataField="" HeaderText="Remarks"/>
+             <asp:TemplateField>
+                <HeaderTemplate>
+                      <asp:Label ID="labelStudentId" ToolTip="studentId" runat="server" Text="StudentId"></asp:Label>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="studentId" runat="server" Text='<%# Eval("StudentId") %>'/>
+                </ItemTemplate>
+            </asp:TemplateField>
+             
+             <asp:BoundField DataField="StudentFullName" HeaderText="FullName" SortExpression="FullName" />
+             <asp:TemplateField>
+                 <HeaderTemplate>
+                       <asp:Label ID="labelPresent" ToolTip="the student is present" runat="server" Text="Present"></asp:Label>
+                 </HeaderTemplate>
+                 <ItemTemplate>
+                     <asp:CheckBox ID="Presence" runat="server" Checked='<%# Eval("Presence") %>'/>
+                 </ItemTemplate>
+             </asp:TemplateField>
+
+              <asp:TemplateField>
+                 <HeaderTemplate>
+                       <asp:Label ID="labelRemarks" ToolTip="absent remarks" runat="server" Text="Remarks"></asp:Label>
+                 </HeaderTemplate>
+                 <ItemTemplate>
+                     <asp:TextBox ID="TextBoxRemarks" runat="server" Width="100%"></asp:TextBox>
+                 </ItemTemplate>
+             </asp:TemplateField>
+            
          </Columns>
         <HeaderStyle BackColor="#aaaadd" ForeColor="White"></HeaderStyle>
         <FooterStyle BackColor="#aaaadd"></FooterStyle>

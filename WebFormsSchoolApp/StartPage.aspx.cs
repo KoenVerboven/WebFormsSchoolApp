@@ -1,10 +1,6 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using WebFormsSchoolApp.App_Code;
 
 namespace WebFormsSchoolApp
@@ -14,6 +10,7 @@ namespace WebFormsSchoolApp
         protected void Page_Load(object sender, EventArgs e)
         {
             LabelMessage.Visible = false;
+           
             if (!IsPostBack)
             {
                 if (Request.Cookies["SchoolLogin"] != null)
@@ -29,17 +26,21 @@ namespace WebFormsSchoolApp
 
             UserBLL user = new UserBLL();
             SchoolappBackend.BLL.models.User userFound = null;
+            bool authenticateUser;
 
             try
             {
-                userFound = user.GetUserByUserNameAndPassword(TextBoxId.Text.Trim(), TextBoxPassword.Text.Trim());
+                userFound = user.GetUserByUserNameAndPassword(TextBoxId.Text.Trim());
+
+                authenticateUser = Helper.VerifyHash(TextBoxPassword.Text.Trim(), "SHA512", userFound.Password);
+
             }
             catch (Exception)
             {
                 throw;
             }
             
-            if (userFound != null)
+            if (authenticateUser)
             {
                 return userFound;
             }

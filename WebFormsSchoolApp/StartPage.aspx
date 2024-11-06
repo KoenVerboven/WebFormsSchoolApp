@@ -9,14 +9,17 @@
                     <asp:TextBox ID="TextBoxId" runat="server"   placeholder="Type here your LoginId" Width="230px"></asp:TextBox> &nbsp &nbsp
                    
                     <asp:TextBox ID="TextBoxPassword" runat="server" placeholder="Type here your Password"  Width="230px" TextMode="Password"></asp:TextBox>
-                    <asp:Button ID="ButtonLogin" runat="server" Text="Login" Style="height:27px; font-size:13px" Width="75px"
-                         class="btn btn-info btn-md" OnClick="ButtonLogin_Click1"/> &nbsp
-                    <a href="ForgetPassword.aspx" style="color:antiquewhite">Forget password ?</a>
+                   
+                    <asp:Button ID="ButtonLogin" runat="server" Text="LOGIN" Style="height:33px;width:90px; font-size:13px;margin-left:20px;color:yellow" 
+                         class="btn btn-primary btn-md" OnClick="ButtonLogin_Click1"/> &nbsp
+                    
+                     <a href="ForgetPassword.aspx" style="color:black;margin-left:20px">Forget password ?</a>
+                    
                     <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="180px" runat="server" Text=""></asp:Label>
            </div>
 
            <div with="100%" style="margin-top:4px;background-color:white" class="customFrame3">
-               <p style="background-color:#297AFF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/10/2024</p>
+               <p style="background-color:#A479FF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/10/2024</p>
                <div style="float:left;width:30%;">
                   <img src="Images/autumnSmall.jpg" style="max-width: 70%; height: auto;margin-left:3px;border-radius: 8px" />
                </div>
@@ -37,7 +40,7 @@
            </div>
 
           <div with="100%" style="margin-top:15px;background-color:white" class="customFrame3">
-            <p style="background-color:#297AFF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/09/2024</p>
+            <p style="background-color:#A479FF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/09/2024</p>
           <div style="margin-right:10px;float:left;width:65%;">
           </div>
               <h3>Welcome to our new website !</h3>

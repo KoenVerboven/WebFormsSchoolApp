@@ -39,7 +39,7 @@ namespace WebFormsSchoolApp
         {
 
             UserBLL user = new UserBLL();
-            var userFound = user.GetUserByUserNameAndPassword(TextBoxId.Text.Trim(), TextBoxPassword.Text.Trim());
+            var userFound = user.GetUserByUserNameAndPassword(TextBoxId.Text.Trim());
 
             if (userFound != null)
             {

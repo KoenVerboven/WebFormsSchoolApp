@@ -16,10 +16,10 @@ namespace SchoolappBackend.DAL
             var teachersList = new List<Teacher>();
 
             var query = "SELECT TeacheId, FirstName, MiddleName, LastName, StreetAndNumber, ZipCode, PhoneNumber, EmailAddress, " +
-                         "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
-                         "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
-                         "WorkingHoursPerWeek, HighestDegreeId, StudyDirection " +
-                         "FROM Teacher ";
+                            "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
+                            "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
+                            "WorkingHoursPerWeek, HighestDegreeId, StudyDirection " +
+                        "FROM Teacher ";
 
             if (filter.Trim() != string.Empty)
             {
@@ -75,11 +75,11 @@ namespace SchoolappBackend.DAL
         public Teacher GetTeacherById(int teacherId)
         {
             var query = "SELECT TeacheId, FirstName, MiddleName, LastName, StreetAndNumber, ZipCode, PhoneNumber, EmailAddress, " +
-                          "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
-                          "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
-                          "WorkingHoursPerWeek, HighestDegreeId, StudyDirection " +
-                          "FROM Teacher " +
-                          "WHERE TeacheId = @TeacheId";
+                            "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
+                            "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
+                            "WorkingHoursPerWeek, HighestDegreeId, StudyDirection " +
+                        "FROM Teacher " +
+                        "WHERE TeacheId = @TeacheId";
 
             try
             {
@@ -174,16 +174,16 @@ namespace SchoolappBackend.DAL
             try
             {
                 var query = "INSERT into Teacher " +
-                            "(FirstName, MiddleName, LastName, StreetAndNumber, ZipCode, PhoneNumber, EmailAddress," +
-                             "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
-                             "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
-                             "WorkingHoursPerWeek, HighestDegreeId, StudyDirection)" +
-                            "VALUES (" +
-                             "@FirstName, @MiddleName, @LastName, @StreetAndNumber, @ZipCode, @PhoneNumber, @EmailAddress," +
-                             "@Gender, @DateOfBirth, @MaritalStatusId, @NationalRegisterNumber, @NationalityId, @MoederTongueId," +
-                             "@LanguageSkill, @HireDate, @LeaveDate, @SaleryCategorieId, @SeniorityYears, @WorkSchedule," +
-                             "@WorkingHoursPerWeek, @HighestDegreeId, @StudyDirection" +
-                            ")";
+                                "(FirstName, MiddleName, LastName, StreetAndNumber, ZipCode, PhoneNumber, EmailAddress," +
+                                 "Gender, DateOfBirth, MaritalStatusId, NationalRegisterNumber, NationalityId, MoederTongueId," +
+                                 "LanguageSkill, HireDate, LeaveDate, SaleryCategorieId, SeniorityYears, WorkSchedule," +
+                                 "WorkingHoursPerWeek, HighestDegreeId, StudyDirection)" +
+                                "VALUES (" +
+                                 "@FirstName, @MiddleName, @LastName, @StreetAndNumber, @ZipCode, @PhoneNumber, @EmailAddress," +
+                                 "@Gender, @DateOfBirth, @MaritalStatusId, @NationalRegisterNumber, @NationalityId, @MoederTongueId," +
+                                 "@LanguageSkill, @HireDate, @LeaveDate, @SaleryCategorieId, @SeniorityYears, @WorkSchedule," +
+                                 "@WorkingHoursPerWeek, @HighestDegreeId, @StudyDirection" +
+                                ")";
 
                
                 CreateCommand(connectionString, query, teacher, RecordAction.insert);
@@ -202,28 +202,28 @@ namespace SchoolappBackend.DAL
         {
             var query = "UPDATE Teacher " +
                         "SET " +
-                        "FirstName = @FirstName," +
-                        "MiddleName = @MiddleName," +
-                        "LastName = @LastName," +
-                        "StreetAndNumber = @StreetAndNumber," +
-                        "ZipCode = @ZipCode," +
-                        "PhoneNumber = @PhoneNumber," +
-                        "EmailAddress = @EmailAddress," +
-                        "Gender = @Gender," +
-                        "DateOfBirth = @DateOfBirth," +
-                        "MaritalStatusId = @MaritalStatusId," +
-                        "NationalRegisterNumber = @NationalRegisterNumber," +
-                        "NationalityId = @NationalityId," +
-                        "MoederTongueId = @MoederTongueId," +
-                        "LanguageSkill = @LanguageSkill," +
-                        "HireDate = @HireDate," +
-                        "LeaveDate = @LeaveDate," + 
-                        "SaleryCategorieId = @SaleryCategorieId," +
-                        "SeniorityYears = @SeniorityYears," +
-                        "WorkSchedule = @WorkSchedule," +
-                        "WorkingHoursPerWeek = @WorkingHoursPerWeek," +
-                        "HighestDegreeId = @HighestDegreeId," +
-                        "StudyDirection = @StudyDirection " +
+                            "FirstName = @FirstName," +
+                            "MiddleName = @MiddleName," +
+                            "LastName = @LastName," +
+                            "StreetAndNumber = @StreetAndNumber," +
+                            "ZipCode = @ZipCode," +
+                            "PhoneNumber = @PhoneNumber," +
+                            "EmailAddress = @EmailAddress," +
+                            "Gender = @Gender," +
+                            "DateOfBirth = @DateOfBirth," +
+                            "MaritalStatusId = @MaritalStatusId," +
+                            "NationalRegisterNumber = @NationalRegisterNumber," +
+                            "NationalityId = @NationalityId," +
+                            "MoederTongueId = @MoederTongueId," +
+                            "LanguageSkill = @LanguageSkill," +
+                            "HireDate = @HireDate," +
+                            "LeaveDate = @LeaveDate," + 
+                            "SaleryCategorieId = @SaleryCategorieId," +
+                            "SeniorityYears = @SeniorityYears," +
+                            "WorkSchedule = @WorkSchedule," +
+                            "WorkingHoursPerWeek = @WorkingHoursPerWeek," +
+                            "HighestDegreeId = @HighestDegreeId," +
+                            "StudyDirection = @StudyDirection " +
                         "WHERE TeacheId = @TeacheId ";
 
             try
@@ -254,19 +254,19 @@ namespace SchoolappBackend.DAL
                     command.Parameters.Add("@FirstName", SqlDbType.VarChar, 50).Value = teacher.Firstname;
                     command.Parameters.Add("@MiddleName", SqlDbType.VarChar, 50).Value = teacher.MiddleName;
                     command.Parameters.Add("@LastName", SqlDbType.VarChar, 50).Value = teacher.LastName;
-                    command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar, 50).Value = teacher.StreetAndNumber;
-                    command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 50).Value = teacher.ZipCode;
-                    command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 50).Value = teacher.PhoneNumber;
-                    command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 50).Value = teacher.EmailAddress;
+                    command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar, 60).Value = teacher.StreetAndNumber;
+                    command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 6).Value = teacher.ZipCode;
+                    command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 10).Value = teacher.PhoneNumber;
+                    command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 60).Value = teacher.EmailAddress;
                     command.Parameters.Add("@Gender", SqlDbType.Char, 50).Value = 'M'; //student.Gender; //todo gender
                     command.Parameters.Add("@DateOfBirth", SqlDbType.Date, 50).Value = teacher.DateOfBirth;
 
-                    command.Parameters.Add("@MaritalStatusId", SqlDbType.TinyInt, 50).Value = 1;//
+                    command.Parameters.Add("@MaritalStatusId", SqlDbType.TinyInt, 1).Value = 1;//
                     command.Parameters.Add("@NationalRegisterNumber", SqlDbType.SmallInt, 50).Value = 1;// todo student.NationalRegisterNumber;
                     command.Parameters.Add("@NationalityId", SqlDbType.SmallInt).Value = 1;//todo student.Nationality; 
                     command.Parameters.Add("@MoederTongueId", SqlDbType.SmallInt).Value = 1; //todo student.MoederTongueId;
                     command.Parameters.Add("@LanguageSkill", SqlDbType.SmallInt).Value = 1;//teacher.la;
-                    command.Parameters.Add("@HireDate", SqlDbType.Date, 50).Value = teacher.HireDate;
+                    command.Parameters.Add("@HireDate", SqlDbType.Date, 50).Value = teacher.HireDate;// todo : 50 lengte is te groot aanpassen
                     command.Parameters.Add("@LeaveDate", SqlDbType.Date, 50).Value = teacher.LeaveDate; //doto leavedate klop niet helemaal
                     command.Parameters.Add("@SaleryCategorieId", SqlDbType.Int).Value = 1;//teacher.SaleryCategorie;
                     command.Parameters.Add("@SeniorityYears", SqlDbType.TinyInt).Value = 1;// teacher.SeniorityYears;

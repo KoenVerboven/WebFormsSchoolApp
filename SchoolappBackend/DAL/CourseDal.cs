@@ -188,12 +188,12 @@ namespace SchoolappBackend.DAL
             try
             {
                 var query = "Insert into Course" +
-                             "(CourseName, CourseStartDate, CourseEndDate, MinimumGradeToPassTheCourse," +
-                             "MaximumTestCourseGrade, CourseTypeId, CostPrice)" +
-                             "VALUES (" +
-                             "@CourseName, @CourseStartDate, @CourseEndDate, @MinimumGradeToPassTheCourse," +
-                             "@MaximumTestCourseGrade, @CourseTypeId, @CostPrice" +
-                             ")";
+                                 "(CourseName, CourseStartDate, CourseEndDate, MinimumGradeToPassTheCourse," +
+                                 "MaximumTestCourseGrade, CourseTypeId, CostPrice)" +
+                                 "VALUES (" +
+                                 "@CourseName, @CourseStartDate, @CourseEndDate, @MinimumGradeToPassTheCourse," +
+                                 "@MaximumTestCourseGrade, @CourseTypeId, @CostPrice" +
+                                 ")";
 
                 CreateCommand(connectionString, query, course, RecordAction.insert);
 
@@ -211,13 +211,13 @@ namespace SchoolappBackend.DAL
         {
             var query = "UPDATE Course " +
                         "SET " +
-                        "CourseName = @CourseName, " +
-                        "CourseStartDate = @CourseStartDate, " +
-                        "CourseEndDate = @CourseEndDate, " +
-                        "MinimumGradeToPassTheCourse = @MinimumGradeToPassTheCourse, " +
-                        "MaximumTestCourseGrade = @MaximumTestCourseGrade, " +
-                        "CourseTypeId = @CourseTypeId, " +
-                        "CostPrice = @CostPrice " +
+                            "CourseName = @CourseName, " +
+                            "CourseStartDate = @CourseStartDate, " +
+                            "CourseEndDate = @CourseEndDate, " +
+                            "MinimumGradeToPassTheCourse = @MinimumGradeToPassTheCourse, " +
+                            "MaximumTestCourseGrade = @MaximumTestCourseGrade, " +
+                            "CourseTypeId = @CourseTypeId, " +
+                            "CostPrice = @CostPrice " +
                         "WHERE CourseId = @CourseId ";
             try
             {
