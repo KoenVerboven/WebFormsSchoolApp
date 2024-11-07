@@ -8,7 +8,7 @@ namespace WebFormsSchoolApp.AttendanceRegistration
 {
     public partial class WebFormAttendanceRegistration : System.Web.UI.Page
     {
-        List<SchoolappBackend.BLL.models.StudentPresenceNotation> studentPresence;
+        List<StudentPresenceNotation> studentPresence;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,11 +25,11 @@ namespace WebFormsSchoolApp.AttendanceRegistration
 
         private void ShowClass()
         {
-            StudentBLL studentBLL = new StudentBLL();
+            var dtudentPresenceBLL = new StudentPresenceBLL();
 
             try
             {
-                studentPresence = studentBLL.GetStudentPresence();
+                studentPresence = dtudentPresenceBLL.GetStudentPresence();
                 GridView1.DataSource = studentPresence;
                 GridView1.DataBind();
             }
@@ -42,29 +42,48 @@ namespace WebFormsSchoolApp.AttendanceRegistration
 
         protected void ButtonSave_Click1(object sender, EventArgs e)
         {
-            foreach (GridViewRow row in GridView1.Rows)
+            SaveDate();
+        }
+
+        private bool SaveDate()
+        {
+            bool succes = false;
+            StudentPresenceBLL studentPresenceBLL = new StudentPresenceBLL();
+
+            try
             {
-                if (row.RowType == DataControlRowType.DataRow)
+                foreach (GridViewRow row in GridView1.Rows)
                 {
-                    int studentId = Convert.ToInt32((row.FindControl("StudentId") as Label).Text);
-                    bool presence = (row.FindControl("Presence") as CheckBox).Checked;
-                    string remarks = (row.FindControl("TextBoxRemarks") as TextBox).Text;
-
-                    var studentPresenceNotation = new StudentPresenceNotation()
+                    if (row.RowType == DataControlRowType.DataRow)
                     {
-                        //StudentPresenceNotationId = 1,//todo moet waarschijnlijk niet pk is een autonummer
-                        StudentId = studentId,
-                        ClassId = 1,//to nog aanpassen naar het juiste class id
-                        Presence = presence,
-                        AbsenceReason = remarks,
-                        NotationDate = DateTime.Now,
-                    };
+                        int studentId = Convert.ToInt32((row.FindControl("StudentId") as Label).Text);
+                        bool presence = (row.FindControl("Presence") as CheckBox).Checked;
+                        string remarks = (row.FindControl("TextBoxRemarks") as TextBox).Text;
+                        var studentPresenceNotation = new StudentPresenceNotation()
+                        {
+                            StudentId = studentId,
+                            ClassId = 1,//todo nog aanpassen naar het juiste class id
+                            Presence = presence,
+                            Comment = remarks,
+                            CourseLessonId = 1,//todo aanpassen
+                            NotedByTeacherId = 1,//todo aanpassen
+                            NotationDate = DateTime.Now,
+                        };
 
-                    //Insert PresenceNotation in database
+                        succes = studentPresenceBLL.Add(studentPresenceNotation);
 
+                    }
                 }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return succes;
         }
+
+
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {

@@ -161,7 +161,7 @@ namespace SchoolappBackend.DAL
                                         " @NationalRegisterNumber,@Nationality,@MoederTongueId, @Registrationdate" +
                                     ")";
 
-                CreateCommand(connectionString, query, student, RecordAction.insert);
+                CreateCommandStudent(connectionString, query, student, RecordAction.insert);
 
                 return true;
             }
@@ -194,7 +194,7 @@ namespace SchoolappBackend.DAL
 
             try
             {
-                CreateCommand(connectionString, query, student, RecordAction.update);
+                CreateCommandStudent(connectionString, query, student, RecordAction.update);
                 return true;
             }
             catch (Exception)
@@ -207,7 +207,6 @@ namespace SchoolappBackend.DAL
         public bool DeleteStudent(int studentId)
         {
             var query = "delete from student where StudentId = @StudentId";
-           
 
             try
             {
@@ -230,7 +229,7 @@ namespace SchoolappBackend.DAL
 
 
 
-        private static void CreateCommand(string connectionString, string queryString, Student student, RecordAction action)
+        private static void CreateCommandStudent(string connectionString, string queryString, Student student, RecordAction action)
         {
             try
             {
@@ -255,7 +254,7 @@ namespace SchoolappBackend.DAL
                     command.Parameters.Add("@ZipCode", SqlDbType.VarChar, 6).Value = student.ZipCode;
                     command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 10).Value = student.PhoneNumber;
                     command.Parameters.Add("@EmailAddress", SqlDbType.VarChar, 60).Value = student.EmailAddress;
-                    command.Parameters.Add("@Gender", SqlDbType.Int, 50).Value = student.Gender;
+                    command.Parameters.Add("@Gender", SqlDbType.Int, 50).Value = student.Gender;// todo remove length 50
                     command.Parameters.Add("@DateOfBirth", SqlDbType.DateTime, 50).Value = student.DateOfBirth;//todo : lengte 50 is teveel aanpassen
                     command.Parameters.Add("@MaritalStatusId", SqlDbType.Int, 50).Value = student.MaritalStatus;
                     command.Parameters.Add("@NationalRegisterNumber", SqlDbType.VarChar, 50).Value = student.NationalRegisterNumber;
@@ -270,47 +269,6 @@ namespace SchoolappBackend.DAL
             {
                 throw;
             }
-        }
-
-
-        public List<StudentPresenceNotation> GetStudentPrecence()
-        {
-            var studentPresenceList = new List<StudentPresenceNotation>();
-
-            var query = "SELECT StudentId ,FirstName ,MiddleName ,LastName  " +
-                        "FROM Student " +
-                        "ORDER BY LastName";
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            var studentPresence = new StudentPresenceNotation()
-                            {
-                               StudentPresenceNotationId = Convert.ToInt32(reader["StudentId"]),//todo aanpassen
-                               StudentId = Convert.ToInt32(reader["StudentId"]),
-                               StudentFullName = Convert.ToString(reader["LastName"] + " " + reader["FirstName"]),
-                               Presence = false,
-                               AbsenceReason = "ziekte"
-                            };
-                            studentPresenceList.Add(studentPresence);
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return studentPresenceList;
         }
 
     }

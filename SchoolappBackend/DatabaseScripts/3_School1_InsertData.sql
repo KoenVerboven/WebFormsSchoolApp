@@ -108,6 +108,16 @@ values
 	('5B1','5e Bouw',2,5,1 ),
 	('6B1','6e Bouw',3,6,1 )
 
-	select * from Student S inner join StudentCourse SC
-	on S.StudentId = SC.StudentId inner join Course C
-	on C.CourseId = SC.CourseId
+
+	Insert into StudentPresence(StudentId,NotationDate,SchoolClassId,
+	CourseLessonId ,NotedByTeacherId ,Presence ,Comment )
+	values
+	(1,'2024-06-01  10:00:00',1,1,1,1,''),
+	(2,'2024-06-01  10:01:00',1,1,1,0,'ziek'),
+	(3,'2024-06-01  10:00:20',1,1,1,1,''),
+	(4,'2024-06-01  10:00:30',1,1,1,1,''),
+	(5,'2024-06-01  10:00:40',1,1,1,1,''),
+	(6,'2024-06-01  10:00:50',1,1,1,1,'')
+
+
+	

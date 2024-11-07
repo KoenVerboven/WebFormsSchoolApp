@@ -147,3 +147,20 @@ begin
 		Constraint PK_SchoolClass primary key(SchoolClassId),
 	)
 end
+
+
+if object_id('StudentPresence') is null
+begin
+	create table StudentPresence
+	(
+		StudentPresenceId int identity(1,1) not null,
+		StudentId int not null,
+		NotationDate datetime not null,
+		SchoolClassId int not null,
+		CourseLessonId int not null,
+		NotedByTeacherId int not null,
+		Presence int not null,
+		Comment varchar(50) null,
+		constraint PK_StudentPresence primary key(StudentPresenceId),
+	)
+end
