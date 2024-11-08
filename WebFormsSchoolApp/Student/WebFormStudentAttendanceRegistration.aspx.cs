@@ -20,6 +20,14 @@ namespace WebFormsSchoolApp.AttendanceRegistration
             {
                 LabelMessage.Visible = false;
                 ShowClass();
+
+                var schoolDepartmentBLL = new SchoolDepartmentBLL();
+                var schoolClasses = schoolDepartmentBLL.GetClasses("", "", "");
+
+                DropDownListClass.DataSource = schoolClasses;
+                DropDownListClass.DataTextField = "ClassCodeAndDescription";
+                DropDownListClass.DataValueField = "ClassId";
+                DropDownListClass.DataBind();
             }
         }
 
@@ -62,7 +70,7 @@ namespace WebFormsSchoolApp.AttendanceRegistration
                         var studentPresenceNotation = new StudentPresenceNotation()
                         {
                             StudentId = studentId,
-                            ClassId = 1,//todo nog aanpassen naar het juiste class id
+                            ClassId =  Convert.ToInt32(DropDownListClass.SelectedValue),
                             Presence = presence,
                             Comment = remarks,
                             CourseLessonId = 1,//todo aanpassen
@@ -70,7 +78,7 @@ namespace WebFormsSchoolApp.AttendanceRegistration
                             NotationDate = DateTime.Now,
                         };
 
-                        succes = studentPresenceBLL.Add(studentPresenceNotation);
+                        succes = studentPresenceBLL.Add(studentPresenceNotation);//success aanpassen geeft niet het eindresultaat
 
                     }
                 }
@@ -83,11 +91,9 @@ namespace WebFormsSchoolApp.AttendanceRegistration
             return succes;
         }
 
-
-
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("../StartPage.aspx");
         }
     }
 }

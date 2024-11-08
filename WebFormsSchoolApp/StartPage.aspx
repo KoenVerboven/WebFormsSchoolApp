@@ -19,7 +19,7 @@
            </div>
 
            <div with="100%" style="margin-top:4px;background-color:white" class="customFrame3">
-               <p style="background-color:#A479FF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/10/2024</p>
+               <p style="background-color:#FF0063;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/10/2024</p>
                <div style="float:left;width:30%;">
                   <img src="Images/autumnSmall.jpg" style="max-width: 70%; height: auto;margin-left:3px;border-radius: 8px" />
                </div>
@@ -40,7 +40,7 @@
            </div>
 
           <div with="100%" style="margin-top:15px;background-color:white" class="customFrame3">
-            <p style="background-color:#A479FF;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/09/2024</p>
+            <p style="background-color:#35E66F;color:white;padding-left:10px;padding-top:3px;padding-bottom:3px" width="800px" >Info item 1/09/2024</p>
           <div style="margin-right:10px;float:left;width:65%;">
           </div>
               <h3>Welcome to our new website !</h3>

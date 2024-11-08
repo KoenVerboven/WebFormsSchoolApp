@@ -1,11 +1,12 @@
-﻿using SchoolappBackend.BLL.models;
+﻿using SchoolappBackend.BLL.Interfaces;
+using SchoolappBackend.BLL.models;
 using SchoolappBackend.DAL;
 using System.Collections.Generic;
 
 
 namespace SchoolappBackend.BLL.BLLClasses
 {
-    public class StudentPresenceBLL
+    public class StudentPresenceBLL : IStudentPresenceBLL
     {
         public List<StudentPresenceNotation> GetStudentPresence()
         {

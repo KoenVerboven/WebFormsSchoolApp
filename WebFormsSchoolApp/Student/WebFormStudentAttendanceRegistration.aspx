@@ -12,7 +12,7 @@
     </p>
     <p>
         <asp:Label ID="Label2" runat="server" Text="Select Class"></asp:Label>
-        <asp:DropDownList ID="DropDownListClass" Width="35px" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="DropDownListClass" style="min-width:350px;margin-bottom:5px;" runat="server"></asp:DropDownList>
     </p>
     <p></p>
     <asp:GridView ID="GridView1" runat="server"

@@ -19,16 +19,15 @@
         </section>
        <br />
        <p>
-           <asp:Label ID="LabelCurrent" runat="server" Text="Current password (*)" Width="100px"></asp:Label>
+           <asp:Label ID="LabelCurrent" runat="server" Text="Current password (*)" Width="200px"></asp:Label>
            <asp:TextBox ID="TextBoxCurrent" runat="server" Width="300"></asp:TextBox>
            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="None"
                   ErrorMessage="Current password is mandatory"
                   ControlToValidate="TextBoxCurrent">
            </asp:RequiredFieldValidator>
        </p>
-       <br />
        <p>
-        <asp:Label ID="LabelNew" runat="server" Text="New password (*)" Width="100"></asp:Label>
+        <asp:Label ID="LabelNew" runat="server" Text="New password (*)" Width="200px"></asp:Label>
         <asp:TextBox ID="TextBoxNew" runat="server" Width="300"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="None"
             ErrorMessage="New password is mandatory"
@@ -43,7 +42,7 @@
          </asp:RegularExpressionValidator>
       </p>
       <p>
-       <asp:Label ID="LabelRetypeNew" runat="server" Text="Retype new password (*)" Width="100"></asp:Label>
+       <asp:Label ID="LabelRetypeNew" runat="server" Text="Retype new password (*)" Width="200px"></asp:Label>
        <asp:TextBox ID="TextBoxConfirmPassword" runat="server" Width="300"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="None"
             ErrorMessage="Retype new password is mandatory"
