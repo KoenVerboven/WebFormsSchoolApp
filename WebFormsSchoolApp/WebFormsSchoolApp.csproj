@@ -112,7 +112,8 @@
     <Content Include="PagenotFound.aspx" />
     <Content Include="SchoolDepartment\WebFormSchoolClassDetail.aspx" />
     <Content Include="ScreenShots\Menu.png" />
-    <Content Include="ScreenShots\startPageNew.png" />
+    <Content Include="ScreenShots\startpage.png" />
+    <Content Include="ScreenShots\studentPresenceNotation.png" />
     <Content Include="Settings\WebFormChangePassword.aspx" />
     <Content Include="Student\WebFormStudentAttendanceRegistration.aspx" />
     <Content Include="Contact.aspx" />

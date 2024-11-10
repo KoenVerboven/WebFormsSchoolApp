@@ -14,3 +14,11 @@ left join Course C
 	on SP.CourseLessonId = C.CourseId
 left join Teacher T 
 	on SP.NotedByTeacherId = T.TeacheId
+
+
+select S.LastName,S.FirstName from Student S 
+inner join StudentClass SC
+	on S.StudentId = SC.StudentId
+where SC.ClassId = 1
+	and StartDate < getdate()
+	and StopDate > getdate()

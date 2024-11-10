@@ -5,13 +5,6 @@ using WebFormsSchoolApp.App_Code;
 
 namespace WebFormsSchoolApp.Settings
 {
-    enum ShowMessageType
-    {
-        normal,
-        warning,
-        error
-    }
-    
     
     public partial class WebFormChangePassword : System.Web.UI.Page
     {
@@ -60,7 +53,7 @@ namespace WebFormsSchoolApp.Settings
             if(showMessageType == ShowMessageType.normal)
             {
                 LabelMessage.ForeColor = Color.Black; //todo : change css class insteat of this line
-                LabelMessage.BackColor = Color.FromArgb(171, 170, 230);
+                LabelMessage.BackColor = Color.FromArgb(155, 233, 145);
             }
 
             if (showMessageType == ShowMessageType.error)

@@ -6,7 +6,7 @@ namespace SchoolappBackend.BLL.Interfaces
 {
     internal interface IStudentPresenceBLL
     {
-         List<StudentPresenceNotation> GetStudentPresence();
+         List<StudentPresenceNotation> GetStudentPresence(int classId);
 
         bool Add(StudentPresenceNotation studentPresenceNotation);
     }

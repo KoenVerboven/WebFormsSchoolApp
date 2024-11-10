@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Text;
 using System.Configuration;
 
 namespace SchoolappBackend.DAL
@@ -12,19 +11,25 @@ namespace SchoolappBackend.DAL
     {
         readonly string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
-        public List<StudentPresenceNotation> GetStudentPrecence()
+        public List<StudentPresenceNotation> GetStudentPrecence(int classId)
         {
             var studentPresenceList = new List<StudentPresenceNotation>();
 
-            var query = "SELECT StudentId ,FirstName ,MiddleName ,LastName  " +
-                        "FROM Student " +
-                        "ORDER BY LastName";
+            var query = "SELECT S.StudentId, S.LastName,S.FirstName " +
+                        "FROM Student S " +
+                        "INNER JOIN StudentClass SC " +
+                            "ON S.StudentId = SC.StudentId " +
+                        "WHERE SC.ClassId = @ClassId " +
+                            "AND StartDate < getdate() " +
+                            "AND StopDate > getdate() ";
+
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add("@ClassId", SqlDbType.Int).Value = classId;
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -34,11 +39,11 @@ namespace SchoolappBackend.DAL
                         {
                             var studentPresence = new StudentPresenceNotation()
                             {
-                                StudentPresenceNotationId = Convert.ToInt32(reader["StudentId"]),//todo aanpassen
+                                //StudentPresenceNotationId = -1,
                                 StudentId = Convert.ToInt32(reader["StudentId"]),
                                 StudentFullName = Convert.ToString(reader["LastName"] + " " + reader["FirstName"]),
                                 Presence = false,
-                                Comment = "ziekte"
+                                Comment = ""
                             };
                             studentPresenceList.Add(studentPresence);
                         }

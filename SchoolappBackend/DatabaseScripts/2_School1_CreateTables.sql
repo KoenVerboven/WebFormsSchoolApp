@@ -164,3 +164,17 @@ begin
 		constraint PK_StudentPresence primary key(StudentPresenceId),
 	)
 end
+
+
+if object_id('StudentClass') is null
+begin
+	create table StudentClass
+	(
+		StudentClassId int identity(1,1) not null,
+		StudentId int not null,
+		ClassId int not null,
+		StartDate date not null,
+		StopDate date not null,
+		constraint PK_StudentClass primary key(StudentClassId),
+	)
+end

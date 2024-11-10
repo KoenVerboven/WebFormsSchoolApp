@@ -28,7 +28,7 @@ namespace WebFormsSchoolApp.SchoolDepartment
                 ListBoxStudent.DataBind();
 
                 var schoolDepartmentBLL = new SchoolDepartmentBLL();
-                var schoolClasses = schoolDepartmentBLL.GetClasses("", "", "");
+                var schoolClasses = schoolDepartmentBLL.GetClasses("", "Code", "");
 
                 DropDownListClass.DataSource = schoolClasses;
                 DropDownListClass.DataTextField = "ClassCodeAndDescription";

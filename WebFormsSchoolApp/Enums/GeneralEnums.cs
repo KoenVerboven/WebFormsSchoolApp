@@ -4,3 +4,11 @@
 //    woman
 //}
 
+
+enum ShowMessageType
+{
+    normal,
+    warning,
+    error
+}
+

@@ -4,7 +4,7 @@
      <div class="pageTitle">student presence notation</div>
     <br />
     <p>
-     <asp:Label ID="LabelMessage" CssClass="errorLabel" Width="400px" runat="server" Text=""></asp:Label> 
+     <asp:Label ID="LabelMessage" Width="400px" runat="server" Text=""></asp:Label> 
     </p>
     <p>
          <asp:Button ID="ButtonSave" class="btn btn-success btn-md" Width="70px" runat="server" Text="Save" OnClick="ButtonSave_Click1"  />
@@ -12,7 +12,7 @@
     </p>
     <p>
         <asp:Label ID="Label2" runat="server" Text="Select Class"></asp:Label>
-        <asp:DropDownList ID="DropDownListClass" style="min-width:350px;margin-bottom:5px;" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="DropDownListClass" style="min-width:350px;margin-bottom:5px;" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownListClass_SelectedIndexChanged"></asp:DropDownList>
     </p>
     <p></p>
     <asp:GridView ID="GridView1" runat="server"
