@@ -2,37 +2,37 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="CustomCss/StyleSheet1.css" rel="stylesheet" />
-     <div class="div1">
+     <div class="div1" style="background-color:gray">
      <div class="pageTitle">Home</div>
      <br />
      <div class="row">
 
      <div class="col-md-4">
           <%--Student start--%>
-            <p> <asp:LinkButton ID="LinkButtonStudent" CssClass="link2" runat="server" 
+            <p style ="margin-left:50px"> <asp:LinkButton ID="LinkButtonStudent" CssClass="link2" runat="server" 
                 OnClick="LinkButton1_Click"
                 Height="80"
                 Width="200"
                 ForeColor="#FFFFFF"
-                BackColor="#779498"
+                BackColor="#6BF4E"
                 Visible="false"
                 >
                 <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
                 <asp:Label ID="LabelStudent" runat="server" Text="Student" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%--Student end--%><%--Teacher start--%><p><asp:LinkButton ID="LinkButtonTeacher" CssClass="link2" runat="server" 
+            </asp:LinkButton></p><%--Student end--%><%--Teacher start--%><p style ="margin-left:50px"><asp:LinkButton ID="LinkButtonTeacher" CssClass="link2" runat="server" 
                Height="80"
                Width="200"
                ForeColor="#FFFFFF"
-               BackColor="#228822" 
+               BackColor="#2222EE" 
                Visible="false"
                OnClick="LinkButtonSearchTeacher_Click"
                >
                <asp:Label ID="LabelTeacher"  runat="server" Text="Teachter" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%--Teacher end--%><%--SchoolClass start--%><p> <asp:LinkButton ID="LinkButtonSchoolClass" CssClass="link2" runat="server"
+            </asp:LinkButton></p><%--Teacher end--%><%--SchoolClass start--%><p style ="margin-left:50px"> <asp:LinkButton ID="LinkButtonSchoolClass" CssClass="link2" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#E75573" 
+              BackColor="#2288FE" 
               Visible="false"
                 OnClick="LinkButton1_Click1"  
               >
@@ -41,11 +41,11 @@
               <asp:Label runat="server" Text="Administration" style="margin:9px 0px 0px 15px; float:left;"/>
             </asp:LinkButton></p><%-- SchoolClass end --%>
 
-         <%--Settings start--%><p> <asp:LinkButton ID="LinkButtonSettings" CssClass="link2" runat="server"
+         <%--Settings start--%><p style ="margin-left:50px"> <asp:LinkButton ID="LinkButtonSettings" CssClass="link2" runat="server"
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#2B2A83" 
+              BackColor="#F54F4F" 
               Visible="false"
                 OnClick="LinkButtonSettings_Click"
               >
@@ -57,7 +57,7 @@
                 Height="80"
                 Width="200"
                 ForeColor="#FFFFFF"
-                BackColor="#AA2222" 
+                BackColor="#2222EE" 
                 Visible="false"
                 OnClick="LinkButtonSearchCourse_Click">
               <asp:Label ID="LabelCourse" runat="server" Text="Course" style="margin:9px 0px 0px 15px; float:left;"/>
@@ -65,7 +65,7 @@
                Height="80"
                Width="200"
                ForeColor="#FFFFFF"
-               BackColor="#2222EE" 
+               BackColor="#2288FE" 
                Visible="false"
                 OnClick="LinkButtonSearchUser_Click"
                >
@@ -74,7 +74,7 @@
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#A46FFF"
+              BackColor="#6BF4E"
               Visible="false"
                  OnClick="LinkButtonExamenPoints_Click" 
               >
@@ -85,7 +85,7 @@
                   Height="80"
                   Width="200"
                   ForeColor="#FFFFFF"
-                  BackColor="#2288FE" 
+                  BackColor="#6BF4E" 
                   Visible="false"
                   OnClick="LinkButtonUserRole_Click"  
                   >
@@ -94,7 +94,7 @@
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#228888"
+              BackColor="#2222EE"
               Visible="false"
                   OnClick="LinkButtonAttendanceRegistration_Click1" 
               >
@@ -103,7 +103,7 @@
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#425359"
+              BackColor="#2288FE"
               Visible="false"
                 OnClick="LinkButtonClassOrganisation_Click"   
               >

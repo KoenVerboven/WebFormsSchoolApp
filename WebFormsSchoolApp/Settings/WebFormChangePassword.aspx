@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormChangePassword.aspx.cs" Inherits="WebFormsSchoolApp.Settings.WebFormChangePassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../CustomCss/StyleSheet1.css" rel="stylesheet" />
-   <div class="div1">
+   <div class="div1" style="background-color:#E4EAE9">
       <div class="pageTitle">Change Password</div>
        <br />
         <p>
