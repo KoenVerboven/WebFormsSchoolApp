@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Menus\WebFormSettingsMenu.aspx" />
     <Content Include="PagenotFound.aspx" />
     <Content Include="SchoolDepartment\WebFormSchoolClassDetail.aspx" />
     <Content Include="ScreenShots\Menu.png" />
@@ -228,6 +229,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Helper.cs" />
+    <Compile Include="App_Code\ValidationUtilities.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -237,6 +239,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Menus\WebFormSettingsMenu.aspx.cs">
+      <DependentUpon>WebFormSettingsMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menus\WebFormSettingsMenu.aspx.designer.cs">
+      <DependentUpon>WebFormSettingsMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PagenotFound.aspx.cs">
       <DependentUpon>PagenotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

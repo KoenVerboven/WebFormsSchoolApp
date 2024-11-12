@@ -36,7 +36,7 @@
         <asp:RegularExpressionValidator Display = "None" 
              ControlToValidate = "TextBoxNew" 
              ID="RegularExpressionValidator1" 
-             ValidationExpression = "^[\s\S]{8,20}$" 
+             ValidationExpression = "^[\s\S]{8,25}$" 
              runat="server" 
              ErrorMessage="New password must be min 8 and max 25 characters.">
          </asp:RegularExpressionValidator>
@@ -54,6 +54,7 @@
       </p>
       <p>
           <asp:Button class="btn btn-primary"   ID="ButtonSaveChanges" runat="server" Text="Save Changes" OnClick="ButtonSaveChanges_Click" />
+          <asp:Button ID="ButtonCancel" class="btn btn-danger btn-md" Width="70px"  runat="server" Text="Cancel" CausesValidation="false" OnClick="ButtonCancel_Click" />
       </p>
 
     </div>

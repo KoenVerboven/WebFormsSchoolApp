@@ -1,6 +1,7 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
 
+
 namespace WebFormsSchoolApp.Student
 {
     public partial class WebFormStudentDetail : System.Web.UI.Page
@@ -117,7 +118,30 @@ namespace WebFormsSchoolApp.Student
 
         protected void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            var ServerSideValidationIsValid = true;
+
+            if(! App_Code.ValidationUtilities.IsValidEmail(TextBoxEmailAddress.Text.Trim()))
+            {
+                LabelMessage.Text = "e-mail is not valid";
+                LabelMessage.Visible = true;
+                ServerSideValidationIsValid = false;
+            }
+            
+            if (!App_Code.ValidationUtilities.IsValidBelgiumPhoneNr(TextBoxPhoneNumber.Text.Trim()))
+            {
+                LabelMessage.Text = "PhoneNumber is not valid";
+                LabelMessage.Visible = true;
+                ServerSideValidationIsValid = false;
+            }
+
+            if (!App_Code.ValidationUtilities.IsValidBelgiumZipCode(TextBoxZipCode.Text.Trim()))
+            {
+                LabelMessage.Text = "ZipCode is not valid";
+                LabelMessage.Visible = true;
+                ServerSideValidationIsValid = false;
+            }
+
+            if (Page.IsValid && ServerSideValidationIsValid)
             {
                 if(SaveData())
                 {
@@ -126,6 +150,7 @@ namespace WebFormsSchoolApp.Student
             }
         }
 
+        
         private bool SaveData()
         {
             bool succes = false;

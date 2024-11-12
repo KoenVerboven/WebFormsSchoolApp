@@ -22,7 +22,7 @@
              <asp:Button ID="ButtonRemoveStudentFromClass" class="btn btn-dark btn-md" runat="server" Text="<--" OnClick="ButtonRemoveStudentFromClass_Click"  />
          </div>
          <div class="col-md-4">
-             <asp:DropDownList ID="DropDownListClass" style="min-width:350px;margin-bottom:5px;" runat="server"></asp:DropDownList>
+             <asp:DropDownList ID="DropDownListClass" style="min-width:350px;margin-bottom:5px;" runat="server" OnSelectedIndexChanged="DropDownListClass_SelectedIndexChanged"></asp:DropDownList>
              <asp:Label ID="Label4" runat="server" style="width:350px;background-color:red;color:white;padding-left:7px" Text="Class" Width="200px"></asp:Label>
              <asp:ListBox ID="ListBoxSchoolClass"  style="min-width:350px;min-Height:400px" runat="server"></asp:ListBox>
          </div>

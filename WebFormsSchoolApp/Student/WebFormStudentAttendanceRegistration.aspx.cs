@@ -107,13 +107,14 @@ namespace WebFormsSchoolApp.AttendanceRegistration
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../StartPage.aspx");
+            Response.Redirect("../Default.aspx");
         }
 
         protected void DropDownListClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selValue = Convert.ToInt32(DropDownListClass.SelectedValue);
             ShowClass(selValue);
+            LabelMessage.Visible = false;
         }
 
         private void ShowMessage(string message, ShowMessageType showMessageType)

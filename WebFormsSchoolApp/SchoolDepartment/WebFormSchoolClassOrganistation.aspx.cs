@@ -1,5 +1,4 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
-using SchoolappBackend.BLL.models;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
@@ -34,6 +33,27 @@ namespace WebFormsSchoolApp.SchoolDepartment
                 DropDownListClass.DataTextField = "ClassCodeAndDescription";
                 DropDownListClass.DataValueField = "ClassId";
                 DropDownListClass.DataBind();
+                DropDownListClass.AutoPostBack = true;
+                int selValue = Convert.ToInt32(DropDownListClass.SelectedValue);
+                ShowClass(selValue);
+            }
+        }
+
+        private void ShowClass(int classId)
+        {
+            var dtudentPresenceBLL = new StudentPresenceBLL();
+
+            try
+            {
+                var studentPresence = dtudentPresenceBLL.GetStudentPresence(classId);
+                ListBoxSchoolClass.DataSource = studentPresence;
+                ListBoxSchoolClass.DataTextField = "StudentFullName";
+                ListBoxSchoolClass.DataValueField = "StudentId";
+                ListBoxSchoolClass.DataBind();
+            }
+            catch (Exception oEx)
+            {
+                //ShowMessage(oEx.Message, ShowMessageType.error);
             }
         }
 
@@ -43,7 +63,6 @@ namespace WebFormsSchoolApp.SchoolDepartment
             students = studentBLL.GetStudents(search, orderBy,"ASC");
             return students;
         }
-
 
         protected void ButtonAddStudentToClass_Click(object sender, EventArgs e)
         {
@@ -134,5 +153,11 @@ namespace WebFormsSchoolApp.SchoolDepartment
             return schoolClasses;   
         }
 
+        protected void DropDownListClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selValue = Convert.ToInt32(DropDownListClass.SelectedValue);
+            ShowClass(selValue);
+            LabelMessage.Visible = false;
+        }
     }
 }

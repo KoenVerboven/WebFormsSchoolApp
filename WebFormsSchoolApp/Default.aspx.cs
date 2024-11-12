@@ -116,7 +116,7 @@ namespace WebFormsSchoolApp
 
         protected void LinkButtonSettings_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Settings\\WebFormChangePassword.aspx");
+            Response.Redirect("Menus\\WebFormSettingsMenu.aspx");
         }
     }
 }

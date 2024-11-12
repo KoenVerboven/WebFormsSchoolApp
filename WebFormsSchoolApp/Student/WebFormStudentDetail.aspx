@@ -107,7 +107,7 @@
         </p>
         <p>
            <asp:Label ID="LabelPhoneNumber" runat="server" Text="PhoneNumber :" Width="170px"></asp:Label>
-           <asp:TextBox ID="TextBoxPhoneNumber" runat="server" Width="250px" placeholder="e.x. 036.444.789"></asp:TextBox>
+           <asp:TextBox ID="TextBoxPhoneNumber" runat="server" Width="250px" placeholder="e.x. + 32482455642"></asp:TextBox>
         </p>
         <p>
            <asp:Label ID="LabelEmailAddress" runat="server" Text="EmailAddress :" Width="170px"></asp:Label>
@@ -123,11 +123,11 @@
         </p>
         <p>
             <asp:Label ID="Label1ParentContactTelNr" runat="server" Text="1e Parent/Contact PhoneNumber :" Width="170px"></asp:Label>
-            <asp:TextBox ID="TextBox1ParentContactTelNr" runat="server" Width="250px" placeholder="e.x. 036.444.789"></asp:TextBox>
+            <asp:TextBox ID="TextBox1ParentContactTelNr" runat="server" Width="250px" placeholder="e.x. + 32482455642"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="Label2ParentContactTelNr" runat="server" Text="2e Parent/Contact PhoneNumber :" Width="170px"></asp:Label>
-            <asp:TextBox ID="TextBox2ParentContactTelNr" runat="server" Width="250px" placeholder="e.x. 036.444.789"></asp:TextBox>
+            <asp:TextBox ID="TextBox2ParentContactTelNr" runat="server" Width="250px" placeholder="e.x. + 32482455642"></asp:TextBox>
         </p>
         <p>
           <asp:Label ID="LabelRegistrationDate" runat="server" Text="RegistrationDate (*) :" Width="170px"></asp:Label>
