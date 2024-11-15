@@ -36,9 +36,7 @@
            >
          <asp:Label ID="Label5" runat="server" Text="" style="margin:9px 0px 0px 15px; float:left;"/>
            <asp:Label runat="server" Text="" style="margin:9px 0px 0px 15px; float:left;"/>
-         </asp:LinkButton></p><%--  end --%>
-
-      <%-- start--%><p> <asp:LinkButton ID="LinkButton4" CssClass="link2" runat="server"
+         </asp:LinkButton></p><%--  end --%><%-- start--%><p> <asp:LinkButton ID="LinkButton4" CssClass="link2" runat="server"
            Height="80"
            Width="200"
            ForeColor="#FFFFFF"
@@ -47,11 +45,12 @@
            
            >
          <asp:Label ID="Label4" runat="server" Text="" style="margin:9px 0px 0px 15px; float:left;"/>
-         </asp:LinkButton></p><%--  end --%>
-
-  </div>
-     
-
-  </div><br />
+         </asp:LinkButton></p><%--  end --%></div></div><br />
+      <div style="margin-left:50px">
+          <asp:LinkButton ID="LinkButton1" runat="server" style="background-color:white;text-align:center" Width="150px" 
+              OnClick="LinkButton1_Click">Back to mainmenu</asp:LinkButton>
+      </div>
+      
+      <br />
       </div>
 </asp:Content>

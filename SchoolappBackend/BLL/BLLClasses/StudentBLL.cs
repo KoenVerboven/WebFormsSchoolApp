@@ -7,56 +7,48 @@ using System.Linq;
 
 namespace SchoolappBackend.BLL.BLLClasses
 {
-    public  class StudentBLL : IStudentBLL
+    public class StudentBLL : IStudentBLL
     {
-        List<Student> students;
+
+        StudentDal studentDal = new StudentDal();
 
         public StudentBLL()
         {
-            students = new List<Student>();
         }
 
         public bool Add(Student student)
         {
-            var studentDal = new StudentDal();
             return studentDal.AddNewStudent(student);
         }
 
         public bool Delete(int StudentId)
         {
-            var studentDal = new StudentDal();
             studentDal.DeleteStudent(StudentId);
             return true;
         }
 
-        
-
         public Student GetStudentById(int Id)
         {
-            var studentDal = new StudentDal();
             return studentDal.GetStudentById(Id);
         }
 
-        public List<Student> GetStudents(string searchField,string orderBy,string sortDirection)
+        public List<Student> GetStudents(string searchField, string orderBy, string sortDirection)
         {
-            var studentDal = new StudentDal();
-            return studentDal.GetStudents(searchField,orderBy,sortDirection);
+            return studentDal.GetStudents(searchField, orderBy, sortDirection);
         }
-
 
         public int StudentCount()
         {
-            var studentDal = new StudentDal();
-            return studentDal.GetStudentCount();    
+            return studentDal.GetStudentCount();
         }
 
         public bool Update(Student student)
         {
-            var studentDal = new StudentDal();
             return studentDal.UpdateStudent(student);
         }
 
         [Obsolete]
+        List<Student> students;
         private List<Student> SearchStudents(string searchField, string orderBy)
         {
             if (students != null)
@@ -87,7 +79,8 @@ namespace SchoolappBackend.BLL.BLLClasses
             return null;
         }
 
-        [Obsolete]
+
+        //[Obsolete]
         private void FillStudentlist()
         {
             students = new List<models.Student>()
@@ -264,6 +257,6 @@ namespace SchoolappBackend.BLL.BLLClasses
             };
         }
 
-       
+
     }
 }

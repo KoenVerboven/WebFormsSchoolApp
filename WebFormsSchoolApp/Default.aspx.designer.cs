@@ -132,6 +132,15 @@ namespace WebFormsSchoolApp
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonExamenPoints;
 
         /// <summary>
+        /// LinkButtonExamen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonExamen;
+
+        /// <summary>
         /// LinkButtonUserRole control.
         /// </summary>
         /// <remarks>

@@ -141,3 +141,24 @@ values
 	(18,10,'2024-09-01','2025-06-30'),
 	(19,10,'2024-09-01','2025-06-30'),
 	(20,10,'2024-09-01','2025-06-30')
+
+
+	Insert into Examen(ExamenName,ExamenKind,CreatedByTeacherId,CreateDate)
+	values 
+	('math 1',1,1,getdate()),
+	('math 2',1,1,getdate()),
+	('French course 1',1,1,getdate()),
+	('French course 2',1,1,getdate())
+
+
+	Insert into ExamenQuestion(Question,Answer,ExamenQuestionPointsWeight,ExamenId)
+	values
+	('what is the square root of 16','4',10,1),
+	('what is the square root of 4','2',10,1),
+	('how much is 200 divided by 4','50',10,1),
+	('what is een priemgetal','A prime number is a natural number greater than 1 that has only two natural numbers as divisors, namely 1 and itself.',10,1),
+	('translate into French: a car','une voiture',10,3),
+	('translate into French: a house','une maison',10,3),
+	('translate into French: the sea','la mer',10,3),
+	('translate into French: a airplane','un avion',10,3)
+

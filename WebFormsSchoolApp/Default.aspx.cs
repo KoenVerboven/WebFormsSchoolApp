@@ -1,6 +1,7 @@
 ﻿using SchoolappBackend.BLL.BLLClasses;
 using System;
 using System.Web.UI;
+using WebFormsSchoolApp.Exam;
 
 namespace WebFormsSchoolApp
 {
@@ -19,6 +20,8 @@ namespace WebFormsSchoolApp
             //rijksregister 11 lang
             //02021518897
             //int rijks = 02021518897;
+
+            //todo : make menu tiles not hard coded, but make them with data out the database
 
             SetUserRights();
 
@@ -53,6 +56,7 @@ namespace WebFormsSchoolApp
             {
                 LinkButtonExamenPoints.Visible = true;
                 LinkButtonSettings.Visible = true;
+                LinkButtonExamen.Visible = true;
             }
             if (Convert.ToString(Session["userRole"]) == "5")
             {
@@ -66,6 +70,7 @@ namespace WebFormsSchoolApp
                 LinkButtonUserRole.Visible = true;
                 LinkButtonSchoolClass.Visible = true;
                 LinkButtonSettings.Visible = true;
+                LinkButtonExamen.Visible = true;
             }
         }
 
@@ -117,6 +122,11 @@ namespace WebFormsSchoolApp
         protected void LinkButtonSettings_Click(object sender, EventArgs e)
         {
             Response.Redirect("Menus\\WebFormSettingsMenu.aspx");
+        }
+
+        protected void LinkButtonExamen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Exam\\WebFormMultipleChoiceQuestions.aspx");
         }
     }
 }

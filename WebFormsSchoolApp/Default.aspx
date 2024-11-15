@@ -14,7 +14,7 @@
                 Height="80"
                 Width="200"
                 ForeColor="#FFFFFF"
-                BackColor="#6BF4E"
+                BackColor="#2222EE"
                 Visible="false"
                 >
                 <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
@@ -32,7 +32,7 @@
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#2288FE" 
+              BackColor="#2222EE" 
               Visible="false"
                 OnClick="LinkButton1_Click1"  
               >
@@ -65,7 +65,7 @@
                Height="80"
                Width="200"
                ForeColor="#FFFFFF"
-               BackColor="#2288FE" 
+               BackColor="#2222EE" 
                Visible="false"
                 OnClick="LinkButtonSearchUser_Click"
                >
@@ -74,18 +74,32 @@
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#6BF4E"
+              BackColor="#2222EE"
               Visible="false"
                  OnClick="LinkButtonExamenPoints_Click" 
               >
              <%--   <asp:Image runat="server" ImageUrl="~/img/payslip.png" Height="18" style="float:left;"/>--%>
             <asp:Label runat="server" Text="ExamenPoints" style="margin:9px 0px 0px 15px; float:left;"/>
-            </asp:LinkButton></p><%-- ExamenPoints end --%></div><div class="col-md-4">
+            </asp:LinkButton></p><%-- ExamenPoints end --%>
+
+
+         <%--Examen start--%><p> <asp:LinkButton ID="LinkButtonExamen" CssClass="link2" runat="server"
+              Height="80"
+              Width="200"
+              ForeColor="#FFFFFF"
+              BackColor="#2222EE"
+              Visible="false"
+              OnClick="LinkButtonExamen_Click"
+              >
+            <asp:Label runat="server" Text="Examen" style="margin:9px 0px 0px 15px; float:left;"/>
+            </asp:LinkButton></p><%-- Examen end --%>
+
+           </div><div class="col-md-4">
                       <%--UserRole start--%><p> <asp:LinkButton ID="LinkButtonUserRole" CssClass="link2" runat="server"
                   Height="80"
                   Width="200"
                   ForeColor="#FFFFFF"
-                  BackColor="#6BF4E" 
+                  BackColor="#2222EE" 
                   Visible="false"
                   OnClick="LinkButtonUserRole_Click"  
                   >
@@ -103,7 +117,7 @@
               Height="80"
               Width="200"
               ForeColor="#FFFFFF"
-              BackColor="#2288FE"
+              BackColor="#2222EE"
               Visible="false"
                 OnClick="LinkButtonClassOrganisation_Click"   
               >

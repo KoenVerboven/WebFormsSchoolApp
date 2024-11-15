@@ -92,8 +92,7 @@ namespace WebFormsSchoolApp.App_Code
 
         public static bool IsNumeric(string number)
         {
-            int i = 0;
-            return int.TryParse(number, out i);
+            return int.TryParse(number, out _);
         }
 
         public static bool PasswordContainsAtLeast1SpecialChar(string password)

@@ -106,75 +106,125 @@
 		)
 	end
 
-if object_id('School') is null
-begin
-	create table School
-	(
-		SchoolId int identity(1,1) not null,
-		SchoolName varchar(60) not null,
-		SchoolGroupId int  not null,
-		StreetAndNumer varchar(60) null,
-		Zipcode varchar(6) null,
-		PhoneNumber varchar(10) null,
-		Constraint PK_School primary key(SchoolId),
-	)
-end
+	if object_id('School') is null
+	begin
+		create table School
+		(
+			SchoolId int identity(1,1) not null,
+			SchoolName varchar(60) not null,
+			SchoolGroupId int  not null,
+			StreetAndNumer varchar(60) null,
+			Zipcode varchar(6) null,
+			PhoneNumber varchar(10) null,
+			Constraint PK_School primary key(SchoolId),
+		)
+	end
 
 
 
-if object_id('SchoolDepartment') is null
-begin
-	create table SchoolDepartment
-	(
-		SchoolDepartmentId int identity(1,1) not null,
-		SchoolDepartmentName varchar(70) not null,
-		SchoolId varchar(70) null,
-		Constraint PK_SchoolDepartment primary key(SchoolDepartmentId),
-	)
-end
+	if object_id('SchoolDepartment') is null
+	begin
+		create table SchoolDepartment
+		(
+			SchoolDepartmentId int identity(1,1) not null,
+			SchoolDepartmentName varchar(70) not null,
+			SchoolId varchar(70) null,
+			Constraint PK_SchoolDepartment primary key(SchoolDepartmentId),
+		)
+	end
 
 
-if object_id('SchoolClass') is null
-begin
-	create table SchoolClass
-	(
-		SchoolClassId int identity(1,1) not null,
-		Code varchar(10) not null,
-		ClassDescription varchar(60) null,
-		Degree int null,
-		Grade int null,
-		SchoolDepartmentId int not null,
-		Constraint PK_SchoolClass primary key(SchoolClassId),
-	)
-end
+	if object_id('SchoolClass') is null
+	begin
+		create table SchoolClass
+		(
+			SchoolClassId int identity(1,1) not null,
+			Code varchar(10) not null,
+			ClassDescription varchar(60) null,
+			Degree int null,
+			Grade int null,
+			SchoolDepartmentId int not null,
+			Constraint PK_SchoolClass primary key(SchoolClassId),
+		)
+	end
 
 
-if object_id('StudentPresence') is null
-begin
-	create table StudentPresence
-	(
-		StudentPresenceId int identity(1,1) not null,
-		StudentId int not null,
-		NotationDate datetime not null,
-		SchoolClassId int not null,
-		CourseLessonId int not null,
-		NotedByTeacherId int not null,
-		Presence int not null,
-		Comment varchar(50) null,
-		constraint PK_StudentPresence primary key(StudentPresenceId),
-	)
-end
+	if object_id('StudentPresence') is null
+	begin
+		create table StudentPresence
+		(
+			StudentPresenceId int identity(1,1) not null,
+			StudentId int not null,
+			NotationDate datetime not null,
+			SchoolClassId int not null,
+			CourseLessonId int not null,
+			NotedByTeacherId int not null,
+			Presence int not null,
+			Comment varchar(50) null,
+			constraint PK_StudentPresence primary key(StudentPresenceId),
+		)
+	end
 
 
-if object_id('StudentClass') is null
-begin
-	create table StudentClass
-	(
-		StudentClassId int identity(1,1) not null,
-		StudentId int not null,
-		ClassId int not null,
-		StartDate date not null,
-		StopDate date not null,
-		constraint PK_StudentClass primary key(StudentClassId),
-	)
-end
+	if object_id('StudentClass') is null
+	begin
+		create table StudentClass
+		(
+			StudentClassId int identity(1,1) not null,
+			StudentId int not null,
+			ClassId int not null,
+			StartDate date not null,
+			StopDate date not null,
+			constraint PK_StudentClass primary key(StudentClassId),
+		)
+	end
+
+
+	-- tables related to examens an excercises :
+	
+	if object_id('Examen') is null
+	begin
+		create table  Examen
+		(
+			ExamenId int identity(1,1) not null,
+			ExamenName varchar(50) not null,
+			Description varchar(150) null,
+			ExamenKind tinyInt not null,
+			CreatedByTeacherId int not null,
+			CreateDate datetime not null,
+			UpdatedByTeacherId int null,
+			UpdateDate datetime null,
+			constraint PK_Examen primary key( ExamenId)
+		)
+	end
+
+	if object_id('ExamenQuestion') is null
+	begin
+		create table ExamenQuestion
+		(
+			ExamenQuestionId int  identity(1,1) not null,
+			Question varchar(150) not null,
+			Answer varchar(200) null,
+			ExamenQuestionPointsWeight decimal(5,2) null, -- misschien niet nodig?
+			ExamenId int not null,
+			constraint PK_EQuestionAnswer primary key(ExamenQuestionId),
+			constraint FK_ExamenQuestionExamen
+				foreign key( ExamenId)
+				references  Examen( ExamenId)
+		)
+	end
+
+	if object_id('ExamenAnswer') is null
+	begin
+		create table ExamenAnswer
+		(
+			ExamenAnswerId int  identity(1,1) not null,
+			Answer varchar(150) not null,
+			CorrectAnswer bit not null, -- for multiplechoice questions
+			ExamenQuestionId int not null,
+			constraint PK_ExamenAnswer primary key(ExamenAnswerId),
+			constraint ExamenAnswerExamenQuestion
+				foreign key( ExamenQuestionId)
+				references  ExamenQuestion( ExamenQuestionId)
+		)
+	end

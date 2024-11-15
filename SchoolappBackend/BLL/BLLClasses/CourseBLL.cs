@@ -3,7 +3,6 @@ using SchoolappBackend.BLL.models;
 using SchoolappBackend.DAL;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 
@@ -18,35 +17,29 @@ namespace SchoolappBackend.BLL.BLLClasses
 
     public class CourseBLL : ICourseBLL
     {
-        List<Course> courses;
+        CourseDal courseDal = new CourseDal();
 
         public CourseBLL()
         {
-            courses = new List<Course>();
         }
 
         public bool Add(Course course)
         {
-            CourseDal courseDal = new CourseDal();
             return courseDal.AddNewCourse(course);
         }
 
         public bool Delete(int CourseId)
         {
-            CourseDal courseDal = new CourseDal();
             return courseDal.DeleteCourse(CourseId);
         }
 
         public Course GetCourseById(int courseId)
         {
-            CourseDal courseDal = new CourseDal();
             return courseDal.GetCourseById(courseId);
         }
 
-
         public int CourseCount()
         {
-            CourseDal courseDal = new CourseDal();
             return courseDal.GetCourseCount();
         }
 
@@ -115,6 +108,7 @@ namespace SchoolappBackend.BLL.BLLClasses
         }
 
         [Obsolete]
+        List<Course> courses;
         private void FillCoursesList()
         {
             courses = new List<models.Course>()

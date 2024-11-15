@@ -8,18 +8,21 @@ namespace SchoolappBackend.BLL.BLLClasses
 {
     public class StudentPresenceBLL : IStudentPresenceBLL
     {
+        StudentPresenceDal studentPresenceDal = new StudentPresenceDal();
+
+        public StudentPresenceBLL()
+        {
+        }
+
         public List<StudentPresenceNotation> GetStudentPresence(int classId)
         {
-            var studentPresenceDal = new StudentPresenceDal();
             return studentPresenceDal.GetStudentPrecence(classId);
         }
 
         public bool Add(StudentPresenceNotation studentPresenceNotation)
         {
-            var studentPresenceDal = new StudentPresenceDal();
             return studentPresenceDal.AddStudentPresence(studentPresenceNotation);
         }
-
 
     }
 }

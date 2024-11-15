@@ -21,5 +21,10 @@ namespace WebFormsSchoolApp.Menus
         {
             Response.Redirect("../Settings/WebFormChangePassword.aspx");
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../default.aspx");
+        }
     }
 }

@@ -10,50 +10,45 @@ namespace SchoolappBackend.BLL.BLLClasses
 {
     public class TeacherBLL : ITeacherBLL
     {
-        List<Teacher> teachers;
+
+        TeacherDal teacherDal = new TeacherDal();
 
         public TeacherBLL()
         {
-            teachers = new List<Teacher>();
         }
 
         public bool Add(Teacher teacher)
         {
-            var teacherDal = new TeacherDal();
             return teacherDal.AddNewTeacher(teacher);
         }
 
         public bool Delete(int TeacherId)
         {
-           var teacherDal = new TeacherDal();
            return teacherDal.DeleteTeacher(TeacherId);
         }
 
         public Teacher GetTeacherById(int id)
         {
-            var teacherDal = new TeacherDal();
             return teacherDal.GetTeacherById(id);
         }
 
         public List<Teacher> GetTeachers(string searchField, string orderBy,string sortDirection)
         {
-            var teacherDal = new TeacherDal();
             return teacherDal.GetTeachers(searchField,orderBy, sortDirection);
         }
 
         public int TeacherCount()
         {
-            var teacherDal = new TeacherDal();
             return teacherDal.GetTeacherCount();
         }
 
         public bool Update(Teacher teacher)
         {
-            var teacherDal = new TeacherDal();
             return teacherDal.Update(teacher);
         }
 
         [Obsolete]
+        List<Teacher> teachers;
         private List<Teacher> SearchTeachers(string searchField, string orderBy)
         {
             teachers = teachers
