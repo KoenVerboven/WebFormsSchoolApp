@@ -6,6 +6,8 @@ Application for School administration
 
 ![image](https://github.com/user-attachments/assets/26d18f95-463a-4904-b8bb-766b05858494)
 
+![image](https://github.com/user-attachments/assets/2e657812-f70b-4e34-b1d2-673ce4eaa824)
+
 ![image](https://github.com/user-attachments/assets/808a25ee-8355-4404-b9f7-06a23b7b13f6)
 
 
