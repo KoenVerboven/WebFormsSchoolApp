@@ -16,7 +16,7 @@ Application for School administration
 
 <img width="1445" height="738" alt="image" src="https://github.com/user-attachments/assets/746e5265-86cd-42cc-bb17-abd2e6c6870b" />
 
-
+<img width="1440" height="773" alt="image" src="https://github.com/user-attachments/assets/ff20017a-063e-441b-b4f6-8ee58a45c80c" />
 
 
 
