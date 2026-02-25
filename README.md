@@ -2,6 +2,8 @@ Application for School administration
 
 ![image](https://github.com/user-attachments/assets/185f7fb7-18f1-4278-9fb5-e2a61430b205)
 
+<img width="1416" height="533" alt="image" src="https://github.com/user-attachments/assets/93d8fc86-6fa8-41c0-b9ea-191df130078e" />
+
 ![image](https://github.com/user-attachments/assets/9f63a843-586b-4e49-882e-f774fd95e19c)
 
 ![image](https://github.com/user-attachments/assets/26d18f95-463a-4904-b8bb-766b05858494)
