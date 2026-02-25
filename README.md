@@ -10,6 +10,15 @@ Application for School administration
 
 ![image](https://github.com/user-attachments/assets/808a25ee-8355-4404-b9f7-06a23b7b13f6)
 
+<img width="1442" height="802" alt="image" src="https://github.com/user-attachments/assets/1b49da28-f687-4a81-972e-e5322dfabac6" />
+
+<img width="1403" height="864" alt="image" src="https://github.com/user-attachments/assets/16559ea1-8869-4a99-8c56-d944098fc2d9" />
+
+<img width="1445" height="738" alt="image" src="https://github.com/user-attachments/assets/746e5265-86cd-42cc-bb17-abd2e6c6870b" />
+
+
+
+
 
 Programmer :
 ------------
